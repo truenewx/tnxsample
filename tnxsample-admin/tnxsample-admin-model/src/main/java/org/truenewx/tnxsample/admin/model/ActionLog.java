@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model.domain;
+package org.truenewx.tnxsample.admin.model;
 
 import java.time.Instant;
 

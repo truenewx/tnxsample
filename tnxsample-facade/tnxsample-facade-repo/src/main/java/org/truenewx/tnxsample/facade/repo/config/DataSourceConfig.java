@@ -22,7 +22,7 @@ import org.truenewx.tnxjee.repo.support.DataAccessTemplate;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.facade.repo.domain")
+@EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.facade.repo")
 public class DataSourceConfig extends JpaDataSourceConfigurationSupport {
 
     @Override

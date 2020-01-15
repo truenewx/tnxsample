@@ -9,7 +9,7 @@
         </persistence-unit-defaults>
     </persistence-unit-metadata>
 
-    <entity class="org.truenewx.tnxsample.facade.model.domain.User">
+    <entity class="org.truenewx.tnxsample.facade.model.User">
         <table name="t_user" />
         <attributes>
             <id name="id">

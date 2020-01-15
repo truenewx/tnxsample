@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.facade.model.domain;
+package org.truenewx.tnxsample.facade.model;
 
 import java.time.Instant;
 import java.util.Collection;

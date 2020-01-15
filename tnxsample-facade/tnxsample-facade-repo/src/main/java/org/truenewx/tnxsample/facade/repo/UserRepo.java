@@ -1,7 +1,7 @@
-package org.truenewx.tnxsample.facade.repo.domain;
+package org.truenewx.tnxsample.facade.repo;
 
 import org.truenewx.tnxjee.repo.UnityRepo;
-import org.truenewx.tnxsample.facade.model.domain.User;
+import org.truenewx.tnxsample.facade.model.User;
 
 /**
  * 用户Repo

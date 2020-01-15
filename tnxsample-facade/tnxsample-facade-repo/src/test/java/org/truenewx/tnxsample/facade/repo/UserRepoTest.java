@@ -1,10 +1,11 @@
-package org.truenewx.tnxsample.facade.repo.domain;
+package org.truenewx.tnxsample.facade.repo;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxsample.facade.model.domain.User;
+import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.repo.UserRepo;
 import org.truenewx.tnxsample.facade.repo.test.RepoTestSupport;
 
 /**
