@@ -3,7 +3,7 @@ package org.truenewx.tnxsample.facade.repo.test;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.truenewx.tnxjee.test.repo.support.RepoSpringTestSupport;
-import org.truenewx.tnxsample.facade.FacadeApp;
+import org.truenewx.tnxsample.facade.LocalApplication;
 
 /**
  * Repo测试支持
@@ -11,6 +11,6 @@ import org.truenewx.tnxsample.facade.FacadeApp;
  * @author jianglei
  */
 @ActiveProfiles("junit")
-@ContextConfiguration(classes = FacadeApp.class)
+@ContextConfiguration(classes = LocalApplication.class)
 public abstract class RepoTestSupport extends RepoSpringTestSupport {
 }

@@ -13,6 +13,8 @@ import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -53,6 +55,7 @@ public class User implements Unity<Integer>, UserSpecificDetails<TypedUserIdenti
     }
 
     @Override
+    @JsonIgnore
     public TypedUserIdentity getIdentity() {
         return new TypedUserIdentity(getType(), getId());
     }
@@ -68,6 +71,7 @@ public class User implements Unity<Integer>, UserSpecificDetails<TypedUserIdenti
     }
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }

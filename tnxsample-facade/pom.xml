@@ -12,16 +12,23 @@
     <name>tnxsample-facade</name>
     <description>门户</description>
     <modules>
+        <module>tnxsample-facade-api</module>
         <module>tnxsample-facade-config</module>
         <module>tnxsample-facade-model</module>
         <module>tnxsample-facade-repo</module>
         <module>tnxsample-facade-service</module>
+        <module>tnxsample-facade-web</module>
     </modules>
     <dependencyManagement><!-- 其它微服务不能引用，仅本微服务内部引用的工程依赖在此管理 -->
         <dependencies>
             <dependency>
                 <groupId>org.truenewx.tnxsample.facade</groupId>
                 <artifactId>tnxsample-facade-config</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.truenewx.tnxsample.facade</groupId>
+                <artifactId>tnxsample-facade-model</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

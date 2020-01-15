@@ -1,8 +1,11 @@
+server:
+  host: localhost
 spring:
   jpa:
     database: MYSQL
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
+    open-in-view: true
     hibernate:
       ddl-auto: validate
   datasource:

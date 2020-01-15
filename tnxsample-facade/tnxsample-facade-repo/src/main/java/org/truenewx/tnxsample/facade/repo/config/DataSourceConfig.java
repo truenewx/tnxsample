@@ -25,13 +25,6 @@ import org.truenewx.tnxjee.repo.support.DataAccessTemplate;
 @EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.facade.repo")
 public class DataSourceConfig extends JpaDataSourceConfigurationSupport {
 
-    @Override
-    @Bean
-    @Profile({ "local", "dev", "test", "product" })
-    public DataSource dataSource() {
-        return super.dataSource();
-    }
-
     @Bean
     @Profile("junit")
     public DataSource embeddedDataSource() throws Exception {

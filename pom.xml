@@ -24,18 +24,20 @@
     <dependencyManagement><!-- 所有微服务都可以引用的工程依赖在此管理 -->
         <dependencies>
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.truenewx.tnxsample</groupId>
                 <artifactId>tnxsample-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.truenewx.tnxsample.admin</groupId>
-                <artifactId>tnxsample-admin-model</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.truenewx.tnxsample.facade</groupId>
-                <artifactId>tnxsample-facade-model</artifactId>
+                <artifactId>tnxsample-facade-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

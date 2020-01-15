@@ -3,13 +3,10 @@ package org.truenewx.tnxsample.facade;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 门户应用信息
+ * 本地应用，仅用于扫描定位
  *
  * @author jianglei
  */
 @SpringBootApplication
-public class FacadeApp {
-
-    public static final String NAME = "tnxsample-facade";
-
+public class LocalApplication {
 }

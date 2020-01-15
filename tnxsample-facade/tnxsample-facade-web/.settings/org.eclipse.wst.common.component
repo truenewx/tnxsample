@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="tnxsample-facade-web-3.0.0">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="tnxjee-web-controller-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-web-controller/tnxjee-web-controller">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-service-api-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-service-api/tnxjee-service-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-model-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-model/tnxjee-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-core-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-facade-api-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-api/tnxsample-facade-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-core-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-core/tnxsample-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-facade-service-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-service/tnxsample-facade-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-service-impl-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-service-impl/tnxjee-service-impl">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-repo-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo/tnxjee-repo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-facade-repo-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-repo/tnxsample-facade-repo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-facade-config-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-config/tnxsample-facade-config">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-repo-jpa-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo-jpa/tnxjee-repo-jpa">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="tnxsample-facade-web"/>
+        <property name="java-output-path" value="/tnxsample-facade-web/target/classes"/>
+    </wb-module>
+</project-modules>
