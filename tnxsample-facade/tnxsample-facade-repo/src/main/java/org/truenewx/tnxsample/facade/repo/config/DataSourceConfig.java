@@ -1,6 +1,7 @@
-package org.truenewx.tnxsample.facade.repo;
+package org.truenewx.tnxsample.facade.repo.config;
 
-import javax.persistence.EntityManager;
+import java.util.List;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -21,17 +22,17 @@ import org.truenewx.tnxjee.repo.support.SchemaTemplate;
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.facade.model.domain")
+@EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.facade.repo.domain")
 public class DataSourceConfig extends JpaDataSourceConfigurationSupport {
 
     @Override
-    @Bean("dataSource")
+    @Bean
     @Profile({ "local", "dev", "test", "product" })
     public DataSource dataSource() {
         return super.dataSource();
     }
 
-    @Bean("dataSource")
+    @Bean
     @Profile("junit")
     public DataSource embeddedDataSource() throws Exception {
         return super.embeddedDataSource("/META-INF/sql/junit/schema.sql", "/META-INF/sql/junit/data.sql");
@@ -39,19 +40,14 @@ public class DataSourceConfig extends JpaDataSourceConfigurationSupport {
 
     @Override
     protected String[] getMappingResources() {
-        return new String[] { "META-INF/jpa/mappings-user.xml" };
+        List<String> resources = scanDefaultMappingResources();
+        return resources.toArray(new String[resources.size()]);
     }
 
     @Override
     @Bean
     public FactoryBean<EntityManagerFactory> entityManagerFactory(EntityManagerFactoryBuilder builder) {
         return super.entityManagerFactory(builder);
-    }
-
-    @Override
-    @Bean
-    public EntityManager entityManager(EntityManagerFactoryBuilder builder) throws Exception {
-        return super.entityManager(builder);
     }
 
     @Override
