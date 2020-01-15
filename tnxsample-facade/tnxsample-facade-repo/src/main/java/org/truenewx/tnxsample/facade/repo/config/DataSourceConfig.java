@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.truenewx.tnxjee.repo.jpa.config.JpaDataSourceConfigurationSupport;
-import org.truenewx.tnxjee.repo.support.SchemaTemplate;
+import org.truenewx.tnxjee.repo.support.DataAccessTemplate;
 
 /**
  * 数据源配置
@@ -52,8 +52,8 @@ public class DataSourceConfig extends JpaDataSourceConfigurationSupport {
 
     @Override
     @Bean
-    public SchemaTemplate schemaTemplate(EntityManagerFactoryBuilder builder) throws Exception {
-        return super.schemaTemplate(builder);
+    public DataAccessTemplate dataAccessTemplate(EntityManagerFactoryBuilder builder) throws Exception {
+        return super.dataAccessTemplate(builder);
     }
 
 }
