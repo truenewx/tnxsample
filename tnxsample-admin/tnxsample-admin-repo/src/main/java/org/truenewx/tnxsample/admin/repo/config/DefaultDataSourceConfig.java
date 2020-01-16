@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.facade.repo.config;
+package org.truenewx.tnxsample.admin.repo.config;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -14,14 +14,14 @@ import org.truenewx.tnxjee.repo.jpa.config.JpaDataSourceConfigurationSupport;
 import org.truenewx.tnxjee.repo.jpa.support.JpaAccessTemplate;
 
 /**
- * 数据源配置
+ * 默认数据源配置
  *
  * @author jianglei
  */
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.facade.repo")
-public class DataSourceConfig extends JpaDataSourceConfigurationSupport {
+@EnableJpaRepositories(basePackages = "org.truenewx.tnxsample.admin.repo")
+public class DefaultDataSourceConfig extends JpaDataSourceConfigurationSupport {
 
     @Bean
     @Profile("junit")
