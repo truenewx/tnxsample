@@ -7,3 +7,19 @@ tnxjeex:
   unstructured:
     accessor:
       local_root: E:\kit\unstructured\sample
+server:
+  host: localhost
+spring:
+  jpa:
+    database: MYSQL
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://${server.host}:3306/example_admin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    username: data
+    password: datapwd
+    mongo:
+      uri: mongodb://data:datapwd@${server.host}:27017/example_log

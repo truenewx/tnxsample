@@ -3,3 +3,14 @@ logging:
 tnxjee:
   profile:
     formal: false
+spring:
+  jpa:
+    database: H2
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
+  h2:
+    console:
+      enabled: true
+      path: /console
