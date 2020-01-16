@@ -11,7 +11,7 @@ import org.truenewx.tnxsample.facade.model.entity.User;
  *
  * @author jianglei
  */
-@FeignClient(name = "ms-facade", url = "127.0.0.1:8080")
+@FeignClient(name = "ms-facade", url = "localhost:8080")
 @RequestMapping("/user")
 public interface UserApi {
 

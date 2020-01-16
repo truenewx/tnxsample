@@ -9,6 +9,10 @@ tnxjeex:
       local_root: E:\kit\unstructured\sample
 server:
   host: localhost
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
 spring:
   jpa:
     database: MYSQL
@@ -23,3 +27,5 @@ spring:
     password: datapwd
     mongo:
       uri: mongodb://data:datapwd@${server.host}:27017/example_log
+tnxweb:
+  context: //${server.host}/tnxweb

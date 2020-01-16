@@ -26,6 +26,10 @@
             <artifactId>tnxsample-admin-repo</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.truenewx.tnxsample.facade</groupId>
+            <artifactId>tnxsample-facade-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.truenewx.tnxjee</groupId>
             <artifactId>tnxjee-test-service</artifactId>
             <scope>test</scope>

@@ -3,25 +3,22 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>tnxsample-facade</artifactId>
+        <artifactId>tnxsample-admin</artifactId>
         <groupId>org.truenewx.tnxsample</groupId>
         <version>3.0.0</version>
     </parent>
-    <groupId>org.truenewx.tnxsample.facade</groupId>
-    <artifactId>tnxsample-facade-web</artifactId>
+
+    <groupId>org.truenewx.tnxsample.admin</groupId>
+    <artifactId>tnxsample-admin-web</artifactId>
     <packaging>war</packaging>
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxjee</groupId>
-            <artifactId>tnxjee-web-controller</artifactId>
+            <artifactId>tnxjee-web-view</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-service</artifactId>
+            <groupId>org.truenewx.tnxsample.admin</groupId>
+            <artifactId>tnxsample-admin-service</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
