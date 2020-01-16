@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxsample</groupId>
-            <artifactId>tnxsample-core</artifactId>
+            <artifactId>tnxsample-common</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

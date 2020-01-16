@@ -18,7 +18,7 @@
 
     <modules>
         <module>tnxsample-admin</module>
-        <module>tnxsample-core</module>
+        <module>tnxsample-common</module>
         <module>tnxsample-facade</module>
     </modules>
     <dependencyManagement><!-- 所有微服务都可以引用的工程依赖在此管理 -->
@@ -32,7 +32,7 @@
             </dependency>
             <dependency>
                 <groupId>org.truenewx.tnxsample</groupId>
-                <artifactId>tnxsample-core</artifactId>
+                <artifactId>tnxsample-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

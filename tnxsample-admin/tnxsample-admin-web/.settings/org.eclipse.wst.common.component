@@ -34,10 +34,19 @@
         <dependent-module archiveName="tnxjeex-unstructured-service-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-unstructured-service/tnxjeex-unstructured-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tnxsample-admin-repo-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-repo/tnxsample-admin-repo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-admin-config-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-config/tnxsample-admin-config">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="tnxjee-core-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxsample-core-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-core/tnxsample-core">
+        <dependent-module archiveName="tnxsample-admin-model-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-model/tnxsample-admin-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-common-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-common/tnxsample-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxjee-repo-jpa-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo-jpa/tnxjee-repo-jpa">
