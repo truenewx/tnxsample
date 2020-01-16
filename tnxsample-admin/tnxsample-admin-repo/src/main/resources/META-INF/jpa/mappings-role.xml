@@ -9,7 +9,7 @@
         </persistence-unit-defaults>
     </persistence-unit-metadata>
 
-    <entity class="org.truenewx.tnxsample.admin.model.Role">
+    <entity class="org.truenewx.tnxsample.admin.model.entity.Role">
         <table name="t_role" />
         <attributes>
             <id name="id">
@@ -29,7 +29,7 @@
                 <column name="permission_string" length="4000" nullable="true" column-definition="varchar" />
                 <convert converter="org.truenewx.tnxjee.repo.jpa.converter.SetJsonConverter" />
             </basic>
-            <many-to-many name="managers" target-entity="org.truenewx.tnxsample.admin.model.Manager"
+            <many-to-many name="managers" target-entity="org.truenewx.tnxsample.admin.model.entity.Manager"
                 mapped-by="roles" />
         </attributes>
     </entity>

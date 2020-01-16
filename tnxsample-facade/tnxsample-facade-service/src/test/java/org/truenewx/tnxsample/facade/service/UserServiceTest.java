@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 import org.truenewx.tnxsample.facade.service.test.ServiceTestSupport;
 
 /**

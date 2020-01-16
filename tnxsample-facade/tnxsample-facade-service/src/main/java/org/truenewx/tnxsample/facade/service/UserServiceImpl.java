@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.service.api.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 import org.truenewx.tnxsample.facade.repo.UserRepo;
 
 /**

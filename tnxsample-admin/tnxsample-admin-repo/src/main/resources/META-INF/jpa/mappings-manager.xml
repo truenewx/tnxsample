@@ -9,7 +9,7 @@
         </persistence-unit-defaults>
     </persistence-unit-metadata>
 
-    <entity class="org.truenewx.tnxsample.admin.model.Manager">
+    <entity class="org.truenewx.tnxsample.admin.model.entity.Manager">
         <table name="t_manager" />
         <attributes>
             <id name="id">
@@ -37,7 +37,7 @@
             <basic name="createTime">
                 <column name="create_time" nullable="false" />
             </basic>
-            <many-to-many name="roles" target-entity="org.truenewx.tnxsample.admin.model.Role">
+            <many-to-many name="roles" target-entity="org.truenewx.tnxsample.admin.model.entity.Role">
                 <join-table name="t_manager_r_role">
                     <join-column name="manager_id" />
                     <inverse-join-column name="role_id" />

@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.truenewx.tnxjeex.log.model.Action;
-import org.truenewx.tnxsample.admin.model.ActionLog;
+import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 
 import lombok.Getter;
 import lombok.Setter;

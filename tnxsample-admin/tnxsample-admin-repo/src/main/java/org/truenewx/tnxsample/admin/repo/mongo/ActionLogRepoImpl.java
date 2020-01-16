@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.model.query.Queried;
 import org.truenewx.tnxjee.repo.mongo.support.MongoUnityRepoSupport;
-import org.truenewx.tnxsample.admin.model.ActionLog;
+import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
 
 /**

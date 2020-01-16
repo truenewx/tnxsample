@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model;
+package org.truenewx.tnxsample.admin.model.entity;
 
 import java.util.Collection;
 import java.util.Set;
@@ -7,7 +7,7 @@ import java.util.TreeSet;
 import javax.validation.constraints.NotBlank;
 
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxjee.model.core.unity.Unity;
+import org.truenewx.tnxjee.model.entity.unity.Unity;
 import org.truenewx.tnxjee.model.spec.CloneableForSession;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 

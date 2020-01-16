@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model;
+package org.truenewx.tnxsample.admin.model.entity;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxjee.model.core.unity.Unity;
+import org.truenewx.tnxjee.model.entity.unity.Unity;
 import org.truenewx.tnxjee.model.spec.user.security.GrantedPermissionAuthority;
 import org.truenewx.tnxjee.model.spec.user.security.GrantedRoleAuthority;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;

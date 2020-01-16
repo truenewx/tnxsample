@@ -1,9 +1,9 @@
-package org.truenewx.tnxsample.admin.model;
+package org.truenewx.tnxsample.admin.model.entity;
 
 import java.io.Serializable;
 
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxjee.model.core.relation.AbstractRelation;
+import org.truenewx.tnxjee.model.entity.relation.AbstractRelation;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.truenewx.tnxjee.model.query.Queried;
 import org.truenewx.tnxjee.repo.UnityRepo;
-import org.truenewx.tnxsample.admin.model.Manager;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**
  * 管理员Repo

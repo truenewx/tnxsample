@@ -1,7 +1,7 @@
 package org.truenewx.tnxsample.admin.repo.mongo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.truenewx.tnxsample.admin.model.ActionLog;
+import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 
 /**
  * 操作日志Repository

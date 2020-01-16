@@ -3,3 +3,7 @@ logging:
 tnxjee:
   profile:
     formal: false
+tnxjeex:
+  unstructured:
+    accessor:
+      local_root: E:\kit\unstructured\sample

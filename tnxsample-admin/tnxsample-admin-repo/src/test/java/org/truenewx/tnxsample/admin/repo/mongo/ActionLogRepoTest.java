@@ -9,8 +9,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.query.Queried;
-import org.truenewx.tnxsample.admin.model.ActionLog;
-import org.truenewx.tnxsample.admin.model.Manager;
+import org.truenewx.tnxsample.admin.model.entity.ActionLog;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
 import org.truenewx.tnxsample.admin.repo.test.RepoTestSupport;
 

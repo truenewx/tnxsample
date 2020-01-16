@@ -4,7 +4,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 
 /**
  * 用户API

@@ -11,7 +11,7 @@ import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.model.query.Queried;
 import org.truenewx.tnxjee.model.query.QuerySort;
 import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoSupport;
-import org.truenewx.tnxsample.admin.model.Manager;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**
  * 管理员Repo实现

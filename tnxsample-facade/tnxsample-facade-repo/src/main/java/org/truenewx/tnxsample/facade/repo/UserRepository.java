@@ -1,7 +1,7 @@
 package org.truenewx.tnxsample.facade.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 
 /**
  * 用户Repository

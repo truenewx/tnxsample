@@ -1,7 +1,7 @@
 package org.truenewx.tnxsample.facade.service;
 
 import org.truenewx.tnxjee.service.api.unity.UnityService;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 
 /**
  * 用户服务

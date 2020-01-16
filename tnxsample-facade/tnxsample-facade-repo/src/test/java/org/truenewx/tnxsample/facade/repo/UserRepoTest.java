@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 import org.truenewx.tnxsample.facade.repo.UserRepo;
 import org.truenewx.tnxsample.facade.repo.test.RepoTestSupport;
 

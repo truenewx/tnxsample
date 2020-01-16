@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.facade.model;
+package org.truenewx.tnxsample.facade.model.entity;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxjee.model.core.unity.Unity;
+import org.truenewx.tnxjee.model.entity.unity.Unity;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;

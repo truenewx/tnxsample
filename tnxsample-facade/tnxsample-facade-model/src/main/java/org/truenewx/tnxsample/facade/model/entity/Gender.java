@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.facade.model;
+package org.truenewx.tnxsample.facade.model.entity;
 
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.annotation.EnumValue;

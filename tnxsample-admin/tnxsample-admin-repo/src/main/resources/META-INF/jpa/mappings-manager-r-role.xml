@@ -9,7 +9,7 @@
         </persistence-unit-defaults>
     </persistence-unit-metadata>
 
-    <entity class="org.truenewx.tnxsample.admin.model.ManagerRoleRelation">
+    <entity class="org.truenewx.tnxsample.admin.model.entity.ManagerRoleRelation">
         <table name="t_manager_r_role" />
         <attributes>
             <embedded name="org.truenewx.tnxexample.domain.model.manager.ManagerRoleRelation.Key" />

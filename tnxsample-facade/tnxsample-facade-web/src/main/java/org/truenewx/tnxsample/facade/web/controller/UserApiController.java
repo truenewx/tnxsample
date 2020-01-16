@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.truenewx.tnxjee.web.controller.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxsample.facade.api.UserApi;
-import org.truenewx.tnxsample.facade.model.User;
+import org.truenewx.tnxsample.facade.model.entity.User;
 import org.truenewx.tnxsample.facade.service.UserService;
 
 /**

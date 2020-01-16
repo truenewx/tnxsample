@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.repo.data.AbstractDataProvider;
 import org.truenewx.tnxjee.repo.data.DataPool;
 import org.truenewx.tnxjeex.log.model.Action;
-import org.truenewx.tnxsample.admin.model.ActionLog;
-import org.truenewx.tnxsample.admin.model.Manager;
+import org.truenewx.tnxsample.admin.model.entity.ActionLog;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.repo.model.ActionLogImpl;
 
 /**

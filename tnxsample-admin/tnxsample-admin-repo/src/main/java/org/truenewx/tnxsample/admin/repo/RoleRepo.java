@@ -3,7 +3,7 @@ package org.truenewx.tnxsample.admin.repo;
 import java.util.List;
 
 import org.truenewx.tnxjee.repo.UnityRepo;
-import org.truenewx.tnxsample.admin.model.Role;
+import org.truenewx.tnxsample.admin.model.entity.Role;
 
 /**
  * 角色Repo

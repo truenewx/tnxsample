@@ -1,8 +1,8 @@
-package org.truenewx.tnxsample.admin.model;
+package org.truenewx.tnxsample.admin.model.entity;
 
 import java.time.Instant;
 
-import org.truenewx.tnxjee.model.core.unity.Unity;
+import org.truenewx.tnxjee.model.entity.unity.Unity;
 import org.truenewx.tnxjeex.log.model.Action;
 
 /**
