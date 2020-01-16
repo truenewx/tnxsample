@@ -3,13 +3,10 @@ package org.truenewx.tnxsample.admin;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * 后台管理应用信息
+ * 本地应用，仅用于扫描定位
  *
  * @author jianglei
  */
 @SpringBootApplication
-public class AdminApp {
-
-    public static final String NAME = "tnxsample-admin";
-
+public class LocalApplication {
 }
