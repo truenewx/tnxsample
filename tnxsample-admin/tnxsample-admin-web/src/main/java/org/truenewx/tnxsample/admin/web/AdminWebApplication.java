@@ -2,14 +2,14 @@ package org.truenewx.tnxsample.admin.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.truenewx.tnxsample.admin.LocalApplication;
+import org.truenewx.tnxsample.admin.AppRoot;
 
 /**
  * 管理端Web应用
  *
  * @author jianglei
  */
-@SpringBootApplication(scanBasePackageClasses = LocalApplication.class)
+@SpringBootApplication(scanBasePackageClasses = AppRoot.class)
 public class AdminWebApplication {
 
     public static void main(String[] args) {

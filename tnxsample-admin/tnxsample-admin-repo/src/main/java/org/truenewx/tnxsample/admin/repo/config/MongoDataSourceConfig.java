@@ -1,15 +1,15 @@
 package org.truenewx.tnxsample.admin.repo.config;
 
-import java.util.Arrays;
-import java.util.Collection;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.truenewx.tnxjee.repo.mongo.config.MongoConfigSupport;
 import org.truenewx.tnxjee.repo.mongo.support.MongoAccessTemplate;
-import org.truenewx.tnxsample.admin.LocalApplication;
+import org.truenewx.tnxsample.admin.AppRoot;
+
+import java.util.Arrays;
+import java.util.Collection;
 
 /**
  * MongoDB数据源配置
@@ -23,7 +23,7 @@ public class MongoDataSourceConfig extends MongoConfigSupport {
 
     @Override
     protected Collection<String> getMappingBasePackages() {
-        return Arrays.asList(LocalApplication.class.getPackage().getName());
+        return Arrays.asList(AppRoot.class.getPackage().getName());
     }
 
     @Override
