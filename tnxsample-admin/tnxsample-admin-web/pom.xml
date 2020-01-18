@@ -17,6 +17,10 @@
             <artifactId>tnxjee-web-view</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.truenewx.tnxjeex.fss</groupId>
+            <artifactId>tnxjeex-fss-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.truenewx.tnxsample.admin</groupId>
             <artifactId>tnxsample-admin-service</artifactId>
         </dependency>
