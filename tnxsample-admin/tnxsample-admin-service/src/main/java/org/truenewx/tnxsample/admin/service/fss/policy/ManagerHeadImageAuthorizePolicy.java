@@ -1,10 +1,10 @@
-package org.truenewx.tnxsample.admin.service.unstructured.policy;
+package org.truenewx.tnxsample.admin.service.fss.policy;
 
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
-import org.truenewx.tnxjeex.unstructured.service.model.UnstructuredUploadLimit;
+import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
-import org.truenewx.tnxsample.admin.model.submit.UnstructuredAuthorizeType;
+import org.truenewx.tnxsample.admin.model.submit.FssAuthorizeType;
 
 /**
  * 管理员头像的授权方针
@@ -12,16 +12,16 @@ import org.truenewx.tnxsample.admin.model.submit.UnstructuredAuthorizeType;
  * @author jianglei
  */
 @Service
-public class ManagerHeadImageAuthorizePolicy extends ManagerUnstructuredAuthorizePolicy {
+public class ManagerHeadImageAuthorizePolicy extends ManagerFssAuthorizePolicy {
 
     @Override
-    public UnstructuredAuthorizeType getType() {
-        return UnstructuredAuthorizeType.MANAGER_HEAD_IMAGE;
+    public FssAuthorizeType getType() {
+        return FssAuthorizeType.MANAGER_HEAD_IMAGE;
     }
 
     @Override
-    public UnstructuredUploadLimit getUploadLimit(Manager user) {
-        return new UnstructuredUploadLimit(1, 150 * 1024, "jpg", "png");
+    public FssUploadLimit getUploadLimit(Manager user) {
+        return new FssUploadLimit(1, 150 * 1024, "jpg", "png");
     }
 
     @Override

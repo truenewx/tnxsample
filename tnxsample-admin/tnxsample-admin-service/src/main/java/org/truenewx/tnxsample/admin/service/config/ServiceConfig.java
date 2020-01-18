@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.truenewx.tnxjee.core.util.concurrent.DefaultThreadPoolExecutor;
-import org.truenewx.tnxjeex.unstructured.service.UnstructuredAuthorizer;
-import org.truenewx.tnxjeex.unstructured.service.UnstructuredLocalAccessor;
-import org.truenewx.tnxjeex.unstructured.service.UnstructuredProviderAccessor;
-import org.truenewx.tnxjeex.unstructured.service.own.OwnUnstructuredAccessor;
-import org.truenewx.tnxjeex.unstructured.service.own.OwnUnstructuredAuthorizer;
+import org.truenewx.tnxjeex.fss.service.FssAuthorizer;
+import org.truenewx.tnxjeex.fss.service.FssLocalAccessor;
+import org.truenewx.tnxjeex.fss.service.FssProviderAccessor;
+import org.truenewx.tnxjeex.fss.service.own.OwnFssAccessor;
+import org.truenewx.tnxjeex.fss.service.own.OwnFssAuthorizer;
 
 /**
  * 服务层配置
@@ -28,21 +28,20 @@ public class ServiceConfig {
     }
 
     @Bean
-    public UnstructuredLocalAccessor localAccessor(
-            @Value("${tnxjeex.unstructured.accessor.local_root}") String root) {
-        return new UnstructuredLocalAccessor(root);
+    public FssLocalAccessor localAccessor(@Value("${tnxjeex.fss.accessor.local_root}") String root) {
+        return new FssLocalAccessor(root);
     }
 
     @Bean
-    public UnstructuredProviderAccessor accessor(UnstructuredLocalAccessor localAccessor) {
-        OwnUnstructuredAccessor accessor = new OwnUnstructuredAccessor();
+    public FssProviderAccessor accessor(FssLocalAccessor localAccessor) {
+        OwnFssAccessor accessor = new OwnFssAccessor();
         accessor.setLocalAccessor(localAccessor);
         return accessor;
     }
 
     @Bean
-    public UnstructuredAuthorizer authorizer() {
-        return new OwnUnstructuredAuthorizer();
+    public FssAuthorizer authorizer() {
+        return new OwnFssAuthorizer();
     }
 
 }

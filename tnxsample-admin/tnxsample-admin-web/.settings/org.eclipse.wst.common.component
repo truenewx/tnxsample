@@ -31,7 +31,7 @@
         <dependent-module archiveName="tnxjeex-log-model-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-log-model/tnxjeex-log-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxjeex-unstructured-service-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-unstructured-service/tnxjeex-unstructured-service">
+        <dependent-module archiveName="tnxjeex-fss-service-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-fss-service/tnxjeex-fss-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-admin-repo-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-repo/tnxsample-admin-repo">
