@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.facade.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxsample.facade.LocalApplication;
 
 /**
@@ -10,7 +9,7 @@ import org.truenewx.tnxsample.facade.LocalApplication;
  *
  * @author jianglei
  */
-@SpringBootApplication(scanBasePackageClasses = { Framework.class, LocalApplication.class })
+@SpringBootApplication(scanBasePackageClasses = LocalApplication.class)
 public class FacadeWebApplication {
 
     public static void main(String[] args) {
