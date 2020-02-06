@@ -1,10 +1,5 @@
 package org.truenewx.tnxsample.admin.service;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +16,11 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.model.submit.SubmitRole;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 角色服务
@@ -133,7 +133,7 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     }
 
     @Override
-    public void delete(Integer id) {
+    public boolean delete(Integer id) {
         Role role = find(id);
         if (role != null) {
             // 移除包含的管理员关系
@@ -142,7 +142,9 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
                 manager.getRoles().remove(role);
             });
             this.repo.delete(role);
+            return true;
         }
+        return false;
     }
 
 }
