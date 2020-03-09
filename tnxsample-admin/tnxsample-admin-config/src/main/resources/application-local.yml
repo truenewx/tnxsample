@@ -23,10 +23,10 @@ spring:
       ddl-auto: validate
   datasource:
     hikari:
-      jdbc-url: jdbc:mysql://${server.host}:3306/example_admin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+      jdbc-url: jdbc:mysql://${server.host}:3306/sample_admin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
       username: data
       password: datapwd
     mongo:
-      uri: mongodb://data:datapwd@${server.host}:27017/example_log
+      uri: mongodb://data:datapwd@${server.host}:27017/sample_log
 tnxweb:
   context: //${server.host}/tnxweb
