@@ -1,6 +1,6 @@
 package org.truenewx.tnxsample.facade.repo;
 
-import org.truenewx.tnxjee.repo.jpa.repository.JpaUnityRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.truenewx.tnxsample.facade.model.entity.User;
 
 /**
@@ -8,7 +8,7 @@ import org.truenewx.tnxsample.facade.model.entity.User;
  *
  * @author jianglei
  */
-public interface UserRepo extends JpaUnityRepository<User, Integer> {
+public interface UserRepo extends JpaRepository<User, Integer> {
 
     User findByMobilePhone(String mobilePhone);
 
