@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.model.query.Queried;
@@ -19,19 +18,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
  * @author jianglei
  */
 @Repository
-public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> implements ManagerRepo {
-    @Autowired
-    private ManagerRepository repository;
-
-    @Override
-    public Manager findFirstByUsername(String username) {
-        return this.repository.findFirstByUsername(username);
-    }
-
-    @Override
-    public long countByUsername(String username) {
-        return this.repository.countByUsername(username);
-    }
+public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> implements ManagerRepox {
 
     @Override
     public long countByRoleId(int roleId) {

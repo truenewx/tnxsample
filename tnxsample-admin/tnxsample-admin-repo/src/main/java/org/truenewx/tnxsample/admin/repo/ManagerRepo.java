@@ -1,28 +1,17 @@
 package org.truenewx.tnxsample.admin.repo;
 
-import java.util.List;
-
-import org.truenewx.tnxjee.model.query.Queried;
-import org.truenewx.tnxjee.repo.UnityRepo;
+import org.truenewx.tnxjee.repo.jpa.repository.JpaUnityRepository;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**
- * 管理员Repo
+ * 管理员Repository
  *
  * @author jianglei
  */
-public interface ManagerRepo extends UnityRepo<Manager, Integer> {
+public interface ManagerRepo extends JpaUnityRepository<Manager, Integer>, ManagerRepox {
 
     Manager findFirstByUsername(String username);
 
     long countByUsername(String username);
-
-    long countByRoleId(int roleId);
-
-    List<Integer> getIdsByUsernameOrFullName(String keyword);
-
-    Queried<Manager> queryByKeywordAndTop(String keyword, Boolean top, int pageSize, int pageNo);
-
-    Queried<Manager> queryByRoleIdNotAndTop(int roleIdNot, Boolean top, int pageSize, int pageNo);
 
 }

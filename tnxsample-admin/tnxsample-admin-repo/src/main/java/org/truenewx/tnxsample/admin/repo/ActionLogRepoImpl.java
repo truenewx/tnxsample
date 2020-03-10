@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.repo.mongo;
+package org.truenewx.tnxsample.admin.repo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
  * @author jianglei
  */
 @Repository
-public class ActionLogRepoImpl extends MongoUnityRepoSupport<ActionLog, String> implements ActionLogRepo {
+public class ActionLogRepoImpl extends MongoUnityRepoSupport<ActionLog, String> implements ActionLogRepox {
 
     @Override
     public Queried<ActionLog> query(ActionLogQuerying querying) {

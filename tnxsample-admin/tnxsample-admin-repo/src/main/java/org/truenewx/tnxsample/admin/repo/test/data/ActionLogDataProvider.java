@@ -1,16 +1,16 @@
-package org.truenewx.tnxsample.admin.repo.mongo.data;
+package org.truenewx.tnxsample.admin.repo.test.data;
 
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
-import org.truenewx.tnxjee.repo.data.AbstractDataProvider;
-import org.truenewx.tnxjee.repo.data.DataPool;
+import org.truenewx.tnxjee.repo.test.data.AbstractDataProvider;
+import org.truenewx.tnxjee.repo.test.data.DataPool;
 import org.truenewx.tnxjeex.log.model.Action;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
-import org.truenewx.tnxsample.admin.repo.model.ActionLogImpl;
+import org.truenewx.tnxsample.admin.repo.entity.ActionLogImpl;
 
 /**
  * 操作日志数据提供者

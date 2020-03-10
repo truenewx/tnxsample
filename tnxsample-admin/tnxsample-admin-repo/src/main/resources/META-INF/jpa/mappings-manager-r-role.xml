@@ -13,7 +13,7 @@
         <table name="t_manager_r_role" />
         <attributes>
             <embedded name="org.truenewx.tnxexample.domain.model.manager.ManagerRoleRelation.Key" />
-            <embedded-id name="key" />
+            <embedded-id name="id" />
             <many-to-one name="manager" maps-id="managerId" optional="false">
                 <join-column name="manager_id" />
             </many-to-one>

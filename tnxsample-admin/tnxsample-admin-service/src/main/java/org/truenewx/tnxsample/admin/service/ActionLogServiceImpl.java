@@ -13,9 +13,9 @@ import org.truenewx.tnxjeex.log.model.Action;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
-import org.truenewx.tnxsample.admin.repo.ManagerRepo;
-import org.truenewx.tnxsample.admin.repo.model.ActionLogImpl;
-import org.truenewx.tnxsample.admin.repo.mongo.ActionLogRepo;
+import org.truenewx.tnxsample.admin.repo.ActionLogRepo;
+import org.truenewx.tnxsample.admin.repo.ManagerRepox;
+import org.truenewx.tnxsample.admin.repo.entity.ActionLogImpl;
 
 /**
  * 操作日志服务实现
@@ -28,7 +28,7 @@ public class ActionLogServiceImpl extends AbstractUnityService<ActionLog, String
     @Autowired
     private ActionLogRepo repo;
     @Autowired
-    private ManagerRepo managerRepo;
+    private ManagerRepox managerRepo;
 
     @Override
     public void add(Integer managerId, Action action) {

@@ -1,5 +1,8 @@
 package org.truenewx.tnxsample.admin.repo.config;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,9 +11,6 @@ import org.truenewx.tnxjee.repo.mongo.config.MongoConfigSupport;
 import org.truenewx.tnxjee.repo.mongo.support.MongoAccessTemplate;
 import org.truenewx.tnxsample.admin.AppRoot;
 
-import java.util.Arrays;
-import java.util.Collection;
-
 /**
  * MongoDB数据源配置
  *
@@ -18,7 +18,7 @@ import java.util.Collection;
  */
 @Configuration
 @ConfigurationProperties(prefix = "spring.datasource.mongo")
-@EnableMongoRepositories(basePackages = "org.truenewx.tnxsample.admin.repo.mongo")
+@EnableMongoRepositories(basePackages = "org.truenewx.tnxsample.admin.repo")
 public class MongoDataSourceConfig extends MongoConfigSupport {
 
     @Override

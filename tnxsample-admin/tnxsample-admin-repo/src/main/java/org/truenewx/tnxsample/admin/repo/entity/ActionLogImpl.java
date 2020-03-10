@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.repo.model;
+package org.truenewx.tnxsample.admin.repo.entity;
 
 import java.time.Instant;
 

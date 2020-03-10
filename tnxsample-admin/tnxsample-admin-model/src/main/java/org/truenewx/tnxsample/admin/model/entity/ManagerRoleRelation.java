@@ -1,9 +1,8 @@
 package org.truenewx.tnxsample.admin.model.entity;
 
-import java.io.Serializable;
-
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.relation.AbstractRelation;
+import org.truenewx.tnxjee.model.entity.relation.RelationKey;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,26 +19,27 @@ public class ManagerRoleRelation extends AbstractRelation<Integer, Integer> {
 
     @Getter
     @Setter
-    public static class Key implements Serializable {
+    public static class Key implements RelationKey<Integer, Integer> {
+
         private static final long serialVersionUID = -7839201529321883683L;
 
-        private int roleId;
         private int managerId;
+        private int roleId;
+
+        @Override
+        public Integer getLeft() {
+            return this.managerId;
+        }
+
+        @Override
+        public Integer getRight() {
+            return this.roleId;
+        }
+
     }
 
-    private Key key;
+    private Key id;
     private Manager manager;
     private Role role;
 
-    @Override
-    public Integer getLeftId() {
-        Manager manager = getManager();
-        return manager == null ? null : manager.getId();
-    }
-
-    @Override
-    public Integer getRightId() {
-        Role role = getRole();
-        return role == null ? null : role.getId();
-    }
 }

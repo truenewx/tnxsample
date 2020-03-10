@@ -2,7 +2,7 @@ package org.truenewx.tnxsample.admin.repo;
 
 import java.util.List;
 
-import org.truenewx.tnxjee.repo.UnityRepo;
+import org.truenewx.tnxjee.repo.jpa.repository.JpaUnityRepository;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 
 /**
@@ -10,7 +10,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
  *
  * @author jianglei
  */
-public interface RoleRepo extends UnityRepo<Role, Integer> {
+public interface RoleRepo extends JpaUnityRepository<Role, Integer> {
 
     List<Role> findByNameContainingOrderByOrdinal(String name);
 
