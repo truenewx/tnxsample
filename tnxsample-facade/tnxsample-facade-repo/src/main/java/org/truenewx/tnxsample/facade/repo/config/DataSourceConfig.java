@@ -34,7 +34,7 @@ public class DataSourceConfig extends JpaConfigSupport {
     @Override
     @Primary
     @Bean("dataSource")
-    @DependsOn("springUtils")
+    @DependsOn("globalTransactionScanner")
     @Profile({"local", "test", "product"})
     public DataSource dataSource() {
         return new DataSourceProxy(hikariDataSource());
