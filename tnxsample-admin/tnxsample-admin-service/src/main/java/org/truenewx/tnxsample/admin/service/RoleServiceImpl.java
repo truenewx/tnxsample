@@ -1,10 +1,5 @@
 package org.truenewx.tnxsample.admin.service;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.util.CollectionUtil;
 import org.truenewx.tnxjee.model.SubmitModel;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
-import org.truenewx.tnxjee.repo.UnityRepo;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxjee.service.api.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
@@ -21,6 +15,11 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.model.submit.SubmitRole;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
+
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 角色服务
@@ -34,11 +33,6 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     private RoleRepo repo;
     @Autowired
     private ManagerRepo managerRepo;
-
-    @Override
-    protected UnityRepo<Role, Integer> getRepo() {
-        return this.repo;
-    }
 
     @Override
     public Iterable<Role> findAll() {

@@ -1,15 +1,11 @@
 package org.truenewx.tnxsample.admin.service;
 
-import java.time.Instant;
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.core.crypto.Md5xEncryptor;
 import org.truenewx.tnxjee.model.SubmitModel;
 import org.truenewx.tnxjee.model.query.Queried;
-import org.truenewx.tnxjee.repo.UnityRepo;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxjee.service.api.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
@@ -18,6 +14,9 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.model.submit.SubmitManager;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
+
+import java.time.Instant;
+import java.util.Collection;
 
 /**
  * 管理员服务实现
@@ -32,11 +31,6 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     @Autowired
     private RoleRepo roleRepo;
     private Md5xEncryptor encryptor = new Md5xEncryptor(29);
-
-    @Override
-    protected UnityRepo<Manager, Integer> getRepo() {
-        return this.repo;
-    }
 
     @Override
     public Manager loadByUsername(String username) {
