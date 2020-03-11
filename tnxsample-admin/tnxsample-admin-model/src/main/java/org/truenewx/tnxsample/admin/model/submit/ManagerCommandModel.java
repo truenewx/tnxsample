@@ -1,19 +1,18 @@
 package org.truenewx.tnxsample.admin.model.submit;
 
-import org.truenewx.tnxjee.model.SubmitModel;
-import org.truenewx.tnxsample.admin.model.entity.Manager;
-
 import lombok.Getter;
 import lombok.Setter;
+import org.truenewx.tnxjee.model.CommandModel;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**
- * 管理员提交模型
+ * 管理员命令模型
  *
  * @author jianglei
  */
 @Getter
 @Setter
-public class SubmitManager implements SubmitModel<Manager> {
+public class ManagerCommandModel implements CommandModel<Manager> {
 
     private String username;
     private String password;

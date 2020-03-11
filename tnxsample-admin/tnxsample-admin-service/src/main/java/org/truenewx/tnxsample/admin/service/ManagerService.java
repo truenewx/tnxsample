@@ -1,6 +1,6 @@
 package org.truenewx.tnxsample.admin.service;
 
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.api.unity.ModelUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
@@ -15,7 +15,7 @@ public interface ManagerService extends ModelUnityService<Manager, Integer> {
 
     Manager validateLogin(String username, String md5Password);
 
-    Queried<Manager> queryGeneral(String keyword, int pageSize, int pageNo);
+    QueryResult<Manager> queryGeneral(String keyword, int pageSize, int pageNo);
 
     Manager updateHeadImageUrl(int id, String headImageUrl);
 
@@ -29,6 +29,6 @@ public interface ManagerService extends ModelUnityService<Manager, Integer> {
 
     long countOfRole(int roleId);
 
-    Queried<Manager> queryGeneralOutOfRole(int exceptedRoleId, int pageSize, int pageNo);
+    QueryResult<Manager> queryGeneralOutOfRole(int exceptedRoleId, int pageSize, int pageNo);
 
 }

@@ -1,8 +1,5 @@
 package org.truenewx.tnxsample.admin.service;
 
-import java.util.Collection;
-import java.util.List;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -10,13 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.core.util.EncryptUtil;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.api.exception.BusinessException;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.model.submit.SubmitManager;
+import org.truenewx.tnxsample.admin.model.submit.ManagerCommandModel;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
+
+import java.util.Collection;
+import java.util.List;
 
 /**
  * ManagerServiceTest
@@ -69,9 +69,9 @@ public class ManagerServiceTest extends ServiceTestSupport {
     @Caption("测试：分页查询一般管理员")
     public void queryGeneralTest() {
         String keyword = "1";
-        Queried<Manager> queried = this.service.queryGeneral(keyword, 10, 1);
-        Assert.assertEquals(3, queried.getPaged().getTotal().intValue());
-        List<Manager> records = queried.getRecords();
+        QueryResult<Manager> qr = this.service.queryGeneral(keyword, 10, 1);
+        Assert.assertEquals(3, qr.getPaged().getTotal().intValue());
+        List<Manager> records = qr.getRecords();
         Assert.assertEquals(3, records.size());
         records.forEach(manager -> {
             Assert.assertTrue(manager.getFullName().contains(keyword) || manager.getFullName().contains(keyword));
@@ -135,9 +135,9 @@ public class ManagerServiceTest extends ServiceTestSupport {
     public void addTest() {
         int roleId0 = getData(Role.class, 0).getId();
         int roleId1 = getData(Role.class, 1).getId();
-        int[] roleIds = { roleId0, roleId1 };
+        int[] roleIds = {roleId0, roleId1};
 
-        SubmitManager model = new SubmitManager();
+        ManagerCommandModel model = new ManagerCommandModel();
         model.setUsername("new-manager");
         model.setFullName("New Manger");
         model.setPassword(EncryptUtil.encryptByMd5("123456"));
@@ -158,7 +158,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
     @TestBusinessException(ManagerExceptionCodes.REPEAT_USERNAME)
     public void addTestRepeatUser() {
         String username = getFirstData(Manager.class).getUsername();
-        SubmitManager model = new SubmitManager();
+        ManagerCommandModel model = new ManagerCommandModel();
         model.setUsername(username);
         this.service.add(model);
         Assert.fail();
@@ -170,9 +170,9 @@ public class ManagerServiceTest extends ServiceTestSupport {
         int managerId = getData(Manager.class, 1).getId();
         int roleId0 = getData(Role.class, 0).getId();
         int roleId1 = getData(Role.class, 1).getId();
-        int[] roleIds = { roleId0, roleId1 };
+        int[] roleIds = {roleId0, roleId1};
 
-        SubmitManager model = new SubmitManager();
+        ManagerCommandModel model = new ManagerCommandModel();
         model.setFullName("zhangsan");
         model.setRoleIds(roleIds);
         this.service.update(managerId, model);
@@ -220,9 +220,9 @@ public class ManagerServiceTest extends ServiceTestSupport {
     public void queryGeneralOutOfRoleTest() {
         int roleId = getData(Role.class, 0).getId();
 
-        Queried<Manager> queried = this.service.queryGeneralOutOfRole(roleId, 10, 1);
-        Assert.assertEquals(2, queried.getPaged().getTotal().intValue());
-        List<Manager> records = queried.getRecords();
+        QueryResult<Manager> qr = this.service.queryGeneralOutOfRole(roleId, 10, 1);
+        Assert.assertEquals(2, qr.getPaged().getTotal().intValue());
+        List<Manager> records = qr.getRecords();
         Assert.assertEquals(2, records.size());
         Assert.assertTrue(!UnityUtil.containsId(records.get(0).getRoles(), roleId));
     }

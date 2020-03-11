@@ -1,14 +1,14 @@
 package org.truenewx.tnxsample.admin.model.submit;
 
-import org.truenewx.tnxjee.model.SubmitModel;
+import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 
 /**
- * 角色提交模型
+ * 角色命令模型
  *
  * @author jianglei
  */
-public class SubmitRole implements SubmitModel<Role> {
+public class RoleCommandModel implements CommandModel<Role> {
 
     private String name;
     private String remark;

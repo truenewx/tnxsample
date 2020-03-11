@@ -1,19 +1,19 @@
 package org.truenewx.tnxsample.admin.repo.mongo;
 
-import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
 import org.truenewx.tnxsample.admin.repo.ActionLogRepo;
 import org.truenewx.tnxsample.admin.repo.test.RepoTestSupport;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ActionLogRepoTest
@@ -27,7 +27,7 @@ public class ActionLogRepoTest extends RepoTestSupport {
 
     @Override
     protected Class<?>[] getEntityClasses() {
-        return new Class<?>[] { ActionLog.class };
+        return new Class<?>[]{ActionLog.class};
     }
 
     @Test
@@ -48,9 +48,9 @@ public class ActionLogRepoTest extends RepoTestSupport {
         Instant endTime = now.plusMillis(1);
         querying.setEndTime(endTime);
 
-        Queried<ActionLog> queried = this.repo.query(querying);
-        Assert.assertEquals(1, queried.getPaged().getTotal().longValue());
-        List<ActionLog> records = queried.getRecords();
+        QueryResult<ActionLog> qr = this.repo.query(querying);
+        Assert.assertEquals(1, qr.getPaged().getTotal().longValue());
+        List<ActionLog> records = qr.getRecords();
         Assert.assertEquals(1, records.size());
         ActionLog log0 = records.get(0);
         Assert.assertTrue(managerIds.contains(log0.getManagerId()));

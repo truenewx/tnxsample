@@ -1,15 +1,15 @@
 package org.truenewx.tnxsample.admin.repo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.repo.mongo.support.MongoUnityRepoSupport;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 操作日志Repo实现
@@ -20,7 +20,7 @@ import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
 public class ActionLogRepoImpl extends MongoUnityRepoSupport<ActionLog, String> implements ActionLogRepox {
 
     @Override
-    public Queried<ActionLog> query(ActionLogQuerying querying) {
+    public QueryResult<ActionLog> query(ActionLogQuerying querying) {
         List<Criteria> criterias = new ArrayList<>();
 
         if (CollectionUtils.isNotEmpty(querying.getManagerIds())) {

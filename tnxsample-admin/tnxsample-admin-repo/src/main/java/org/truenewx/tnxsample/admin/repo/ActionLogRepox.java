@@ -1,6 +1,6 @@
 package org.truenewx.tnxsample.admin.repo;
 
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
 
@@ -11,6 +11,6 @@ import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
  */
 public interface ActionLogRepox {
 
-    Queried<ActionLog> query(ActionLogQuerying querying);
+    QueryResult<ActionLog> query(ActionLogQuerying querying);
 
 }

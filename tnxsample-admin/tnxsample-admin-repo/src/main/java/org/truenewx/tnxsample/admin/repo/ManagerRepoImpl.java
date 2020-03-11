@@ -1,16 +1,16 @@
 package org.truenewx.tnxsample.admin.repo;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.model.query.QuerySort;
 import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoSupport;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 管理员Repo实现
@@ -33,7 +33,7 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
     }
 
     @Override
-    public Queried<Manager> queryByKeywordAndTop(String keyword, Boolean top, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryByKeywordAndTop(String keyword, Boolean top, int pageSize, int pageNo) {
         StringBuffer ql = new StringBuffer("from Manager where 1=1");
         Map<String, Object> params = new HashMap<>();
         if (StringUtils.isNotBlank(keyword)) {
@@ -49,7 +49,7 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
     }
 
     @Override
-    public Queried<Manager> queryByRoleIdNotAndTop(int roleIdNot, Boolean top, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryByRoleIdNotAndTop(int roleIdNot, Boolean top, int pageSize, int pageNo) {
         StringBuffer ql = new StringBuffer("from Manager m where m.id not in ")
                 .append("(select r.manager.id from ManagerRoleRelation r where r.role.id=:roleIdNot)");
         Map<String, Object> params = new HashMap<>();

@@ -4,14 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.core.crypto.Md5xEncryptor;
-import org.truenewx.tnxjee.model.SubmitModel;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.CommandModel;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxjee.service.api.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.model.submit.SubmitManager;
+import org.truenewx.tnxsample.admin.model.submit.ManagerCommandModel;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
 
@@ -55,7 +55,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public Queried<Manager> queryGeneral(String keyword, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryGeneral(String keyword, int pageSize, int pageNo) {
         return this.repo.queryByKeywordAndTop(keyword, false, pageSize, pageNo);
     }
 
@@ -104,9 +104,9 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public Manager add(SubmitModel<Manager> submitModel) {
-        if (submitModel instanceof SubmitManager) {
-            SubmitManager model = (SubmitManager) submitModel;
+    public Manager add(CommandModel<Manager> commandModel) {
+        if (commandModel instanceof ManagerCommandModel) {
+            ManagerCommandModel model = (ManagerCommandModel) commandModel;
             String username = model.getUsername();
             if (this.repo.countByUsername(username) > 0) {
                 throw new BusinessException(ManagerExceptionCodes.REPEAT_USERNAME, username).bind("username");
@@ -141,9 +141,9 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public Manager update(Integer id, SubmitModel<Manager> submitModel) {
-        if (submitModel instanceof SubmitManager) {
-            SubmitManager model = (SubmitManager) submitModel;
+    public Manager update(Integer id, CommandModel<Manager> commandModel) {
+        if (commandModel instanceof ManagerCommandModel) {
+            ManagerCommandModel model = (ManagerCommandModel) commandModel;
             Manager manager = load(id);
             manager.setFullName(model.getFullName());
             applyRoles(manager, model.getRoleIds());
@@ -170,7 +170,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public Queried<Manager> queryGeneralOutOfRole(int exceptedRoleId, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryGeneralOutOfRole(int exceptedRoleId, int pageSize, int pageNo) {
         return this.repo.queryByRoleIdNotAndTop(exceptedRoleId, false, pageSize, pageNo);
     }
 }

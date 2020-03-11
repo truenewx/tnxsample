@@ -1,16 +1,16 @@
 package org.truenewx.tnxsample.admin.repo;
 
-import java.util.List;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.core.util.StringUtil;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.repo.test.RepoTestSupport;
+
+import java.util.List;
 
 /**
  * ManagerRepoTest
@@ -59,8 +59,8 @@ public class ManagerRepoTest extends RepoTestSupport {
     @Caption("测试：根据关键字和是否顶级分页查询管理员")
     public void queryByKeywordAndTopTest() {
         String keyword = "l";
-        Queried<Manager> queried = this.repo.queryByKeywordAndTop(keyword, false, 10, 1);
-        List<Manager> records = queried.getRecords();
+        QueryResult<Manager> qr = this.repo.queryByKeywordAndTop(keyword, false, 10, 1);
+        List<Manager> records = qr.getRecords();
         Assert.assertEquals(2, records.size());
         Assert.assertTrue(
                 records.get(0).getFullName().contains(keyword) || records.get(0).getUsername().contains(keyword));
@@ -74,8 +74,8 @@ public class ManagerRepoTest extends RepoTestSupport {
     @Caption("测试：根据排除的角色id和是否顶级分页查询管理员")
     public void queryByRoleIdNotAndTopTest() {
         int roleIdNot = getFirstData(Role.class).getId();
-        Queried<Manager> queried = this.repo.queryByRoleIdNotAndTop(roleIdNot, false, 10, 1);
-        List<Manager> records = queried.getRecords();
+        QueryResult<Manager> qr = this.repo.queryByRoleIdNotAndTop(roleIdNot, false, 10, 1);
+        List<Manager> records = qr.getRecords();
         Assert.assertEquals(2, records.size());
         Assert.assertFalse(records.get(0).isTop());
         records.get(0).getRoles().forEach(role -> {

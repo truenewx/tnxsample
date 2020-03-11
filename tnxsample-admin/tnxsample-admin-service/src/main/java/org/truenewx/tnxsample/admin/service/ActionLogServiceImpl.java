@@ -1,13 +1,10 @@
 package org.truenewx.tnxsample.admin.service;
 
-import java.time.Instant;
-import java.time.LocalDate;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.util.TemporalUtil;
-import org.truenewx.tnxjee.model.query.Queried;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
 import org.truenewx.tnxjeex.log.model.Action;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
@@ -16,6 +13,9 @@ import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
 import org.truenewx.tnxsample.admin.repo.ActionLogRepo;
 import org.truenewx.tnxsample.admin.repo.ManagerRepox;
 import org.truenewx.tnxsample.admin.repo.entity.ActionLogImpl;
+
+import java.time.Instant;
+import java.time.LocalDate;
 
 /**
  * 操作日志服务实现
@@ -43,7 +43,7 @@ public class ActionLogServiceImpl extends AbstractUnityService<ActionLog, String
     }
 
     @Override
-    public Queried<ActionLog> query(String managerKeyword, LocalDate beginDate, LocalDate endDate, int pageSize,
+    public QueryResult<ActionLog> query(String managerKeyword, LocalDate beginDate, LocalDate endDate, int pageSize,
             int pageNo) {
         ActionLogQuerying querying = new ActionLogQuerying();
         if (StringUtils.isNotBlank(managerKeyword)) {

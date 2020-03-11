@@ -5,14 +5,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.util.CollectionUtil;
-import org.truenewx.tnxjee.model.SubmitModel;
+import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxjee.service.api.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.model.submit.SubmitRole;
+import org.truenewx.tnxsample.admin.model.submit.RoleCommandModel;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
 
@@ -68,9 +68,9 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     }
 
     @Override
-    public void validateBusiness(Integer id, SubmitModel<Role> submitModel) {
-        if (submitModel instanceof SubmitRole) {
-            SubmitRole model = (SubmitRole) submitModel;
+    public void validateBusiness(Integer id, CommandModel<Role> commandModel) {
+        if (commandModel instanceof RoleCommandModel) {
+            RoleCommandModel model = (RoleCommandModel) commandModel;
             String name = model.getName();
             if (StringUtils.isNotBlank(name)) {
                 if ((id == null && this.repo.countByName(name) > 0)
@@ -82,9 +82,9 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     }
 
     @Override
-    protected Role beforeSave(Integer id, SubmitModel<Role> submitModel) {
-        if (submitModel instanceof SubmitRole) {
-            SubmitRole model = (SubmitRole) submitModel;
+    protected Role beforeSave(Integer id, CommandModel<Role> commandModel) {
+        if (commandModel instanceof RoleCommandModel) {
+            RoleCommandModel model = (RoleCommandModel) commandModel;
             validateBusiness(id, model);
 
             Role role;
