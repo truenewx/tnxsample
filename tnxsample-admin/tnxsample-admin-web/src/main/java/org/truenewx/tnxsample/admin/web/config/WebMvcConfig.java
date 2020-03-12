@@ -31,7 +31,7 @@ public class WebMvcConfig extends WebViewMvcConfigurationSupport {
 
     @Bean
     public FactoryBean<Menu> menu() {
-        return new MenuFactoryBean();
+        return new MenuFactoryBean("admin");
     }
 
     @Bean
