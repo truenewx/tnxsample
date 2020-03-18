@@ -7,9 +7,9 @@ import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.core.util.CollectionUtil;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
+import org.truenewx.tnxsample.admin.model.command.RoleCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.model.submit.RoleCommandModel;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
 
 import java.util.Collection;

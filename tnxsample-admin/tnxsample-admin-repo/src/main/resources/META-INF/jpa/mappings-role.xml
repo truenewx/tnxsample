@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-mappings version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
 
     <persistence-unit-metadata>
         <persistence-unit-defaults>
@@ -10,27 +10,27 @@
     </persistence-unit-metadata>
 
     <entity class="org.truenewx.tnxsample.admin.model.entity.Role">
-        <table name="t_role" />
+        <table name="t_role"/>
         <attributes>
             <id name="id">
-                <column name="id" />
-                <generated-value strategy="IDENTITY" />
+                <column name="id"/>
+                <generated-value strategy="IDENTITY"/>
             </id>
             <basic name="name">
-                <column name="role_name" length="20" nullable="false" />
+                <column name="role_name" length="20" nullable="false"/>
             </basic>
             <basic name="remark">
-                <column name="remark" length="200" nullable="true" />
+                <column name="remark" length="200" nullable="true"/>
             </basic>
             <basic name="ordinal">
-                <column name="ordinal" />
+                <column name="ordinal"/>
             </basic>
             <basic name="permissions">
-                <column name="permission_string" length="4000" nullable="true" column-definition="varchar" />
-                <convert converter="org.truenewx.tnxjee.repo.jpa.converter.SetJsonConverter" />
+                <column name="permission_string" length="4000" nullable="true" column-definition="varchar"/>
+                <convert converter="org.truenewx.tnxjee.repo.jpa.converter.SetToJsonAttributeConverter"/>
             </basic>
             <many-to-many name="managers" target-entity="org.truenewx.tnxsample.admin.model.entity.Manager"
-                mapped-by="roles" />
+                    mapped-by="roles"/>
         </attributes>
     </entity>
 

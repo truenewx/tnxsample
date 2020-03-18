@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model.submit;
+package org.truenewx.tnxsample.admin.model.command;
 
 import lombok.Getter;
 import lombok.Setter;

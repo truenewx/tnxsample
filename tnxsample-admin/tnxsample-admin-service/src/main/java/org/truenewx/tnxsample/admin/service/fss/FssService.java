@@ -1,8 +1,8 @@
 package org.truenewx.tnxsample.admin.service.fss;
 
 import org.truenewx.tnxjeex.fss.service.FssServiceTemplate;
+import org.truenewx.tnxsample.admin.model.command.FssAuthorizeType;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
-import org.truenewx.tnxsample.admin.model.submit.FssAuthorizeType;
 
 /**
  * 文件存储服务

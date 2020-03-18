@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model.submit;
+package org.truenewx.tnxsample.admin.model.command;
 
 import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Role;
