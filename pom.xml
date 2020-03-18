@@ -40,21 +40,6 @@
                 <artifactId>tnxsample-facade-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <dependency>
-                <groupId>io.seata</groupId>
-                <artifactId>seata-all</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>io.seata</groupId>
-                <artifactId>seata-spring-boot-starter</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>1.2.62</version><!-- seata中引用的1.2.60版本存在安全漏洞 -->
-            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
