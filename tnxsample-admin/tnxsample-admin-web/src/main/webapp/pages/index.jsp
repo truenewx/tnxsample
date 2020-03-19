@@ -7,7 +7,7 @@
     <title>首页</title>
 </head>
 
-<body css="index.css" js="index.js">
+<body>
 <h2 class="text-center pt-5">欢迎进入</h2>
 </body>
 </html>

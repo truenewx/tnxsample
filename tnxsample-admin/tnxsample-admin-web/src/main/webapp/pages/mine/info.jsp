@@ -7,7 +7,7 @@
     <title>个人资料</title>
 </head>
 
-<body js="mine/info.js">
+<body js="true">
 
 </body>
 </html>
