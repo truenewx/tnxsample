@@ -1,7 +1,7 @@
 package org.truenewx.tnxsample.admin.service;
 
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjee.service.api.unity.ModelUnityService;
+import org.truenewx.tnxjee.service.unity.ModelUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**

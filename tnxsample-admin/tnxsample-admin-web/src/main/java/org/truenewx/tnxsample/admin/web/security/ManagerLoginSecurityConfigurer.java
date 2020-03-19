@@ -5,8 +5,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Component;
-import org.truenewx.tnxjee.web.controller.security.config.SecurityLoginConfigurerSupport;
-import org.truenewx.tnxjee.web.controller.security.web.authentication.BusinessExceptionAuthenticationFailureHandler;
+import org.truenewx.tnxjee.web.security.config.SecurityLoginConfigurerSupport;
+import org.truenewx.tnxjee.web.security.web.authentication.BusinessExceptionAuthenticationFailureHandler;
 
 /**
  * 管理员登录安全配置器

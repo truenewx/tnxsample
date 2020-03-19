@@ -8,7 +8,7 @@ import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.core.util.EncryptUtil;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjee.service.api.exception.BusinessException;
+import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
 import org.truenewx.tnxsample.admin.model.command.ManagerCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;

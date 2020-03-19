@@ -1,6 +1,6 @@
 package org.truenewx.tnxsample.admin.web.util;
 
-import org.truenewx.tnxjee.web.controller.security.util.SecurityUtil;
+import org.truenewx.tnxjee.web.security.util.SecurityUtil;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**

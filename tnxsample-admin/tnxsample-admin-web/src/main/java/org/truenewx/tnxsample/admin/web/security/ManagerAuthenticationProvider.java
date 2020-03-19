@@ -7,8 +7,8 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
-import org.truenewx.tnxjee.service.api.exception.BusinessException;
-import org.truenewx.tnxjee.web.controller.security.authentication.UserSpecificDetailsAuthenticationToken;
+import org.truenewx.tnxjee.service.exception.BusinessException;
+import org.truenewx.tnxjee.web.security.authentication.UserSpecificDetailsAuthenticationToken;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 

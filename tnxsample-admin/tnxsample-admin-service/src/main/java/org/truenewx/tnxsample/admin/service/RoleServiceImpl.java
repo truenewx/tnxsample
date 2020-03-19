@@ -8,7 +8,7 @@ import org.truenewx.tnxjee.core.util.CollectionUtil;
 import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
-import org.truenewx.tnxjee.service.api.exception.BusinessException;
+import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
 import org.truenewx.tnxsample.admin.model.command.RoleCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;

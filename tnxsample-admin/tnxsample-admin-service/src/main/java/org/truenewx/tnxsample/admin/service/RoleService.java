@@ -2,8 +2,8 @@ package org.truenewx.tnxsample.admin.service;
 
 import java.util.List;
 
-import org.truenewx.tnxjee.service.api.unity.ModelUnityBusinessValidator;
-import org.truenewx.tnxjee.service.api.unity.ModelUnityService;
+import org.truenewx.tnxjee.service.unity.ModelUnityBusinessValidator;
+import org.truenewx.tnxjee.service.unity.ModelUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 
 /**
