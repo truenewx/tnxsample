@@ -25,9 +25,10 @@ tnxjee:
   profile:
     formal: false
   web:
-    context:
-      attributes:
-        tnxweb: //${server.host}/tnxweb
+    servlet:
+      context:
+        attributes:
+          tnxweb: //${server.host}/tnxweb
 tnxjeex:
   fss:
     accessor:
