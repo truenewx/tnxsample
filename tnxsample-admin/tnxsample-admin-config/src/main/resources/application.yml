@@ -20,10 +20,6 @@ spring:
     static-locations: /assets/,/third/,/pages/,/robots.txt
 tnxjee:
   web:
-    controller:
-      servlet:
-        context:
-          properties: tnxweb.context
     view:
-      resources:
-        static-pattern: /assets/**, /third/**, /pages/**/*.css, /pages/**/*.js, /robots.txt
+      resource:
+        static-patterns: /assets/**, /third/**, /pages/**/*.css, /pages/**/*.js, /robots.txt

@@ -13,9 +13,9 @@
         version: "${version}",
         locale: "${pageContext.request.locale}",
         path: "${context}",
-        lib: "${properties['tnxweb.context']}",
+        lib: "${tnxweb}",
         min: "${resourceMin}",
     };
 </script>
-<script src="${properties['tnxweb.context']}/core/vendor/require-2.3.6/require.min.js"
+<script src="${tnxweb}/core/vendor/require-2.3.6/require.min.js"
         data-main="${context}/assets/js/main.js?v=${version}" type="text/javascript"></script>

@@ -1,12 +1,5 @@
 logging:
   config: classpath:log/logback-local.xml
-tnxjee:
-  profile:
-    formal: false
-tnxjeex:
-  fss:
-    accessor:
-      local-root: E:\kit\fss\sample
 server:
   host: localhost
   servlet:
@@ -28,5 +21,14 @@ spring:
       password: datapwd
     mongo:
       uri: mongodb://data:datapwd@${server.host}:27017/sample_log
-tnxweb:
-  context: //${server.host}/tnxweb
+tnxjee:
+  profile:
+    formal: false
+  web:
+    context:
+      attributes:
+        tnxweb: //${server.host}/tnxweb
+tnxjeex:
+  fss:
+    accessor:
+      local-root: E:\kit\fss\sample
