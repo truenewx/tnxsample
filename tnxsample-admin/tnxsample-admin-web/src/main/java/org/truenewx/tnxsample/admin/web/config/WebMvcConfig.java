@@ -1,7 +1,7 @@
 package org.truenewx.tnxsample.admin.web.config;
 
+import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.truenewx.tnxjee.web.view.config.WebViewMvcConfigurationSupport;
@@ -11,17 +11,18 @@ import org.truenewx.tnxjee.web.view.menu.factory.MenuFactoryImpl;
 import org.truenewx.tnxjee.web.view.menu.model.Menu;
 import org.truenewx.tnxjee.web.view.menu.provider.MenuProvider;
 import org.truenewx.tnxjee.web.view.menu.provider.MenuProviderImpl;
-import org.truenewx.tnxjee.web.view.sitemesh.config.BuildableSiteMeshFilter;
+
+import java.util.function.Consumer;
 
 @Configuration
 public class WebMvcConfig extends WebViewMvcConfigurationSupport {
 
-    @Bean
-    public FilterRegistrationBean<BuildableSiteMeshFilter> siteMeshFilter() {
-        return super.siteMeshFilter(builder -> {
+    @Override
+    protected Consumer<SiteMeshFilterBuilder> siteMeshFilterBuildConsumer() {
+        return builder -> {
             builder.addExcludedPath("**/*.json");
             builder.addDecoratorPath("/*", "/decorator/default.jsp");
-        });
+        };
     }
 
     @Bean
