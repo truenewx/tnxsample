@@ -1,8 +1,6 @@
 package org.truenewx.tnxsample.facade.repo.config;
 
-import javax.persistence.EntityManagerFactory;
-import javax.sql.DataSource;
-
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
@@ -14,7 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.truenewx.tnxjee.repo.jpa.config.JpaConfigSupport;
 import org.truenewx.tnxjee.repo.jpa.support.JpaAccessTemplate;
 
-import com.zaxxer.hikari.HikariDataSource;
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 
 /**
  * 数据源配置
@@ -28,7 +27,7 @@ public class DataSourceConfig extends JpaConfigSupport {
 
     @Override
     @Bean
-    @Profile({ "local", "test", "product" })
+    @Profile({"local", "test", "product"})
     @ConfigurationProperties(prefix = "spring.datasource.hikari")
     public DataSource dataSource() {
         return new HikariDataSource();
@@ -37,7 +36,7 @@ public class DataSourceConfig extends JpaConfigSupport {
     @Bean
     @Profile("junit")
     public DataSource embeddedDataSource() throws Exception {
-        return super.embeddedDataSource("/META-INF/sql/junit/schema.sql", "/META-INF/sql/junit/data.sql");
+        return super.embeddedDataSource("sql/schema.sql", "/sql/data.sql");
     }
 
     @Override
