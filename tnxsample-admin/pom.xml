@@ -12,7 +12,6 @@
     <name>tnxsample-admin</name>
     <description>后台管理中心</description>
     <modules>
-        <module>tnxsample-admin-config</module>
         <module>tnxsample-admin-model</module>
         <module>tnxsample-admin-repo</module>
         <module>tnxsample-admin-service</module>
@@ -20,11 +19,6 @@
     </modules>
     <dependencyManagement><!-- 其它微服务不能引用，仅本微服务内部引用的工程依赖在此管理 -->
         <dependencies>
-            <dependency>
-                <groupId>org.truenewx.tnxsample.admin</groupId>
-                <artifactId>tnxsample-admin-config</artifactId>
-                <version>${project.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.truenewx.tnxsample.admin</groupId>
                 <artifactId>tnxsample-admin-model</artifactId>

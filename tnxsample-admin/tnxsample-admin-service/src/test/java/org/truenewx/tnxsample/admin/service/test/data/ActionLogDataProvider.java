@@ -1,8 +1,8 @@
 package org.truenewx.tnxsample.admin.service.test.data;
 
 import org.springframework.stereotype.Component;
-import org.truenewx.tnxjee.repo.test.data.AbstractDataProvider;
-import org.truenewx.tnxjee.repo.test.data.DataPool;
+import org.truenewx.tnxjee.test.service.data.AbstractDataProvider;
+import org.truenewx.tnxjee.test.service.data.DataPool;
 import org.truenewx.tnxjeex.log.model.Action;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
