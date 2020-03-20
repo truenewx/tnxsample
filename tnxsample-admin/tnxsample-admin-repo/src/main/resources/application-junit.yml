@@ -6,7 +6,7 @@ tnxjee:
 tnxjeex:
   fss:
     accessor:
-      local_root: E:\kit\fss\sample
+      local-root: E:\kit\fss\sample
 spring:
   jpa:
     database: H2

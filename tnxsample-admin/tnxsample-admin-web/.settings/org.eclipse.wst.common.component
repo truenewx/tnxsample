@@ -16,6 +16,9 @@
         <dependent-module archiveName="tnxjee-model-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-model/tnxjee-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tnxjee-core-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="tnxjeex-fss-web-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-fss-web/tnxjeex-fss-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -38,12 +41,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-admin-repo-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-repo/tnxsample-admin-repo">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxsample-admin-config-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-config/tnxsample-admin-config">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxjee-core-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-admin-model-3.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-model/tnxsample-admin-model">

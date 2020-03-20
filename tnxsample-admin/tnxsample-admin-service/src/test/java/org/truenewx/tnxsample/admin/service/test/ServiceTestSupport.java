@@ -4,7 +4,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxjee.test.service.support.ServiceSpringTestSupport;
-import org.truenewx.tnxsample.admin.AppRoot;
+import org.truenewx.tnxsample.admin.AdminApp;
 
 /**
  * Service测试支持
@@ -12,6 +12,6 @@ import org.truenewx.tnxsample.admin.AppRoot;
  * @author jianglei
  */
 @ActiveProfiles("junit")
-@ContextConfiguration(classes = {Framework.class, AppRoot.class})
+@ContextConfiguration(classes = { Framework.class, AdminApp.class })
 public abstract class ServiceTestSupport extends ServiceSpringTestSupport {
 }

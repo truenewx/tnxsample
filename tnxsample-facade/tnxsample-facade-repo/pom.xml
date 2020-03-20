@@ -11,10 +11,6 @@
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.truenewx.tnxsample.facade</groupId>
             <artifactId>tnxsample-facade-model</artifactId>
         </dependency>
         <dependency>
