@@ -6,9 +6,7 @@ require.config({
 });
 
 require(["app"], function(app) {
-    app.init({
-        onLoad: function() {
-            console.debug("App onload.");
-        }
+    app.init(function() {
+        console.info("App onload.");
     });
 });

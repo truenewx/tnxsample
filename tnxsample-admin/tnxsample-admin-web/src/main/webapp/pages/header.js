@@ -7,7 +7,9 @@ define([], function() {
             data: {},
             methods: {
                 toUpdateInfo: function() {
-                    app.dialog("确认", "确认打开吗？");
+                    var url = app.context + "/mine/info.win";
+                    app.open(url, function(yes) {
+                    });
                 }
             }
         });

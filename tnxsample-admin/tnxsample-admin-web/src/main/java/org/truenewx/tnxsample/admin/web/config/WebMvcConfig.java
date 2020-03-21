@@ -21,6 +21,7 @@ public class WebMvcConfig extends WebViewMvcConfigurationSupport {
     protected Consumer<SiteMeshFilterBuilder> siteMeshFilterBuildConsumer() {
         return builder -> {
             builder.addExcludedPath("**/*.json");
+            builder.addDecoratorPath("**/*.win", "/decorator/win.jsp");
             builder.addDecoratorPath("/*", "/decorator/default.jsp");
         };
     }
