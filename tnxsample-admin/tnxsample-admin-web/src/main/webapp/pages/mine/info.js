@@ -1,7 +1,7 @@
 // mine/info.js
 define(["app"], function(app) {
     return function(container) {
-        new app.Vue({
+        new Vue({
             el: container,
             data: {},
             methods: {}

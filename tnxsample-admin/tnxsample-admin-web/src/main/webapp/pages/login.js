@@ -2,7 +2,7 @@
 define(["app"], function(app) {
     var util = app.owner.util;
     return function(container) {
-        new app.Vue({
+        new Vue({
             el: container,
             data: {
                 username: "admin",
