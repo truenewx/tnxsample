@@ -1,8 +1,8 @@
 package org.truenewx.tnxsample.facade.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.truenewx.tnxsample.facade.model.entity.User;
 
 /**
@@ -10,10 +10,10 @@ import org.truenewx.tnxsample.facade.model.entity.User;
  *
  * @author jianglei
  */
-@RequestMapping("/user")
-public interface UserApi {
+@RequestMapping("/user/admin")
+public interface UserAdminApi {
 
-    @GetMapping("/loadByMobilePhone")
-    User loadByMobilePhone(@RequestParam("mobilePhone") String mobilePhone);
+    @GetMapping("/payload/mobile-phone/{mobilePhone}")
+    User loadByMobilePhone(@PathVariable String mobilePhone);
 
 }
