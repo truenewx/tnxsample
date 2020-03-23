@@ -24,7 +24,7 @@ public class UserAdminController implements UserAdminApi {
     @ConfigAnonymous
     @ResultFilter(type = UserSpecificDetails.class, excluded = {"accountNonExpired", "accountNonLocked",
             "credentialsNonExpired", "enabled"})
-    @ResultFilter(type = User.class, excluded = "password", captionEnum = "gender")
+    @ResultFilter(type = User.class, excluded = "password", pureEnum = "type")
     public User loadByMobilePhone(String mobilePhone) {
         return this.userService.loadByMobilePhone(mobilePhone);
     }
