@@ -1,5 +1,7 @@
 package org.truenewx.tnxsample.facade.web.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
@@ -8,11 +10,7 @@ import org.truenewx.tnxsample.facade.api.UserAdminApi;
 import org.truenewx.tnxsample.facade.model.entity.User;
 import org.truenewx.tnxsample.facade.service.UserService;
 
-/**
- * 用户控制器
- *
- * @author jianglei
- */
+@Api("用户管理")
 @RestController
 public class UserAdminController implements UserAdminApi {
 
@@ -20,6 +18,7 @@ public class UserAdminController implements UserAdminApi {
     private UserService userService;
 
     @Override
+    @ApiOperation("根据手机号码加载用户")
     @ConfigAnonymous
     @ResultFilter(type = User.class, excluded = {"accountNonExpired", "accountNonLocked",
             "credentialsNonExpired", "enabled", "password"}, pureEnum = "type")
