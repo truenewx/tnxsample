@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model.command;
+package org.truenewx.tnxsample.admin.service.model;
 
 import org.truenewx.tnxjee.core.caption.Caption;
 

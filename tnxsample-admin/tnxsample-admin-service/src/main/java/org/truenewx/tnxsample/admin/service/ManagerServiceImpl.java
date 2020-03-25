@@ -9,11 +9,12 @@ import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
-import org.truenewx.tnxsample.admin.model.command.ManagerCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
+import org.truenewx.tnxsample.admin.service.model.CommandManager;
+import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
 
 import java.time.Instant;
 import java.util.Collection;
@@ -60,21 +61,11 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public Manager updateHeadImageUrl(int id, String headImageUrl) {
+    public Manager updateSelf(int id, CommandManagerSelf command) {
         Manager manager = find(id);
         if (manager != null) {
-            manager.setHeadImageUrl(headImageUrl);
-            this.repo.save(manager);
-        }
-        return manager;
-    }
-
-    @Override
-    public Manager updateFullName(int id, String fullName) {
-        Manager manager = find(id);
-        if (manager != null) {
-            manager.setFullName(fullName);
-            this.repo.save(manager);
+            manager.setHeadImageUrl(command.getHeadImageUrl());
+            manager.setFullName(command.getFullName());
         }
         return manager;
     }
@@ -105,21 +96,21 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
 
     @Override
     public Manager add(CommandModel<Manager> commandModel) {
-        if (commandModel instanceof ManagerCommandModel) {
-            ManagerCommandModel model = (ManagerCommandModel) commandModel;
-            String username = model.getUsername();
+        if (commandModel instanceof CommandManager) {
+            CommandManager command = (CommandManager) commandModel;
+            String username = command.getUsername();
             if (this.repo.countByUsername(username) > 0) {
                 throw new BusinessException(ManagerExceptionCodes.REPEAT_USERNAME, username).bind("username");
             }
             Manager manager = new Manager();
             manager.setUsername(username);
             manager.setPassword(Strings.ASTERISK); // 密码暂时置为星号
-            manager.setFullName(model.getFullName());
+            manager.setFullName(command.getFullName());
             manager.setCreateTime(Instant.now());
-            applyRoles(manager, model.getRoleIds());
+            updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
             // 有了id之后再用id做密钥进行密码加密
-            String encryptedPassword = this.encryptor.encryptByMd5Source(model.getPassword(), manager.getId());
+            String encryptedPassword = this.encryptor.encryptByMd5Source(command.getPassword(), manager.getId());
             manager.setPassword(encryptedPassword);
             this.repo.save(manager);
             return manager;
@@ -127,7 +118,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
         return null;
     }
 
-    private void applyRoles(Manager manager, int[] roleIds) {
+    private void updateRoles(Manager manager, int[] roleIds) {
         Collection<Role> roles = manager.getRoles();
         roles.clear();
         if (roleIds != null) {
@@ -142,11 +133,11 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
 
     @Override
     public Manager update(Integer id, CommandModel<Manager> commandModel) {
-        if (commandModel instanceof ManagerCommandModel) {
-            ManagerCommandModel model = (ManagerCommandModel) commandModel;
+        if (commandModel instanceof CommandManager) {
+            CommandManager command = (CommandManager) commandModel;
             Manager manager = load(id);
-            manager.setFullName(model.getFullName());
-            applyRoles(manager, model.getRoleIds());
+            manager.setFullName(command.getFullName());
+            updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
             return manager;
         }

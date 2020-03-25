@@ -3,8 +3,8 @@ package org.truenewx.tnxsample.admin.service.fss.policy;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
-import org.truenewx.tnxsample.admin.model.command.FssAuthorizeType;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
+import org.truenewx.tnxsample.admin.service.model.FssAuthorizeType;
 
 /**
  * 管理员头像的授权方针

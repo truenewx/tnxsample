@@ -7,9 +7,9 @@ import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.core.util.CollectionUtil;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
-import org.truenewx.tnxsample.admin.model.command.RoleCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
+import org.truenewx.tnxsample.admin.service.model.CommandRole;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
 
 import java.util.Collection;
@@ -71,9 +71,9 @@ public class RoleServiceTest extends ServiceTestSupport {
         int roleId0 = getFirstData(Role.class).getId();
         String roleName = getData(Role.class, 1).getName();
 
-        RoleCommandModel model = new RoleCommandModel();
-        model.setName(roleName);
-        this.service.validateBusiness(roleId0, model);
+        CommandRole command = new CommandRole();
+        command.setName(roleName);
+        this.service.validateBusiness(roleId0, command);
         Assert.fail();
     }
 
@@ -82,18 +82,18 @@ public class RoleServiceTest extends ServiceTestSupport {
     public void addTest() {
         int[] managerIds = {getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId()};
 
-        RoleCommandModel model = new RoleCommandModel();
-        model.setName("NewRole");
-        model.setManagerIds(managerIds);
-        model.setPermissions(new String[]{"a", "b", "c"});
-        model.setRemark("role remark1");
-        int roleId = this.service.add(model).getId();
+        CommandRole command = new CommandRole();
+        command.setName("NewRole");
+        command.setManagerIds(managerIds);
+        command.setPermissions(new String[]{"a", "b", "c"});
+        command.setRemark("role remark1");
+        int roleId = this.service.add(command).getId();
 
         Role role = this.service.find(roleId);
-        Assert.assertEquals(model.getName(), role.getName());
-        Assert.assertTrue(CollectionUtil.equals(role.getPermissions(), model.getPermissions()));
-        Assert.assertArrayEquals(managerIds, model.getManagerIds());
-        Assert.assertEquals(model.getRemark(), role.getRemark());
+        Assert.assertEquals(command.getName(), role.getName());
+        Assert.assertTrue(CollectionUtil.equals(role.getPermissions(), command.getPermissions()));
+        Assert.assertArrayEquals(managerIds, command.getManagerIds());
+        Assert.assertEquals(command.getRemark(), role.getRemark());
     }
 
     @Test
@@ -102,18 +102,18 @@ public class RoleServiceTest extends ServiceTestSupport {
         int roleId1 = getData(Role.class, 1).getId();
         int[] managerIds = {getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId()};
 
-        RoleCommandModel model = new RoleCommandModel();
-        model.setName("UpdatedRole");
-        model.setManagerIds(managerIds);
-        model.setPermissions(new String[]{"a", "c", "d"});
-        model.setRemark("role remark1");
-        this.service.update(roleId1, model);
+        CommandRole command = new CommandRole();
+        command.setName("UpdatedRole");
+        command.setManagerIds(managerIds);
+        command.setPermissions(new String[]{"a", "c", "d"});
+        command.setRemark("role remark1");
+        this.service.update(roleId1, command);
 
         Role role = this.service.find(roleId1);
-        Assert.assertEquals(model.getName(), role.getName());
-        Assert.assertTrue(CollectionUtil.equals(role.getPermissions(), model.getPermissions()));
-        Assert.assertArrayEquals(managerIds, model.getManagerIds());
-        Assert.assertEquals(model.getRemark(), role.getRemark());
+        Assert.assertEquals(command.getName(), role.getName());
+        Assert.assertTrue(CollectionUtil.equals(role.getPermissions(), command.getPermissions()));
+        Assert.assertArrayEquals(managerIds, command.getManagerIds());
+        Assert.assertEquals(command.getRemark(), role.getRemark());
     }
 
     @Test

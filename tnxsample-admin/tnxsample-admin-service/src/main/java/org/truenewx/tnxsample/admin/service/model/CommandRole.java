@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model.command;
+package org.truenewx.tnxsample.admin.service.model;
 
 import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Role;
@@ -8,7 +8,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
  *
  * @author jianglei
  */
-public class RoleCommandModel implements CommandModel<Role> {
+public class CommandRole implements CommandModel<Role> {
 
     private String name;
     private String remark;

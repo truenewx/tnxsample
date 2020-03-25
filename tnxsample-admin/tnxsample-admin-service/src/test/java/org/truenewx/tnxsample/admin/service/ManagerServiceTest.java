@@ -10,9 +10,9 @@ import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
-import org.truenewx.tnxsample.admin.model.command.ManagerCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
+import org.truenewx.tnxsample.admin.service.model.CommandManager;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
 
 import java.util.Collection;
@@ -79,26 +79,6 @@ public class ManagerServiceTest extends ServiceTestSupport {
     }
 
     @Test
-    @Caption("测试：修改管理员头像URL")
-    public void updateHeadImageUrlTest() {
-        Integer managerId = getFirstData(Manager.class).getId();
-        String headImageUrl = "oss://head/" + managerId + ".jpg";
-        Manager manager = this.service.updateHeadImageUrl(managerId, headImageUrl);
-        Assert.assertEquals(managerId, manager.getId());
-        Assert.assertEquals(headImageUrl, manager.getHeadImageUrl());
-    }
-
-    @Test
-    @Caption("测试：修改管理员姓名")
-    public void updateFullnameTest() {
-        Integer managerId = getFirstData(Manager.class).getId();
-        String fullName = "zhangsan";
-        Manager manager = this.service.updateFullName(managerId, fullName);
-        Assert.assertEquals(managerId, manager.getId());
-        Assert.assertEquals(fullName, manager.getFullName());
-    }
-
-    @Test
     @Caption("测试：修改管理员密码")
     public void updatePasswordTest() {
         Integer managerId = getData(Manager.class, 1).getId();
@@ -137,15 +117,15 @@ public class ManagerServiceTest extends ServiceTestSupport {
         int roleId1 = getData(Role.class, 1).getId();
         int[] roleIds = {roleId0, roleId1};
 
-        ManagerCommandModel model = new ManagerCommandModel();
-        model.setUsername("new-manager");
-        model.setFullName("New Manger");
-        model.setPassword(EncryptUtil.encryptByMd5("123456"));
-        model.setRoleIds(roleIds);
-        Manager manager = this.service.add(model);
+        CommandManager command = new CommandManager();
+        command.setUsername("new-manager");
+        command.setFullName("New Manger");
+        command.setPassword(EncryptUtil.encryptByMd5("123456"));
+        command.setRoleIds(roleIds);
+        Manager manager = this.service.add(command);
         manager = this.service.find(manager.getId());
-        Assert.assertEquals(model.getUsername(), manager.getUsername());
-        Assert.assertEquals(model.getFullName(), manager.getFullName());
+        Assert.assertEquals(command.getUsername(), manager.getUsername());
+        Assert.assertEquals(command.getFullName(), manager.getFullName());
         Collection<Role> roles = manager.getRoles();
         Assert.assertEquals(roleIds.length, roles.size());
         roles.forEach(role -> {
@@ -158,9 +138,9 @@ public class ManagerServiceTest extends ServiceTestSupport {
     @TestBusinessException(ManagerExceptionCodes.REPEAT_USERNAME)
     public void addTestRepeatUser() {
         String username = getFirstData(Manager.class).getUsername();
-        ManagerCommandModel model = new ManagerCommandModel();
-        model.setUsername(username);
-        this.service.add(model);
+        CommandManager command = new CommandManager();
+        command.setUsername(username);
+        this.service.add(command);
         Assert.fail();
     }
 
@@ -172,12 +152,12 @@ public class ManagerServiceTest extends ServiceTestSupport {
         int roleId1 = getData(Role.class, 1).getId();
         int[] roleIds = {roleId0, roleId1};
 
-        ManagerCommandModel model = new ManagerCommandModel();
-        model.setFullName("zhangsan");
-        model.setRoleIds(roleIds);
-        this.service.update(managerId, model);
+        CommandManager command = new CommandManager();
+        command.setFullName("zhangsan");
+        command.setRoleIds(roleIds);
+        this.service.update(managerId, command);
         Manager manager = this.service.find(managerId);
-        Assert.assertEquals(model.getFullName(), manager.getFullName());
+        Assert.assertEquals(command.getFullName(), manager.getFullName());
         Collection<Role> roles = manager.getRoles();
         Assert.assertEquals(roleIds.length, roles.size());
         roles.forEach(role -> {

@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.model.command;
+package org.truenewx.tnxsample.admin.service.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
  */
 @Getter
 @Setter
-public class ManagerCommandModel implements CommandModel<Manager> {
+public class CommandManager implements CommandModel<Manager> {
 
     private String username;
     private String password;

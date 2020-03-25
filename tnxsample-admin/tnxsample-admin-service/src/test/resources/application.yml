@@ -8,6 +8,8 @@ tnxjeex:
     accessor:
       local-root: E:\kit\fss\sample
 spring:
+  profiles:
+    active: junit
   jpa:
     database: H2
     database-platform: org.hibernate.dialect.H2Dialect

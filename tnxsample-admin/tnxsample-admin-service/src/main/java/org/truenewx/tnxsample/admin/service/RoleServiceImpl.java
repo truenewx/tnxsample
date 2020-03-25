@@ -10,11 +10,11 @@ import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.repo.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
-import org.truenewx.tnxsample.admin.model.command.RoleCommandModel;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
+import org.truenewx.tnxsample.admin.service.model.CommandRole;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -69,9 +69,9 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
 
     @Override
     public void validateBusiness(Integer id, CommandModel<Role> commandModel) {
-        if (commandModel instanceof RoleCommandModel) {
-            RoleCommandModel model = (RoleCommandModel) commandModel;
-            String name = model.getName();
+        if (commandModel instanceof CommandRole) {
+            CommandRole command = (CommandRole) commandModel;
+            String name = command.getName();
             if (StringUtils.isNotBlank(name)) {
                 if ((id == null && this.repo.countByName(name) > 0)
                         || (id != null && this.repo.countByNameAndIdNot(name, id) > 0)) {
@@ -83,9 +83,9 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
 
     @Override
     protected Role beforeSave(Integer id, CommandModel<Role> commandModel) {
-        if (commandModel instanceof RoleCommandModel) {
-            RoleCommandModel model = (RoleCommandModel) commandModel;
-            validateBusiness(id, model);
+        if (commandModel instanceof CommandRole) {
+            CommandRole command = (CommandRole) commandModel;
+            validateBusiness(id, command);
 
             Role role;
             if (id == null) {
@@ -94,13 +94,13 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
             } else {
                 role = load(id);
             }
-            role.setName(model.getName());
-            role.setRemark(model.getRemark());
+            role.setName(command.getName());
+            role.setRemark(command.getRemark());
             Set<String> permissions = new HashSet<>();
-            CollectionUtil.addAll(permissions, model.getPermissions());
+            CollectionUtil.addAll(permissions, command.getPermissions());
             role.setPermissions(permissions);
             Collection<Manager> managers = role.getManagers();
-            int[] newManagerIds = model.getManagerIds();
+            int[] newManagerIds = command.getManagerIds();
             // 原管理员在新管理员中没有的，说明被移除了
             managers.removeIf(manager -> {
                 boolean removing = !ArrayUtils.contains(newManagerIds, manager.getId());
