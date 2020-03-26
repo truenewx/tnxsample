@@ -21,6 +21,7 @@ public class WebMvcConfig extends WebViewMvcConfigurationSupport {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/robots.txt").addResourceLocations("/");
         registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE + 2000);
