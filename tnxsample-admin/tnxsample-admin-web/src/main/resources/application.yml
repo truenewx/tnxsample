@@ -18,7 +18,6 @@ spring:
     view:
       prefix: /pages/
       suffix: .jsp
-    static-path-pattern: > #静态资源URL样式，满足样式的URL将作为静态资源处理，且默认允许匿名访问
-      /assets/**,/third/**,/pages/**/*.css,/pages/**/*.js,/robots.txt
+    static-path-pattern: /assets/**,/third/**,/pages/**/*.css,/pages/**/*.js,/robots.txt
   resources:
-    static-locations: /assets/,/third/,/pages/ #静态资源文件所在目录
+    static-locations: /pages/
