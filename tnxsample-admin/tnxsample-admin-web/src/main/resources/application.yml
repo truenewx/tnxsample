@@ -18,12 +18,7 @@ spring:
     view:
       prefix: /pages/
       suffix: .jsp
+    static-path-pattern: > #静态资源URL样式，满足样式的URL将作为静态资源处理，且默认允许匿名访问
+      /assets/**,/third/**,/pages/**/*.css,/pages/**/*.js,/robots.txt
   resources:
-    static-locations: /assets/,/third/,/pages/,/webjars/ #静态资源映射目录
-tnxjee:
-  web:
-    view:
-      resource:
-        static-patterns: > #静态资源路径样式，满足样式的资源将作为静态资源处理
-          /assets/**, /third/**, /pages/**/*.css, /pages/**/*.js, /robots.txt,
-          /swagger-ui.html, /webjars/**
+    static-locations: /assets/,/third/,/pages/ #静态资源文件所在目录

@@ -4,6 +4,7 @@ import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.truenewx.tnxjee.web.view.config.WebViewMvcConfigurationSupport;
 import org.truenewx.tnxjee.web.view.menu.factory.MenuFactory;
@@ -20,8 +21,9 @@ public class WebMvcConfig extends WebViewMvcConfigurationSupport {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:META-INF/resources/webjars/");
+        registry.addResourceHandler("/swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE + 2000);
     }
 
     @Override
