@@ -13,9 +13,6 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: validate
-    mapping-resources: >
-      classpath:/META-INF/jpa/mappings-manager.xml, classpath:/META-INF/jpa/mappings-role.xml,
-      classpath:/META-INF/jpa/mappings-manager-r-role.xml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://${server.host}:3306/sample_admin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
