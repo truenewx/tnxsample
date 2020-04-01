@@ -1,13 +1,7 @@
 package org.truenewx.tnxsample.admin.model.entity;
 
-import java.time.Instant;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
-
-import javax.validation.constraints.NotBlank;
-
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
@@ -18,8 +12,12 @@ import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotBlank;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * 管理员
@@ -29,7 +27,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Caption("管理员")
-public class Manager implements Unity<Integer>, Comparable<Manager>, UserSpecificDetails<TypedUserIdentity> {
+public class Manager
+        implements Unity<Integer>, Comparable<Manager>, UserSpecificDetails<TypedUserIdentity> {
 
     private static final long serialVersionUID = -6023565056071353719L;
 
@@ -44,7 +43,6 @@ public class Manager implements Unity<Integer>, Comparable<Manager>, UserSpecifi
     private String password;
 
     @Caption("头像URL")
-    @NotContainsSpecialChars
     private String headImageUrl;
 
     @Caption("姓名")
