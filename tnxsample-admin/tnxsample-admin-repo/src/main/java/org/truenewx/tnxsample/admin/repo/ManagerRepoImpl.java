@@ -22,7 +22,7 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
 
     @Override
     public long countByRoleId(int roleId) {
-        String ql = "select count(*) from ManagerRoleRelation r where r.role.id = :roleId";
+        String ql = "select count(*) from ManagerRoleRelation r where r.id.roleId = :roleId";
         return getAccessTemplate().count(ql, "roleId", roleId);
     }
 
@@ -33,7 +33,8 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
     }
 
     @Override
-    public QueryResult<Manager> queryByKeywordAndTop(String keyword, Boolean top, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryByKeywordAndTop(String keyword, Boolean top, int pageSize,
+            int pageNo) {
         StringBuffer ql = new StringBuffer("from Manager where 1=1");
         Map<String, Object> params = new HashMap<>();
         if (StringUtils.isNotBlank(keyword)) {
@@ -49,9 +50,10 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
     }
 
     @Override
-    public QueryResult<Manager> queryByRoleIdNotAndTop(int roleIdNot, Boolean top, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryByRoleIdNotAndTop(int roleIdNot, Boolean top, int pageSize,
+            int pageNo) {
         StringBuffer ql = new StringBuffer("from Manager m where m.id not in ")
-                .append("(select r.manager.id from ManagerRoleRelation r where r.role.id=:roleIdNot)");
+                .append("(select r.manager.id from ManagerRoleRelation r where r.id.roleId=:roleIdNot)");
         Map<String, Object> params = new HashMap<>();
         params.put("roleIdNot", roleIdNot);
         if (top != null) {
