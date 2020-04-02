@@ -24,3 +24,6 @@ spring:
     console:
       enabled: true
       path: /console
+local:
+  mongo:
+    port: 27017 # 开启内嵌MongoDB
