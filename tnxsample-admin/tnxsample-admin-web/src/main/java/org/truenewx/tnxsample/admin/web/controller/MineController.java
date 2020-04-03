@@ -5,8 +5,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
 import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
@@ -22,10 +22,15 @@ public class MineController {
 
     @GetMapping("/info")
     @ConfigAuthority
-    public ModelAndView toUpdateInfo() {
-        ModelAndView mav = new ModelAndView("/mine/info");
-        mav.addObject("manager", ProjectWebUtil.getManager());
-        return mav;
+    public String toUpdateInfo() {
+        return "/mine/info";
+    }
+
+    @GetMapping("/info/detail")
+    @ResponseBody
+    @ConfigAuthority
+    public Manager infoDetail() {
+        return ProjectWebUtil.getManager();
     }
 
     @ApiOperation("修改个人信息")

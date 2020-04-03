@@ -12,18 +12,15 @@
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">用户名</label>
         <div class="col-sm-8">
-            <p class="form-control-plaintext">${manager.username}</p>
+            <p class="form-control-plaintext">{{ manager.username }}</p>
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">是否超管</label>
         <div class="col-sm-8">
             <p class="form-control-plaintext">
-            <c:if test="${manager.top}">
-                <i class="fa fa-check text-primary"></i>
-            </c:if><c:if test="${not manager.top}">
-                <i class="fa fa-ban text-muted"></i>
-            </c:if>
+                <i class="fa fa-check text-primary" v-if="manager.top"></i>
+                <i class="fa fa-ban text-muted" v-else></i>
             </p>
         </div>
     </div>
@@ -36,7 +33,8 @@
     <div class="form-group row">
         <label for="fullName" class="col-sm-4 col-form-label">姓名</label>
         <div class="col-sm-7">
-            <input type="text" class="form-control" id="fullName" name="fullName" value="${manager.fullName}">
+            <input type="text" class="form-control" id="fullName" name="fullName"
+                    v-model="manager.fullName">
         </div>
     </div>
 </form>
