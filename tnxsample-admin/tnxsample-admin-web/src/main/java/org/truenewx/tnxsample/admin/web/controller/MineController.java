@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
@@ -29,6 +30,7 @@ public class MineController {
     @GetMapping("/info/detail")
     @ResponseBody
     @ConfigAuthority
+    @ResultFilter(included = { "username", "top", "headImageUrl", "fullName" })
     public Manager infoDetail() {
         return ProjectWebUtil.getManager();
     }

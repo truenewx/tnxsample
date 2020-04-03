@@ -12,7 +12,7 @@
     <div class="form-group row">
         <label class="col-sm-4 col-form-label">用户名</label>
         <div class="col-sm-8">
-            <p class="form-control-plaintext">{{ manager.username }}</p>
+            <p class="form-control-plaintext" v-text="manager.username"></p>
         </div>
     </div>
     <div class="form-group row">
