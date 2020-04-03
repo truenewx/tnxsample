@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.controller;
+package org.truenewx.tnxsample.admin.web.router;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +10,7 @@ import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
  * 页面头部
  */
 @Controller
-public class HeaderController {
+public class HeaderRouter {
 
     @RequestMapping("/header")
     @ConfigAnonymous

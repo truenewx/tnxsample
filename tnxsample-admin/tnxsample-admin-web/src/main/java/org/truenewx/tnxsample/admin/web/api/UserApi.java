@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.controller;
+package org.truenewx.tnxsample.admin.web.api;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +15,7 @@ import org.truenewx.tnxsample.facade.model.entity.User;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserApi {
 
     @GetMapping("/list")
     @ConfigAuthority(permission = "USER_LIST")

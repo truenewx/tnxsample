@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.controller;
+package org.truenewx.tnxsample.admin.web.router;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +11,7 @@ import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
  * @author jianglei
  */
 @Controller
-public class IndexController {
+public class IndexRouter {
 
     @RequestMapping("/")
     @ConfigAuthority

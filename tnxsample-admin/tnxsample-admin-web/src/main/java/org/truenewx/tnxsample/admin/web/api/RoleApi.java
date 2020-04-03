@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.controller;
+package org.truenewx.tnxsample.admin.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +13,7 @@ import org.truenewx.tnxsample.admin.service.RoleService;
 import java.util.Collection;
 
 @RestController
-public class RoleController {
+public class RoleApi {
     @Autowired
     private RoleService roleService;
 

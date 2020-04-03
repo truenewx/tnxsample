@@ -1,9 +1,8 @@
-package org.truenewx.tnxsample.admin.web.controller;
+package org.truenewx.tnxsample.admin.web.api;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
@@ -15,30 +14,23 @@ import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
 import javax.validation.Valid;
 
 @Api("个人管理")
-@Controller
-@RequestMapping("/mine")
-public class MineController {
+@RestController
+@RequestMapping("/api/mine")
+public class MineApi {
     @Autowired
     private ManagerService managerService;
 
+    @ApiOperation("获取个人信息")
     @GetMapping("/info")
     @ConfigAuthority
-    public String toUpdateInfo() {
-        return "/mine/info";
-    }
-
-    @GetMapping("/info/detail")
-    @ResponseBody
-    @ConfigAuthority
     @ResultFilter(included = { "username", "top", "headImageUrl", "fullName" })
-    public Manager infoDetail() {
+    public Manager info() {
         return ProjectWebUtil.getManager();
     }
 
     @ApiOperation("修改个人信息")
     @PostMapping("/info")
     @ConfigAuthority
-    @ResponseBody
     public void updateInfo(@Valid @RequestBody CommandManagerSelf command) {
         int managerId = ProjectWebUtil.getManagerId();
         this.managerService.updateSelf(managerId, command);

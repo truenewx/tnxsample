@@ -6,9 +6,9 @@ define(["app"], function(app) {
             data: {
                 manager: {},
             },
-            beforeCreate: function() {
+            created: function() {
                 var _this = this;
-                app.rpc.get("/mine/info/detail", function(manager) {
+                app.rpc.get("/api/mine/info", function(manager) {
                     _this.manager = manager;
                 });
             },

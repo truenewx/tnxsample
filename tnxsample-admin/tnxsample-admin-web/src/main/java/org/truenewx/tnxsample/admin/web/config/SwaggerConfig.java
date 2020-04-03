@@ -25,7 +25,7 @@ public class SwaggerConfig {
                 .groupName("admin")
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("org.truenewx.tnxsample.admin.web.controller"))
+                .apis(RequestHandlerSelectors.basePackage("org.truenewx.tnxsample.admin.web.api"))
                 .paths(PathSelectors.any())
                 .build();
     }
