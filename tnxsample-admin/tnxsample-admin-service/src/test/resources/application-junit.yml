@@ -9,6 +9,7 @@ tnxjeex:
       local-root: E:\kit\fss\sample
 spring:
   jpa:
+    mapping-resources: /META-INF/jpa/*.xml
     database: H2
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true

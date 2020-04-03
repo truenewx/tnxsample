@@ -8,6 +8,7 @@ spring:
   profiles:
     active: local
   jpa:
+    mapping-resources: META-INF/jpa/*.xml
     open-in-view: true
   servlet:
     multipart:
