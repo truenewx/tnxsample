@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.admin.web.router;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 
 /**
@@ -15,17 +14,14 @@ public class IndexRouter {
 
     @RequestMapping("/")
     @ConfigAuthority
-    public ModelAndView root() {
+    public String root() {
         return index();
     }
 
     @RequestMapping("/index")
     @ConfigAuthority
-    public ModelAndView index() {
-        ModelAndView mav = new ModelAndView("/index");
-        mav.addObject("amount", 123.45);
-        mav.addObject("mobilePhone", "13812345678");
-        return mav;
+    public String index() {
+        return "/index";
     }
 
 }
