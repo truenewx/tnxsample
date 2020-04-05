@@ -8,9 +8,9 @@ define([], function() {
             methods: {
                 toUpdateInfo: function() {
                     var url = app.context + "/mine/info.win";
-                    app.open(url, function(yes) {
+                    tnx.open(url, function(yes) {
                         if (yes) {
-                            
+
                         }
                     }, {
                         width: "sm"

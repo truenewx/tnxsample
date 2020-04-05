@@ -7,11 +7,11 @@ define(["app"], function(app) {
                 manager: {},
             },
             created: function() {
-                app.showLoading();
+                tnx.showLoading();
                 var _this = this;
                 app.rpc.get("/api/mine/info", function(manager) {
                     _this.manager = manager;
-                    app.hideLoading();
+                    tnx.hideLoading();
                 });
             },
             methods: {}
