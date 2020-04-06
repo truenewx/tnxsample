@@ -5,6 +5,7 @@ define(["app"], function(app) {
             el: container,
             data: {
                 manager: {},
+                meta: {},
             },
             created: function() {
                 tnx.showLoading();
@@ -12,6 +13,9 @@ define(["app"], function(app) {
                 app.rpc.get("/api/mine/info", function(manager) {
                     _this.manager = manager;
                     tnx.hideLoading();
+                });
+                app.rpc.getMeta("/api/mine/info", function(meta) {
+                    _this.meta = meta;
                 });
             },
             methods: {}
