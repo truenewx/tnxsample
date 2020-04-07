@@ -2,6 +2,7 @@ package org.truenewx.tnxsample.admin.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxsample.admin.AdminApp;
 
@@ -10,6 +11,7 @@ import org.truenewx.tnxsample.admin.AdminApp;
  *
  * @author jianglei
  */
+@EnableCaching
 @SpringBootApplication(scanBasePackageClasses = { Framework.class, AdminApp.class })
 public class AdminWebApplication {
 
