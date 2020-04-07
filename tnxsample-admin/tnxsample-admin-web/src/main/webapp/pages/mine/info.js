@@ -10,11 +10,11 @@ define(["app"], function(app) {
             created: function() {
                 tnx.showLoading();
                 var _this = this;
-                app.rpc.get("/api/mine/info", function(manager) {
+                app.rpc.get("/api/self/mine/info", function(manager) {
                     _this.manager = manager;
                     tnx.hideLoading();
                 });
-                app.rpc.getMeta("/api/mine/info", function(meta) {
+                app.rpc.getMeta("/api/self/mine/info", function(meta) {
                     _this.meta = meta;
                 });
             },

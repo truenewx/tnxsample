@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.api;
+package org.truenewx.tnxsample.admin.web.api.self;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.api;
+package org.truenewx.tnxsample.admin.web.api.self;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 
 @Api("个人管理")
 @RestController
-@RequestMapping("/api/mine")
+@RequestMapping("/api/self/mine")
 public class MineApi {
     @Autowired
     private ManagerService managerService;

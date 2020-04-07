@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.api;
+package org.truenewx.tnxsample.admin.web.api.self;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
