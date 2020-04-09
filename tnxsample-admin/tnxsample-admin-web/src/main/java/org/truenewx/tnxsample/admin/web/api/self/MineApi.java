@@ -32,8 +32,10 @@ public class MineApi {
     @PostMapping("/info")
     @ConfigAuthority
     public void updateInfo(@Valid @RequestBody CommandManagerSelf command) {
-        int managerId = ProjectWebUtil.getManagerId();
-        this.managerService.updateSelf(managerId, command);
+        Manager manager = ProjectWebUtil.getManager();
+        Manager entity = this.managerService.updateSelf(manager.getId(), command);
+        manager.setHeadImageUrl(entity.getHeadImageUrl());
+        manager.setFullName(entity.getFullName());
     }
 
 }

@@ -7,14 +7,7 @@ define([], function() {
             data: {},
             methods: {
                 toUpdateInfo: function() {
-                    var url = app.context + "/mine/info.win";
-                    tnx.open(url, function(yes) {
-                        if (yes) {
-
-                        }
-                    }, {
-                        width: "sm"
-                    });
+                    tnx.open(app.context + "/mine/info.win");
                 }
             }
         });

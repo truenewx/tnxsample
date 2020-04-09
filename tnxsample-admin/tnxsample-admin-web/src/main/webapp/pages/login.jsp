@@ -9,7 +9,7 @@
 </head>
 
 <body css="true" js="true">
-<div class="offset-5 col-md-2">
+<div class="offset-5 col-2">
     <div class="h2 text-center py-5">登录</div>
     <tv-div class="alert alert-danger" mode="d" :class="{'d-none': <tnxjee:noerror/>}">
         <tnxjee:errors/>

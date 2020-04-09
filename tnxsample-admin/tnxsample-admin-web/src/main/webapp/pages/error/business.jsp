@@ -9,7 +9,7 @@
 </head>
 
 <body>
-<div class="offset-5 col-md-2 pt-5">
+<div class="offset-5 col-2 pt-5">
     <div class="alert alert-danger">
         <table>
             <tr>

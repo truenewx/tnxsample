@@ -4,5 +4,4 @@
 <link href="${tnxweb}/core/vendor/font-awesome-5.13.0/css/all${resourceMin}.css" rel="stylesheet">
 <link href="${tnxweb}/bs/tnx/css/tnxbs.css" rel="stylesheet">
 <link href="${tnxweb}/vue/tnx/css/tnxvue.css" rel="stylesheet">
-<link href="${context}/assets/css/theme.css?v=${version}" rel="stylesheet">
 <link href="${context}/assets/css/app.css?v=${version}" rel="stylesheet">
