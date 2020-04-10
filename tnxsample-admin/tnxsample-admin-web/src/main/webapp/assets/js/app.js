@@ -8,7 +8,7 @@ require.config({
 });
 
 define(["tnxbs", "tnxvue", "header"], function(tnxbs, tnxvue, header) {
-    var tnx = Object.assign({}, tnxbs, tnxvue);
+    tnx = Object.assign({}, tnxbs, tnxvue);
     header(tnx.app);
     return tnx.app;
 });
