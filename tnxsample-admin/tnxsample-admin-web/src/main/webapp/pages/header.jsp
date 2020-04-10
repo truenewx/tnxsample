@@ -14,7 +14,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="managerDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${manager.fullName}</a>
                     <div class="dropdown-menu" aria-labelledby="managerDropdown">
-                        <a class="dropdown-item" href="javascript:void(0);" v-on:click="toUpdateInfo">个人资料</a>
+                        <a class="dropdown-item" href="javascript:void(0);" @click="toUpdateInfo">个人资料</a>
                         <a class="dropdown-item" href="javascript:void(0);">修改密码</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="${context}/logout">登出</a>
