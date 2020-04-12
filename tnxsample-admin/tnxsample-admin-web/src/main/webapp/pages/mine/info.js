@@ -18,8 +18,11 @@ define(["app", "validator"], function(app) {
                 });
                 app.rpc.getMeta(this.url, function(meta) {
                     _this.meta = meta;
-                    _this.errors = _this.createValidator();
                 });
+                this.errors = this.createValidator();
+            },
+            destroyed: function() {
+                debugger
             },
             methods: {
                 submit: function() {

@@ -34,8 +34,8 @@
             <input type="text" class="form-control" id="fullName" name="fullName"
                 v-model.trim="model.fullName" @blur="$v.validate($event)">
         </div>
-        <div class="col-5" :class="{'is-invalid': errors.fullName}">
-            <div class="invalid-feedback" v-if="errors.fullName">{{errors.fullName.join(";")}}</div>
+        <div class="col-5 is-invalid" v-if="errors.fullName">
+            <div class="invalid-feedback">{{errors.fullName.join(";")}}</div>
         </div>
     </div>
     <div class="form-group row mb-0">

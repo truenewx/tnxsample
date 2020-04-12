@@ -10,8 +10,7 @@
     <sitemesh:write property="head"/>
 </head>
 
-<body component="<sitemesh:write property='body.component'/>"
-        css="<sitemesh:write property='body.css'/>"
+<body css="<sitemesh:write property='body.css'/>"
         js="<sitemesh:write property='body.js'/>">
 <jsp:include page="/header"/>
 <div class="container-full">
