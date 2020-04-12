@@ -1,18 +1,13 @@
 // mine/info.js
-define(["app"], function(app) {
+define(["app", "validator"], function(app) {
     return function(container) {
         new Vue({
             el: container,
             data: {
                 url: "/api/self/mine/info",
                 model: {},
-            },
-            validations: {
-                model: {
-                    fullName: {
-                        required: required()
-                    }
-                }
+                meta: {},
+                errors: {},
             },
             created: function() {
                 tnx.showLoading();
@@ -22,18 +17,21 @@ define(["app"], function(app) {
                     tnx.hideLoading();
                 });
                 app.rpc.getMeta(this.url, function(meta) {
-                    $.extend(_this.$v.model, Vuelidate.transfer(meta));
+                    _this.meta = meta;
+                    _this.errors = _this.createValidator();
                 });
             },
             methods: {
                 submit: function() {
-                    var _this = this;
-                    app.rpc.post(this.url, this.model, function() {
-                        $("#managerDropdown").text(_this.model.fullName);
-                        tnx.toast("保存成功", function() {
-                            container.close();
+                    if (this.$v.validateModel()) {
+                        var _this = this;
+                        app.rpc.post(this.url, this.model, function() {
+                            $("#managerDropdown").text(_this.model.fullName);
+                            tnx.toast("保存成功", 1000, function() {
+                                container.close();
+                            });
                         });
-                    });
+                    }
                 },
                 cancel: function() {
                     container.close();

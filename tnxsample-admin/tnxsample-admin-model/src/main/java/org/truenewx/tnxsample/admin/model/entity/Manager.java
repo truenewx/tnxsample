@@ -42,7 +42,7 @@ public class Manager
     @Caption("密码")
     private String password;
 
-    @Caption("头像URL")
+    @Caption("头像")
     private String headImageUrl;
 
     @Caption("姓名")

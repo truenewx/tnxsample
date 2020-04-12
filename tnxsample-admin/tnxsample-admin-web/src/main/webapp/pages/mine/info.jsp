@@ -7,7 +7,7 @@
 </head>
 
 <body js="true">
-<form @submit.prevent="submit">
+<form @submit.prevent="submit" novalidate>
     <div class="form-group row">
         <label class="col-3 col-form-label">用户名</label>
         <div class="col-9">
@@ -32,7 +32,10 @@
         <label for="fullName" class="col-3 col-form-label">姓名</label>
         <div class="col-4">
             <input type="text" class="form-control" id="fullName" name="fullName"
-                v-model.trim="model.fullName" @blur="$v.model.fullName.$touch()">
+                v-model.trim="model.fullName" @blur="$v.validate($event)">
+        </div>
+        <div class="col-5" :class="{'is-invalid': errors.fullName}">
+            <div class="invalid-feedback" v-if="errors.fullName">{{errors.fullName.join(";")}}</div>
         </div>
     </div>
     <div class="form-group row mb-0">
