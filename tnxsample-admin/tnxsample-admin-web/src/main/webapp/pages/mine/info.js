@@ -7,7 +7,7 @@ define(["app", "validator"], function(app) {
                 url: "/api/self/mine/info",
                 model: {},
                 meta: {},
-                errors: {},
+                vr: {},
             },
             created: function() {
                 tnx.showLoading();
@@ -19,7 +19,7 @@ define(["app", "validator"], function(app) {
                 app.rpc.getMeta(this.url, function(meta) {
                     _this.meta = meta;
                 });
-                this.errors = this.createValidator();
+                this.vr = this.createValidator();
             },
             destroyed: function() {
                 debugger
