@@ -7,7 +7,9 @@ define(["app", "validator"], function(app) {
                 url: "/api/self/mine/info",
                 model: {},
                 meta: {},
-                vr: {},
+                validator: {},
+                valid: {},
+                invalid: {},
             },
             created: function() {
                 tnx.showLoading();
@@ -18,18 +20,20 @@ define(["app", "validator"], function(app) {
                 });
                 app.rpc.getMeta(this.url, function(meta) {
                     _this.meta = meta;
-                    _this.vr = _this.createValidator(_this.meta, true);
                 });
+                this.validator = this.createValidator();
             },
             methods: {
                 submit: function() {
-                    var _this = this;
-                    app.rpc.post(this.url, this.model, function() {
-                        $("#managerDropdown").text(_this.model.fullName);
-                        tnx.toast("保存成功", 1000, function() {
-                            container.close();
+                    if (this.validator.validate()) {
+                        var _this = this;
+                        app.rpc.post(this.url, this.model, function() {
+                            $("#managerDropdown").text(_this.model.fullName);
+                            tnx.toast("保存成功", 1000, function() {
+                                container.close();
+                            });
                         });
-                    });
+                    }
                 },
                 cancel: function() {
                     container.close();
