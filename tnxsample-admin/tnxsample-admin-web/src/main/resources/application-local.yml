@@ -32,7 +32,3 @@ tnxjeex:
   fss:
     accessor:
       local-root: E:\kit\fss\sample
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8880/eureka
