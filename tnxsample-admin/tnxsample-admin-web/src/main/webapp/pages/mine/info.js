@@ -7,9 +7,7 @@ define(["app", "validator"], function(app) {
                 url: "/api/self/mine/info",
                 model: {},
                 meta: {},
-                validator: {},
-                valid: {},
-                invalid: {},
+                v: {},
             },
             created: function() {
                 tnx.showLoading();
@@ -21,11 +19,11 @@ define(["app", "validator"], function(app) {
                 app.rpc.getMeta(this.url, function(meta) {
                     _this.meta = meta;
                 });
-                this.validator = this.createValidator();
+                this.v = this.createValidator();
             },
             methods: {
                 submit: function() {
-                    if (this.validator.validate()) {
+                    if (this.v.validate()) {
                         var _this = this;
                         app.rpc.post(this.url, this.model, function() {
                             $("#managerDropdown").text(_this.model.fullName);

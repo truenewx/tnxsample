@@ -32,11 +32,11 @@
         <label for="fullName" class="col-3 col-form-label">姓名</label>
         <div class="col-4">
             <input type="text" class="form-control" id="fullName" name="fullName"
-                :class="{'is-valid': valid.fullName, 'is-invalid': invalid.fullName}"
-                v-model.trim="model.fullName" @blur="validator.validate($event)">
+                :class="{'is-valid': v.valid.fullName, 'is-invalid': v.invalid.fullName}"
+                v-model.trim="model.fullName" @blur="v.validate($event)">
         </div>
-        <div class="col-5 is-invalid" v-if="invalid.fullName">
-            <div class="invalid-feedback">{{invalid.fullName.join(";")}}</div>
+        <div class="col-5 is-invalid" v-if="v.invalid.fullName">
+            <div class="invalid-feedback">{{v.invalid.fullName.join(";")}}</div>
         </div>
     </div>
     <div class="form-group row mb-0">
