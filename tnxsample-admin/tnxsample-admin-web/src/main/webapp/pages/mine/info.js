@@ -18,23 +18,18 @@ define(["app", "validator"], function(app) {
                 });
                 app.rpc.getMeta(this.url, function(meta) {
                     _this.meta = meta;
+                    _this.vr = _this.createValidator(_this.meta, true);
                 });
-                this.vr = this.createValidator();
-            },
-            destroyed: function() {
-                debugger
             },
             methods: {
                 submit: function() {
-                    if (this.$v.validateModel()) {
-                        var _this = this;
-                        app.rpc.post(this.url, this.model, function() {
-                            $("#managerDropdown").text(_this.model.fullName);
-                            tnx.toast("保存成功", 1000, function() {
-                                container.close();
-                            });
+                    var _this = this;
+                    app.rpc.post(this.url, this.model, function() {
+                        $("#managerDropdown").text(_this.model.fullName);
+                        tnx.toast("保存成功", 1000, function() {
+                            container.close();
                         });
-                    }
+                    });
                 },
                 cancel: function() {
                     container.close();

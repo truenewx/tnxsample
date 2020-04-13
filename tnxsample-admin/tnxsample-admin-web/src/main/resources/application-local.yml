@@ -1,7 +1,6 @@
 logging:
   config: classpath:log/logback-local.xml
 server:
-  host: localhost
   servlet:
     jsp:
       init-parameters:
@@ -15,12 +14,12 @@ spring:
       ddl-auto: validate
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${server.host}:3306/sample_admin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/sample_admin?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
     username: data
     password: datapwd
   data:
     mongodb:
-      uri: mongodb://data:datapwd@${server.host}:27017/sample_log
+      uri: mongodb://data:datapwd@localhost:27017/sample_log
 tnxjee:
   profile:
     formal: false
@@ -28,8 +27,12 @@ tnxjee:
     servlet:
       context:
         attributes:
-          tnxweb: //${server.host}/tnxweb
+          tnxweb: //localhost/tnxweb
 tnxjeex:
   fss:
     accessor:
       local-root: E:\kit\fss\sample
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8880/eureka

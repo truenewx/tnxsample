@@ -33,7 +33,7 @@
         <div class="col-4">
             <input type="text" class="form-control" id="fullName" name="fullName"
                 :class="{'is-valid': vr.valid.fullName, 'is-invalid': vr.invalid.fullName}"
-                v-model.trim="model.fullName" @blur="$v.validate($event)">
+                v-model.trim="model.fullName">
         </div>
         <div class="col-5 is-invalid" v-if="vr.invalid.fullName">
             <div class="invalid-feedback">{{vr.invalid.fullName.join(";")}}</div>
