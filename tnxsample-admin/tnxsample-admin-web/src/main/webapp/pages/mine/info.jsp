@@ -29,7 +29,8 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="fullName" class="col-3 col-form-label">姓名</label>
+        <label for="fullName" class="col-3 col-form-label"
+            :class="{required: v.required.fullName}">姓名</label>
         <div class="col-4">
             <input type="text" class="form-control" id="fullName" name="fullName"
                 :class="{'is-valid': v.valid.fullName, 'is-invalid': v.invalid.fullName}"

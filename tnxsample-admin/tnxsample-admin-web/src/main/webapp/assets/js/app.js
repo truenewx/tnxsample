@@ -1,9 +1,9 @@
 // app.js
 require.config({
     paths: {
+        "validator": app_config.lib + "/core/tnx/js/tnx-validator",
         "tnxbs": app_config.lib + "/bs/tnx/js/tnxbs",
         "tnxvue": app_config.lib + "/vue/tnx/js/tnxvue",
-        "validator": app_config.lib + "/vue/tnx/js/tnxvue-validator",
         "header": app_config.path + "/pages/header"
     }
 });

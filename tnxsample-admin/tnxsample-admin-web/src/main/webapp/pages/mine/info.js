@@ -1,25 +1,24 @@
 // mine/info.js
-define(["app", "validator"], function(app) {
+define(["app", "validator"], function(app, Validator) {
     return function(container) {
         new Vue({
             el: container,
             data: {
                 url: "/api/self/mine/info",
                 model: {},
-                meta: {},
-                v: {},
+                v: new Validator(),
             },
             created: function() {
                 tnx.showLoading();
                 var _this = this;
                 app.rpc.get(this.url, function(model) {
                     _this.model = model;
+                    _this.v.setModel(model);
                     tnx.hideLoading();
                 });
                 app.rpc.getMeta(this.url, function(meta) {
-                    _this.meta = meta;
+                    _this.v.setMeta(meta);
                 });
-                this.v = this.createValidator();
             },
             methods: {
                 submit: function() {
