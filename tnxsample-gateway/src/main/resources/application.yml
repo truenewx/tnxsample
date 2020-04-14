@@ -3,7 +3,5 @@ server:
 spring:
   application:
     name: gateway
-zuul:
-  routes:
-    ms-admin: /admin/**
-    ms-facade: /facade/**
+  profiles:
+    active: local
