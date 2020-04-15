@@ -19,7 +19,13 @@ spring:
     password: datapwd
   data:
     mongodb:
-      uri: mongodb://data:datapwd@localhost:27017/sample_log
+      host: localhost
+      port: 27017
+      database: tnxsample
+      username: data
+      password: datapwd
+  session:
+    store-type: mongodb
 tnxjee:
   profile:
     formal: false
