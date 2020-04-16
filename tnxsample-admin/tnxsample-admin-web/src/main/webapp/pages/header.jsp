@@ -12,7 +12,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="managerDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${manager.fullName}</a>
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${manager.caption}</a>
                     <div class="dropdown-menu" aria-labelledby="managerDropdown">
                         <a class="dropdown-item" href="javascript:void(0);" @click="toUpdateInfo">个人资料</a>
                         <a class="dropdown-item" href="javascript:void(0);">修改密码</a>

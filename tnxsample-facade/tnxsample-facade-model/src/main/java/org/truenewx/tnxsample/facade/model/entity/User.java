@@ -1,22 +1,21 @@
 package org.truenewx.tnxsample.facade.model.entity;
 
-import java.time.Instant;
-import java.util.Collection;
-
-import javax.validation.constraints.NotBlank;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
+import org.truenewx.tnxjee.model.spec.user.UserSpecific;
+import org.truenewx.tnxjee.model.spec.user.security.SimpleUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotBlank;
+import java.time.Instant;
+import java.util.Collection;
 
 /**
  * 用户
@@ -26,7 +25,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Caption("用户")
-public class User implements Unity<Integer>, UserSpecificDetails<TypedUserIdentity> {
+public class User implements Unity<Integer>, UserSpecific<TypedUserIdentity> {
 
     private static final long serialVersionUID = -2252729000555360355L;
 
@@ -61,31 +60,34 @@ public class User implements Unity<Integer>, UserSpecificDetails<TypedUserIdenti
     }
 
     @Override
+    @JsonIgnore
     public String getUsername() {
         return getMobilePhone();
     }
 
     @Override
+    @JsonIgnore
     public String getCaption() {
         return getNickname();
     }
 
-    @Override
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
     }
 
-    @Override
-    public User cloneForSession() {
-        User user = new User();
-        user.setId(getId());
-        user.setMobilePhone(getMobilePhone());
-        user.setPassword(getPassword());
-        user.setNickname(getNickname());
-        user.setGender(getGender());
-        user.setDisabled(isDisabled());
-        user.setCreateTime(getCreateTime());
-        return user;
+    @JsonIgnore
+    public UserSpecificDetails<TypedUserIdentity> getSpecificDetails() {
+        SimpleUserSpecificDetails<TypedUserIdentity> details = new SimpleUserSpecificDetails<>();
+        details.setIdentity(getIdentity());
+        details.setUsername(getUsername());
+        details.setCaption(getCaption());
+        details.setAuthorities(getAuthorities());
+        details.setEnabled(!isDisabled());
+        details.setAccountNonExpired(details.isEnabled());
+        details.setAccountNonLocked(details.isEnabled());
+        details.setCredentialsNonExpired(details.isEnabled());
+        return details;
     }
+
 }

@@ -25,17 +25,16 @@ public class MineApi {
     @ConfigAuthority
     @ResultFilter(included = { "username", "top", "headImageUrl", "fullName" })
     public Manager info() {
-        return ProjectWebUtil.getManager();
+        int managerId = ProjectWebUtil.getManagerId();
+        return this.managerService.load(managerId);
     }
 
     @ApiOperation("修改个人信息")
     @PostMapping("/info")
     @ConfigAuthority
     public void updateInfo(@Valid @RequestBody CommandManagerSelf command) {
-        Manager manager = ProjectWebUtil.getManager();
-        Manager entity = this.managerService.updateSelf(manager.getId(), command);
-        manager.setHeadImageUrl(entity.getHeadImageUrl());
-        manager.setFullName(entity.getFullName());
+        int managerId = ProjectWebUtil.getManagerId();
+        Manager entity = this.managerService.updateSelf(managerId, command);
     }
 
 }

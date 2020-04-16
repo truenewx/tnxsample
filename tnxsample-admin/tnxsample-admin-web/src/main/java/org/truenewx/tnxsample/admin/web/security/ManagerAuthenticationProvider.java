@@ -26,12 +26,13 @@ public class ManagerAuthenticationProvider implements AuthenticationProvider {
     }
 
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+    public Authentication authenticate(Authentication authentication)
+            throws AuthenticationException {
         String username = (String) authentication.getPrincipal();
         String md5Password = (String) authentication.getCredentials();
         try {
             Manager manager = this.managerService.validateLogin(username, md5Password);
-            return new UserSpecificDetailsAuthenticationToken(manager);
+            return new UserSpecificDetailsAuthenticationToken(manager.getSpecificDetails());
         } catch (BusinessException e) {
             throw new BadCredentialsException(e.getLocalizedMessage(), e);
         }

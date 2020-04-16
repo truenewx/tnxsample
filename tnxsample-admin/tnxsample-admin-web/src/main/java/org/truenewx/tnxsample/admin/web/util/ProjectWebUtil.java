@@ -1,7 +1,8 @@
 package org.truenewx.tnxsample.admin.web.util;
 
+import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.web.security.util.SecurityUtil;
-import org.truenewx.tnxsample.admin.model.entity.Manager;
+import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 
 /**
  * WEB工程级工具集
@@ -11,13 +12,13 @@ public class ProjectWebUtil {
     private ProjectWebUtil() {
     }
 
-    public static Manager getManager() {
-        return SecurityUtil.getAuthorizedUser();
+    public static UserSpecificDetails<TypedUserIdentity> getManagerDetails() {
+        return SecurityUtil.getAuthorizedUserDetails();
     }
 
     public static Integer getManagerId() {
-        Manager manager = getManager();
-        return manager == null ? null : manager.getId();
+        UserSpecificDetails<TypedUserIdentity> details = getManagerDetails();
+        return details == null ? null : details.getIdentity().getId();
     }
 
 }

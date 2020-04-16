@@ -16,7 +16,7 @@ public class HeaderRouter {
     @ConfigAnonymous
     public ModelAndView execute() {
         ModelAndView mav = new ModelAndView("/header");
-        mav.addObject("manager", ProjectWebUtil.getManager());
+        mav.addObject("manager", ProjectWebUtil.getManagerDetails());
         return mav;
     }
 
