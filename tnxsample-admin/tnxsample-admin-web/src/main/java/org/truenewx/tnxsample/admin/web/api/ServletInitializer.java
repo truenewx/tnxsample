@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web;
+package org.truenewx.tnxsample.admin.web.api;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

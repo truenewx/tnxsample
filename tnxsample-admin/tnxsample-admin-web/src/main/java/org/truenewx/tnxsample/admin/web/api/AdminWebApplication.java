@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web;
+package org.truenewx.tnxsample.admin.web.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.security;
+package org.truenewx.tnxsample.admin.web.api.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -7,6 +7,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
+import org.truenewx.tnxjee.core.util.EncryptUtil;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.web.security.authentication.UserSpecificDetailsAuthenticationToken;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
@@ -29,9 +30,12 @@ public class ManagerAuthenticationProvider implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {
         String username = (String) authentication.getPrincipal();
-        String md5Password = (String) authentication.getCredentials();
+        String password = (String) authentication.getCredentials();
+        if (password != null && password.length() < 32) { // 长度小于32位的密码为原文
+            password = EncryptUtil.encryptByMd5(password);
+        }
         try {
-            Manager manager = this.managerService.validateLogin(username, md5Password);
+            Manager manager = this.managerService.validateLogin(username, password);
             return new UserSpecificDetailsAuthenticationToken(manager.getSpecificDetails());
         } catch (BusinessException e) {
             throw new BadCredentialsException(e.getLocalizedMessage(), e);

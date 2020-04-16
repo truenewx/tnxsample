@@ -1,10 +1,5 @@
 logging:
   config: classpath:log/logback-local.xml
-server:
-  servlet:
-    jsp:
-      init-parameters:
-        development: true
 spring:
   jpa:
     database: MYSQL
@@ -29,11 +24,6 @@ spring:
 tnxjee:
   profile:
     formal: false
-  web:
-    servlet:
-      context:
-        attributes:
-          tnxweb: //localhost/tnxweb
 tnxjeex:
   fss:
     accessor:

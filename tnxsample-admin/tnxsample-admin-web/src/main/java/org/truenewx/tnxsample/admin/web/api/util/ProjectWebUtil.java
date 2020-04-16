@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.util;
+package org.truenewx.tnxsample.admin.web.api.util;
 
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.web.security.util.SecurityUtil;
