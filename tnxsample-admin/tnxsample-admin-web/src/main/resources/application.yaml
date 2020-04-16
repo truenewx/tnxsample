@@ -5,6 +5,5 @@ spring:
     name: ms-admin-api
   profiles:
     active: local
-  jpa:
-    mapping-resources: META-INF/jpa/*.xml
-    open-in-view: true
+  session:
+    store-type: mongodb
