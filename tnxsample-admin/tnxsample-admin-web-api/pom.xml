@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>org.truenewx.tnxsample.admin</groupId>
-    <artifactId>tnxsample-admin-web</artifactId>
+    <artifactId>tnxsample-admin-web-api</artifactId>
     <packaging>war</packaging>
     <dependencies>
         <dependency>
