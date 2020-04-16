@@ -1,10 +1,8 @@
 package org.truenewx.tnxsample.facade.model.entity;
 
-import java.time.Instant;
-import java.util.Collection;
-
-import javax.validation.constraints.NotBlank;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
@@ -15,20 +13,19 @@ import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotBlank;
+import java.time.Instant;
+import java.util.Collection;
 
 /**
- * 用户
+ * 客户
  *
  * @author jianglei
  */
 @Getter
 @Setter
-@Caption("用户")
-public class User implements Unity<Integer>, UserSpecific<TypedUserIdentity> {
+@Caption("客户")
+public class Customer implements Unity<Integer>, UserSpecific<TypedUserIdentity> {
 
     private Integer id;
     @NotBlank
@@ -51,7 +48,7 @@ public class User implements Unity<Integer>, UserSpecific<TypedUserIdentity> {
     }
 
     public UserType getType() {
-        return UserType.GENERAL;
+        return UserType.CUSTOMER;
     }
 
     @Override

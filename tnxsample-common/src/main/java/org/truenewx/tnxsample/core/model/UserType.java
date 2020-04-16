@@ -9,10 +9,10 @@ import org.truenewx.tnxjee.core.caption.Caption;
  */
 public enum UserType {
 
-    @Caption("普通用户")
-    GENERAL,
+    @Caption("客户")
+    CUSTOMER,
 
     @Caption("管理员")
-    MANAGER;
+    MANAGER
 
 }

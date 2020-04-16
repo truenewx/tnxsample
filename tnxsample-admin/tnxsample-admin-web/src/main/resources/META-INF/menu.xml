@@ -3,12 +3,12 @@
 
     <link caption="系统管理" icon="fa-cogs">
         <link caption="角色管理" href="/role/list" icon="fa-users" assignable="false"/>
-        <link caption="管理员管理" href="/manager/list" icon="fa-user-secret" assignable="false"/>
+        <link caption="管理员管理" href="/manager/list" icon="fa-customer-secret" assignable="false"/>
         <link caption="操作日志" href="/log/action"/>
         <link caption="系统日志" href="/log/system"/>
     </link>
 
-    <link caption="用户管理" icon="user" href="/user/list" desc="查询用户清单">
+    <link caption="用户管理" icon="customer" href="/customer/list" desc="查询用户清单">
         <operation caption="查看用户详情" permission="USER_DETAIL"/>
         <operation caption="禁用/启用用户" permission="USER_DISABLE"/>
     </link>

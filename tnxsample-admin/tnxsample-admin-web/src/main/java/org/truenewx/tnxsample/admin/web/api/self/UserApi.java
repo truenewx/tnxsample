@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
-import org.truenewx.tnxsample.facade.model.entity.User;
+import org.truenewx.tnxsample.facade.model.entity.Customer;
 
 /**
  * 用户管理
@@ -39,7 +39,7 @@ public class UserApi {
 
     @PostMapping("/{id}/update")
     @ConfigAnonymous
-    public ModelAndView update(@PathVariable("id") int id, User user) {
+    public ModelAndView update(@PathVariable("id") int id, Customer customer) {
         ModelAndView mav = new ModelAndView("redirect:/user/list");
         return mav;
     }
