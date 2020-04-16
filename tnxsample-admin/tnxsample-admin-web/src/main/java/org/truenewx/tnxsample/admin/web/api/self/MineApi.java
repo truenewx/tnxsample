@@ -1,9 +1,13 @@
 package org.truenewx.tnxsample.admin.web.api.self;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
@@ -11,7 +15,8 @@ import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
 import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
 
-import javax.validation.Valid;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @Api("个人管理")
 @RestController
@@ -34,7 +39,7 @@ public class MineApi {
     @ConfigAuthority
     public void updateInfo(@Valid @RequestBody CommandManagerSelf command) {
         int managerId = ProjectWebUtil.getManagerId();
-        Manager entity = this.managerService.updateSelf(managerId, command);
+        this.managerService.updateSelf(managerId, command);
     }
 
 }

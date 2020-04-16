@@ -1,8 +1,10 @@
 package org.truenewx.tnxsample.facade.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import java.time.Instant;
+import java.util.Collection;
+
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
@@ -13,9 +15,10 @@ import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
 
-import javax.validation.constraints.NotBlank;
-import java.time.Instant;
-import java.util.Collection;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 用户
@@ -26,8 +29,6 @@ import java.util.Collection;
 @Setter
 @Caption("用户")
 public class User implements Unity<Integer>, UserSpecific<TypedUserIdentity> {
-
-    private static final long serialVersionUID = -2252729000555360355L;
 
     private Integer id;
     @NotBlank
