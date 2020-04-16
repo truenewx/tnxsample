@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.view;
+package org.truenewx.tnxsample.admin.web.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,13 +7,18 @@ import org.springframework.session.data.mongo.config.annotation.web.http.EnableM
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxsample.admin.AdminApp;
 
+/**
+ * 管理端Web应用
+ *
+ * @author jianglei
+ */
 @EnableCaching
 @EnableMongoHttpSession(maxInactiveIntervalInSeconds = 900, collectionName = "manager_session")
 @SpringBootApplication(scanBasePackageClasses = { Framework.class, AdminApp.class })
-public class AdminWebViewApplication {
+public class AdminWebApiApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminWebViewApplication.class, args);
+        SpringApplication.run(AdminWebApiApp.class, args);
     }
 
 }
