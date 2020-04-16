@@ -1,0 +1,12 @@
+server:
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+tnxjee:
+  web:
+    servlet:
+      context:
+        attributes:
+          tnxweb: //localhost/tnxweb
+          api_context: http://localhost:8887

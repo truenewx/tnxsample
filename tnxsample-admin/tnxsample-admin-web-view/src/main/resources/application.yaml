@@ -1,0 +1,23 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /admin
+spring:
+  application:
+    name: ms-admin-view
+  profiles:
+    active: local
+  servlet:
+    multipart:
+      maxFileSize: -1
+  mvc:
+    pathmatch:
+      use-suffix-pattern: true
+    view:
+      prefix: /pages/
+      suffix: .jsp
+    static-path-pattern: /assets/**,/third/**,/pages/**/*.css,/pages/**/*.js,/robots.txt
+  resources:
+    static-locations: /pages/
+  session:
+    store-type: mongodb
