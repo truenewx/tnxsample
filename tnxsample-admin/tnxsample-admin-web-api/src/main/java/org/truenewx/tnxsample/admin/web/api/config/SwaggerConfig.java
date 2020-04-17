@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.truenewx.tnxjee.core.version.VersionReader;
-
+import org.truenewx.tnxsample.admin.web.api.controller.IndexController;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -24,8 +24,7 @@ public class SwaggerConfig {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2).groupName("admin").apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors
-                        .basePackage("org.truenewx.tnxsample.admin.web.api.controller"))
+                .apis(RequestHandlerSelectors.basePackage(IndexController.class.getPackageName()))
                 .paths(PathSelectors.any()).build();
     }
 
