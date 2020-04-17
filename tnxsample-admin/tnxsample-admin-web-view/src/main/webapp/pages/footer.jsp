@@ -14,10 +14,6 @@
         path: "${context}",
         lib: "${tnxweb}",
         min: "${resourceMin}",
-        rpc_context: "${api_context}",
-        headers: {
-            "SESSION": "${pageContext.session.id}"
-        }
     };
 </script>
 <script src="${tnxweb}/core/vendor/require-2.3.6/require.min.js"
