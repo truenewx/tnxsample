@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.admin.web.api.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
 import org.springframework.session.web.http.DefaultCookieSerializer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -23,11 +22,10 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*")
+                .allowedOrigins("http://localhost:8888")
                 .allowedMethods("*")
                 .allowedHeaders("*")
-                .allowCredentials(true)
-                .exposedHeaders(HttpHeaders.SET_COOKIE);
+                .allowCredentials(true);
     }
 
     @Autowired
