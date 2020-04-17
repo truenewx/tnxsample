@@ -9,6 +9,10 @@ spring:
     store-type: mongodb
 tnxjee:
   web:
+    resource:
+      mapping:
+        "/swagger-ui.html": classpath:/META-INF/resources/
+        "/webjars/**": classpath:/META-INF/resources/webjars/
     cors:
       path-pattern: /**
       allow-credentials: true
