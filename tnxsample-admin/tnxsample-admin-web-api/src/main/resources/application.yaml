@@ -18,3 +18,5 @@ tnxjee:
       allow-credentials: true
       allowed-headers: "*"
       allowed-methods: "*"
+    security:
+      ignoring-patterns: /swagger-ui.html, /webjars/**, /v2/api-docs, /swagger-resources/**
