@@ -5,5 +5,8 @@ import org.truenewx.tnxjee.web.view.security.config.WebViewSecurityConfigurerSup
 
 @Configuration
 public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
-
+    @Override
+    protected boolean allowedCrossDomainRequest() {
+        return true;
+    }
 }

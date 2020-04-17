@@ -15,7 +15,9 @@
         lib: "${tnxweb}",
         min: "${resourceMin}",
         rpc_context: "${api_context}",
-        session_cookie: "SESSION=${pageContext.session.id}",
+        headers: {
+            "SESSION": "${pageContext.session.id}"
+        }
     };
 </script>
 <script src="${tnxweb}/core/vendor/require-2.3.6/require.min.js"

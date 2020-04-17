@@ -1,8 +1,6 @@
 package org.truenewx.tnxsample.admin.web.api.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.session.web.http.DefaultCookieSerializer;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.truenewx.tnxjee.web.config.WebMvcConfigurationSupport;
@@ -26,12 +24,6 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
                 .allowedMethods("*")
                 .allowedHeaders("*")
                 .allowCredentials(true);
-    }
-
-    @Autowired
-    public void setDefaultCookieSerializer(DefaultCookieSerializer cookieSerializer) {
-        cookieSerializer.setUseBase64Encoding(false);
-        cookieSerializer.setUseHttpOnlyCookie(false);
     }
 
 }
