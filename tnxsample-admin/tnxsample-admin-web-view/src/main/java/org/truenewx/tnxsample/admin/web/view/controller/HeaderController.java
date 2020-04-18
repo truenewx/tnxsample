@@ -20,8 +20,10 @@ public class HeaderController {
     @ConfigAnonymous
     public ModelAndView execute() {
         ModelAndView mav = new ModelAndView("/header");
-        int managerId = ProjectWebUtil.getManagerId();
-        mav.addObject("manager", this.managerService.load(managerId));
+        Integer managerId = ProjectWebUtil.getManagerId();
+        if (managerId != null) {
+            mav.addObject("manager", this.managerService.load(managerId));
+        }
         return mav;
     }
 
