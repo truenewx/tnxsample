@@ -1,22 +1,20 @@
 logging:
-  config: classpath:log/logback-junit.xml
+  config: classpath:META-INF/log/logback-junit.xml
 tnxjee:
   profile:
     formal: false
 spring:
   jpa:
-    mapping-resources: /META-INF/jpa/*.xml
     database: H2
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
-    open-in-view: true
     hibernate:
       ddl-auto: validate
   datasource:
     driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:test
-    schema: classpath:sql/schema.sql
-    data: classpath:sql/data.sql
+    schema: classpath:META-INF/sql/schema.sql
+    data: classpath:META-INF/sql/data.sql
   h2:
     console:
       enabled: true

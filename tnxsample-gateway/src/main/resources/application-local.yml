@@ -1,10 +1,11 @@
 zuul:
   routes:
-    ms-admin:
-      path: /admin/**
-      url: http://localhost:8888/
-      sensitive-headers: Authorization
     ms-facade:
-      path: /facade/**
-      url: http://localhost:8886/
-      sensitive-headers: Authorization
+      path: /**
+      url: http://localhost:8886
+    ms-admin-api:
+      path: /admin-api/**
+      url: http://localhost:8887/admin-api
+    ms-admin-view:
+      path: /admin/**
+      url: http://localhost:8888/admin

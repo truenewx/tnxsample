@@ -1,15 +1,10 @@
 server:
-  port: 8887
-  servlet:
-    context-path: /admin
+  port: 8885
 spring:
   application:
-    name: ms-admin-view
+    name: ms-facade-view
   profiles:
     active: local
-  servlet:
-    multipart:
-      maxFileSize: -1
   mvc:
     pathmatch:
       use-suffix-pattern: true

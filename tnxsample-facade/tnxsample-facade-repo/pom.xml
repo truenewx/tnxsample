@@ -18,6 +18,10 @@
             <artifactId>tnxjee-repo-jpa</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.truenewx.tnxjee</groupId>
+            <artifactId>tnxjee-repo-mongo</artifactId>
+        </dependency>
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>

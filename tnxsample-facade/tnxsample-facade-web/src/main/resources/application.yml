@@ -2,9 +2,22 @@ server:
   port: 8886
 spring:
   application:
-    name: ms-facade
+    name: ms-facade-api
   profiles:
     active: local
-  jpa:
-    mapping-resources: META-INF/jpa/*.xml
-    open-in-view: true
+  session:
+    store-type: mongodb
+tnxjee:
+  web:
+    resource:
+      mapping:
+        "/swagger-ui.html": classpath:/META-INF/resources/
+        "/webjars/**": classpath:/META-INF/resources/webjars/
+    cors:
+      path-pattern: /**
+      allow-credentials: true
+      allowed-headers: "*"
+      allowed-methods: "*"
+    security:
+      ignoring-patterns: /swagger-ui.html, /webjars/**, /v2/api-docs, /swagger-resources/**
+    
