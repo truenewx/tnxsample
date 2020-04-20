@@ -1,21 +1,27 @@
 package org.truenewx.tnxsample.facade.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import java.time.Instant;
+import java.util.Collection;
+import java.util.Collections;
+
+import javax.validation.constraints.NotBlank;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
+import org.truenewx.tnxjee.model.spec.user.security.GrantedRoleAuthority;
 import org.truenewx.tnxjee.model.spec.user.security.SimpleUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
+import org.truenewx.tnxsample.core.util.CommonConstants;
 
-import javax.validation.constraints.NotBlank;
-import java.time.Instant;
-import java.util.Collection;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 客户
@@ -71,7 +77,7 @@ public class Customer implements Unity<Integer>, UserSpecific<TypedUserIdentity>
 
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new GrantedRoleAuthority(CommonConstants.USER_ROLE_CUSTOMER));
     }
 
     @JsonIgnore

@@ -16,7 +16,7 @@
         <module>tnxsample-facade-model</module>
         <module>tnxsample-facade-repo</module>
         <module>tnxsample-facade-service</module>
-        <module>tnxsample-facade-web</module>
+        <module>tnxsample-facade-web-api</module>
         <module>tnxsample-facade-web-view</module>
     </modules>
     <dependencyManagement><!-- 其它微服务不能引用，仅本微服务内部引用的工程依赖在此管理 -->

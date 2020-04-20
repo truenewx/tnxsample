@@ -19,6 +19,7 @@ import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 import org.truenewx.tnxsample.core.model.UserType;
+import org.truenewx.tnxsample.core.util.CommonConstants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -100,8 +101,9 @@ public class Manager
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
+        authorities.add(new GrantedRoleAuthority(CommonConstants.USER_ROLE_MANAGER));
         if (isTop()) {
-            authorities.add(new GrantedRoleAuthority("TOP"));
+            authorities.add(new GrantedRoleAuthority(CommonConstants.USER_ROLE_TOP));
         }
         getRoles().forEach(role -> {
             role.getPermissions().forEach(permission -> {

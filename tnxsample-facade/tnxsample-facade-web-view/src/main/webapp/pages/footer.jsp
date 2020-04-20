@@ -7,3 +7,14 @@
         </div>
     </div>
 </footer>
+<script type="text/javascript">
+    var app_config = {
+        version: "${version}",
+        locale: "${pageContext.request.locale}",
+        path: "${context}",
+        lib: "${tnxweb}",
+        min: "${resourceMin}",
+    };
+</script>
+<script src="${tnxweb}/core/vendor/require-2.3.6/require.min.js"
+    data-main="${context}/assets/js/main.js?v=${version}" type="text/javascript"></script>

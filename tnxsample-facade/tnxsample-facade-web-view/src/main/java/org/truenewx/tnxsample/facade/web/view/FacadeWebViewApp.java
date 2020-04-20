@@ -5,10 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
+import org.truenewx.tnxsample.core.util.CommonConstants;
 import org.truenewx.tnxsample.facade.FacadeApp;
 
 @EnableCaching
-@EnableMongoHttpSession(maxInactiveIntervalInSeconds = 900, collectionName = "customer_session")
+@EnableMongoHttpSession(maxInactiveIntervalInSeconds = 900, collectionName = CommonConstants.SESSION_COLLECTION_NAME)
 @SpringBootApplication(scanBasePackageClasses = { Framework.class, FacadeApp.class })
 public class FacadeWebViewApp {
 
