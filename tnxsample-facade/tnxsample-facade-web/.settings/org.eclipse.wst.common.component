@@ -40,6 +40,9 @@
         <dependent-module archiveName="tnxjee-repo-jpa-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo-jpa/tnxjee-repo-jpa">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tnxjee-repo-mongo-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo-mongo/tnxjee-repo-mongo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="tnxsample-facade-web"/>
         <property name="java-output-path" value="/tnxsample-facade-web/target/classes"/>
     </wb-module>
