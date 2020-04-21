@@ -1,4 +1,0 @@
-tnxjee:
-  web:
-    cors:
-      allowed-origins: http://localhost:8885
