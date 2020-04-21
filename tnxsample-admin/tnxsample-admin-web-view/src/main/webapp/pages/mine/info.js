@@ -1,5 +1,5 @@
 // mine/info.js
-define(["app", "validator"], function(app, Validator) {
+define(["app", "validator", "fssUpload"], function(app, Validator) {
     return function(container) {
         new Vue({
             el: container,
@@ -19,6 +19,9 @@ define(["app", "validator"], function(app, Validator) {
                 app.rpc.getMeta(this.url, function(meta) {
                     _this.v.setMeta(meta);
                 });
+            },
+            mounted: function() {
+                $("#headImageUrl").fssUpload();
             },
             methods: {
                 submit: function() {

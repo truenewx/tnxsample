@@ -24,9 +24,7 @@
     </div>
     <div class="form-group row">
         <label class="col-3 col-form-label">头像</label>
-        <div class="col-9">
-
-        </div>
+        <div class="col-6" id="headImageContainer"></div>
     </div>
     <div class="form-group row">
         <label for="fullName" class="col-3 col-form-label"
