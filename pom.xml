@@ -21,6 +21,7 @@
         <module>tnxsample-admin</module>
         <module>tnxsample-common</module>
         <module>tnxsample-facade</module>
+        <module>tnxsample-fss</module>
         <module>tnxsample-gateway</module>
     </modules>
     <dependencyManagement><!-- 所有微服务都可以引用的工程依赖在此管理 -->

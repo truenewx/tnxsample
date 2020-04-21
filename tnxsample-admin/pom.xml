@@ -9,7 +9,6 @@
     <groupId>org.truenewx.tnxsample</groupId>
     <artifactId>tnxsample-admin</artifactId>
     <packaging>pom</packaging>
-    <name>tnxsample-admin</name>
     <description>后台管理中心</description>
     <modules>
         <module>tnxsample-admin-model</module>
