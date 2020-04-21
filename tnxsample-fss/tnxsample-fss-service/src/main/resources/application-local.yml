@@ -1,0 +1,18 @@
+#fss-service
+logging:
+  config: classpath:log/logback-local.xml
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: tnxsample
+      username: data
+      password: datapwd
+tnxjee:
+  profile:
+    formal: false
+tnxjeex:
+  fss:
+    accessor:
+      local-root: E:\kit\fss\tnxsample

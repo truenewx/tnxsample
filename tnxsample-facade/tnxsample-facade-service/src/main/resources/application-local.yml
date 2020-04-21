@@ -1,5 +1,5 @@
 logging:
-  config: classpath:META-INF/log/logback-local.xml
+  config: classpath:log/logback-local.xml
 spring:
   jpa:
     database: MYSQL

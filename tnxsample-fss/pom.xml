@@ -15,4 +15,13 @@
         <module>tnxsample-fss-service</module>
         <module>tnxsample-fss-web</module>
     </modules>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.truenewx.tnxsample.fss</groupId>
+                <artifactId>tnxsample-fss-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

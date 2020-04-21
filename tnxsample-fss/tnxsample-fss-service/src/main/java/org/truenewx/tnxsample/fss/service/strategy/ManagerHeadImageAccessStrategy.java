@@ -1,10 +1,10 @@
-package org.truenewx.tnxsample.admin.service.fss.strategy;
+package org.truenewx.tnxsample.fss.service.strategy;
 
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
-import org.truenewx.tnxsample.admin.service.model.FssAuthorizeType;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
+import org.truenewx.tnxsample.fss.service.model.FssType;
 
 /**
  * 管理员头像的访问策略
@@ -15,8 +15,8 @@ import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
-    public FssAuthorizeType getType() {
-        return FssAuthorizeType.MANAGER_HEAD_IMAGE;
+    public FssType getType() {
+        return FssType.MANAGER_HEAD_IMAGE;
     }
 
     @Override

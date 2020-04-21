@@ -19,10 +19,6 @@
             <artifactId>tnxjeex-log-service</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxjeex.fss</groupId>
-            <artifactId>tnxjeex-fss-service</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.truenewx.tnxsample.admin</groupId>
             <artifactId>tnxsample-admin-repo</artifactId>
         </dependency>

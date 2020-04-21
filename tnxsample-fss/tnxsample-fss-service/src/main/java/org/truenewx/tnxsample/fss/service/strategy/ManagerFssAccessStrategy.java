@@ -1,9 +1,9 @@
-package org.truenewx.tnxsample.admin.service.fss.strategy;
+package org.truenewx.tnxsample.fss.service.strategy;
 
 import org.truenewx.tnxjeex.fss.service.FssAccessStrategy;
 import org.truenewx.tnxjeex.fss.service.model.FssProvider;
-import org.truenewx.tnxsample.admin.service.model.FssAuthorizeType;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
+import org.truenewx.tnxsample.fss.service.model.FssType;
 
 /**
  * 管理员的文件存储访问策略
@@ -11,7 +11,7 @@ import org.truenewx.tnxsample.core.model.TypedUserIdentity;
  * @author jianglei
  */
 public abstract class ManagerFssAccessStrategy
-        implements FssAccessStrategy<FssAuthorizeType, TypedUserIdentity> {
+        implements FssAccessStrategy<FssType, TypedUserIdentity> {
 
     @Override
     public FssProvider getProvider() {

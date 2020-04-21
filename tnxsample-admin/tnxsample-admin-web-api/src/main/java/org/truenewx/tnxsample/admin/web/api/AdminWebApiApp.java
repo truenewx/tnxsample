@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
-import org.truenewx.tnxsample.admin.AdminApp;
+import org.truenewx.tnxsample.admin.AppRoot;
 import org.truenewx.tnxsample.core.util.CommonConstants;
 
 /**
@@ -15,7 +15,7 @@ import org.truenewx.tnxsample.core.util.CommonConstants;
  */
 @EnableCaching
 @EnableMongoHttpSession(maxInactiveIntervalInSeconds = 900, collectionName = CommonConstants.SESSION_COLLECTION_NAME)
-@SpringBootApplication(scanBasePackageClasses = { Framework.class, AdminApp.class })
+@SpringBootApplication(scanBasePackageClasses = { Framework.class, AppRoot.class })
 public class AdminWebApiApp {
 
     public static void main(String[] args) {

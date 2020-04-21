@@ -21,7 +21,9 @@ define(["app", "validator", "fssUpload"], function(app, Validator) {
                 });
             },
             mounted: function() {
-                $("#headImageUrl").fssUpload();
+                $("#headImageContainer").fssUpload({
+                    type: "MANAGER_HEAD_IMAGE"
+                });
             },
             methods: {
                 submit: function() {
