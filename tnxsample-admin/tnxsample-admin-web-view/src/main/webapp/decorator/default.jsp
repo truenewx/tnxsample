@@ -15,7 +15,7 @@
 
 <body css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
 <jsp:include page="/header"/>
-<div class="container-full">
+<div class="container-full container-fluid">
     <sitemesh:write property="body"/>
 </div>
 <jsp:include page="/pages/footer.jsp"/>
