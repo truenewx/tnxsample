@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
+import org.truenewx.tnxjeex.fss.FssModule;
 import org.truenewx.tnxsample.core.util.CommonConstants;
 import org.truenewx.tnxsample.fss.AppRoot;
 
@@ -15,7 +16,7 @@ import org.truenewx.tnxsample.fss.AppRoot;
  */
 @EnableCaching
 @EnableMongoHttpSession(maxInactiveIntervalInSeconds = 900, collectionName = CommonConstants.SESSION_COLLECTION_NAME)
-@SpringBootApplication(scanBasePackageClasses = { Framework.class, AppRoot.class })
+@SpringBootApplication(scanBasePackageClasses = { Framework.class, AppRoot.class, FssModule.class })
 public class FssWebApp {
 
     public static void main(String[] args) {

@@ -6,7 +6,11 @@
     <title>首页</title>
 </head>
 
-<body>
+<body js="index.js">
 <h2 class="text-center pt-5">欢迎进入</h2>
+<div class="row mt-5">
+    <div class="col text-right">头像</div>
+    <div class="col" id="headImageContainer"></div>
+</div>
 </body>
 </html>

@@ -40,16 +40,19 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
     public String getPath(String token, TypedUserIdentity userIdentity, String filename) {
-        if (userIdentity.getType() == UserType.MANAGER) {
-            return null;
+        if (isValidUserIdentity(userIdentity)) {
+            return "manager/" + userIdentity.getId() + Strings.SLASH + filename;
         }
-        return "manager/" + userIdentity.getId() + Strings.SLASH + filename;
+        return null;
+    }
+
+    private boolean isValidUserIdentity(TypedUserIdentity userIdentity) {
+        return userIdentity != null && userIdentity.getType() == UserType.MANAGER;
     }
 
     @Override
     public boolean isReadable(TypedUserIdentity userIdentity, String path) {
-        return userIdentity != null && userIdentity.getType() == UserType.MANAGER
-                && path.startsWith("manager/");
+        return isValidUserIdentity(userIdentity) && path.startsWith("manager/");
     }
 
     @Override
