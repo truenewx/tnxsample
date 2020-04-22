@@ -2,8 +2,10 @@ package org.truenewx.tnxsample.fss.service.strategy;
 
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
+import org.truenewx.tnxjee.model.spec.DimensionSize;
 import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
 import org.truenewx.tnxsample.core.model.TypedUserIdentity;
+import org.truenewx.tnxsample.core.model.UserType;
 import org.truenewx.tnxsample.fss.service.model.FssType;
 
 /**
@@ -21,7 +23,9 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
     public FssUploadLimit getUploadLimit(TypedUserIdentity userIdentity) {
-        return new FssUploadLimit(1, 150 * 1024, "jpg", "png");
+        FssUploadLimit limit = new FssUploadLimit(1, 150 * 1024, "jpg", "png");
+        limit.enableImage(true, new DimensionSize(128, 128), new DimensionSize(150, 100));
+        return limit;
     }
 
     @Override
@@ -36,12 +40,16 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
     public String getPath(String token, TypedUserIdentity userIdentity, String filename) {
+        if (userIdentity.getType() == UserType.MANAGER) {
+            return null;
+        }
         return "manager/" + userIdentity.getId() + Strings.SLASH + filename;
     }
 
     @Override
     public boolean isReadable(TypedUserIdentity userIdentity, String path) {
-        return userIdentity != null && path.startsWith("manager/");
+        return userIdentity != null && userIdentity.getType() == UserType.MANAGER
+                && path.startsWith("manager/");
     }
 
     @Override
