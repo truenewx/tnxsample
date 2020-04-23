@@ -29,7 +29,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version><!-- 对应spring-boot-2.1 -->
+                <version>Greenwich.SR5</version><!-- 对应spring-boot-2.1 -->
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
