@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.admin.service.config;
 
 import java.util.concurrent.Executor;
 
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -15,7 +14,6 @@ import org.truenewx.tnxjee.core.util.concurrent.DefaultThreadPoolExecutor;
  * @author jianglei
  */
 @Configuration
-@EnableFeignClients
 @EnableTransactionManagement
 public class ServiceConfig {
 
