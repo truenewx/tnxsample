@@ -13,7 +13,9 @@
     <div class="col-5" id="headImageContainer"></div>
 </div>
 <div class="form-group row">
-    <button type="button" class="btn btn-primary" @click="submit">确定</button>
+    <div class="offset-5 col-5">
+        <button type="button" class="btn btn-primary" @click="submit">确定</button>
+    </div>
 </div>
 </body>
 </html>
