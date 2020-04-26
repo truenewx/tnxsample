@@ -15,4 +15,5 @@ tnxjee:
 tnxjeex:
   fss:
     accessor:
-      local-root: E:\kit\fss\tnxsample
+      local:
+        root: E:\kit\fss\tnxsample
