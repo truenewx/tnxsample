@@ -13,10 +13,7 @@
     <div class="col-5" id="headImageContainer"></div>
 </div>
 <div class="form-group row">
-    <label class="col-5 col-form-label" for="fullName">姓名</label>
-    <div class="col-2">
-        <input type="text" class="form-control" id="fullName" name="fullName">
-    </div>
+    <button type="button" class="btn btn-primary" @click="submit">确定</button>
 </div>
 </body>
 </html>
