@@ -23,8 +23,8 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
     public FssUploadLimit getUploadLimit(TypedUserIdentity userIdentity) {
-        FssUploadLimit limit = new FssUploadLimit(1, 1024 * 1024, "jpg", "png");
-        limit.enableImage(true, new DimensionSize(128, 128), new DimensionSize(150, 100));
+        FssUploadLimit limit = new FssUploadLimit(2, 1024 * 1024, "jpg", "png");
+        limit.enableImage(true, new DimensionSize(128, 128));
         return limit;
     }
 
