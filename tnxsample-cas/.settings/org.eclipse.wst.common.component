@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="tnxsample-user-2.1.0">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="tnxjee-web-view-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-web-view/tnxjee-web-view">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-web-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-web/tnxjee-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-service-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-service/tnxjee-service">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-model/tnxjee-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-admin-api-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-api/tnxsample-admin-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-admin-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-model/tnxsample-admin-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-common-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-common/tnxsample-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjeex-log-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-log-model/tnxjeex-log-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/tnxsample-user/target/classes"/>
+        <property name="context-root" value="tnxsample-cas"/>
+    </wb-module>
+</project-modules>
