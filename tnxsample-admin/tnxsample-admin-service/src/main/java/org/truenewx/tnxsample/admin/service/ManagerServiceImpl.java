@@ -1,5 +1,8 @@
 package org.truenewx.tnxsample.admin.service;
 
+import java.time.Instant;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
@@ -16,16 +19,14 @@ import org.truenewx.tnxsample.admin.repo.RoleRepo;
 import org.truenewx.tnxsample.admin.service.model.CommandManager;
 import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
 
-import java.time.Instant;
-import java.util.Collection;
-
 /**
  * 管理员服务实现
  *
  * @author jianglei
  */
 @Service
-public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> implements ManagerService {
+public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
+        implements ManagerService {
 
     @Autowired
     private ManagerRepo repo;
@@ -43,9 +44,17 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public Manager validateLogin(String username, String md5Password) {
+    public Manager validateLogin(String username, String password) {
         Manager manager = loadByUsername(username);
-        if (!this.encryptor.validateByMd5Source(manager.getPassword(), md5Password, manager.getId())) { // 密码错误
+        boolean passwordValid;
+        if (password != null && password.length() < 32) { // 长度小于32位的密码为原文
+            passwordValid = this.encryptor.validate(manager.getPassword(), password,
+                    manager.getId());
+        } else { // 否则视为MD5密文
+            passwordValid = this.encryptor.validateByMd5Source(manager.getPassword(), password,
+                    manager.getId());
+        }
+        if (!passwordValid) { // 密码错误
             throw new BusinessException(ManagerExceptionCodes.USERNAME_OR_PASSWORD_ERROR);
         }
         if (manager.isDisabled()) { // 管理员被禁用
@@ -74,7 +83,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     public Manager updatePassword(int id, String oldMd5Password, String newMd5Password) {
         Manager manager = find(id);
         if (manager != null) {
-            if (!this.encryptor.validateByMd5Source(manager.getPassword(), oldMd5Password, manager.getId())) { // 密码错误
+            if (!this.encryptor.validateByMd5Source(manager.getPassword(), oldMd5Password,
+                    manager.getId())) { // 密码错误
                 throw new BusinessException(ManagerExceptionCodes.USERNAME_OR_PASSWORD_ERROR);
             }
             manager.setPassword(this.encryptor.encryptByMd5Source(newMd5Password, manager.getId()));
@@ -100,7 +110,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
             CommandManager command = (CommandManager) commandModel;
             String username = command.getUsername();
             if (this.repo.countByUsername(username) > 0) {
-                throw new BusinessException(ManagerExceptionCodes.REPEAT_USERNAME, username).bind("username");
+                throw new BusinessException(ManagerExceptionCodes.REPEAT_USERNAME, username)
+                        .bind("username");
             }
             Manager manager = new Manager();
             manager.setUsername(username);
@@ -110,7 +121,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
             // 有了id之后再用id做密钥进行密码加密
-            String encryptedPassword = this.encryptor.encryptByMd5Source(command.getPassword(), manager.getId());
+            String encryptedPassword = this.encryptor.encryptByMd5Source(command.getPassword(),
+                    manager.getId());
             manager.setPassword(encryptedPassword);
             this.repo.save(manager);
             return manager;
@@ -161,7 +173,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer> i
     }
 
     @Override
-    public QueryResult<Manager> queryGeneralOutOfRole(int exceptedRoleId, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryGeneralOutOfRole(int exceptedRoleId, int pageSize,
+            int pageNo) {
         return this.repo.queryByRoleIdNotAndTop(exceptedRoleId, false, pageSize, pageNo);
     }
 }

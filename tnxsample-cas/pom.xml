@@ -4,26 +4,26 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>tnxsample-admin</artifactId>
-        <groupId>org.truenewx.tnxsample</groupId>
+        <artifactId>tnxsample</artifactId>
+        <groupId>org.truenewx</groupId>
         <version>2.1.0</version>
     </parent>
 
-    <groupId>org.truenewx.tnxsample.admin</groupId>
-    <artifactId>tnxsample-admin-web-api</artifactId>
+    <groupId>org.truenewx.tnxsample</groupId>
+    <artifactId>tnxsample-cas</artifactId>
     <packaging>war</packaging>
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxjee</groupId>
-            <artifactId>tnxjee-web</artifactId>
+            <artifactId>tnxjee-web-view</artifactId>
         </dependency>
         <dependency>
             <groupId>org.truenewx.tnxsample.admin</groupId>
             <artifactId>tnxsample-admin-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxsample.admin</groupId>
-            <artifactId>tnxsample-admin-service</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -44,16 +44,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.session</groupId>
             <artifactId>spring-session-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
     </dependencies>
 </project>

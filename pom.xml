@@ -23,6 +23,7 @@
         <module>tnxsample-facade</module>
         <module>tnxsample-fss</module>
         <module>tnxsample-gateway</module>
+        <module>tnxsample-user</module>
     </modules>
     <dependencyManagement><!-- 所有微服务都可以引用的工程依赖在此管理 -->
         <dependencies>
@@ -52,6 +53,11 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>2.9.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.truenewx.tnxsample.admin</groupId>
+                <artifactId>tnxsample-admin-api</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

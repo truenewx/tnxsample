@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
     <description>后台管理中心</description>
     <modules>
+        <module>tnxsample-admin-api</module>
         <module>tnxsample-admin-model</module>
         <module>tnxsample-admin-repo</module>
         <module>tnxsample-admin-service</module>

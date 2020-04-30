@@ -14,7 +14,7 @@ public interface ManagerService extends ModelUnityService<Manager, Integer> {
 
     Manager loadByUsername(String username);
 
-    Manager validateLogin(String username, String md5Password);
+    Manager validateLogin(String username, String password);
 
     QueryResult<Manager> queryGeneral(String keyword, int pageSize, int pageNo);
 
