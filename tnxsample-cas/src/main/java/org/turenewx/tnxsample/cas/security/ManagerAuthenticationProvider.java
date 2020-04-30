@@ -6,11 +6,10 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
-import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
+import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.web.security.authentication.UserSpecificDetailsAuthenticationToken;
-import org.truenewx.tnxsample.core.model.TypedUserIdentity;
-import org.truenewx.tnxsample.core.model.UserType;
+import org.truenewx.tnxsample.common.CommonConstants;
 import org.turenewx.tnxsample.cas.client.ManagerOpenClient;
 
 /**
@@ -33,13 +32,13 @@ public class ManagerAuthenticationProvider implements AuthenticationProvider {
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
         try {
-            UserSpecificDetails<TypedUserIdentity> details = null;
-            UserType type = token.getType();
-            switch (type) {
-                case MANAGER:
+            DefaultUserSpecificDetails details = null;
+            String userType = token.getUserType();
+            switch (userType) {
+                case CommonConstants.USER_TYPE_MANAGER:
                     details = this.managerOpenClient.validateLogin(username, password);
                     break;
-                case CUSTOMER:
+                case CommonConstants.USER_TYPE_CUSTOMER:
                     break;
             }
             if (details != null) {

@@ -3,9 +3,9 @@ package org.truenewx.tnxsample.fss.service.strategy;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.model.spec.DimensionSize;
+import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
-import org.truenewx.tnxsample.core.model.TypedUserIdentity;
-import org.truenewx.tnxsample.core.model.UserType;
+import org.truenewx.tnxsample.common.CommonConstants;
 import org.truenewx.tnxsample.fss.service.model.FssType;
 
 /**
@@ -22,7 +22,7 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
     }
 
     @Override
-    public FssUploadLimit getUploadLimit(TypedUserIdentity userIdentity) {
+    public FssUploadLimit getUploadLimit(IntegerUserIdentity userIdentity) {
         FssUploadLimit limit = new FssUploadLimit(1, 1024 * 1024, "jpg", "png", "gif");
         limit.enableImage(true, new DimensionSize(128, 128));
         return limit;
@@ -39,24 +39,24 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
     }
 
     @Override
-    public String getPath(String token, TypedUserIdentity userIdentity, String filename) {
+    public String getPath(String token, IntegerUserIdentity userIdentity, String filename) {
         if (isValidUserIdentity(userIdentity)) {
             return "manager/" + userIdentity.getId() + Strings.SLASH + filename;
         }
         return null;
     }
 
-    private boolean isValidUserIdentity(TypedUserIdentity userIdentity) {
-        return userIdentity != null && userIdentity.getType() == UserType.MANAGER;
+    private boolean isValidUserIdentity(IntegerUserIdentity userIdentity) {
+        return userIdentity != null && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType());
     }
 
     @Override
-    public boolean isReadable(TypedUserIdentity userIdentity, String path) {
+    public boolean isReadable(IntegerUserIdentity userIdentity, String path) {
         return isValidUserIdentity(userIdentity) && path.startsWith("manager/");
     }
 
     @Override
-    public boolean isWritable(TypedUserIdentity userIdentity, String path) {
+    public boolean isWritable(IntegerUserIdentity userIdentity, String path) {
         return isReadable(userIdentity, path); // 读写权限判断一致
     }
 

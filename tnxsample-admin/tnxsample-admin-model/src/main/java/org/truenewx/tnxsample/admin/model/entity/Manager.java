@@ -11,15 +11,14 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
+import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
+import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
+import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.GrantedPermissionAuthority;
-import org.truenewx.tnxjee.model.spec.user.security.GrantedRoleAuthority;
-import org.truenewx.tnxjee.model.spec.user.security.SimpleUserSpecificDetails;
-import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
+import org.truenewx.tnxjee.model.spec.user.security.GrantedScopeAuthority;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
-import org.truenewx.tnxsample.core.model.TypedUserIdentity;
-import org.truenewx.tnxsample.core.model.UserType;
-import org.truenewx.tnxsample.core.util.CommonConstants;
+import org.truenewx.tnxsample.common.CommonConstants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -35,7 +34,7 @@ import lombok.Setter;
 @Setter
 @Caption("管理员")
 public class Manager
-        implements Unity<Integer>, Comparable<Manager>, UserSpecific<TypedUserIdentity> {
+        implements Unity<Integer>, Comparable<Manager>, UserSpecific<IntegerUserIdentity> {
 
     private Integer id;
 
@@ -77,8 +76,12 @@ public class Manager
         this.roles = roles;
     }
 
-    public UserType getType() {
-        return UserType.MANAGER;
+    public String getType() {
+        return CommonConstants.USER_TYPE_MANAGER;
+    }
+
+    public String getRank() {
+        return isTop() ? CommonConstants.MANAGER_RANK_TOP : CommonConstants.MANAGER_RANK_NORMAL;
     }
 
     @Override
@@ -88,8 +91,8 @@ public class Manager
 
     @Override
     @JsonIgnore
-    public TypedUserIdentity getIdentity() {
-        return new TypedUserIdentity(getType(), getId());
+    public DefaultUserIdentity getIdentity() {
+        return new DefaultUserIdentity(getType(), getRank(), getId());
     }
 
     @Override
@@ -101,10 +104,7 @@ public class Manager
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new GrantedRoleAuthority(CommonConstants.USER_ROLE_MANAGER));
-        if (isTop()) {
-            authorities.add(new GrantedRoleAuthority(CommonConstants.USER_ROLE_TOP));
-        }
+        authorities.add(new GrantedScopeAuthority(getType(), getRank()));
         getRoles().forEach(role -> {
             role.getPermissions().forEach(permission -> {
                 authorities.add(new GrantedPermissionAuthority(permission));
@@ -114,8 +114,8 @@ public class Manager
     }
 
     @JsonIgnore
-    public UserSpecificDetails<TypedUserIdentity> getSpecificDetails() {
-        SimpleUserSpecificDetails<TypedUserIdentity> details = new SimpleUserSpecificDetails<>();
+    public DefaultUserSpecificDetails getSpecificDetails() {
+        DefaultUserSpecificDetails details = new DefaultUserSpecificDetails();
         details.setIdentity(getIdentity());
         details.setUsername(getUsername());
         details.setCaption(getCaption());

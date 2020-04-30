@@ -9,14 +9,13 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
+import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
+import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
-import org.truenewx.tnxjee.model.spec.user.security.GrantedRoleAuthority;
-import org.truenewx.tnxjee.model.spec.user.security.SimpleUserSpecificDetails;
-import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
+import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
+import org.truenewx.tnxjee.model.spec.user.security.GrantedScopeAuthority;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
-import org.truenewx.tnxsample.core.model.TypedUserIdentity;
-import org.truenewx.tnxsample.core.model.UserType;
-import org.truenewx.tnxsample.core.util.CommonConstants;
+import org.truenewx.tnxsample.common.CommonConstants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -31,7 +30,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Caption("客户")
-public class Customer implements Unity<Integer>, UserSpecific<TypedUserIdentity> {
+public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentity> {
 
     private Integer id;
     @NotBlank
@@ -53,14 +52,14 @@ public class Customer implements Unity<Integer>, UserSpecific<TypedUserIdentity>
         this.id = id;
     }
 
-    public UserType getType() {
-        return UserType.CUSTOMER;
+    public String getType() {
+        return CommonConstants.USER_TYPE_CUSTOMER;
     }
 
     @Override
     @JsonIgnore
-    public TypedUserIdentity getIdentity() {
-        return new TypedUserIdentity(getType(), getId());
+    public DefaultUserIdentity getIdentity() {
+        return new DefaultUserIdentity(getType(), null, getId());
     }
 
     @Override
@@ -77,12 +76,12 @@ public class Customer implements Unity<Integer>, UserSpecific<TypedUserIdentity>
 
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new GrantedRoleAuthority(CommonConstants.USER_ROLE_CUSTOMER));
+        return Collections.singletonList(new GrantedScopeAuthority(getType(), null));
     }
 
     @JsonIgnore
-    public UserSpecificDetails<TypedUserIdentity> getSpecificDetails() {
-        SimpleUserSpecificDetails<TypedUserIdentity> details = new SimpleUserSpecificDetails<>();
+    public DefaultUserSpecificDetails getSpecificDetails() {
+        DefaultUserSpecificDetails details = new DefaultUserSpecificDetails();
         details.setIdentity(getIdentity());
         details.setUsername(getUsername());
         details.setCaption(getCaption());

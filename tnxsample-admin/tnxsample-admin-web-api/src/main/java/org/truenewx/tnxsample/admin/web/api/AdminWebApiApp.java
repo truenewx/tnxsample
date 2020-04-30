@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxsample.admin.AppRoot;
-import org.truenewx.tnxsample.core.util.CommonConstants;
+import org.truenewx.tnxsample.common.CommonConstants;
 
 /**
  * 管理端Web应用

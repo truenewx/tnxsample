@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.facade.web.view.util;
 
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.web.security.util.SecurityUtil;
-import org.truenewx.tnxsample.core.model.TypedUserIdentity;
 
 /**
  * WEB工程级工具集
