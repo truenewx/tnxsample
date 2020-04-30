@@ -7,13 +7,14 @@
     <title>登录</title>
 </head>
 
-<body js="true">
+<body js="login/manager.js">
 <div class="offset-5 col-2">
     <div class="h2 text-center py-5">登录</div>
     <tv-div class="alert alert-danger" mode="d" :class="{'d-none': <tnxjee:noerror/>}">
         <tnxjee:errors/>
     </tv-div>
     <form method="post" action="${context}/login" @submit="submit($event)">
+        <input type="hidden" name="type" value="${type}">
         <div class="form-group">
             <label for="username">用户名</label>
             <input type="text" class="form-control" name="username" id="username" v-model="username">
