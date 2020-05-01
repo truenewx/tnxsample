@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<menu name="admin" caption="后台管理" xmlns="http://www.truenewx.org/tnxjee/schema/menu">
+<menu user-type="manager" caption="后台管理" xmlns="http://www.truenewx.org/tnxjee/schema/menu">
 
     <link caption="系统管理" icon="fa-cogs">
         <link caption="角色管理" href="/role/list" icon="fa-users" assignable="false"/>

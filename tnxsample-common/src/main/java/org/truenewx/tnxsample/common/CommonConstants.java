@@ -18,12 +18,12 @@ public class CommonConstants {
     /**
      * 用户类型：客户
      */
-    public static final String USER_TYPE_CUSTOMER = "Customer";
+    public static final String USER_TYPE_CUSTOMER = "customer";
 
     /**
      * 用户类型：管理员
      */
-    public static final String USER_TYPE_MANAGER = "Manager";
+    public static final String USER_TYPE_MANAGER = "manager";
 
     /**
      * 管理员级别：普通
@@ -34,5 +34,15 @@ public class CommonConstants {
      * 管理员级别：顶级
      */
     public static final String MANAGER_RANK_TOP = "top";
+
+    /**
+     * 应用：门户
+     */
+    public static final String APP_FACADE = "facade";
+
+    /**
+     * 应用：后台
+     */
+    public static final String APP_ADMIN = "admin";
 
 }

@@ -1,5 +1,6 @@
 package org.truenewx.tnxsample.facade.web.view.util;
 
+import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.web.security.util.SecurityUtil;
 
@@ -11,12 +12,12 @@ public class ProjectWebUtil {
     private ProjectWebUtil() {
     }
 
-    public static UserSpecificDetails<TypedUserIdentity> getCustomerDetails() {
+    public static UserSpecificDetails<IntegerUserIdentity> getCustomerDetails() {
         return SecurityUtil.getAuthorizedUserDetails();
     }
 
     public static Integer getCustomerId() {
-        UserSpecificDetails<TypedUserIdentity> details = getCustomerDetails();
+        UserSpecificDetails<IntegerUserIdentity> details = getCustomerDetails();
         return details == null ? null : details.getIdentity().getId();
     }
 

@@ -3,13 +3,11 @@ package org.turenewx.tnxsample.cas.security;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.truenewx.tnxjee.core.util.BeanUtil;
-import org.truenewx.tnxsample.core.model.UserType;
 
 public class TypedUsernamePasswordAuthenticationFilter extends
         UsernamePasswordAuthenticationFilter {
@@ -36,9 +34,7 @@ public class TypedUsernamePasswordAuthenticationFilter extends
 
         username = username.trim();
 
-        String type = request.getParameter("type");
-        UserType userType = StringUtils.isNotBlank(type) ? UserType.valueOf(type.toUpperCase()) : null;
-
+        String userType = request.getParameter("userType");
         TypedUsernamePasswordAuthenticationToken authRequest = new TypedUsernamePasswordAuthenticationToken(userType,
                 username, password);
 

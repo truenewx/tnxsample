@@ -1,7 +1,5 @@
 package org.turenewx.tnxsample.cas.service;
 
-import org.truenewx.tnxsample.core.model.UserType;
-
 /**
  * 服务管理器
  *
@@ -9,7 +7,7 @@ import org.truenewx.tnxsample.core.model.UserType;
  */
 public interface ServiceManager {
 
-    UserType resolveUserType(String service);
+    String resolveUserType(String service);
 
     String getAuthenticatedRedirectUrl(String service);
 
