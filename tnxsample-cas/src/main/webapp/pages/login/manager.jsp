@@ -14,7 +14,7 @@
         <tnxjee:errors/>
     </tv-div>
     <form method="post" action="${context}/login" @submit="submit($event)">
-        <input type="hidden" name="userType" value="${userType}">
+        <input type="hidden" name="service" value="${service}">
         <div class="form-group">
             <label for="username">用户名</label>
             <input type="text" class="form-control" name="username" id="username" v-model="username">

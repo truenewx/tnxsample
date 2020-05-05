@@ -9,6 +9,6 @@ public interface ServiceManager {
 
     String resolveUserType(String service);
 
-    String getAuthenticatedRedirectUrl(String service);
+    String getAuthenticatedTargetUrl(String service);
 
 }

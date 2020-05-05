@@ -24,12 +24,12 @@ public class ServiceManagerImpl implements ServiceManager {
     }
 
     @Override
-    public String getAuthenticatedRedirectUrl(String service) {
+    public String getAuthenticatedTargetUrl(String service) {
         switch (service) {
             case CommonConstants.APP_FACADE:
-                return "localhost:8885/login/cas";
+                return "http://localhost:8885/login/cas";
             case CommonConstants.APP_ADMIN:
-                return "localhost:8887/admin/login/cas";
+                return "http://localhost:8887/admin/login/cas";
         }
         return null;
     }

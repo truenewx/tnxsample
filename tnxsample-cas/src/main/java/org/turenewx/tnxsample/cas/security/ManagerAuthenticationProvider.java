@@ -8,9 +8,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.service.exception.BusinessException;
-import org.truenewx.tnxjee.web.security.authentication.UserIdentityAuthenticationToken;
 import org.truenewx.tnxsample.common.CommonConstants;
 import org.turenewx.tnxsample.cas.client.ManagerOpenClient;
+import org.turenewx.tnxsample.cas.service.ServiceManager;
 
 /**
  * 管理员认证提供器
@@ -18,27 +18,30 @@ import org.turenewx.tnxsample.cas.client.ManagerOpenClient;
 @Component
 public class ManagerAuthenticationProvider implements AuthenticationProvider {
     @Autowired
+    private ServiceManager serviceManager;
+    @Autowired
     private ManagerOpenClient managerOpenClient;
 
     @Override
     public boolean supports(Class<?> authentication) {
-        return TypedUsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
+        return CasUsernamePasswordAuthenticationToken.class.isAssignableFrom(authentication);
     }
 
     @Override
     public Authentication authenticate(Authentication authentication)
             throws AuthenticationException {
-        TypedUsernamePasswordAuthenticationToken token = (TypedUsernamePasswordAuthenticationToken) authentication;
+        CasUsernamePasswordAuthenticationToken token = (CasUsernamePasswordAuthenticationToken) authentication;
         String username = (String) authentication.getPrincipal();
         String password = (String) authentication.getCredentials();
         try {
             DefaultUserIdentity userIdentity = null;
-            String userType = token.getUserType();
+            String service = token.getService();
+            String userType = this.serviceManager.resolveUserType(service);
             if (CommonConstants.USER_TYPE_MANAGER.equals(userType)) {
                 userIdentity = this.managerOpenClient.validateLogin(username, password);
             }
             if (userIdentity != null) {
-                return new UserIdentityAuthenticationToken(userIdentity);
+                return new CasUserIdentityAuthenticationToken(service, userIdentity);
             }
         } catch (BusinessException e) {
             throw new BadCredentialsException(e.getLocalizedMessage(), e);

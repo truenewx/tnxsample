@@ -24,7 +24,7 @@ public class LoginController {
     public ModelAndView get(@RequestParam("service") String service) {
         String userType = this.serviceManager.resolveUserType(service);
         ModelAndView mav = new ModelAndView("/login/" + userType.toLowerCase());
-        mav.addObject("userType", userType);
+        mav.addObject("service", service);
         return mav;
     }
 

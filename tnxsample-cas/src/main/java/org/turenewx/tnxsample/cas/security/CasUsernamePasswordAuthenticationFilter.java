@@ -3,14 +3,29 @@ package org.turenewx.tnxsample.cas.security;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.truenewx.tnxjee.core.util.BeanUtil;
+import org.turenewx.tnxsample.cas.service.ServiceManager;
 
-public class TypedUsernamePasswordAuthenticationFilter extends
-        UsernamePasswordAuthenticationFilter {
+/**
+ * CAS用户名密码授权过滤器
+ */
+public class CasUsernamePasswordAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
+    private ServerProperties serverProperties;
+    private ServiceManager serviceManager;
+
+    public void setServerProperties(ServerProperties serverProperties) {
+        this.serverProperties = serverProperties;
+    }
+
+    public void setServiceManager(ServiceManager serviceManager) {
+        this.serviceManager = serviceManager;
+    }
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request,
@@ -34,8 +49,8 @@ public class TypedUsernamePasswordAuthenticationFilter extends
 
         username = username.trim();
 
-        String userType = request.getParameter("userType");
-        TypedUsernamePasswordAuthenticationToken authRequest = new TypedUsernamePasswordAuthenticationToken(userType,
+        String service = request.getParameter("service");
+        CasUsernamePasswordAuthenticationToken authRequest = new CasUsernamePasswordAuthenticationToken(service,
                 username, password);
 
         // Allow subclasses to set the "details" property
@@ -43,4 +58,5 @@ public class TypedUsernamePasswordAuthenticationFilter extends
 
         return getAuthenticationManager().authenticate(authRequest);
     }
+
 }
