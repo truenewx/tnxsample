@@ -15,7 +15,6 @@ public interface TicketManager {
 
     String getServiceTicket(HttpServletRequest request, String service);
 
-    boolean isValidServiceTicket(HttpServletRequest request, String service, String ticketId);
+    void validateServiceTicket(String service, String ticketId);
 
-    void removeServiceTicket(HttpServletRequest request, String service);
 }

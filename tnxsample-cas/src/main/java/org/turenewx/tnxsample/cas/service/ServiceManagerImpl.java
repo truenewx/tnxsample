@@ -20,7 +20,7 @@ public class ServiceManagerImpl implements ServiceManager {
             case CommonConstants.APP_ADMIN:
                 return CommonConstants.USER_TYPE_MANAGER;
         }
-        throw new BusinessException("error.user.invalid_service");
+        throw new BusinessException(CasServerExceptionCodes.INVALID_SERVICE);
     }
 
     @Override

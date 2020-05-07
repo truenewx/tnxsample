@@ -4,6 +4,7 @@ import org.jasig.cas.client.validation.Cas20ServiceTicketValidator;
 import org.jasig.cas.client.validation.TicketValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.cas.ServiceProperties;
 import org.springframework.security.cas.authentication.CasAuthenticationProvider;
 import org.truenewx.tnxjee.web.view.security.config.WebViewSecurityConfigurerSupport;
 import org.truenewx.tnxsample.admin.web.view.security.CasAuthenticationUserDetailsService;
@@ -27,6 +28,9 @@ public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
         provider.setAuthenticationUserDetailsService(authenticationUserDetailsService());
         provider.setTicketValidator(ticketValidator());
         provider.setKey(getApplicationContext().getEnvironment().getProperty("spring.application.name", "app"));
+        ServiceProperties properties = new ServiceProperties();
+        properties.setService("admin");
+        provider.setServiceProperties(properties);
         return provider;
     }
 

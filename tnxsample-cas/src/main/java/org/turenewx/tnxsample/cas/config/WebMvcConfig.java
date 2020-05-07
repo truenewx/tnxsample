@@ -10,6 +10,7 @@ public class WebMvcConfig extends WebViewMvcConfigurationSupport {
     @Override
     protected void buildSiteMeshFilter(SiteMeshFilterBuilder builder) {
         builder.addExcludedPath("**/*.json");
+        builder.addExcludedPath("/serviceValidate");
         builder.addDecoratorPath("**/*.win", "/decorator/win.jsp");
         builder.addDecoratorPath("/*", "/decorator/default.jsp");
     }
