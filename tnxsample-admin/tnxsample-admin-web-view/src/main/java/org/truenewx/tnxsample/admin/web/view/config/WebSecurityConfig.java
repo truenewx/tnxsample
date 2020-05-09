@@ -1,6 +1,5 @@
 package org.truenewx.tnxsample.admin.web.view.config;
 
-import org.jasig.cas.client.validation.Cas20ServiceTicketValidator;
 import org.jasig.cas.client.validation.TicketValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +7,7 @@ import org.springframework.security.cas.ServiceProperties;
 import org.springframework.security.cas.authentication.CasAuthenticationProvider;
 import org.truenewx.tnxjee.web.view.security.config.WebViewSecurityConfigurerSupport;
 import org.truenewx.tnxsample.admin.web.view.security.CasAuthenticationUserDetailsService;
+import org.truenewx.tnxsample.admin.web.view.security.CasJsonServiceTicketValidator;
 
 @Configuration
 public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
@@ -19,7 +19,7 @@ public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
 
     @Bean
     public TicketValidator ticketValidator() {
-        return new Cas20ServiceTicketValidator("http://localhost:8883/cas/");
+        return new CasJsonServiceTicketValidator("http://localhost:8883/cas/");
     }
 
     @Bean

@@ -2,6 +2,8 @@ package org.turenewx.tnxsample.cas.service;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.jasig.cas.client.validation.Assertion;
+
 /**
  * 票据管理器
  */
@@ -15,6 +17,6 @@ public interface TicketManager {
 
     String getServiceTicket(HttpServletRequest request, String service);
 
-    void validateServiceTicket(String service, String ticketId);
+    Assertion validateServiceTicket(String service, String ticketId);
 
 }

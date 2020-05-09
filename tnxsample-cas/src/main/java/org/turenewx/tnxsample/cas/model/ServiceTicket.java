@@ -1,21 +1,25 @@
 package org.turenewx.tnxsample.cas.model;
 
+import java.util.Date;
+
+import org.truenewx.tnxjee.model.spec.user.UserIdentity;
+
 /**
  * 服务票据
  */
 public class ServiceTicket {
 
-    private static final long serialVersionUID = 1230199044754886426L;
-
     private String sessionId;
+    private UserIdentity<?> userIdentity;
     private String service;
     private String id;
-    private long createTime;
-    private long expiredTime;
+    private Date createTime;
+    private Date expiredTime;
 
-    public ServiceTicket(String sessionId, String service, String id, long createTime,
-            long expiredTime) {
+    public ServiceTicket(String sessionId, UserIdentity<?> userIdentity, String service, String id,
+            Date createTime, Date expiredTime) {
         this.sessionId = sessionId;
+        this.userIdentity = userIdentity;
         this.service = service;
         this.id = id;
         this.createTime = createTime;
@@ -27,6 +31,10 @@ public class ServiceTicket {
         return this.sessionId;
     }
 
+    public UserIdentity<?> getUserIdentity() {
+        return this.userIdentity;
+    }
+
     public String getService() {
         return this.service;
     }
@@ -35,11 +43,11 @@ public class ServiceTicket {
         return this.id;
     }
 
-    public long getCreateTime() {
+    public Date getCreateTime() {
         return this.createTime;
     }
 
-    public long getExpiredTime() {
+    public Date getExpiredTime() {
         return this.expiredTime;
     }
 }

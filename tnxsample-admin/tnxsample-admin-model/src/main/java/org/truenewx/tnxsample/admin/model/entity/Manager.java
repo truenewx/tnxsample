@@ -106,9 +106,12 @@ public class Manager
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(new GrantedScopeAuthority(getType(), getRank()));
         getRoles().forEach(role -> {
-            role.getPermissions().forEach(permission -> {
-                authorities.add(new GrantedPermissionAuthority(permission));
-            });
+            Set<String> permissions = role.getPermissions();
+            if (permissions != null) {
+                permissions.forEach(permission -> {
+                    authorities.add(new GrantedPermissionAuthority(permission));
+                });
+            }
         });
         return authorities;
     }

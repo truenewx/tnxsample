@@ -35,6 +35,15 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
     private Md5xEncryptor encryptor = new Md5xEncryptor(29);
 
     @Override
+    public Manager find(Integer id) {
+        Manager manager = super.find(id);
+        if (manager != null) {
+            manager.getRoles();
+        }
+        return manager;
+    }
+
+    @Override
     public Manager loadByUsername(String username) {
         Manager manager = this.repo.findFirstByUsername(username);
         if (manager == null) { // 根据用户名找不到管理员

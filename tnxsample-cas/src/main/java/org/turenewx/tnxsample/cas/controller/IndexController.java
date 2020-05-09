@@ -1,14 +1,12 @@
 package org.turenewx.tnxsample.cas.controller;
 
+import org.jasig.cas.client.validation.Assertion;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.truenewx.tnxjee.service.exception.BusinessException;
-import org.truenewx.tnxjee.web.context.SpringWebContext;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
 import org.turenewx.tnxsample.cas.service.ServiceManager;
 import org.turenewx.tnxsample.cas.service.TicketManager;
@@ -25,8 +23,6 @@ public class IndexController {
     private ServiceManager serviceManager;
     @Autowired
     private TicketManager ticketManager;
-    @Autowired
-    private MessageSource messageSource;
 
     @GetMapping("/login")
     public ModelAndView toLoginForm(@RequestParam("service") String service) {
@@ -39,15 +35,9 @@ public class IndexController {
     @GetMapping("/serviceValidate")
     @ConfigAnonymous
     @ResponseBody
-    public String serviceValidate(@RequestParam("service") String service,
+    public Assertion serviceValidate(@RequestParam("service") String service,
             @RequestParam("ticket") String ticket) {
-        try {
-            this.ticketManager.validateServiceTicket(service, ticket);
-        } catch (BusinessException e) {
-            String message = this.messageSource.getMessage(e.getCode(), e.getArgs(), SpringWebContext.getLocale());
-            return "<authenticationFailure>" + message + "</authenticationFailure>";
-        }
-        return Boolean.TRUE.toString();
+        return this.ticketManager.validateServiceTicket(service, ticket);
     }
 
 }
