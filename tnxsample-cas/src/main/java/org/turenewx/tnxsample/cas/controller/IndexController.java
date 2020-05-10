@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxjeex.cas.server.service.CasServiceManager;
-import org.turenewx.tnxsample.cas.service.TicketManager;
+import org.truenewx.tnxjeex.cas.server.ticket.TicketManager;
 
 /**
  * 登录控制器

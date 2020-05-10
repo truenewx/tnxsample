@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas.client;
+package org.turenewx.tnxsample.cas.rpc;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.truenewx.tnxsample.admin.api.ManagerOpenApi;
