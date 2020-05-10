@@ -36,13 +36,13 @@ public class CommonConstants {
     public static final String MANAGER_RANK_TOP = "top";
 
     /**
-     * 应用：门户
+     * 服务：门户视图
      */
-    public static final String APP_FACADE = "facade";
+    public static final String SERVICE_FACADE_VIEW = "facade-view";
 
     /**
-     * 应用：后台
+     * 服务：后台视图
      */
-    public static final String APP_ADMIN = "admin";
+    public static final String SERVICE_ADMIN_VIEW = "admin-view";
 
 }

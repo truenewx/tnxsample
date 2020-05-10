@@ -9,7 +9,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.common.CommonConstants;
 
-public class CasAuthenticationUserDetailsService extends AbstractCasAssertionUserDetailsService {
+public class ManagerCasAssertionUserDetailsService extends AbstractCasAssertionUserDetailsService {
 
     @Autowired
     private ManagerService managerService;

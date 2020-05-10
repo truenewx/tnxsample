@@ -1,42 +1,26 @@
 package org.truenewx.tnxsample.admin.web.view.config;
 
-import org.jasig.cas.client.validation.TicketValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.cas.ServiceProperties;
-import org.springframework.security.cas.authentication.CasAuthenticationProvider;
 import org.truenewx.tnxjee.web.view.security.config.WebViewSecurityConfigurerSupport;
-import org.truenewx.tnxsample.admin.web.view.security.CasAuthenticationUserDetailsService;
-import org.truenewx.tnxsample.admin.web.view.security.CasJsonServiceTicketValidator;
+import org.truenewx.tnxjeex.cas.client.config.CasClientProperties;
+import org.truenewx.tnxsample.admin.web.view.security.ManagerCasAssertionUserDetailsService;
 
 @Configuration
 public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
 
-    @Bean
-    public CasAuthenticationUserDetailsService authenticationUserDetailsService() {
-        return new CasAuthenticationUserDetailsService();
-    }
+    @Autowired
+    private CasClientProperties casClientProperties;
 
     @Bean
-    public TicketValidator ticketValidator() {
-        return new CasJsonServiceTicketValidator("http://localhost:8883/cas/");
-    }
-
-    @Bean
-    public CasAuthenticationProvider authenticationProvider() {
-        CasAuthenticationProvider provider = new CasAuthenticationProvider();
-        provider.setAuthenticationUserDetailsService(authenticationUserDetailsService());
-        provider.setTicketValidator(ticketValidator());
-        provider.setKey(getApplicationContext().getEnvironment().getProperty("spring.application.name", "app"));
-        ServiceProperties properties = new ServiceProperties();
-        properties.setService("admin");
-        provider.setServiceProperties(properties);
-        return provider;
+    public ManagerCasAssertionUserDetailsService authenticationUserDetailsService() {
+        return new ManagerCasAssertionUserDetailsService();
     }
 
     @Override
     protected String getLoginFormUrl() {
-        return "http://localhost:8883/cas/login?service=admin";
+        return this.casClientProperties.getLoginFormUrl();
     }
 
 }
