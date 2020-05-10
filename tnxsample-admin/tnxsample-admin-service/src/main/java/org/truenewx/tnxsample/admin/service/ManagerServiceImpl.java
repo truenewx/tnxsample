@@ -35,10 +35,10 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
     private Md5xEncryptor encryptor = new Md5xEncryptor(29);
 
     @Override
-    public Manager find(Integer id) {
+    public Manager findWithRoles(Integer id) {
         Manager manager = super.find(id);
         if (manager != null) {
-            manager.getRoles();
+            manager.getRoles().size();
         }
         return manager;
     }

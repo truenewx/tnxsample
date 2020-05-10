@@ -92,7 +92,7 @@ public class Manager
     @Override
     @JsonIgnore
     public DefaultUserIdentity getIdentity() {
-        return new DefaultUserIdentity(getType(), getRank(), getId());
+        return new DefaultUserIdentity(getType(), getId());
     }
 
     @Override

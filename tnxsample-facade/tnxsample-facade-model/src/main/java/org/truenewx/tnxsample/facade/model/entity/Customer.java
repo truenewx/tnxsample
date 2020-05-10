@@ -59,7 +59,7 @@ public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentit
     @Override
     @JsonIgnore
     public DefaultUserIdentity getIdentity() {
-        return new DefaultUserIdentity(getType(), null, getId());
+        return new DefaultUserIdentity(getType(), getId());
     }
 
     @Override

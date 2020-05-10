@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
-import org.truenewx.tnxjee.model.spec.CloneableForSession;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 
 import lombok.Getter;
@@ -22,7 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Caption("角色")
-public class Role implements Unity<Integer>, CloneableForSession<Role>, Comparable<Role> {
+public class Role implements Unity<Integer>, Comparable<Role> {
 
     private Integer id;
 
@@ -52,17 +51,6 @@ public class Role implements Unity<Integer>, CloneableForSession<Role>, Comparab
 
     protected void setManagers(Collection<Manager> managers) {
         this.managers = managers;
-    }
-
-    @Override
-    public Role cloneForSession() {
-        Role role = new Role();
-        role.setId(getId());
-        role.setName(getName());
-        role.setRemark(getRemark());
-        role.setOrdinal(getOrdinal());
-        role.setPermissions(getPermissions());
-        return role;
     }
 
     @Override

@@ -16,9 +16,11 @@ public class CasAuthenticationUserDetailsService extends AbstractCasAssertionUse
 
     @Override
     protected UserDetails loadUserDetails(Assertion assertion) {
-        DefaultUserIdentity userIdentity = DefaultUserIdentity.of(assertion.getPrincipal().getName());
-        if (userIdentity != null && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType())) {
-            Manager manager = this.managerService.find(userIdentity.getId());
+        DefaultUserIdentity userIdentity = DefaultUserIdentity
+                .of(assertion.getPrincipal().getName());
+        if (userIdentity != null
+                && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType())) {
+            Manager manager = this.managerService.findWithRoles(userIdentity.getId());
             if (manager != null) {
                 return manager.getSpecificDetails();
             }

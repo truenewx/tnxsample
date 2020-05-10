@@ -12,6 +12,8 @@ import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
  */
 public interface ManagerService extends ModelUnityService<Manager, Integer> {
 
+    Manager findWithRoles(Integer id);
+
     Manager loadByUsername(String username);
 
     Manager validateLogin(String username, String password);
