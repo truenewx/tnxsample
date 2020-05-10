@@ -9,9 +9,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.service.exception.BusinessException;
+import org.truenewx.tnxjeex.cas.server.service.CasServiceManager;
 import org.truenewx.tnxsample.common.CommonConstants;
 import org.turenewx.tnxsample.cas.client.ManagerOpenClient;
-import org.turenewx.tnxsample.cas.service.ServiceManager;
 
 /**
  * 管理员认证提供器
@@ -19,7 +19,7 @@ import org.turenewx.tnxsample.cas.service.ServiceManager;
 @Component
 public class ManagerAuthenticationProvider implements AuthenticationProvider {
     @Autowired
-    private ServiceManager serviceManager;
+    private CasServiceManager serviceManager;
     @Autowired
     private ManagerOpenClient managerOpenClient;
 

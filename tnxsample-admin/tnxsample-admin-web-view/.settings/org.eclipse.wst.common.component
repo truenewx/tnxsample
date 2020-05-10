@@ -16,10 +16,10 @@
         <dependent-module archiveName="tnxjee-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-model/tnxjee-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
+        <dependent-module archiveName="tnxjeex-cas-client-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-cas-client/tnxjeex-cas-client">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxjeex-cas-client-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-cas-client/tnxjeex-cas-client">
+        <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-admin-service-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-service/tnxsample-admin-service">

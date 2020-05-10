@@ -10,6 +10,9 @@
         <dependent-module archiveName="tnxjee-web-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-web/tnxjee-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tnxjeex-cas-server-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-cas-server/tnxjeex-cas-server">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="tnxjee-service-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-service/tnxjee-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
@@ -17,9 +20,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxjeex-cas-server-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-cas-server/tnxjeex-cas-server">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-admin-api-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-api/tnxsample-admin-api">

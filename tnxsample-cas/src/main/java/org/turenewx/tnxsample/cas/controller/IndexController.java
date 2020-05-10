@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
-import org.turenewx.tnxsample.cas.service.ServiceManager;
+import org.truenewx.tnxjeex.cas.server.service.CasServiceManager;
 import org.turenewx.tnxsample.cas.service.TicketManager;
 
 /**
@@ -20,7 +20,7 @@ import org.turenewx.tnxsample.cas.service.TicketManager;
 public class IndexController {
 
     @Autowired
-    private ServiceManager serviceManager;
+    private CasServiceManager serviceManager;
     @Autowired
     private TicketManager ticketManager;
 

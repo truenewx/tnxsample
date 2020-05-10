@@ -13,7 +13,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.web.util.WebUtil;
 import org.truenewx.tnxjee.web.view.util.WebViewUtil;
-import org.turenewx.tnxsample.cas.service.ServiceManager;
+import org.truenewx.tnxjeex.cas.server.service.CasServiceManager;
 import org.turenewx.tnxsample.cas.service.TicketManager;
 
 /**
@@ -24,7 +24,7 @@ public class CasAuthenticationSuccessHandler implements AuthenticationSuccessHan
     @Autowired
     private ServerProperties serverProperties;
     @Autowired
-    private ServiceManager serviceManager;
+    private CasServiceManager serviceManager;
     @Autowired
     private TicketManager ticketManager;
 
