@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas;
+package org.turenewx.tnxsample.cas.server;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(CasApp.class);
+        return application.sources(CasServerApp.class);
     }
 
 }

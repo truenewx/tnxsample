@@ -1,11 +1,11 @@
-package org.turenewx.tnxsample.cas.authentication;
+package org.turenewx.tnxsample.cas.server.authentication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.model.spec.user.UserIdentity;
 import org.truenewx.tnxjeex.cas.server.authentication.CasLoginValidator;
 import org.truenewx.tnxsample.common.CommonConstants;
-import org.turenewx.tnxsample.cas.rpc.ManagerOpenClient;
+import org.turenewx.tnxsample.cas.server.rpc.ManagerOpenClient;
 
 @Service
 public class CasLoginValidatorImpl implements CasLoginValidator {

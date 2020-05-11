@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>org.truenewx.tnxsample</groupId>
-    <artifactId>tnxsample-cas</artifactId>
+    <artifactId>tnxsample-cas-server</artifactId>
     <packaging>war</packaging>
     <dependencies>
         <dependency>

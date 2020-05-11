@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas;
+package org.turenewx.tnxsample.cas.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,11 +9,11 @@ import org.truenewx.tnxjeex.cas.server.CasServerModule;
 
 @EnableCaching
 @EnableFeignClients
-@SpringBootApplication(scanBasePackageClasses = { Framework.class, CasServerModule.class, CasApp.class })
-public class CasApp {
+@SpringBootApplication(scanBasePackageClasses = { Framework.class, CasServerModule.class, CasServerApp.class })
+public class CasServerApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(CasApp.class, args);
+        SpringApplication.run(CasServerApp.class, args);
     }
 
 }

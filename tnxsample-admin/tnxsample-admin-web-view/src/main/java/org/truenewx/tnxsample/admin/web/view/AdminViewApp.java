@@ -12,10 +12,10 @@ import org.truenewx.tnxsample.common.CommonConstants;
 @EnableCaching
 @EnableMongoHttpSession(maxInactiveIntervalInSeconds = 900, collectionName = CommonConstants.SESSION_COLLECTION_NAME)
 @SpringBootApplication(scanBasePackageClasses = { Framework.class, CasClientModule.class, AppRoot.class })
-public class AdminWebViewApp {
+public class AdminViewApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(AdminWebViewApp.class, args);
+        SpringApplication.run(AdminViewApp.class, args);
     }
 
 }
