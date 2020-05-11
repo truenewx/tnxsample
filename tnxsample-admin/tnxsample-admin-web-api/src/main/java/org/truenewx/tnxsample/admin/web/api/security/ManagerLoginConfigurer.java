@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.view.security;
+package org.truenewx.tnxsample.admin.web.api.security;
 
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.cas.authentication.CasAuthenticationProvider;
@@ -12,7 +12,7 @@ import org.truenewx.tnxjee.web.security.config.SecurityLoginConfigurerSupport;
  */
 @Component
 // 指定AuthenticationProvider实现类
-public class ManagerLoginSecurityConfigurer
+public class ManagerLoginConfigurer
         extends SecurityLoginConfigurerSupport<CasAuthenticationProvider> {
 
     @Override

@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.web.view.security;
+package org.truenewx.tnxsample.admin.web.api.security;
 
 import org.jasig.cas.client.validation.Assertion;
 import org.springframework.beans.factory.annotation.Autowired;
