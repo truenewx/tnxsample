@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.cas.userdetails.AbstractCasAssertionUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
+import org.truenewx.tnxjee.model.spec.user.security.NullUserDetails;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.common.CommonConstants;
@@ -16,16 +17,18 @@ public class ManagerCasAssertionUserDetailsService extends AbstractCasAssertionU
 
     @Override
     protected UserDetails loadUserDetails(Assertion assertion) {
-        DefaultUserIdentity userIdentity = DefaultUserIdentity
-                .of(assertion.getPrincipal().getName());
-        if (userIdentity != null
-                && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType())) {
-            Manager manager = this.managerService.findWithRoles(userIdentity.getId());
-            if (manager != null) {
-                return manager.getSpecificDetails();
+        if (assertion != null && assertion.isValid()) {
+            DefaultUserIdentity userIdentity = DefaultUserIdentity
+                    .of(assertion.getPrincipal().getName());
+            if (userIdentity != null
+                    && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType())) {
+                Manager manager = this.managerService.findWithRoles(userIdentity.getId());
+                if (manager != null) {
+                    return manager.getSpecificDetails();
+                }
             }
         }
-        return null;
+        return new NullUserDetails();
     }
 
 }
