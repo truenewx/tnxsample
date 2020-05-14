@@ -7,15 +7,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.security.NullUserDetails;
-import org.truenewx.tnxsample.admin.model.entity.Manager;
-import org.truenewx.tnxsample.admin.service.ManagerService;
+import org.truenewx.tnxsample.admin.api.ManagerAdminApi;
 import org.truenewx.tnxsample.common.CommonConstants;
 
 @Component
 public class ManagerCasAssertionUserDetailsService extends AbstractCasAssertionUserDetailsService {
 
     @Autowired
-    private ManagerService managerService;
+    private ManagerAdminApi managerAdminApi;
 
     @Override
     protected UserDetails loadUserDetails(Assertion assertion) {
@@ -24,10 +23,7 @@ public class ManagerCasAssertionUserDetailsService extends AbstractCasAssertionU
                     .of(assertion.getPrincipal().getName());
             if (userIdentity != null
                     && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType())) {
-                Manager manager = this.managerService.findWithRoles(userIdentity.getId());
-                if (manager != null) {
-                    return manager.getSpecificDetails();
-                }
+                return this.managerAdminApi.getSpecificDetails(userIdentity.getId());
             }
         }
         return new NullUserDetails();

@@ -10,5 +10,4 @@ import org.truenewx.tnxsample.admin.api.ManagerOpenApi;
  */
 @FeignClient(name = "manager-open", url = "localhost:8888")
 public interface ManagerOpenClient extends ManagerOpenApi {
-
 }

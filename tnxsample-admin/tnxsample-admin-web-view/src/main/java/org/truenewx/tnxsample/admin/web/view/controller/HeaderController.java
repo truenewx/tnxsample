@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
-import org.truenewx.tnxsample.admin.service.ManagerService;
+import org.truenewx.tnxsample.admin.web.view.rpc.ManagerAdminClient;
 import org.truenewx.tnxsample.admin.web.view.util.ProjectWebUtil;
 
 /**
@@ -14,7 +14,7 @@ import org.truenewx.tnxsample.admin.web.view.util.ProjectWebUtil;
 @Controller
 public class HeaderController {
     @Autowired
-    private ManagerService managerService;
+    private ManagerAdminClient managerAdminClient;
 
     @RequestMapping("/header")
     @ConfigAnonymous
@@ -22,7 +22,7 @@ public class HeaderController {
         ModelAndView mav = new ModelAndView("/header");
         Integer managerId = ProjectWebUtil.getManagerId();
         if (managerId != null) {
-            mav.addObject("manager", this.managerService.load(managerId));
+            mav.addObject("manager", this.managerAdminClient.getSpecificDetails(managerId));
         }
         return mav;
     }
