@@ -6,7 +6,7 @@ import org.springframework.security.cas.userdetails.AbstractCasAssertionUserDeta
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
-import org.truenewx.tnxjee.model.spec.user.security.NullUserDetails;
+import org.truenewx.tnxjee.service.exception.AuthenticationFailureException;
 import org.truenewx.tnxsample.admin.api.ManagerAdminApi;
 import org.truenewx.tnxsample.common.CommonConstants;
 
@@ -26,7 +26,7 @@ public class ManagerCasAssertionUserDetailsService extends AbstractCasAssertionU
                 return this.managerAdminApi.getSpecificDetails(userIdentity.getId());
             }
         }
-        return new NullUserDetails();
+        throw new AuthenticationFailureException();
     }
 
 }

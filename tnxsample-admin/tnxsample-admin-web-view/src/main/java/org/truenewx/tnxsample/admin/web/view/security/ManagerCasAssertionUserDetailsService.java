@@ -2,11 +2,11 @@ package org.truenewx.tnxsample.admin.web.view.security;
 
 import org.jasig.cas.client.validation.Assertion;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.cas.userdetails.AbstractCasAssertionUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
+import org.truenewx.tnxjee.service.exception.AuthenticationFailureException;
 import org.truenewx.tnxsample.admin.web.view.rpc.ManagerAdminClient;
 import org.truenewx.tnxsample.common.CommonConstants;
 
@@ -30,7 +30,7 @@ public class ManagerCasAssertionUserDetailsService extends AbstractCasAssertionU
                 }
             }
         }
-        throw new BadCredentialsException("invalid assertion");
+        throw new AuthenticationFailureException();
     }
 
 }
