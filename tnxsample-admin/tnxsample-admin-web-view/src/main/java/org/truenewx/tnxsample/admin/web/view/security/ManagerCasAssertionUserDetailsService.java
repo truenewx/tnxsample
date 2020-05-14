@@ -6,7 +6,7 @@ import org.springframework.security.cas.userdetails.AbstractCasAssertionUserDeta
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
-import org.truenewx.tnxjee.service.exception.AuthenticationFailureException;
+import org.truenewx.tnxjee.web.security.core.AuthenticationFailureException;
 import org.truenewx.tnxsample.admin.web.view.rpc.ManagerAdminClient;
 import org.truenewx.tnxsample.common.CommonConstants;
 
