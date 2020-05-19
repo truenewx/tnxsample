@@ -34,6 +34,12 @@
         <dependent-module archiveName="tnxjeex-log-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-log-model/tnxjeex-log-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="tnxsample-facade-api-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-api/tnxsample-facade-api">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxsample-facade-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-model/tnxsample-facade-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/tnxsample-user/target/classes"/>
         <property name="context-root" value="tnxsample-cas-server"/>
     </wb-module>
