@@ -1,7 +1,0 @@
-server:
-  port: 8880
-spring:
-  application:
-    name: gateway
-  profiles:
-    active: local
