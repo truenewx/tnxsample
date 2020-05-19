@@ -26,6 +26,10 @@
             <artifactId>tnxsample-admin-api</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.truenewx.tnxsample.facade</groupId>
+            <artifactId>tnxsample-facade-api</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>

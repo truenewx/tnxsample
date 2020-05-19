@@ -1,4 +1,4 @@
-package org.truenewx.tnxsample.admin.service.rpc;
+package org.truenewx.tnxsample.fss.web.rpc;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.truenewx.tnxsample.facade.api.CustomerAdminApi;
