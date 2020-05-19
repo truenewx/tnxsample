@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.cas.userdetails.AbstractCasAssertionUserDetailsService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.truenewx.tnxjee.core.util.LogUtil;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.web.security.core.AuthenticationFailureException;
 import org.truenewx.tnxsample.common.CommonConstants;
@@ -33,7 +34,7 @@ public class UserCasAssertionUserDetailsService extends AbstractCasAssertionUser
                             return this.customerAdminClient.getSpecificDetails(userIdentity.getId());
                     }
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    LogUtil.error(getClass(), e);
                 }
             }
         }

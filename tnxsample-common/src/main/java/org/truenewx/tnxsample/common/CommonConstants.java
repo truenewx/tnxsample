@@ -11,6 +11,16 @@ public class CommonConstants {
     }
 
     /**
+     * 存放session信息的集合名称
+     */
+    public static final String SESSION_COLLECTION_NAME = "session";
+
+    /**
+     * session过期时间，单位：秒
+     */
+    public static final int SESSION_TIMEOUT = 900;
+
+    /**
      * 用户类型：客户
      */
     public static final String USER_TYPE_CUSTOMER = "customer";
