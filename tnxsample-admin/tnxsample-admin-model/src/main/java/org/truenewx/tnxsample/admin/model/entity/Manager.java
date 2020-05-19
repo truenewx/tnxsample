@@ -15,9 +15,7 @@ import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
 import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
-import org.truenewx.tnxjee.model.spec.user.security.GrantedAuthorityImpl;
-import org.truenewx.tnxjee.model.spec.user.security.GrantedAuthorityKind;
-import org.truenewx.tnxjee.model.spec.user.security.GrantedPermissionAuthority;
+import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.common.CommonConstants;
 
@@ -105,15 +103,15 @@ public class Manager
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(new GrantedAuthorityImpl(GrantedAuthorityKind.USER_TYPE, getType()));
+        authorities.add(KindGrantedAuthorityImpl.ofType(getType()));
         if (isTop()) {
-            authorities.add(new GrantedAuthorityImpl(GrantedAuthorityKind.USER_RANK, getRank()));
+            authorities.add(KindGrantedAuthorityImpl.ofRank(getRank()));
         }
         getRoles().forEach(role -> {
             Set<String> permissions = role.getPermissions();
             if (permissions != null) {
                 permissions.forEach(permission -> {
-                    authorities.add(new GrantedPermissionAuthority(permission));
+                    authorities.add(KindGrantedAuthorityImpl.ofPermission(permission));
                 });
             }
         });
