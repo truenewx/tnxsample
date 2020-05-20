@@ -3,7 +3,6 @@ package org.truenewx.tnxsample.fss.web;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxjeex.cas.client.CasClientModule;
@@ -17,7 +16,6 @@ import org.truenewx.tnxsample.fss.AppRoot;
  * @author jianglei
  */
 @EnableCaching
-@EnableFeignClients
 @EnableMongoHttpSession(maxInactiveIntervalInSeconds = CommonConstants.SESSION_TIMEOUT, collectionName = CommonConstants.SESSION_COLLECTION_NAME)
 @SpringBootApplication(scanBasePackageClasses = { Framework.class, FssModule.class, CasClientModule.class, AppRoot.class })
 public class FssWebApp {
