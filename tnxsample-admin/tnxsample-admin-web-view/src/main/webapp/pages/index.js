@@ -8,7 +8,7 @@ define(["app", "fssUpload"], function(app) {
             },
             mounted: function() {
                 $("#headImageContainer").fssUpload({
-                    type: "MANAGER_HEAD_IMAGE"
+                    type: "ManagerHeadImage"
                 });
             },
             methods: {

@@ -22,7 +22,7 @@ define(["app", "validator", "fssUpload"], function(app, Validator) {
             },
             mounted: function() {
                 $("#headImageContainer").fssUpload({
-                    type: "MANAGER_HEAD_IMAGE"
+                    type: "ManagerHeadImage"
                 });
             },
             methods: {

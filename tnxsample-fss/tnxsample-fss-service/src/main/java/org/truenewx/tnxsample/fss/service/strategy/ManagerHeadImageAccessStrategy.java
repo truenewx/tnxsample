@@ -6,7 +6,6 @@ import org.truenewx.tnxjee.model.spec.DimensionSize;
 import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
 import org.truenewx.tnxsample.common.CommonConstants;
-import org.truenewx.tnxsample.fss.service.model.FssType;
 
 /**
  * 管理员头像的访问策略
@@ -17,8 +16,8 @@ import org.truenewx.tnxsample.fss.service.model.FssType;
 public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
-    public FssType getType() {
-        return FssType.MANAGER_HEAD_IMAGE;
+    public String getType() {
+        return "ManagerHeadImage";
     }
 
     @Override
