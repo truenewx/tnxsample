@@ -10,7 +10,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerSupport {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
-        http.formLogin().defaultSuccessUrl("/", true);
+        http.formLogin().defaultSuccessUrl("/");
     }
 
 }

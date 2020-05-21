@@ -18,8 +18,16 @@
             <artifactId>tnxjee-web-view</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.truenewx.tnxjeex.cas</groupId>
+            <artifactId>tnxjeex-cas-client</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-service</artifactId>
+            <artifactId>tnxsample-facade-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -38,6 +46,14 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-mongodb</artifactId>
         </dependency>
     </dependencies>
 </project>
