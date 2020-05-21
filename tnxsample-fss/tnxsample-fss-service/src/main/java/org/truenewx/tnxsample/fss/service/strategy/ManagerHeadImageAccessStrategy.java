@@ -56,7 +56,7 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
 
     @Override
     public boolean isWritable(IntegerUserIdentity userIdentity, String path) {
-        return isReadable(userIdentity, path); // 读写权限判断一致
+        return isReadable(userIdentity, path) && path.startsWith("manager/" + userIdentity.getId() + Strings.SLASH);
     }
 
 }
