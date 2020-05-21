@@ -13,7 +13,7 @@ import org.truenewx.tnxsample.common.CommonConstants;
  * @author jianglei
  */
 @Service
-public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
+public class ManagerHeadImageAccessStrategy extends AbstractFssAccessStrategy {
 
     @Override
     public String getType() {
@@ -28,8 +28,8 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
     }
 
     @Override
-    public String getBucket() {
-        return "headImage";
+    public String getContextPath() {
+        return "/headImage/manager";
     }
 
     @Override
@@ -38,9 +38,10 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
     }
 
     @Override
-    public String getPath(String token, IntegerUserIdentity userIdentity, String filename) {
+    public String getRelativePath(String modelIdentity, IntegerUserIdentity userIdentity,
+            String filename) {
         if (isValidUserIdentity(userIdentity)) {
-            return "manager/" + userIdentity.getId() + Strings.SLASH + filename;
+            return Strings.SLASH + userIdentity.getId() + Strings.SLASH + filename;
         }
         return null;
     }
@@ -50,13 +51,14 @@ public class ManagerHeadImageAccessStrategy extends ManagerFssAccessStrategy {
     }
 
     @Override
-    public boolean isReadable(IntegerUserIdentity userIdentity, String path) {
-        return isValidUserIdentity(userIdentity) && path.startsWith("manager/");
+    public boolean isReadable(IntegerUserIdentity userIdentity, String relativePath) {
+        return isValidUserIdentity(userIdentity); // 管理员可以读其他管理员的头像
     }
 
     @Override
-    public boolean isWritable(IntegerUserIdentity userIdentity, String path) {
-        return isReadable(userIdentity, path) && path.startsWith("manager/" + userIdentity.getId() + Strings.SLASH);
+    public boolean isWritable(IntegerUserIdentity userIdentity, String relativePath) {
+        // 管理员只可以写自己的头像
+        return isReadable(userIdentity, relativePath) && relativePath.startsWith(Strings.SLASH + userIdentity.getId() + Strings.SLASH);
     }
 
 }

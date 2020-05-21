@@ -5,11 +5,12 @@ import org.truenewx.tnxjeex.fss.service.FssAccessStrategy;
 import org.truenewx.tnxjeex.fss.service.model.FssProvider;
 
 /**
- * 管理员的文件存储访问策略
+ * 抽象文件存储访问策略
  *
  * @author jianglei
  */
-public abstract class ManagerFssAccessStrategy implements FssAccessStrategy<IntegerUserIdentity> {
+public abstract class AbstractFssAccessStrategy
+        implements FssAccessStrategy<IntegerUserIdentity> {
 
     @Override
     public FssProvider getProvider() {
