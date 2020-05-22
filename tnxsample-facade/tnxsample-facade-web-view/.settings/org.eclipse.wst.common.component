@@ -19,28 +19,16 @@
         <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxsample-facade-service-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-service/tnxsample-facade-service">
+        <dependent-module archiveName="tnxjeex-cas-client-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjeex-cas-client/tnxjeex-cas-client">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxjee-service-impl-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-service-impl/tnxjee-service-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxjee-repo-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo/tnxjee-repo">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxsample-facade-repo-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-repo/tnxsample-facade-repo">
+        <dependent-module archiveName="tnxsample-facade-api-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-api/tnxsample-facade-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-facade-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-facade-model/tnxsample-facade-model">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-common-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-common/tnxsample-common">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxjee-repo-jpa-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo-jpa/tnxjee-repo-jpa">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxjee-repo-mongo-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-repo-mongo/tnxjee-repo-mongo">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="tnxsample-facade-web-view"/>
