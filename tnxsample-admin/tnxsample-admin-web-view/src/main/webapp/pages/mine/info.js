@@ -14,9 +14,10 @@ define(["app", "validator", "fssUpload"], function(app, Validator) {
                 app.rpc.get(this.url, function(model) {
                     _this.model = model;
                     _this.v.setModel(model);
+                    var storageUrls = model.headImageUrl ? [model.headImageUrl] : undefined;
                     $("#headImageContainer").fssUpload({
                         type: "ManagerHeadImage",
-                        storageUrls: [model.headImageUrl],
+                        storageUrls: storageUrls,
                     });
                     tnx.hideLoading();
                 });

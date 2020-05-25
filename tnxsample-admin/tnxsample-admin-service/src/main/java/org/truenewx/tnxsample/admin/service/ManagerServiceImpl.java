@@ -55,15 +55,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
     @Override
     public Manager validateLogin(String username, String password) {
         Manager manager = loadByUsername(username);
-        boolean passwordValid;
-        if (password != null && password.length() < 32) { // 长度小于32位的密码为原文
-            passwordValid = this.encryptor.validate(manager.getPassword(), password,
-                    manager.getId());
-        } else { // 否则视为MD5密文
-            passwordValid = this.encryptor.validateByMd5Source(manager.getPassword(), password,
-                    manager.getId());
-        }
-        if (!passwordValid) { // 密码错误
+        if (!isValidPassword(manager, password)) { // 密码错误
             throw new BusinessException(ManagerExceptionCodes.USERNAME_OR_PASSWORD_ERROR);
         }
         if (manager.isDisabled()) { // 管理员被禁用
@@ -71,6 +63,16 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
         }
         manager.getAuthorities();
         return manager;
+    }
+
+    private boolean isValidPassword(Manager manager, String password) {
+        if (password.length() < 32) { // 长度小于32位的密码为原文
+            return this.encryptor.validate(manager.getPassword(), password,
+                    manager.getId());
+        } else { // 否则视为MD5密文
+            return this.encryptor.validateByMd5Source(manager.getPassword(), password,
+                    manager.getId());
+        }
     }
 
     @Override
@@ -89,14 +91,19 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
     }
 
     @Override
-    public Manager updatePassword(int id, String oldMd5Password, String newMd5Password) {
+    public Manager updatePassword(int id, String oldPassword, String newPassword) {
         Manager manager = find(id);
         if (manager != null) {
-            if (!this.encryptor.validateByMd5Source(manager.getPassword(), oldMd5Password,
-                    manager.getId())) { // 密码错误
-                throw new BusinessException(ManagerExceptionCodes.USERNAME_OR_PASSWORD_ERROR);
+            if (!isValidPassword(manager, oldPassword)) { // 原密码错误
+                throw new BusinessException(ManagerExceptionCodes.OLD_PASSWORD_ERROR).bind("oldPassword");
             }
-            manager.setPassword(this.encryptor.encryptByMd5Source(newMd5Password, manager.getId()));
+            String password;
+            if (newPassword.length() < 32) { // 长度小于32位的密码为原文
+                password = this.encryptor.encrypt(newPassword, manager.getId());
+            } else { // 否则视为MD5密文
+                password = this.encryptor.encryptByMd5Source(newPassword, manager.getId());
+            }
+            manager.setPassword(password);
             this.repo.save(manager);
         }
         return manager;

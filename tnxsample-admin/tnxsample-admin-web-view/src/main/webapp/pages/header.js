@@ -8,6 +8,9 @@ define([], function() {
             methods: {
                 toUpdateInfo: function() {
                     tnx.open(app.context + "/mine/info.win");
+                },
+                toUpdatePassword: function() {
+                    tnx.open(app.context + "/mine/password.win");
                 }
             }
         });

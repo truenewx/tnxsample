@@ -16,6 +16,7 @@ import io.swagger.annotations.ApiOperation;
 
 @Api("个人管理")
 @RestController
+@ConfigAuthority
 @RequestMapping("/mine")
 public class MineController {
     @Autowired
@@ -23,7 +24,6 @@ public class MineController {
 
     @ApiOperation("获取个人信息")
     @GetMapping("/info")
-    @ConfigAuthority
     @ResultFilter(included = { "username", "top", "headImageUrl", "fullName" })
     public Manager info() {
         int managerId = ProjectWebUtil.getManagerId();
@@ -32,10 +32,17 @@ public class MineController {
 
     @ApiOperation("修改个人信息")
     @PostMapping("/info")
-    @ConfigAuthority
     public void updateInfo(@Valid @RequestBody CommandManagerSelf command) {
         int managerId = ProjectWebUtil.getManagerId();
         this.managerService.updateSelf(managerId, command);
+    }
+
+    @ApiOperation("修改密码")
+    @PostMapping("/password")
+    public void updatePassword(@RequestParam("oldPassword") String oldPassword,
+            @RequestParam("newPassword") String newPassword) {
+        int managerId = ProjectWebUtil.getManagerId();
+        this.managerService.updatePassword(managerId, oldPassword, newPassword);
     }
 
 }

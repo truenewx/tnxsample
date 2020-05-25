@@ -22,7 +22,7 @@ public interface ManagerService extends ModelUnityService<Manager, Integer> {
 
     Manager updateSelf(int id, CommandManagerSelf command);
 
-    Manager updatePassword(int id, String oldMd5Password, String newMd5Password);
+    Manager updatePassword(int id, String oldPassword, String newPassword);
 
     Manager resetPassword(int id, String newMd5Password);
 
