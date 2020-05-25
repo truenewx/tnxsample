@@ -6,16 +6,7 @@
     <title>首页</title>
 </head>
 
-<body js="index.js">
+<body>
 <h2 class="text-center pt-5">欢迎进入</h2>
-<div class="form-group row mt-5">
-    <label class="col-5 col-form-label">头像</label>
-    <div class="col-5" id="headImageContainer"></div>
-</div>
-<div class="form-group row">
-    <div class="offset-5 col-5">
-        <button type="button" class="btn btn-primary" @click="submit">确定</button>
-    </div>
-</div>
 </body>
 </html>
