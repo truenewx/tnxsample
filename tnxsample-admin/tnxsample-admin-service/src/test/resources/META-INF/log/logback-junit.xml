@@ -10,7 +10,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.truenewx.tnxexample" level="DEBUG"/>
+    <logger name="org.truenewx.tnxsample" level="DEBUG"/>
 
     <root level="INFO">
         <appender-ref ref="console"/>

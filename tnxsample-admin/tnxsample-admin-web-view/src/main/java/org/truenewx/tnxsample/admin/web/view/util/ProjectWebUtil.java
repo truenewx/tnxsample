@@ -17,8 +17,8 @@ public class ProjectWebUtil {
     }
 
     public static Integer getManagerId() {
-        UserSpecificDetails<IntegerUserIdentity> details = getManagerDetails();
-        return details == null ? null : details.getIdentity().getId();
+        IntegerUserIdentity userIdentity = SecurityUtil.getAuthorizedUserIdentity();
+        return userIdentity == null ? null : userIdentity.getId();
     }
 
 }

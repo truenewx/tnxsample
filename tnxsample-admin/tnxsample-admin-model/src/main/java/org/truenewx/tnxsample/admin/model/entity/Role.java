@@ -55,7 +55,7 @@ public class Role implements Unity<Integer>, Comparable<Role> {
 
     @Override
     public int compareTo(Role other) {
-        return Long.valueOf(getOrdinal()).compareTo(other.getOrdinal());
+        return Long.compare(getOrdinal(), other.getOrdinal());
     }
 
 }

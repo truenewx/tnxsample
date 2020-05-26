@@ -11,6 +11,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.truenewx.tnxjee</groupId>
+            <artifactId>tnxjee-model</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.truenewx.tnxsample</groupId>
             <artifactId>tnxsample-common</artifactId>
         </dependency>

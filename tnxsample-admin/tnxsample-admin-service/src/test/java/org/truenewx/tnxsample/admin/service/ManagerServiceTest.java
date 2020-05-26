@@ -1,5 +1,8 @@
 package org.truenewx.tnxsample.admin.service;
 
+import java.util.Collection;
+import java.util.List;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,9 +17,6 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.service.model.CommandManager;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
-
-import java.util.Collection;
-import java.util.List;
 
 /**
  * ManagerServiceTest
@@ -91,7 +91,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
 
     @Test
     @Caption("测试：修改管理员密码-密码错误")
-    @TestBusinessException(ManagerExceptionCodes.USERNAME_OR_PASSWORD_ERROR)
+    @TestBusinessException(ManagerExceptionCodes.OLD_PASSWORD_ERROR)
     public void updatePasswordTestErrorPassword() {
         Integer managerId = getData(Manager.class, 1).getId();
         String oldPassword = EncryptUtil.encryptByMd5("12345678");
@@ -115,7 +115,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
     public void addTest() {
         int roleId0 = getData(Role.class, 0).getId();
         int roleId1 = getData(Role.class, 1).getId();
-        int[] roleIds = {roleId0, roleId1};
+        int[] roleIds = { roleId0, roleId1 };
 
         CommandManager command = new CommandManager();
         command.setUsername("new-manager");
@@ -150,7 +150,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
         int managerId = getData(Manager.class, 1).getId();
         int roleId0 = getData(Role.class, 0).getId();
         int roleId1 = getData(Role.class, 1).getId();
-        int[] roleIds = {roleId0, roleId1};
+        int[] roleIds = { roleId0, roleId1 };
 
         CommandManager command = new CommandManager();
         command.setFullName("zhangsan");

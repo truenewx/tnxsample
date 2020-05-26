@@ -8,12 +8,10 @@
     </parent>
     <groupId>org.truenewx.tnxsample</groupId>
     <artifactId>tnxsample-common</artifactId>
-
     <properties>
         <maven.build.timestamp.format>MddHHmmss</maven.build.timestamp.format>
         <project.build.timestamp>${maven.build.timestamp}</project.build.timestamp>
     </properties>
-
     <build>
         <resources>
             <resource>
@@ -22,11 +20,4 @@
             </resource>
         </resources>
     </build>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.truenewx.tnxjee</groupId>
-            <artifactId>tnxjee-model</artifactId>
-        </dependency>
-    </dependencies>
 </project>
