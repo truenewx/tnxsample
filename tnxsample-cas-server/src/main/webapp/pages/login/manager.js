@@ -13,6 +13,17 @@ define(["app"], function(app) {
                     return this.password ? util.md5(this.password) : "";
                 }
             },
+            created: function() {
+                app.rpc.post("/deleteServiceTickets", function(urlMapping) {
+                    var service = $("#service").val();
+                    for (var deletedService of urlMapping) {
+                        if (deletedService !== service) {
+                            var url = urlMapping[deletedService]
+                            app.rpc.get(url);
+                        }
+                    }
+                });
+            },
             methods: {
                 submit: function(event) {
                     if (this.username && this.password) {

@@ -14,7 +14,7 @@ import org.truenewx.tnxsample.admin.service.ManagerService;
  * @author jianglei
  */
 @RestController
-@ConfigAnonymous(intranet = true)
+@ConfigAnonymous
 public class ManagerOpenController implements ManagerOpenApi {
 
     @Autowired

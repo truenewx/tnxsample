@@ -9,14 +9,14 @@ import org.truenewx.tnxjeex.cas.client.config.CasClientProperties;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerSupport {
 
+    @Autowired
+    private CasClientProperties casClientProperties;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         super.configure(http);
         http.formLogin().defaultSuccessUrl("/");
     }
-
-    @Autowired
-    private CasClientProperties casClientProperties;
 
     @Override
     protected String getLoginFormUrl() {

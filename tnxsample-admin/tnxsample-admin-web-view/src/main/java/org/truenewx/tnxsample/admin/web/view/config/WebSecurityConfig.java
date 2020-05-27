@@ -16,4 +16,9 @@ public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
         return this.casClientProperties.getLoginFormUrl();
     }
 
+    @Override
+    protected String getLogoutSuccessUrl() {
+        return this.casClientProperties.getLogoutUrl();
+    }
+
 }

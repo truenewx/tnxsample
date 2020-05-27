@@ -14,14 +14,16 @@
         <tnxjee:errors/>
     </tv-div>
     <form method="post" action="${context}/login" @submit="submit($event)">
-        <input type="hidden" name="service" value="${service}">
+        <input type="hidden" id="service" name="service" value="${service}">
         <div class="form-group">
             <label for="username">用户名</label>
-            <input type="text" class="form-control" name="username" id="username" v-model="username">
+            <input type="text" class="form-control" name="username" id="username"
+                v-model="username">
         </div>
         <div class="form-group">
             <label for="password">密码</label>
-            <input type="password" class="form-control" id="password" v-model="password" autocomplete="off">
+            <input type="password" class="form-control" id="password" v-model="password"
+                autocomplete="off">
             <input type="hidden" name="password" v-model="md5Password">
         </div>
         <button type="submit" class="btn btn-primary">登录</button>
