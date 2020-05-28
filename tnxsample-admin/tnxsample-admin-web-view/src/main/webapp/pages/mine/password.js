@@ -18,8 +18,10 @@ define(["app"], function(app) {
                     if (!this.error.newPassword) {
                         var _this = this;
                         app.rpc.post("/mine/password", function() {
-                            tnx.alert("成功", "登录密码修改成功，请使用新的密码重新登录", function() {
-                                window.location.href = app.context + "/logout";
+                            container.close(function() {
+                                tnx.alert("成功", "登录密码修改成功，请使用新的密码重新登录", function() {
+                                    window.location.href = app.context + "/logout";
+                                });
                             });
                         }, {
                             params: this.model,
