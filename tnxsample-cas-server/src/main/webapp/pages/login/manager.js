@@ -14,14 +14,16 @@ define(["app"], function(app) {
                 }
             },
             created: function() {
-                app.rpc.post("/deleteServiceTickets", function(urlMapping) {
-                    var service = $("#service").val();
-                    for (var deletedService of urlMapping) {
-                        if (deletedService !== service) {
-                            var url = urlMapping[deletedService]
+                var service = $("#service").val();
+                app.rpc.get("/serviceLogoutUrls", {
+                    service: service
+                }, function(urlMapping) {
+                    Object.keys(urlMapping).forEach(function(logoutService) {
+                        if (logoutService !== service) {
+                            var url = urlMapping[logoutService];
                             app.rpc.get(url);
                         }
-                    }
+                    });
                 });
             },
             methods: {
