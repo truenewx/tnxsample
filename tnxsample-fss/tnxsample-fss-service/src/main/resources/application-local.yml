@@ -1,0 +1,11 @@
+#fss-service
+logging:
+  config: classpath:log/logback-local.xml
+tnxjee:
+  profile:
+    formal: false
+tnxjeex:
+  fss:
+    accessor:
+      local:
+        root: E:\kit\fss\tnxsample

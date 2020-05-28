@@ -1,0 +1,4 @@
+spring:
+  jpa:
+    mapping-resources: META-INF/jpa/*.xml
+    open-in-view: true
