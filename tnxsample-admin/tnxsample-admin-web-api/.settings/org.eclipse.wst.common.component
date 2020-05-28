@@ -13,16 +13,16 @@
         <dependent-module archiveName="tnxjee-service-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-service/tnxjee-service">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="tnxjee-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-model/tnxjee-model">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module archiveName="tnxsample-admin-api-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-api/tnxsample-admin-api">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-admin-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-admin-model/tnxsample-admin-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-model-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-model/tnxjee-model">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="tnxjee-core-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxjee-core/tnxjee-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="tnxsample-common-2.1.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/tnxsample-common/tnxsample-common">
