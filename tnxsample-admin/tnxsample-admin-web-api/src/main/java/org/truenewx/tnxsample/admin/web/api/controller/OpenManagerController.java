@@ -14,13 +14,13 @@ import org.truenewx.tnxsample.admin.service.ManagerService;
  * @author jianglei
  */
 @RestController
-@ConfigAnonymous
 public class OpenManagerController implements OpenManagerApi {
 
     @Autowired
     private ManagerService managerService;
 
     @Override
+    @ConfigAnonymous
     public DefaultUserSpecificDetails validateLogin(String username, String password) {
         Manager manager = this.managerService.validateLogin(username, password);
         return manager.getSpecificDetails();

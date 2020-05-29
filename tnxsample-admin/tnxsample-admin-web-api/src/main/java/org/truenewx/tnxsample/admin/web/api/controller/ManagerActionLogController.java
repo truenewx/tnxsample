@@ -15,13 +15,13 @@ import org.truenewx.tnxsample.common.CommonConstants;
  * @author jianglei
  */
 @RestController
-@ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER)
 public class ManagerActionLogController implements ManagerActionLogApi {
 
     @Autowired
     private ActionLogService actionLogService;
 
     @Override
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER)
     public void add(Action action) {
         int managerId = ProjectWebUtil.getManagerId();
         this.actionLogService.add(managerId, action);

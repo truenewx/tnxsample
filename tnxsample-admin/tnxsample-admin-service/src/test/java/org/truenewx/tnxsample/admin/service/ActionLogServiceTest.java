@@ -26,7 +26,7 @@ public class ActionLogServiceTest extends ServiceTestSupport {
     public void addAndQueryTest() {
         Manager manager = getFirstData(Manager.class);
         int managerId = manager.getId();
-        Action action = new Action(caption, "/list", "GET", null);
+        Action action = new Action("caption", "/list", "GET", null);
         LocalDate today = LocalDate.now();
 
         QueryResult<ActionLog> qr = this.service.query(manager.getUsername(), null, today, 10, 1);
