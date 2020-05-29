@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration />
+    </facet>
     <facet type="web" name="Web">
       <configuration>
         <webroots>
@@ -17,9 +20,6 @@
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
-    </facet>
-    <facet type="Spring" name="Spring">
-      <configuration />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_11">
@@ -70,12 +70,10 @@
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.29" level="project" />
     <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.1.1" level="project" />
     <orderEntry type="module" module-name="tnxsample-common" />
-    <orderEntry type="module" module-name="tnxjeex-log-model" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.1.12.RELEASE" level="project" />
     <orderEntry type="module" module-name="tnxsample-admin-service" />
     <orderEntry type="module" module-name="tnxjee-service-impl" />
     <orderEntry type="module" module-name="tnxjee-repo" />
-    <orderEntry type="module" module-name="tnxjeex-log-service" />
     <orderEntry type="module" module-name="tnxsample-admin-repo" />
     <orderEntry type="module" module-name="tnxjee-repo-jpa" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:2.1.11.RELEASE" level="project" />

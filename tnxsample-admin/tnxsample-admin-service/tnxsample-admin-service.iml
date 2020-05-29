@@ -54,8 +54,6 @@
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.18.Final" level="project" />
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.3.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.4.0" level="project" />
-    <orderEntry type="module" module-name="tnxjeex-log-service" />
-    <orderEntry type="module" module-name="tnxjeex-log-model" />
     <orderEntry type="module" module-name="tnxsample-admin-repo" />
     <orderEntry type="module" module-name="tnxsample-admin-model" />
     <orderEntry type="module" module-name="tnxsample-common" />

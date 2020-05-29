@@ -53,7 +53,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.1.12.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.12.RELEASE" level="project" />
     <orderEntry type="module" module-name="tnxsample-common" />
-    <orderEntry type="module" module-name="tnxjeex-log-model" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
     <orderEntry type="module" module-name="tnxjee-repo-jpa" />
     <orderEntry type="module" module-name="tnxjee-repo" />
