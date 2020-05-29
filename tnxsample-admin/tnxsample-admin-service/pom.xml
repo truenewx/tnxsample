@@ -15,10 +15,6 @@
             <artifactId>tnxjee-service-impl</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxjeex.log</groupId>
-            <artifactId>tnxjeex-log-service</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.truenewx.tnxsample.admin</groupId>
             <artifactId>tnxsample-admin-repo</artifactId>
         </dependency>

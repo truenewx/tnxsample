@@ -1,16 +1,16 @@
 package org.truenewx.tnxsample.admin.service;
 
+import java.time.LocalDate;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjeex.log.model.Action;
+import org.truenewx.tnxsample.admin.model.entity.Action;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
-
-import java.time.LocalDate;
 
 /**
  * ActionLogServiceTest
@@ -26,7 +26,7 @@ public class ActionLogServiceTest extends ServiceTestSupport {
     public void addAndQueryTest() {
         Manager manager = getFirstData(Manager.class);
         int managerId = manager.getId();
-        Action action = new Action("roleCongroller", "/list", "GET", null);
+        Action action = new Action(caption, "/list", "GET", null);
         LocalDate today = LocalDate.now();
 
         QueryResult<ActionLog> qr = this.service.query(manager.getUsername(), null, today, 10, 1);

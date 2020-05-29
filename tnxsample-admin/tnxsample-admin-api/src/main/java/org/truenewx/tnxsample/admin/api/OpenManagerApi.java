@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 
 /**
- * 管理员开放API
+ * 开放的管理员API
  *
  * @author jianglei
  */
 @RequestMapping("/open/manager")
-public interface ManagerOpenApi {
+public interface OpenManagerApi {
 
     @GetMapping("/validate-login")
     DefaultUserSpecificDetails validateLogin(@RequestParam("username") String username,

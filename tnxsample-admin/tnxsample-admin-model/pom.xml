@@ -19,10 +19,6 @@
             <artifactId>tnxsample-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxjeex.log</groupId>
-            <artifactId>tnxjeex-log-model</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>

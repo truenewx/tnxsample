@@ -1,12 +1,15 @@
 package org.truenewx.tnxsample.admin.service;
 
+import java.time.Instant;
+import java.time.LocalDate;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.util.TemporalUtil;
 import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
-import org.truenewx.tnxjeex.log.model.Action;
+import org.truenewx.tnxsample.admin.model.entity.Action;
 import org.truenewx.tnxsample.admin.model.entity.ActionLog;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.query.ActionLogQuerying;
@@ -14,16 +17,14 @@ import org.truenewx.tnxsample.admin.repo.ActionLogRepo;
 import org.truenewx.tnxsample.admin.repo.ManagerRepox;
 import org.truenewx.tnxsample.admin.repo.entity.ActionLogImpl;
 
-import java.time.Instant;
-import java.time.LocalDate;
-
 /**
  * 操作日志服务实现
  *
  * @author jianglei
  */
 @Service
-public class ActionLogServiceImpl extends AbstractUnityService<ActionLog, String> implements ActionLogService {
+public class ActionLogServiceImpl extends AbstractUnityService<ActionLog, String>
+        implements ActionLogService {
 
     @Autowired
     private ActionLogRepo repo;
@@ -31,7 +32,7 @@ public class ActionLogServiceImpl extends AbstractUnityService<ActionLog, String
     private ManagerRepox managerRepo;
 
     @Override
-    public void add(Integer managerId, Action action) {
+    public void add(int managerId, Action action) {
         Manager manager = getService(ManagerService.class).find(managerId);
         if (manager != null) {
             ActionLog log = new ActionLogImpl();
@@ -43,8 +44,8 @@ public class ActionLogServiceImpl extends AbstractUnityService<ActionLog, String
     }
 
     @Override
-    public QueryResult<ActionLog> query(String managerKeyword, LocalDate beginDate, LocalDate endDate, int pageSize,
-            int pageNo) {
+    public QueryResult<ActionLog> query(String managerKeyword, LocalDate beginDate,
+            LocalDate endDate, int pageSize, int pageNo) {
         ActionLogQuerying querying = new ActionLogQuerying();
         if (StringUtils.isNotBlank(managerKeyword)) {
             querying.setManagerIds(this.managerRepo.getIdsByUsernameOrFullName(managerKeyword));

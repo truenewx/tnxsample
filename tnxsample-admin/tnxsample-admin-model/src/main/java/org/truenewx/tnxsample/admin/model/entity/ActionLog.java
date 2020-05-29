@@ -3,7 +3,6 @@ package org.truenewx.tnxsample.admin.model.entity;
 import java.time.Instant;
 
 import org.truenewx.tnxjee.model.entity.unity.Unity;
-import org.truenewx.tnxjeex.log.model.Action;
 
 /**
  * 操作日志
