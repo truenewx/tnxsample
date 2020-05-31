@@ -1,7 +1,7 @@
 package org.truenewx.tnxsample.admin.service.rpc;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.truenewx.tnxsample.facade.api.CustomerAdminApi;
+import org.truenewx.tnxsample.facade.api.ManagerCustomerApi;
 
 /**
  * 客户管理客户端
@@ -9,5 +9,5 @@ import org.truenewx.tnxsample.facade.api.CustomerAdminApi;
  * @author jianglei
  */
 @FeignClient(name = "customer-admin", url = "localhost:8886")
-public interface CustomerAdminClient extends CustomerAdminApi {
+public interface ManagerCustomerClient extends ManagerCustomerApi {
 }

@@ -6,13 +6,13 @@ import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.common.CommonConstants;
-import org.truenewx.tnxsample.facade.api.CustomerAdminApi;
+import org.truenewx.tnxsample.facade.api.ManagerCustomerApi;
 import org.truenewx.tnxsample.facade.model.entity.Customer;
 import org.truenewx.tnxsample.facade.service.CustomerService;
 
 @Caption("客户管理")
 @RestController
-public class CustomerAdminController implements CustomerAdminApi {
+public class ManagerCustomerController implements ManagerCustomerApi {
 
     @Autowired
     private CustomerService customerService;

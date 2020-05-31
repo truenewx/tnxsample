@@ -11,7 +11,7 @@ import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
  * @author jianglei
  */
 @RequestMapping("/open/customer")
-public interface CustomerOpenApi {
+public interface OpenCustomerApi {
 
     @GetMapping("/validate-login")
     DefaultUserSpecificDetails validateLogin(@RequestParam("username") String username,

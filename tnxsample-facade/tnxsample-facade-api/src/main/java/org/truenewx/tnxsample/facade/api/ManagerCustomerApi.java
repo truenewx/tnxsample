@@ -10,8 +10,8 @@ import org.truenewx.tnxsample.facade.model.entity.Customer;
  *
  * @author jianglei
  */
-@RequestMapping("/admin/customer")
-public interface CustomerAdminApi {
+@RequestMapping("/manager/customer")
+public interface ManagerCustomerApi {
 
     @GetMapping("/payload/mobile-phone/{mobilePhone}")
     Customer loadByMobilePhone(@PathVariable String mobilePhone);
