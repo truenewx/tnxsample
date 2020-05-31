@@ -19,7 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 import org.truenewx.tnxjee.web.security.util.SecurityUtil;
 import org.truenewx.tnxjee.web.util.WebUtil;
-import org.truenewx.tnxjee.web.view.menu.model.Menu;
+import org.truenewx.tnxjee.web.menu.model.Menu;
 import org.truenewx.tnxsample.admin.model.entity.Action;
 import org.truenewx.tnxsample.admin.web.view.annotation.LogExcluded;
 import org.truenewx.tnxsample.admin.web.view.rpc.ManagerActionLogClient;

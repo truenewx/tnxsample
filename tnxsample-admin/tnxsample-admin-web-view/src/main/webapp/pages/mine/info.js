@@ -4,7 +4,7 @@ define(["app", "validator", "fssUpload"], function(app, Validator) {
         new Vue({
             el: container,
             data: {
-                url: "/mine/info",
+                url: "/manager/self/info",
                 model: {},
                 v: new Validator(),
             },

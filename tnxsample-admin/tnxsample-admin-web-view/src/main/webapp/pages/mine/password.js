@@ -17,7 +17,7 @@ define(["app"], function(app) {
                     this.error.newPassword = this.model.newPassword !== this.newPassword2;
                     if (!this.error.newPassword) {
                         var _this = this;
-                        app.rpc.post("/mine/password", function() {
+                        app.rpc.post("/manager/self/password", function() {
                             container.close(function() {
                                 tnx.alert("成功", "登录密码修改成功，请使用新的密码重新登录", function() {
                                     window.location.href = app.context + "/logout";
