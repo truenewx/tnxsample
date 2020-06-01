@@ -7,6 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
+import org.truenewx.tnxjee.web.view.menu.MenuManager;
 import org.truenewx.tnxjee.web.view.menu.UserMenuResolver;
 import org.truenewx.tnxjee.web.view.menu.model.Menu;
 import org.truenewx.tnxsample.admin.web.view.util.ProjectWebUtil;
@@ -18,6 +19,8 @@ import org.truenewx.tnxsample.admin.web.view.util.ProjectWebUtil;
  */
 @Controller
 public class MainController {
+    @Autowired
+    private MenuManager menuManager;
     @Autowired
     private UserMenuResolver menuResolver;
 
@@ -54,7 +57,7 @@ public class MainController {
     @ConfigAuthority
     @ResultFilter(excluded = { "profiles", "captions", "descs" })
     public Menu grantedMenu() {
-        return this.menuResolver.getUserGrantedMenu();
+        return this.menuManager.getFullMenu();
     }
 
 }

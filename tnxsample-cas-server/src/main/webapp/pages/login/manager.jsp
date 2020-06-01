@@ -7,7 +7,7 @@
     <title>登录</title>
 </head>
 
-<body js="login/manager.js">
+<body js="manager.js">
 <div class="offset-5 col-2">
     <div class="h2 text-center py-5">登录</div>
     <tv-div class="alert alert-danger" mode="d" :class="{'d-none': <tnxjee:noerror/>}">
