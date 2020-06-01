@@ -16,7 +16,15 @@ footer {
 }
 
 .menu-container {
-    max-width: 320px;
     padding: 15px 15px 15px 0;
     border-right: 1px solid #dee2e6;
+}
+
+.menu-container .card-header {
+    padding: 0.375rem 0;
+}
+
+.menu-container .list-group .list-group-item {
+    padding-left: 1.75rem;
+    padding-right: 1.5rem;
 }
