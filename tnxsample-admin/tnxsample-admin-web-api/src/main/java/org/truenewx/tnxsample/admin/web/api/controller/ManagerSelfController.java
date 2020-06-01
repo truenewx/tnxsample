@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.web.http.annotation.ResultFilter;
-import org.truenewx.tnxjee.web.menu.model.Menu;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
-import org.truenewx.tnxjee.web.util.MenuUtil;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
@@ -45,13 +43,6 @@ public class ManagerSelfController {
             @RequestParam("newPassword") String newPassword) {
         int managerId = ProjectWebUtil.getManagerId();
         this.managerService.updatePassword(managerId, oldPassword, newPassword);
-    }
-
-    @Caption("获取已获权的菜单")
-    @ConfigAuthority
-    @GetMapping("/menu")
-    public Menu menu() {
-        return MenuUtil.getGrantedMenu();
     }
 
 }
