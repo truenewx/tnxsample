@@ -1,7 +1,6 @@
 // header.js
-define([], function() {
-    return function(app) {
-        var container = $("header")[0];
+define(["app"], function(app) {
+    return function(container) {
         new Vue({
             el: container,
             data: {},

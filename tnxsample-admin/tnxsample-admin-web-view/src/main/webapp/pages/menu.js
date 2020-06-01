@@ -1,7 +1,6 @@
 // menu.js
-define([], function() {
-    return function(app) {
-        var container = $(".menu-container")[0];
+define(["app"], function(app) {
+    return function(container) {
         new Vue({
             el: container,
             data: {},
