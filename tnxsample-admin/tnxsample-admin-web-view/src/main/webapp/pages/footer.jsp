@@ -13,6 +13,7 @@
         locale: "${pageContext.request.locale}",
         path: "${context}",
         lib: "${tnxweb}",
+        libVersion: "${tnxwebVersion}",
         min: "${resourceMin}",
     };
 </script>

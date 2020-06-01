@@ -5,9 +5,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<c:if test="${not empty _csrf}">
-    <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}" parameter="${_csrf.parameterName}"/>
-</c:if>
+    <c:if test="${not empty _csrf}">
+        <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}"
+            parameter="${_csrf.parameterName}"/>
+    </c:if>
     <title><sitemesh:write property="title"/> - tnxsample</title>
     <jsp:include page="/pages/head-link.jsp"/>
     <sitemesh:write property="head"/>
@@ -15,8 +16,13 @@
 
 <body css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
 <jsp:include page="/header"/>
-<div class="container-full container-fluid">
-    <sitemesh:write property="body"/>
+<div class="container-full container-fluid d-flex">
+    <div class="menu-container">
+        <jsp:include page="/menu"/>
+    </div>
+    <div class="flex-grow-1">
+        <sitemesh:write property="body"/>
+    </div>
 </div>
 <jsp:include page="/pages/footer.jsp"/>
 </body>
