@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <head>
     <title>登录</title>
+    <link href="${serviceHost}/third/bootstrap4-material-admin-1.4.6/style.blue.css" rel="stylesheet">
 </head>
 
 <body js="manager.js">

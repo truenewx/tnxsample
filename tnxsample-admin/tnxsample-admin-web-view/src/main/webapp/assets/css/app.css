@@ -3,28 +3,14 @@ html, body {
 }
 
 .container-full {
-    padding-top: 56px;
-    padding-bottom: 56px;
+    padding-top: 56px !important;
+    padding-bottom: 56px !important;
     height: auto;
     min-height: 100%;
 }
 
 footer {
     border-top: 1px solid #dee2e6;
-    margin-top: -56px;
-    padding-top: 16px;
-}
-
-.menu-container {
-    padding: 15px 15px 15px 0;
-    border-right: 1px solid #dee2e6;
-}
-
-.menu-container .card-header {
-    padding: 0.375rem 0;
-}
-
-.menu-container .list-group .list-group-item {
-    padding-left: 1.75rem;
-    padding-right: 1.5rem;
+    margin-top: -90px !important;
+    padding-top: 16px !important;
 }

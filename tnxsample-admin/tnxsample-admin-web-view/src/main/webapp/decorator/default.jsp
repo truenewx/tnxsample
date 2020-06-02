@@ -20,7 +20,7 @@
     <div class="menu-container">
         <jsp:include page="/menu"/>
     </div>
-    <div class="flex-grow-1">
+    <div class="main-container flex-grow-1">
         <sitemesh:write property="body"/>
     </div>
 </div>
