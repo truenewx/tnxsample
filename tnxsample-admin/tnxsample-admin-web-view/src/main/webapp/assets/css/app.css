@@ -2,7 +2,7 @@ html, body {
     height: 100%;
 }
 
-.container-full {
+.page-container {
     padding-top: 56px !important;
     padding-bottom: 56px !important;
     height: auto;
@@ -11,6 +11,10 @@ html, body {
 
 footer {
     border-top: 1px solid #dee2e6;
-    margin-top: -90px !important;
-    padding-top: 16px !important;
+    margin-top: -56px;
+    padding-top: 16px;
+}
+
+.menu-container {
+    border-right: 1px solid #dee2e6;
 }

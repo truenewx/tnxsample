@@ -5,11 +5,6 @@
             <div class="offset-md-2 col-8 text-center">Copyright © 2020 truenewx 版权所有</div>
             <div class="col-2 text-right text-muted">v${version}</div>
         </div>
-        <div class="row mt-2">
-            <div class="col-12 text-center text-muted">Build with
-                <a href="https://bootstrapious.com/p/admin-template" target="_blank">Bootstrap 4 Material Admin Template</a>
-            </div>
-        </div>
     </div>
 </footer>
 <script type="text/javascript">

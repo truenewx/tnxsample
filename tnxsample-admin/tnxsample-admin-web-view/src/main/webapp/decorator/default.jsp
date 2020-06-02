@@ -16,7 +16,7 @@
 
 <body css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
 <jsp:include page="/header"/>
-<div class="container-full container-fluid d-flex">
+<div class="page-container d-flex">
     <div class="menu-container">
         <jsp:include page="/menu"/>
     </div>
