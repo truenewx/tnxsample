@@ -2,8 +2,8 @@
 <menu user-type="manager" caption="后台管理" xmlns="http://www.truenewx.org/tnxjee/schema/menu">
 
     <link caption="系统管理" icon="fa-cogs">
-        <link caption="角色管理" href="/role/list" icon="fa-users"/>
-        <link caption="管理员管理" href="/manager/list" icon="fa-customer-secret"/>
+        <link caption="角色管理" href="/role/list" icon="fa-id-badge"/>
+        <link caption="管理员管理" href="/manager/list" icon="fa-users-cog"/>
         <link caption="操作日志" href="/log/action"/>
         <link caption="系统日志" href="/log/system"/>
     </link>

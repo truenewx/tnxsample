@@ -5,7 +5,7 @@
 */
 nav.side-navbar {
     background: #fff;
-    min-width: 12rem;
+    min-width: 15rem;
     color: #686a76;
     -webkit-box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
@@ -15,10 +15,16 @@ nav.side-navbar {
     /*==== Shrinked Sidebar ====*/
 }
 
+nav.side-navbar .fa,
+nav.side-navbar .fas,
+nav.side-navbar .fab {
+    min-width: 1.5rem;
+    text-align: center;
+}
+
 nav.side-navbar a {
     color: inherit;
     position: relative;
-    font-size: 0.9em;
 }
 
 nav.side-navbar a[data-toggle="collapse"]::before {
@@ -33,7 +39,7 @@ nav.side-navbar a[data-toggle="collapse"]::before {
 }
 
 nav.side-navbar a[aria-expanded="true"] {
-    background: rgba(39, 128, 227, 0.075);
+    background: rgba(39, 128, 227, 0.1);
 }
 
 nav.side-navbar a[aria-expanded="true"]::before {
@@ -63,12 +69,6 @@ nav.side-navbar span.heading {
     font-size: 0.8em;
 }
 
-nav.side-navbar .fa,
-nav.side-navbar .fas,
-nav.side-navbar .fab {
-    min-width: 1.5rem;
-}
-
 nav.side-navbar ul {
     padding: 15px 0;
 }
@@ -93,7 +93,7 @@ nav.side-navbar ul li a:hover {
 
 nav.side-navbar ul li li a {
     padding-left: 3rem;
-    background: rgba(39, 128, 227, 0.075);
+    background: rgba(39, 128, 227, 0.1);
 }
 
 nav.side-navbar ul li.active > a {

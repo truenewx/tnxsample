@@ -3,8 +3,8 @@ html, body {
 }
 
 .page-container {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
+    padding-top: 54px;
+    padding-bottom: 56px;
     height: auto;
     min-height: 100%;
 }

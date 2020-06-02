@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header class="navbar fixed-top navbar-expand-md navbar-dark bg-primary" js="/header.js">
-    <div class="container">
+    <div class="container-fluid">
         <a class="navbar-brand" href="${context}/">tnxsample</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
             aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -16,7 +16,8 @@
                             role="button"
                             data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">${manager.caption}</a>
-                        <div class="dropdown-menu" aria-labelledby="managerDropdown">
+                        <div class="dropdown-menu dropdown-menu-right"
+                            aria-labelledby="managerDropdown">
                             <a class="dropdown-item" href="javascript:void(0);"
                                 @click="toUpdateInfo">个人资料</a>
                             <a class="dropdown-item" href="javascript:void(0);"
