@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
-import org.truenewx.tnxjee.web.view.menu.MenuManager;
 import org.truenewx.tnxjee.web.view.menu.UserMenuResolver;
 import org.truenewx.tnxsample.admin.web.view.util.ProjectWebUtil;
 
@@ -17,8 +16,7 @@ import org.truenewx.tnxsample.admin.web.view.util.ProjectWebUtil;
  */
 @Controller
 public class MainController {
-    @Autowired
-    private MenuManager menuManager;
+
     @Autowired
     private UserMenuResolver menuResolver;
 
@@ -49,7 +47,7 @@ public class MainController {
     @ConfigAuthority
     public ModelAndView menu() {
         ModelAndView mav = new ModelAndView("/menu");
-        mav.addObject("menu", this.menuManager.getFullMenu());
+        mav.addObject("menu", this.menuResolver.getUserGrantedMenu());
         return mav;
     }
 

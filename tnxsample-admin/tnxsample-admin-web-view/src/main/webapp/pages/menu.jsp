@@ -10,17 +10,19 @@
         <li class="active">
             <a href="${context}/"><i class="fas fa-home"></i>首页</a>
         </li>
-    <c:forEach var="level1Link" items="${menu.links}" varStatus="level1Status">
+    <c:forEach var="level1Item" items="${menu.items}" varStatus="level1Status">
         <li>
-        <c:if test="${empty level1Link.subLinks}">
-            <a href="#"><i class="fas ${level1Link.icon}"></i>${level1Link.caption}</a>
-        </c:if><c:if test="${not empty level1Link.subLinks}">
+        <c:if test="${level1Item.type == 'MenuLink'}">
+            <a href="#"><i class="fas ${level1Item.icon}"></i>${level1Item.caption}</a>
+        </c:if><c:if test="${level1Item.type == 'MenuNode'}">
             <a href="#menu-item-${level1Status.index}" aria-expanded="false" data-toggle="collapse">
-                <i class="fas ${level1Link.icon}"></i>${level1Link.caption}
+                <i class="fas ${level1Item.icon}"></i>${level1Item.caption}
             </a>
             <ul id="menu-item-${level1Status.index}" class="collapse list-unstyled">
-            <c:forEach var="level2Link" items="${level1Link.subLinks}">
-                <li><a href="#"><i class="fas ${level2Link.icon}"></i>${level2Link.caption}</a></li>
+            <c:forEach var="level2Item" items="${level1Item.subs}">
+                <c:if test="${level2Item.type == 'MenuLink'}">
+                <li><a href="#"><i class="fas ${level2Item.icon}"></i>${level2Item.caption}</a></li>
+                </c:if>
             </c:forEach>
             </ul>
         </c:if>

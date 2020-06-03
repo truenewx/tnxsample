@@ -15,7 +15,7 @@ import springfox.documentation.annotations.ApiIgnore;
 
 @ApiIgnore
 @Controller
-public class IndexController {
+public class MainController {
 
     private CsrfTokenRepository csrfTokenRepository = new HttpSessionCsrfTokenRepository();
 
