@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav class="side-navbar" :class="{'shrinked': shrinked}" js="/menu.js">
+<nav class="side-navbar" :class="{'shrinked': shrinked}" js="menu.js">
     <div class="sidebar-header text-center">
         <i class="fas" role="button" :title="shrinked ? '展开菜单栏' : '收缩菜单栏'"
             :class="{'fa-angle-double-left': !shrinked, 'fa-angle-double-right': shrinked}"

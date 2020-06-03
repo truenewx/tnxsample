@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<header class="navbar fixed-top navbar-expand-md navbar-dark bg-primary" js="/header.js">
+<header class="navbar fixed-top navbar-expand-md navbar-dark bg-primary" js="header.js">
     <div class="container-fluid">
         <a class="navbar-brand" href="${context}/">tnxsample</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
