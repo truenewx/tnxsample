@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<nav class="side-navbar" :class="{'shrinked': shrinked}" js="menu.js">
+<nav class="side-navbar" :class="{'shrinked': shrinked}">
     <div class="sidebar-header text-center">
         <i class="fas" role="button" :title="shrinked ? '展开菜单栏' : '收缩菜单栏'"
             :class="{'fa-angle-double-left': !shrinked, 'fa-angle-double-right': shrinked}"
@@ -8,7 +8,7 @@
     </div>
     <ul class="list-unstyled">
         <li class="active">
-            <a href="${context}/"><i class="fas fa-home"></i>首页</a>
+            <router-link to="/index"><i class="fas fa-home"></i>首页</router-link>
         </li>
     <c:forEach var="level1Item" items="${menu.items}" varStatus="level1Status">
         <li>

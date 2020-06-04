@@ -21,7 +21,9 @@
         <jsp:include page="/menu"/>
     </div>
     <div class="main-container flex-grow-1">
-        <sitemesh:write property="body"/>
+        <router-view>
+            <sitemesh:write property="body"/>
+        </router-view>
     </div>
 </div>
 <jsp:include page="/pages/footer.jsp"/>
