@@ -12,6 +12,7 @@ public class WebMvcConfig extends WebViewMvcConfigurerSupport {
         builder.addExcludedPath("**/*.json");
         builder.addExcludedPath("**/*.html");
         builder.addExcludedPath("**/*.htm");
+        builder.addDecoratorPath("**/*.ajax", "/decorator/ajax.jsp");
         builder.addDecoratorPath("**/*.win", "/decorator/win.jsp");
         builder.addDecoratorPath("/*", "/decorator/default.jsp");
     }

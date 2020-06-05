@@ -1,4 +1,4 @@
-// user/list.js
+// manager/list.js
 define(["app"], function(app) {
     return function(container) {
         new Vue({

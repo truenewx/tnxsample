@@ -3,10 +3,10 @@
 <html lang="zh-cn">
 <meta charset="UTF-8">
 <head>
-    <title>用户管理</title>
+    <title>客户管理</title>
 </head>
 
 <body js="true">
-用户清单
+<h2 class="text-center pt-5">客户管理</h2>
 </body>
 </html>
