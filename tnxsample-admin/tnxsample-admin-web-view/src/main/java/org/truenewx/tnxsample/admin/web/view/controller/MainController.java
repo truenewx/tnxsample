@@ -23,7 +23,7 @@ public class MainController {
     @RequestMapping("/")
     @ConfigAuthority
     public String root() {
-        return index();
+        return "/main";
     }
 
     @RequestMapping("/index")
