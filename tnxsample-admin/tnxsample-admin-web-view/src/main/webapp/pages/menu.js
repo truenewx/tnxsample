@@ -4,15 +4,36 @@
 // 设计原则：html、js和css分离，且*.vue文件无法在浏览器中通过require进行模块化加载执行
 define(["app", "router"], function(app, TnxRouter) {
     return function(container) {
+        app.router = new TnxRouter($(".main-container"));
+
         new Vue({
             el: container,
             data: {
-                router: new TnxRouter($(".main-container")),
                 shrinked: false,
+                currentPath: app.router.getCurrentPath(),
+                expandedIndex: -1,
+            },
+            created: function() {
+                if (this.currentPath) {
+                    var _this = this;
+                    app.rpc.get("/menu/link/indexes", {
+                        path: _this.currentPath
+                    }, function(indexes) {
+                        if (indexes.length > 1) {
+                            _this.expandedIndex = indexes[0];
+                        }
+                    }, {
+                        base: "self"
+                    });
+                }
             },
             methods: {
                 shrink: function() {
                     this.shrinked = !this.shrinked;
+                },
+                route: function(path) {
+                    this.currentPath = path;
+                    app.router.to(path);
                 }
             }
         });

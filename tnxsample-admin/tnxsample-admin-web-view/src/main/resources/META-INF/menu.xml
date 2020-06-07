@@ -2,13 +2,13 @@
 <menu user-type="manager" caption="后台管理" xmlns="http://www.truenewx.org/tnxjee/schema/menu">
 
     <node caption="系统管理" icon="fa-cogs">
-        <link caption="角色管理" href="/role/list" icon="fa-id-badge" rank="top"/>
-        <link caption="管理员管理" href="/manager/list" icon="fa-users-cog" rank="top"/>
-        <link caption="操作日志" href="/log/action" rank="top"/>
-        <link caption="系统日志" href="/log/system" rank="top"/>
+        <link caption="角色管理" path="/role/list" icon="fa-id-badge" rank="top"/>
+        <link caption="管理员管理" path="/manager/list" icon="fa-users-cog" rank="top"/>
+        <link caption="操作日志" path="/log/action" rank="top"/>
+        <link caption="系统日志" path="/log/system" rank="top"/>
     </node>
 
-    <link caption="客户管理" icon="fa-user" href="/customer/list" permission="CUSTOMER_LIST">
+    <link caption="客户管理" icon="fa-user" path="/customer/list" permission="CUSTOMER_LIST">
         <operation caption="查看客户详情" permission="CUSTOMER_DETAIL"/>
         <operation caption="禁用/启用客户" permission="CUSTOMER_DISABLE"/>
     </link>

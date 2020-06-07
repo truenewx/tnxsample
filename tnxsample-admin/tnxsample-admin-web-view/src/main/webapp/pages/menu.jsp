@@ -7,33 +7,40 @@
             @click="shrink()"></i>
     </div>
     <ul class="list-unstyled">
-        <li class="active">
-            <a href="#${context}/index" @click="router.to($event)">
+        <li :class="{'active': currentPath == '${context}/index'}">
+            <a href="#${context}/index" @click="route('${context}/index')">
                 <i class="fas fa-home"></i>首页
             </a>
         </li>
         <c:forEach var="level1Item" items="${menu.items}" varStatus="level1Status">
+            <c:if test="${level1Item.type == 'MenuLink'}">
+            <li :class="{'active': currentPath == '${context}${level1Item.path}'}">
+                <a href="#${context}${level1Item.path}"
+                    @click="route('${context}${level1Item.path}')">
+                    <i class="fas ${level1Item.icon}"></i>${level1Item.caption}
+                </a>
+            </li>
+            </c:if><c:if test="${level1Item.type == 'MenuNode'}">
             <li>
-                <c:if test="${level1Item.type == 'MenuLink'}">
-                    <a href="#${context}${level1Item.href}" @click="router.to($event)">
-                        <i class="fas ${level1Item.icon}"></i>${level1Item.caption}
-                    </a>
-                </c:if><c:if test="${level1Item.type == 'MenuNode'}">
-                <a href="#menu-item-${level1Status.index}" aria-expanded="false"
+                <a href="#menu-item-${level1Status.index}" :aria-expanded="expandedIndex == ${level1Status.index}"
                     data-toggle="collapse">
                     <i class="fas ${level1Item.icon}"></i>${level1Item.caption}
                 </a>
-                <ul id="menu-item-${level1Status.index}" class="collapse list-unstyled">
-                    <c:forEach var="level2Item" items="${level1Item.subs}">
-                        <c:if test="${level2Item.type == 'MenuLink'}">
-                            <li><a href="#${context}${level2Item.href}" @click="router.to($event)">
+                <ul id="menu-item-${level1Status.index}" class="collapse list-unstyled"
+                    :class="{'show': expandedIndex == ${level1Status.index}}">
+                <c:forEach var="level2Item" items="${level1Item.subs}">
+                    <c:if test="${level2Item.type == 'MenuLink'}">
+                        <li :class="{'active': currentPath == '${context}${level2Item.path}'}">
+                            <a href="#${context}${level2Item.path}"
+                                @click="route('${context}${level2Item.path}')">
                                 <i class="fas ${level2Item.icon}"></i>${level2Item.caption}
-                            </a></li>
-                        </c:if>
-                    </c:forEach>
+                            </a>
+                        </li>
+                    </c:if>
+                </c:forEach>
                 </ul>
-            </c:if>
             </li>
+            </c:if>
         </c:forEach>
     </ul>
 </nav>

@@ -6,7 +6,11 @@ define(["app"], function(app) {
             data: {
                 records: null,
             },
-            methods: {}
+            methods: {
+                toIndex: function() {
+                    app.router.navTo("/index");
+                }
+            }
         });
     }
 });

@@ -18,3 +18,7 @@ footer {
 .menu-container {
     border-right: 1px solid #dee2e6;
 }
+
+.main-container {
+    padding: 1rem;
+}

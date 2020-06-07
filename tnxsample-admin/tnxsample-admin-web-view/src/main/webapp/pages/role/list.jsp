@@ -8,10 +8,6 @@
 
 <body js="true">
 <h2 class="text-center pt-5">角色管理</h2>
-<table v-if="!records">
-    <tr>
-        <th>123</th>
-    </tr>
-</table>
+<button type="button" class="btn btn-primary" @click="toIndex">toIndex</button>
 </body>
 </html>

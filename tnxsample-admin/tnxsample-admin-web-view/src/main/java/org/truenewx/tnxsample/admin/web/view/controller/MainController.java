@@ -1,8 +1,13 @@
 package org.truenewx.tnxsample.admin.web.view.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
@@ -49,6 +54,13 @@ public class MainController {
         ModelAndView mav = new ModelAndView("/menu");
         mav.addObject("menu", this.menuResolver.getUserGrantedMenu());
         return mav;
+    }
+
+    @GetMapping("/menu/link/indexes")
+    @ConfigAuthority
+    @ResponseBody
+    public List<Integer> menuLinkIndexes(@RequestParam("path") String path) {
+        return this.menuResolver.indexesOf(path);
     }
 
 }
