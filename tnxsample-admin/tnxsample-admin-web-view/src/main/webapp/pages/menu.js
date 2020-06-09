@@ -4,7 +4,16 @@
 // 设计原则：html、js和css分离，且*.vue文件无法在浏览器中通过require进行模块化加载执行
 define(["app", "router"], function(app, TnxRouter) {
     return function(container) {
-        app.router = new TnxRouter($(".main-container"));
+        var viewContainer = $(".main-container");
+        app.router = new TnxRouter(viewContainer);
+        app.router.setViewCallback(function() {
+            var title = viewContainer.children("[data-title]").attr("data-title");
+            if (title) {
+                $(document).attr("title", title + " - txnsample");
+            } else {
+                $(document).attr("title", "txnsample");
+            }
+        });
 
         new Vue({
             el: container,
@@ -25,6 +34,8 @@ define(["app", "router"], function(app, TnxRouter) {
                     }, {
                         base: "self"
                     });
+                } else {
+                    this.currentPath = app.router.navTo("/index");
                 }
             },
             methods: {

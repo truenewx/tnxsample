@@ -23,8 +23,7 @@ nav.side-navbar .fab {
     text-align: center;
 }
 
-nav.side-navbar a,
-nav.side-navbar router-link {
+nav.side-navbar a {
     color: inherit;
     position: relative;
 }
@@ -48,21 +47,20 @@ nav.side-navbar a[aria-expanded="true"]::before {
     content: '\f107';
 }
 
-nav.side-navbar a i,
-nav.side-navbar router-link i {
+nav.side-navbar a i {
     font-size: 1.2em;
     margin-right: 0.5rem;
     -webkit-transition: none;
     transition: none;
 }
 
-nav.side-navbar a .badge,
-nav.side-navbar router-link .badge {
+nav.side-navbar a .badge {
     vertical-align: middle;
 }
 
 nav.side-navbar .sidebar-header {
-    margin-top: 15px;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dee2e6;
 }
 
 nav.side-navbar span.heading {
@@ -73,16 +71,11 @@ nav.side-navbar span.heading {
     font-size: 0.8em;
 }
 
-nav.side-navbar ul {
-    padding: 15px 0;
-}
-
 nav.side-navbar ul li {
     /* submenu item active */
 }
 
-nav.side-navbar ul li a,
-nav.side-navbar ul li router-link {
+nav.side-navbar ul li a {
     padding: 10px 1rem;
     text-decoration: none;
     display: block;
@@ -90,33 +83,28 @@ nav.side-navbar ul li router-link {
     border-left: 4px solid transparent;
 }
 
-nav.side-navbar ul li a:hover,
-nav.side-navbar ul li router-link:hover {
+nav.side-navbar ul li a:hover {
     background: rgba(39, 128, 227, 0.8);
     border-left: 5px solid rgba(24, 86, 166, 0.5);
     color: #fff;
 }
 
-nav.side-navbar ul li li a,
-nav.side-navbar ul li li router-link {
+nav.side-navbar ul li li a {
     padding-left: 3rem;
     background: rgba(39, 128, 227, 0.1);
 }
 
-nav.side-navbar ul li.active > a,
-nav.side-navbar ul li.active > router-link {
+nav.side-navbar ul li.active > a {
     background: #2780E3;
     color: #fff;
     border-left: 5px solid #1856A6;
 }
 
-nav.side-navbar ul li.active > a:hover,
-nav.side-navbar ul li.active > router-link:hover {
+nav.side-navbar ul li.active > a:hover {
     background: #2780E3;
 }
 
-nav.side-navbar ul li li.active > a,
-nav.side-navbar ul li li.active > router-link {
+nav.side-navbar ul li li.active > a {
     background: #2780E3;
 }
 
@@ -134,8 +122,7 @@ nav.side-navbar.shrinked span.heading {
     margin: 0;
 }
 
-nav.side-navbar.shrinked ul li a,
-nav.side-navbar.shrinked ul li router-link {
+nav.side-navbar.shrinked ul li a {
     padding: 15px 2px;
     border: none;
     font-size: 0.8em;
@@ -161,19 +148,16 @@ nav.side-navbar.shrinked ul li a[data-toggle="collapse"][aria-expanded="true"]::
     content: '\f106';
 }
 
-nav.side-navbar.shrinked ul li a:hover,
-nav.side-navbar.shrinked ul li router-link:hover {
+nav.side-navbar.shrinked ul li a:hover {
     color: #fff;
     border: none;
 }
 
-nav.side-navbar.shrinked ul li a:hover i,
-nav.side-navbar.shrinked ul li router-link:hover i {
+nav.side-navbar.shrinked ul li a:hover i {
     color: #fff;
 }
 
-nav.side-navbar.shrinked ul li a i,
-nav.side-navbar.shrinked ul li router-link i {
+nav.side-navbar.shrinked ul li a i {
     margin-right: 0;
     margin-bottom: 2px;
     display: block;
@@ -183,13 +167,11 @@ nav.side-navbar.shrinked ul li router-link i {
     transition: color 0.3s;
 }
 
-nav.side-navbar.shrinked ul li.active > a,
-nav.side-navbar.shrinked ul li.active > router-link {
+nav.side-navbar.shrinked ul li.active > a {
     color: #fff;
 }
 
-nav.side-navbar.shrinked ul li.active > a i,
-nav.side-navbar.shrinked ul li.active > router-link i {
+nav.side-navbar.shrinked ul li.active > a i {
     color: #fff;
 }
 

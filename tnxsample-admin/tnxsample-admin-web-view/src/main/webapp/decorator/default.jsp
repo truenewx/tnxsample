@@ -9,7 +9,7 @@
         <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}"
             parameter="${_csrf.parameterName}"/>
     </c:if>
-    <title><sitemesh:write property="title"/> - tnxsample</title>
+    <title>tnxsample</title>
     <jsp:include page="/pages/head-link.jsp"/>
     <sitemesh:write property="head"/>
 </head>
