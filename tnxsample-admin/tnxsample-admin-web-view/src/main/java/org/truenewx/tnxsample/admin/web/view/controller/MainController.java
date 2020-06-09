@@ -63,4 +63,10 @@ public class MainController {
         return this.menuResolver.indexesOf(path);
     }
 
+    @RequestMapping("/breadcrumb")
+    @ConfigAuthority
+    public String breadcrumb() {
+        return "/breadcrumb";
+    }
+
 }

@@ -20,7 +20,9 @@
     <div class="menu-container">
         <jsp:include page="/menu"/>
     </div>
-    <div class="main-container flex-grow-1">
+    <div class="flex-grow-1">
+        <jsp:include page="/breadcrumb"/>
+        <div class="main-container"></div>
     </div>
 </div>
 <jsp:include page="/pages/footer.jsp"/>
