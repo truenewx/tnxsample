@@ -1,10 +1,10 @@
 {
-  "name": "tnxsample-admin-web-cli",
+  "name": "tnxsample-admin",
   "version": "2.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --modern --dest ../tnxsample-admin-web-view/src/main/webapp/static",
+    "build": "vue-cli-service build --modern",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
