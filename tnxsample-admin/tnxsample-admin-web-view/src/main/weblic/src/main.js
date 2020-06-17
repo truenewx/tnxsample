@@ -3,10 +3,10 @@ import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import App from './App.vue';
 
-Vue.use(Antd);
+Vue.config.productionTip = false;
 
-Vue.config.productionTip = false
+Vue.use(Antd);
 
 new Vue({
   render: h => h(App),
-}).$mount('#app')
+}).$mount('#app');

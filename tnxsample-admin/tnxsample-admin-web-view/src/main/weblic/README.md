@@ -1,4 +1,4 @@
-# tnxsample-admin-webcli
+# weblic
 
 ## Project setup
 ```
