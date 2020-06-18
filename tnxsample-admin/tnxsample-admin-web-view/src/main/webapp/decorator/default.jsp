@@ -10,7 +10,7 @@
             parameter="${_csrf.parameterName}"/>
     </c:if>
     <title>tnxsample</title>
-    <jsp:include page="/pages/head-link.jsp"/>
+    <jsp:include page="/public/pages/head-link.jsp"/>
     <sitemesh:write property="head"/>
 </head>
 
@@ -25,6 +25,6 @@
         <div class="main-container"></div>
     </div>
 </div>
-<jsp:include page="/pages/footer.jsp"/>
+<jsp:include page="/public/pages/footer.jsp"/>
 </body>
 </html>

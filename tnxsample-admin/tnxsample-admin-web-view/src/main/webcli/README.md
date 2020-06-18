@@ -1,4 +1,4 @@
-# weblic
+# webcli
 
 ## Project setup
 ```

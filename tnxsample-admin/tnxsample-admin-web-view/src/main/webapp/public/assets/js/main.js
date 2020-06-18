@@ -5,7 +5,7 @@ require.config({
     }
 });
 
-require(["src/main/webapp/public/assets/js/app"], function(app) {
+require(["app"], function(app) {
     app.init(function() {
         console.info("App onload.");
     });

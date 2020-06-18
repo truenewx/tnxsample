@@ -10,7 +10,7 @@ require.config({
     }
 });
 
-define(["app", "router", "src/main/webapp/public/pages/breadcrumb"], function(app, TnxRouter) {
+define(["app", "router", "breadcrumb"], function(app, TnxRouter) {
     return function(container) {
         var viewContainer = $(".main-container");
         app.router = new TnxRouter(viewContainer);
