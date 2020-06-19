@@ -1,4 +1,4 @@
-# webcli
+# tnxsample-admin-webcli
 
 ## Project setup
 ```
