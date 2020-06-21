@@ -1,49 +1,59 @@
 <template>
-    <a-config-provider :locale="locale">
-        <div id="app">
-            <a-layout>
-                <a-layout-header class="border-bottom">
-                    <page-header/>
-                </a-layout-header>
-                <a-layout>
-                    <a-layout-sider>Sider</a-layout-sider>
-                    <a-layout-content>
-                        <a-calendar/>
-                    </a-layout-content>
-                </a-layout>
-                <a-layout-footer>
-                </a-layout-footer>
-            </a-layout>
+    <div id="app" class="d-flex flex-column">
+        <el-header height="auto" class="border-bottom fixed-top">
+            <page-header/>
+        </el-header>
+        <div class="flex-grow-1 d-flex page-container">
+            <el-aside width="auto">
+                <page-menu/>
+            </el-aside>
+            <el-main class="flex-grow-1 border-left">Main</el-main>
         </div>
-    </a-config-provider>
+        <el-footer height="auto" class="border-top py-2">
+            <page-footer/>
+        </el-footer>
+    </div>
 </template>
 
 <script>
-    import zh_CN from 'ant-design-vue/es/locale/zh_CN';
-    import moment from 'moment';
-    import 'moment/locale/zh-cn';
-
-    moment.locale('zh-cn');
-
-    import Header from '@/pages/Header.vue';
+    import Header from './pages/Header.vue';
+    import Menu from './pages/Menu.vue';
+    import Footer from './pages/Footer.vue';
 
     export default {
         name: 'App',
         components: {
-            "page-header": Header
+            "page-header": Header,
+            "page-menu": Menu,
+            "page-footer": Footer,
         },
         data () {
-            return {
-                locale: zh_CN
-            }
+            return {}
         }
     }
 </script>
 
 <style>
-    .ant-layout-header {
-        height: unset;
+    html, body {
+        height: 100%;
+    }
+
+    #app {
+        height: auto;
+        min-height: 100%;
+    }
+
+    header {
         line-height: 55px;
         background-color: #fff;
+    }
+
+    aside {
+        min-width: 222px;
+        height: 100%;
+    }
+
+    .page-container {
+        padding-top: 56px;
     }
 </style>

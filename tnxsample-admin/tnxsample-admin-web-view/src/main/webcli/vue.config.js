@@ -4,6 +4,6 @@ module.exports = {
     outputDir: "../webapp/static",
     assetsDir: "assets",
     devServer: {
-        port: 8887
+        port: 8087
     },
 }
