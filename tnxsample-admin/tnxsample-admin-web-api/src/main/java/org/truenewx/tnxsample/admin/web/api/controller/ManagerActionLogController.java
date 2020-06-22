@@ -21,7 +21,7 @@ public class ManagerActionLogController implements ManagerActionLogApi {
     private ActionLogService actionLogService;
 
     @Override
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER)
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER, rank = CommonConstants.MANAGER_RANK_TOP)
     public void add(Action action) {
         int managerId = ProjectWebUtil.getManagerId();
         this.actionLogService.add(managerId, action);

@@ -7,8 +7,12 @@
             <el-aside width="auto">
                 <layout-menu/>
             </el-aside>
-            <el-main class="flex-grow-1 border-left">
-                <router-view></router-view>
+            <el-main class="flex-grow-1 border-left d-flex flex-column bg-muted">
+                <layout-breadcrumb v-if="!home"/>
+                <div class="flex-grow-1 border bg-white p-3" v-if="!home">
+                    <router-view></router-view>
+                </div>
+                <page-index v-else/>
             </el-main>
         </div>
         <el-footer height="auto" class="border-top py-2">
@@ -20,17 +24,26 @@
 <script>
     import header from './layout/header.vue';
     import menu from './layout/menu.vue';
+    import breadcrumb from "./layout/breadcrumb";
     import footer from './layout/footer.vue';
+    import index from './pages/index.vue';
 
     export default {
         name: 'App',
         components: {
-            "layout-header": header,
-            "layout-menu": menu,
-            "layout-footer": footer,
+            'layout-header': header,
+            'layout-menu': menu,
+            'layout-breadcrumb': breadcrumb,
+            'layout-footer': footer,
+            'page-index': index,
         },
-        data() {
+        data () {
             return {}
+        },
+        computed: {
+            home () {
+                return this.$route.path === "/";
+            }
         }
     }
 </script>

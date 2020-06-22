@@ -1,13 +1,26 @@
-import menuConfig from './layout/menu.config';
+// router.config.js
+import menu from './layout/menu.js';
+
+function addRoute (path, routes) {
+    if (path) {
+        routes.push({
+            path: path,
+            component: () => import('./pages' + path + '.vue')
+        });
+        return true;
+    }
+    return false;
+}
 
 function applyItemsToRoutes (items, routes) {
     if (items && items.length) {
         items.forEach(item => {
-            if (item.path) {
-                routes.push({
-                    path: item.path,
-                    component: () => import('./pages' + item.path + '.vue')
-                });
+            if (addRoute(item.path, routes)) {
+                if (item.operations && item.operations.length) {
+                    item.operations.forEach(operation => {
+                        addRoute(operation.path, routes);
+                    });
+                }
             } else {
                 applyItemsToRoutes(item.subs, routes);
             }
@@ -17,7 +30,7 @@ function applyItemsToRoutes (items, routes) {
 
 function getRoutes () {
     const routes = [];
-    applyItemsToRoutes(menuConfig.items, routes);
+    applyItemsToRoutes(menu.items, routes);
     return routes;
 }
 
