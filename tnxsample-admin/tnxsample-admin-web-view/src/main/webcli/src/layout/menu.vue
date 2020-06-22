@@ -1,7 +1,7 @@
 <template>
     <el-menu class="border-right-0" :default-active="$route.path" router unique-opened>
         <template v-for="(item, itemIndex) in items">
-            <el-submenu v-if="item.subs" :key="itemIndex">
+            <el-submenu v-if="item.subs" :key="itemIndex" :index="'' + itemIndex">
                 <template slot="title">
                     <i class="fas" :class="item.icon"></i>
                     <span>{{item.caption}}</span>
