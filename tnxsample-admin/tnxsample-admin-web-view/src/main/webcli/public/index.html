@@ -5,11 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--    <link rel="icon" href="<%= BASE_URL %>assets/img/favicon.ico">-->
-    <title><%= htmlWebpackPlugin.options.title %></title>
+    <title><%= VUE_APP_TITLE %></title>
+    <link href="<%= VUE_APP_CONTEXT_LIB %>/bs/vendor/bootstrap-4.5.0/css/bootstrap-base.css"
+        rel="stylesheet">
+    <link href="<%= VUE_APP_CONTEXT_LIB %>/core/vendor/font-awesome-4.7.0/css/font-awesome.min.css"
+        rel="stylesheet">
+    <link href="<%= VUE_APP_CONTEXT_LIB %>/core/vendor/font-awesome-5.13.0/css/all.min.css"
+        rel="stylesheet">
 </head>
 <body>
 <noscript>
-    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without
+    <strong>We're sorry but <%= VUE_APP_TITLE %> doesn't work properly without
         JavaScript enabled. Please enable it to continue.</strong>
 </noscript>
 <div id="app"></div>

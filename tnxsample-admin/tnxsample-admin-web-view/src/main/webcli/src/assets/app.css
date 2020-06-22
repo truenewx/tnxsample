@@ -4,3 +4,10 @@
 .text-muted {
     color: #6c757d !important;
 }
+
+.fa, .fas {
+    margin-right: 5px;
+    width: 24px;
+    text-align: center;
+    vertical-align: middle;
+}
