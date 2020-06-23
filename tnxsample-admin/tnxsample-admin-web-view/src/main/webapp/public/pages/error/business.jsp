@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="tnxjee" uri="/tnxjee-tags" %>
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cmn-Hans">
 <meta charset="UTF-8">
 <head>
     <title>错误</title>

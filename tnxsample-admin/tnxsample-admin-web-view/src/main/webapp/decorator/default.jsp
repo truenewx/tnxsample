@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,21 +10,10 @@
             parameter="${_csrf.parameterName}"/>
     </c:if>
     <title>tnxsample</title>
-    <jsp:include page="/public/pages/head-link.jsp"/>
     <sitemesh:write property="head"/>
 </head>
 
 <body css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
-<jsp:include page="/header"/>
-<div class="page-container d-flex">
-    <div class="menu-container">
-        <jsp:include page="/menu"/>
-    </div>
-    <div class="flex-grow-1">
-        <jsp:include page="/breadcrumb"/>
-        <div class="main-container"></div>
-    </div>
-</div>
-<jsp:include page="/public/pages/footer.jsp"/>
+<sitemesh:write property="body"/>
 </body>
 </html>
