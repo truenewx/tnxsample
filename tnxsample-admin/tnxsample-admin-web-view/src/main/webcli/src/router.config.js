@@ -5,7 +5,7 @@ function addRoute (path, routes) {
     if (path) {
         routes.push({
             path: path,
-            component: () => import('./pages' + path + '.vue')
+            component: () => import('./pages' + path + '.vue'),
         });
         return true;
     }

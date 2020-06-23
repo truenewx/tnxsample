@@ -35,6 +35,9 @@
         },
         computed: {
             activePath () {
+                if (this.$route.path === "/") {
+                    return undefined;
+                }
                 let item = menu.getItem(this.$route.path);
                 return item ? item.path : undefined;
             }

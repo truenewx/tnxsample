@@ -1,6 +1,10 @@
 /*
  * app.css
  */
+.text-primary {
+    color: #409EFF !important;
+}
+
 .text-muted {
     color: #6c757d !important;
 }
