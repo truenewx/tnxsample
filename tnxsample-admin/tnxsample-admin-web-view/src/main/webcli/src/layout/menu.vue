@@ -1,27 +1,30 @@
 <template>
-    <el-menu class="border-right-0" :default-active="activePath" router unique-opened>
-        <template v-for="(item, itemIndex) in items">
-            <el-submenu v-if="item.subs" :key="itemIndex" :index="'' + itemIndex">
-                <template slot="title">
-                    <i class="fas" :class="item.icon"></i>
-                    <span>{{item.caption}}</span>
-                </template>
-                <el-menu-item v-for="(sub, subIndex) in item.subs" :key="itemIndex + '-' + subIndex"
-                    :index="sub.path">
+    <div>
+        <div class="p-3 text-center border-bottom" style="line-height: 24px;">
+            <i :class="collapsed ? 'el-icon-d-arrow-right' : 'el-icon-d-arrow-left'" role="button"
+                @click="toggleCollapsed"></i>
+        </div>
+        <el-menu class="border-right-0" :default-active="activePath" :collapse="collapsed" router
+            unique-opened>
+            <template v-for="(item, itemIndex) in items">
+                <el-submenu v-if="item.subs" :key="itemIndex" :index="'' + itemIndex">
                     <template slot="title">
+                        <i class="fas" :class="item.icon"></i>
+                        <span>{{item.caption}}</span>
+                    </template>
+                    <el-menu-item v-for="(sub, subIndex) in item.subs"
+                        :key="itemIndex + '-' + subIndex" :index="sub.path">
                         <i class="fas" :class="sub.icon"></i>
                         <span>{{sub.caption}}</span>
-                    </template>
-                </el-menu-item>
-            </el-submenu>
-            <el-menu-item v-else :key="itemIndex" :index="item.path">
-                <template slot="title">
+                    </el-menu-item>
+                </el-submenu>
+                <el-menu-item v-else :key="itemIndex" :index="item.path">
                     <i class="fas" :class="item.icon"></i>
-                    <span>{{item.caption}}</span>
-                </template>
-            </el-menu-item>
-        </template>
-    </el-menu>
+                    <span slot="title">{{item.caption}}</span>
+                </el-menu-item>
+            </template>
+        </el-menu>
+    </div>
 </template>
 
 <script>
@@ -31,6 +34,7 @@
         data () {
             return {
                 items: menu.items,
+                collapsed: false,
             };
         },
         computed: {
@@ -41,11 +45,24 @@
                 let item = menu.getItem(this.$route.path);
                 return item ? item.path : undefined;
             }
+        },
+        methods: {
+            toggleCollapsed () {
+                this.collapsed = !this.collapsed;
+            }
         }
     }
 </script>
 
 <style>
+    .el-menu:not(.el-menu--collapse) {
+        width: 200px;
+    }
+
+    .el-menu--collapse .el-submenu.is-active {
+        background-color: #ecf5ff;
+    }
+
     .el-menu .fa, .el-menu .fas {
         margin-right: 5px;
         width: 24px;

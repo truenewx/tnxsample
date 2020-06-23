@@ -7,7 +7,7 @@
             <el-aside width="auto">
                 <layout-menu/>
             </el-aside>
-            <el-main class="flex-grow-1 border-left d-flex flex-column bg-muted">
+            <el-main class="flex-grow-1 border-left d-flex flex-column" :class="{'bg-muted':!home}">
                 <layout-breadcrumb v-if="!home"/>
                 <div class="flex-grow-1 border bg-white p-3" v-if="!home">
                     <router-view></router-view>
@@ -67,7 +67,7 @@
         padding-top: 56px;
     }
 
-    aside {
-        min-width: 222px;
+    .el-main {
+        padding: 1rem;
     }
 </style>
