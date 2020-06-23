@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex mb-3">
-        <el-page-header class="text-primary" @back="back"/>
+        <el-page-header class="link" @back="back"/>
         <el-breadcrumb class="d-flex align-items-center">
             <el-breadcrumb-item :to="{path: '/'}">
                 <i class="fas fa-home"></i> 首页
@@ -35,7 +35,11 @@
 <style>
     .el-breadcrumb__inner.is-link {
         font-weight: normal;
-        color: #409EFF;
+        color: #007bff;
+    }
+
+    .el-breadcrumb__inner.is-link:hover {
+        color: #0056b3;
     }
 
     .el-breadcrumb__item:last-child .el-breadcrumb__inner,

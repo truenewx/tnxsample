@@ -6,7 +6,11 @@
 }
 
 .text-muted {
-    color: #6c757d !important;
+    color: #909399 !important;
+}
+
+.bg-primary {
+    background-color: #409EFF !important;
 }
 
 .bg-muted {
@@ -15,4 +19,12 @@
 
 .bg-white {
     background-color: #fff !important;
+}
+
+a, .link {
+    color: #007bff;
+}
+
+a:hover, .link:hover {
+    color: #0056b3;
 }

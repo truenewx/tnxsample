@@ -52,4 +52,9 @@
         text-align: center;
         vertical-align: middle;
     }
+
+    .el-menu-item.is-active {
+        border-right: 0.3rem solid #409EFF;
+        background-color: #ecf5ff;
+    }
 </style>
