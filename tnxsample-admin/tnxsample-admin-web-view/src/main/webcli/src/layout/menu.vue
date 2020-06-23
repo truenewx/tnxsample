@@ -65,9 +65,10 @@
 
     .el-menu .fa, .el-menu .fas {
         margin-right: 5px;
-        width: 24px;
+        width: 20px;
         text-align: center;
         vertical-align: middle;
+        color: inherit;
     }
 
     .el-menu-item.is-active {

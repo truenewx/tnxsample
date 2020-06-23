@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import routerConfig from './router.config.js';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import './assets/tnxel.css';
 import './assets/app.css';
 import App from './App.vue';
