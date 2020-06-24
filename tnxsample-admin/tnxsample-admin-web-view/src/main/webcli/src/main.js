@@ -2,10 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import routerConfig from './router.config.js';
 import ElementUI from 'element-ui';
-import '@truenewx/tnxweb/packages/bootstrap/base-4.5.0.css';
+import '@truenewx/tnxweb/component/bootstrap/base-4.5.0.css';
 import 'element-ui/lib/theme-chalk/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
-import '@truenewx/tnxweb/packages/element/tnxel.css';
+import '@truenewx/tnxweb/component/element/tnxel.css';
 import './assets/app.css';
 import App from './App.vue';
 

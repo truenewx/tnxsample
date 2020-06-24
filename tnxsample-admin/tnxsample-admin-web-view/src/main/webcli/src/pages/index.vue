@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import app from '../assets/app.js';
+    import app from '../app';
 
     export default {
         data () {
