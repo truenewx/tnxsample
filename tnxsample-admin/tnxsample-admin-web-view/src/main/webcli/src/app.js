@@ -1,5 +1,5 @@
 // app.js
-import tnxjq from '@truenewx/tnxweb/component/jquery/tnxjq';
+import tnxjq from '@truenewx/tnxweb/components/jquery/tnxjq';
 
 tnxjq.init({});
 
