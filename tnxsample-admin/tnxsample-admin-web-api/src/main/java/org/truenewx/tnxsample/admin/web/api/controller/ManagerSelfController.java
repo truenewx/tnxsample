@@ -12,12 +12,19 @@ import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
 import org.truenewx.tnxsample.admin.web.api.util.ProjectWebUtil;
 
-@Caption("个人管理")
+@Caption("当前个人管理")
 @RestController
 @RequestMapping("/manager/self")
 public class ManagerSelfController {
     @Autowired
     private ManagerService managerService;
+
+    @Caption("获取个人显示名称")
+    @GetMapping("/caption")
+    @ConfigAuthority
+    public String caption() {
+        return ProjectWebUtil.getManagerDetails().getCaption();
+    }
 
     @Caption("获取个人信息")
     @GetMapping("/info")

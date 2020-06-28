@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib prefix="tnxjee" uri="/tnxjee-tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <meta charset="UTF-8">
@@ -14,7 +15,9 @@
         <tnxjee:errors/>
     </tv-div>
     <form method="post" action="${context}/login" @submit="submit($event)">
-        <input type="hidden" id="service" name="service" value="${service}">
+    <c:forEach var="parameter" items="${parameters}">
+        <input type="hidden" id="${parameter.key}" name="${parameter.key}" value="${parameter.value}">
+    </c:forEach>
         <div class="form-group">
             <label for="username">用户名</label>
             <input type="text" class="form-control" name="username" id="username"
