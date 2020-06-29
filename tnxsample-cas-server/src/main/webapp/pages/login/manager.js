@@ -5,7 +5,7 @@ define(["app"], function(app) {
         new Vue({
             el: container,
             data: {
-                username: "admin",
+                username: "",
                 password: "",
             },
             computed: {
@@ -25,6 +25,9 @@ define(["app"], function(app) {
                         }
                     });
                 });
+            },
+            mounted: function() {
+                this.username = $("#username").attr("init-value");
             },
             methods: {
                 submit: function(event) {
