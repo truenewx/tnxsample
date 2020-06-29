@@ -3,12 +3,12 @@
         <h3>
             <el-link type="primary" :href="contextPath">{{title}}</el-link>
         </h3>
-        <el-row type="flex" align="middle">
+        <el-row type="flex" align="middle" v-if="managerCaption">
             <el-avatar class="mr-2" :size="32">
                 <i class="el-icon-user-solid"></i>
             </el-avatar>
             <el-dropdown trigger="click">
-            <span class="el-dropdown-link">{{manager.fullName}}
+            <span class="el-dropdown-link">{{managerCaption}}
                 <i class="el-icon-arrow-down el-icon--right"></i>
             </span>
                 <el-dropdown-menu slot="dropdown">
@@ -22,15 +22,21 @@
 </template>
 
 <script>
+    import app from '../app.js';
+
     export default {
-        data() {
+        data () {
             return {
                 title: process.env.VUE_APP_TITLE,
                 contextPath: process.env.BASE_URL,
-                manager: {
-                    fullName: "admin"
-                }
+                managerCaption: null,
             };
+        },
+        created () {
+            const vm = this;
+            app.rpc.get('/manager/self/caption', function(caption) {
+                vm.managerCaption = caption;
+            });
         }
     }
 </script>
