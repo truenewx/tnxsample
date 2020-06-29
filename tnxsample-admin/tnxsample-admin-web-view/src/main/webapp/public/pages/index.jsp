@@ -8,7 +8,7 @@
 
 <body>
 <script>
-    window.location.href = "${context}/index.html";
+    window.location.href = "${context}/main.html";
 </script>
 </body>
 </html>
