@@ -1,21 +1,21 @@
 // login.js
-define(["app"], function(app) {
+define(['app'], function(app) {
     var util = app.owner.util;
     return function(container) {
         new Vue({
             el: container,
             data: {
-                username: "",
-                password: "",
+                username: '',
+                password: '',
             },
             computed: {
                 md5Password: function() {
-                    return this.password ? util.md5(this.password) : "";
+                    return this.password ? util.md5(this.password) : '';
                 }
             },
             created: function() {
-                var service = $("#service").val();
-                app.rpc.get("/serviceLogoutUrls", {
+                var service = $('#service').val();
+                app.rpc.get('/serviceLogoutUrls', {
                     service: service
                 }, function(urlMapping) {
                     Object.keys(urlMapping).forEach(function(logoutService) {
@@ -27,7 +27,11 @@ define(["app"], function(app) {
                 });
             },
             mounted: function() {
-                this.username = $("#username").attr("init-value");
+                this.username = $('#username').attr('init-value');
+                var password = $('#password').attr('init-value');
+                if (password && password.length < 32) {
+                    this.password = password;
+                }
             },
             methods: {
                 submit: function(event) {

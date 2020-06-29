@@ -15,11 +15,12 @@
         <tnxjee:errors/>
     </tv-div>
     <form method="post" action="${context}/login" @submit="submit($event)">
-    <c:forEach var="parameter" items="${param}">
-        <c:if test="${parameter.key != 'username' && parameter.key != 'password'}">
-            <input type="hidden" id="${parameter.key}" name="${parameter.key}" value="${parameter.value}">
-        </c:if>
-    </c:forEach>
+        <c:forEach var="parameter" items="${param}">
+            <c:if test="${parameter.key != 'username' && parameter.key != 'password'}">
+                <input type="hidden" id="${parameter.key}" name="${parameter.key}"
+                    value="${parameter.value}">
+            </c:if>
+        </c:forEach>
         <div class="form-group">
             <label for="username">用户名</label>
             <input type="text" class="form-control" name="username" id="username"
@@ -27,8 +28,8 @@
         </div>
         <div class="form-group">
             <label for="password">密码</label>
-            <input type="password" class="form-control" id="password" v-model="password"
-                autocomplete="off">
+            <input type="password" class="form-control" id="password" init-value="${param.password}"
+                v-model="password" autocomplete="off">
             <input type="hidden" name="password" v-model="md5Password">
         </div>
         <button type="submit" class="btn btn-primary">登录</button>
