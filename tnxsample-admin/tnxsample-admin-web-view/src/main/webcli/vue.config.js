@@ -1,6 +1,6 @@
 // vue.config.js
 module.exports = {
-    publicPath: '/',
+    publicPath: './',
     outputDir: '../webapp/static',
     assetsDir: 'assets',
     indexPath: 'main.html',

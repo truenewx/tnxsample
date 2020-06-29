@@ -35,4 +35,10 @@ public class MainController {
         return this.csrfTokenRepository.generateToken(request);
     }
 
+    @GetMapping("/validate-login")
+    @ResponseBody
+    @ConfigAuthority
+    public void validateLogin() {
+    }
+
 }

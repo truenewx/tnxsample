@@ -1,15 +1,11 @@
 <template>
-    <div class="text-center m-3">首页: {{name}}</div>
+    <div class="text-center m-3">首页</div>
 </template>
 
 <script>
-    import app from '../app';
-
     export default {
         data () {
-            return {
-                name: app.name,
-            };
+            return {};
         }
     }
 </script>

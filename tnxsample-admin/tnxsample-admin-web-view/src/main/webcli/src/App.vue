@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="d-flex flex-column">
+    <div id="app" class="d-flex flex-column" v-if="logined">
         <el-header height="auto" class="border-bottom fixed-top">
             <layout-header/>
         </el-header>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+    import app from './app.js';
     import header from './layout/header.vue';
     import menu from './layout/menu.vue';
     import breadcrumb from "./layout/breadcrumb";
@@ -38,12 +39,22 @@
             'page-index': index,
         },
         data () {
-            return {}
+            return {
+                logined: false,
+            }
         },
         computed: {
             home () {
                 return this.$route.path === "/";
             }
+        },
+        created () {
+            const vm = this;
+            app.rpc.loadConfig('http://localhost:8888', () => {
+                app.rpc.get('/validate-login', () => {
+                    vm.logined = true;
+                });
+            });
         }
     }
 </script>
