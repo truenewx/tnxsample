@@ -50,7 +50,7 @@
         },
         created () {
             const vm = this;
-            app.rpc.loadConfig('http://localhost:8888', () => {
+            app.rpc.loadConfig(process.env.VUE_APP_RPC_BASE_URL, () => {
                 app.rpc.get('/validate-login', () => {
                     vm.logined = true;
                 });

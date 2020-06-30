@@ -8,13 +8,13 @@
                 <i class="el-icon-user-solid"></i>
             </el-avatar>
             <el-dropdown trigger="click">
-            <span class="el-dropdown-link">{{managerCaption}}
-                <i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
+                <span class="el-dropdown-link">{{managerCaption}}
+                    <i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
                 <el-dropdown-menu slot="dropdown">
-                    <el-dropdown-item>个人资料</el-dropdown-item>
-                    <el-dropdown-item>修改密码</el-dropdown-item>
-                    <el-dropdown-item divided>登出系统</el-dropdown-item>
+                    <el-dropdown-item @click.native="info">个人资料</el-dropdown-item>
+                    <el-dropdown-item @click.native="password">修改密码</el-dropdown-item>
+                    <el-dropdown-item @click.native="logout" divided>登出系统</el-dropdown-item>
                 </el-dropdown-menu>
             </el-dropdown>
         </el-row>
@@ -37,9 +37,17 @@
             app.rpc.get('/manager/self/caption', function(caption) {
                 vm.managerCaption = caption;
             });
+        },
+        methods: {
+            info () {
+
+            },
+            password () {
+
+            },
+            logout () {
+                app.rpc.post('/logout');
+            }
         }
     }
 </script>
-
-<style scoped>
-</style>
