@@ -34,7 +34,7 @@
         },
         created () {
             const vm = this;
-            app.rpc.get('/manager/self/caption', function(caption) {
+            app.rpc.get('/manager/self/caption', caption => {
                 vm.managerCaption = caption;
             });
         },
