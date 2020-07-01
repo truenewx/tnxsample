@@ -28,3 +28,24 @@ a, .link {
 a:hover, .link:hover {
     color: #0056b3;
 }
+
+header[theme='primary'] {
+    background-color: #409EFF;
+    color: #ffffff;
+}
+
+header[theme='primary'] a,
+header[theme='primary'] a:hover,
+header[theme='primary'] .el-link--default,
+header[theme='primary'] .el-link--default:hover,
+header[theme='primary'] .el-dropdown {
+    color: #ffffff;
+}
+
+header[theme='primary'] .el-avatar {
+    background-color: #ffffff;
+}
+
+header[theme='primary'] .el-avatar i {
+    color: #C0C4CC;
+}

@@ -1,7 +1,7 @@
 <template>
     <el-row class="container-fluid" type="flex" align="middle" justify="space-between">
         <h3>
-            <el-link type="primary" :href="contextPath">{{title}}</el-link>
+            <el-link :href="contextPath" :underline="false">{{title}}</el-link>
         </h3>
         <el-row type="flex" align="middle" v-if="managerCaption">
             <el-avatar class="mr-2" :size="32">

@@ -1,6 +1,6 @@
 <template>
     <div id="app" class="d-flex flex-column" v-if="logined">
-        <el-header height="auto" class="border-bottom fixed-top">
+        <el-header height="auto" class="border-bottom fixed-top" theme="primary">
             <layout-header/>
         </el-header>
         <div class="flex-grow-1 d-flex page-container">
