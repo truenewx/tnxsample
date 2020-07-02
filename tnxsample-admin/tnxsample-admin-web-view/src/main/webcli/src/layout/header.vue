@@ -22,7 +22,8 @@
 </template>
 
 <script>
-    import app from '../app.js';
+    import {app, tnx} from '../app.js';
+    import info from '../pages/self/info.vue';
 
     export default {
         data () {
@@ -40,7 +41,7 @@
         },
         methods: {
             info () {
-
+                tnx.open(info);
             },
             password () {
 
