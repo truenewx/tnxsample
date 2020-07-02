@@ -1,13 +1,18 @@
 <template>
-    <div>
-
-    </div>
+    <el-form ref="model" :model="model" :rules="rules">
+        <el-form-item label="姓名" prop="fullName">
+            <el-input v-model="model.fullName"></el-input>
+        </el-form-item>
+    </el-form>
 </template>
 
 <script>
     export default {
         data () {
-            return {};
+            return {
+                model: {},
+                rules: {},
+            };
         },
         methods: {
             dialog () {
