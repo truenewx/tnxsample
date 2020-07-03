@@ -23,7 +23,7 @@ public class ManagerSelfController {
     @GetMapping("/caption")
     @ConfigAuthority
     public String caption() {
-        return ProjectWebUtil.getManagerDetails().getCaption();
+        return info().getCaption();
     }
 
     @Caption("获取个人信息")
