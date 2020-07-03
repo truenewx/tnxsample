@@ -7,7 +7,9 @@
         <el-form-item label="头像">
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
-            <el-input v-model="model.fullName"></el-input>
+            <el-col :span="10">
+                <el-input v-model="model.fullName"></el-input>
+            </el-col>
         </el-form-item>
     </el-form>
 </template>
@@ -34,8 +36,9 @@
             dialog () {
                 return {
                     title: '修改个人信息',
+                    width: '25%',
                     type: 'confirm',
-                    click: this.toSubmit
+                    click: this.toSubmit,
                 }
             },
             toSubmit (yes, close, source) {
