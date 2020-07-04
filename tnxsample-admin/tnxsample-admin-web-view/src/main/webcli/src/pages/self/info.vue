@@ -31,6 +31,9 @@
             app.rpc.get('/manager/self/info', model => {
                 vm.model = model;
             });
+            app.rpc.getMeta('/manager/self/info', meta => {
+                vm.rules = meta.rules;
+            });
         },
         methods: {
             dialog () {
