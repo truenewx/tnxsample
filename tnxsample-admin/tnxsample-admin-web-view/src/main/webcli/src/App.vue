@@ -58,27 +58,3 @@
         }
     }
 </script>
-
-<style>
-    html, body {
-        height: 100%;
-    }
-
-    #app {
-        height: auto;
-        min-height: 100%;
-    }
-
-    header {
-        line-height: 55px;
-        background-color: #fff;
-    }
-
-    .page-container {
-        padding-top: 56px;
-    }
-
-    .el-main {
-        padding: 1rem;
-    }
-</style>

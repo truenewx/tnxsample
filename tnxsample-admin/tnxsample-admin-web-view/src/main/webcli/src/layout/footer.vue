@@ -7,13 +7,10 @@
 
 <script>
     export default {
-        data() {
+        data () {
             return {
                 version: '2.1.1',
             };
         }
     }
 </script>
-
-<style scoped>
-</style>

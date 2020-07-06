@@ -11,8 +11,8 @@ public class WebMvcConfig extends CasServerMvcConfigSupport {
     protected void buildSiteMeshFilter(SiteMeshFilterBuilder builder) {
         super.buildSiteMeshFilter(builder);
         builder.addExcludedPath("**/*.json");
-        builder.addDecoratorPath("**/*.win", "/decorator/win.jsp");
-        builder.addDecoratorPath("/*", "/decorator/default.jsp");
+        // 先装饰头部和脚部，再装饰依赖组件和样式
+        builder.addDecoratorPaths("/*", "/public/decorator/default.jsp", "/decorator.html");
     }
 
 }
