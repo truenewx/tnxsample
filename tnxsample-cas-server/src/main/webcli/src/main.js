@@ -11,8 +11,6 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 
-window.modules = {
-    $, Vue, tnx
-};
+Object.assign(window, {$, Vue, tnx});
 
 tnx.app.init();
