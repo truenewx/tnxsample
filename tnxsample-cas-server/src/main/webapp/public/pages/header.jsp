@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
-<div id="header-container" js="header.js">
+<div id="header-container" js="/pages/header.js">
     <el-header height="auto" class="border-bottom fixed-top" theme="primary">
         <el-row class="container" type="flex" align="middle" justify="space-between">
             <h3>

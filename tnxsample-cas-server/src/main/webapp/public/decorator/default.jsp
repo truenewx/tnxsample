@@ -6,6 +6,8 @@
 <c:if test="${not empty _csrf}">
     <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}" parameter="${_csrf.parameterName}"/>
 </c:if>
+    <meta name="app.context" content="${context}">
+    <meta name="app.version" content="${version}">
     <title><sitemesh:write property="title"/></title>
 </head>
 
