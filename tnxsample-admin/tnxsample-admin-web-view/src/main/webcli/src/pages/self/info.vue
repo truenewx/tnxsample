@@ -2,12 +2,15 @@
     <el-form label-position="right" label-width="auto" :model="model" :rules="rules">
         <el-form-item label="用户名">{{model.username}}</el-form-item>
         <el-form-item label="是否超管">
-            <i class="fa" :class="model.top ? 'fa-check text-primary' : 'fa-ban text-muted'"></i>
+            <div>
+                <i class="fa"
+                    :class="model.top ? 'fa-check text-primary' : 'fa-ban text-muted'"></i>
+            </div>
         </el-form-item>
         <el-form-item label="头像">
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
-            <el-col :span="10">
+            <el-col :span="12">
                 <el-input v-model="model.fullName"></el-input>
             </el-col>
         </el-form-item>
