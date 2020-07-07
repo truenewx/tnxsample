@@ -1,13 +1,18 @@
-// app.js
-require.config({
-    paths: {
-        "validator": app_config.lib + "/core/tnx/js/tnx-validator",
-        "tnxbs": app_config.lib + "/bs/tnx/js/tnxbs",
-        "tnxvue": app_config.lib + "/vue/tnx/js/tnxvue",
-    }
-});
+// main.js
+let $, Vue, tnx, util, app;
 
-define(["tnxbs", "tnxvue"], function(tnxbs, tnxvue) {
-    tnx = Object.assign({}, tnxbs, tnxvue);
-    return tnx.app;
-});
+const appInitIntervalNo = setInterval(function() {
+    if (window.tnx) {
+        clearInterval(appInitIntervalNo)
+        $ = window.$;
+        Vue = window.Vue;
+        tnx = window.tnx;
+        util = tnx.util;
+        app = tnx.app;
+        app.init(() => {
+            app.rpc.setConfig({
+                baseUrl: app.context
+            });
+        });
+    }
+}, 500);

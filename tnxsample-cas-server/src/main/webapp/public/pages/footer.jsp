@@ -5,3 +5,5 @@
         <div class="text-right text-muted">v${version}</div>
     </div>
 </footer>
+<script src="${context}/vendor/require-2.3.6/require.min.js"
+    data-main="${context}/assets/js/app.js?v=${version}" type="text/javascript"></script>

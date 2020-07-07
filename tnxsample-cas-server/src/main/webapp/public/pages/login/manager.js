@@ -1,6 +1,5 @@
 // login.js
-define(['app'], function(app) {
-    var util = app.owner.util;
+define([], function() {
     return function(container) {
         new Vue({
             el: container,
@@ -14,21 +13,21 @@ define(['app'], function(app) {
                 }
             },
             created: function() {
-                var service = $('#service').val();
+                const service = $('#service').val();
                 app.rpc.get('/serviceLogoutUrls', {
                     service: service
                 }, function(urlMapping) {
                     Object.keys(urlMapping).forEach(function(logoutService) {
                         if (logoutService !== service) {
-                            var url = urlMapping[logoutService];
-                            app.rpc.get(url);
+                            const url = urlMapping[logoutService];
+                            // app.rpc.get(url);
                         }
                     });
                 });
             },
             mounted: function() {
                 this.username = $('#username').attr('init-value');
-                var password = $('#password').attr('init-value');
+                const password = $('#password').attr('init-value');
                 if (password && password.length < 32) {
                     this.password = password;
                 }

@@ -11,11 +11,13 @@
     <title><sitemesh:write property="title"/></title>
 </head>
 
-<body css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
+<body>
 <link href="${context}/assets/css/app.css?v=${version}" rel="stylesheet">
 <jsp:include page="/header"/>
 <div class="flex-grow-1 page-container">
-    <sitemesh:write property="body"/>
+    <div css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
+        <sitemesh:write property="body"/>
+    </div>
 </div>
 <jsp:include page="../pages/footer.jsp"/>
 </body>
