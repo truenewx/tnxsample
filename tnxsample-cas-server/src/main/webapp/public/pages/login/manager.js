@@ -20,7 +20,7 @@ define([], function() {
                     Object.keys(urlMapping).forEach(function(logoutService) {
                         if (logoutService !== service) {
                             const url = urlMapping[logoutService];
-                            // app.rpc.get(url);
+                            app.rpc.get(url);
                         }
                     });
                 });
@@ -35,11 +35,10 @@ define([], function() {
             methods: {
                 submit: function(event) {
                     if (this.username && this.password) {
-                        app.buildCsrfField(event.target);
-                        return true;
+                        const form = $(event.target).parents('form');
+                        app.buildCsrfField(form[0]);
+                        form.submit();
                     }
-                    event.preventDefault();
-                    return false;
                 }
             }
         });
