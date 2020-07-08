@@ -41,7 +41,9 @@
         },
         methods: {
             info () {
-                tnx.open(info, undefined, undefined, this);
+                tnx.open(info, {
+                    opener: this
+                });
             },
             password () {
 

@@ -21,6 +21,7 @@
     import {app, tnx} from '../../app.js';
 
     export default {
+        props: ['opener'],
         data () {
             return {
                 model: {
@@ -33,9 +34,10 @@
             const vm = this;
             app.rpc.get('/manager/self/info', model => {
                 vm.model = model;
-            });
-            app.rpc.getMeta('/manager/self/info', meta => {
-                vm.rules = meta.rules;
+                // 先给模型赋值，再加载元数据，以确保字段校验不提前进行而导致失败
+                app.rpc.getMeta('/manager/self/info', meta => {
+                    vm.rules = meta.rules;
+                });
             });
         },
         methods: {
@@ -47,11 +49,12 @@
                     click: this.toSubmit,
                 }
             },
-            toSubmit (yes, close, source) {
+            toSubmit (yes, close) {
                 if (yes) {
                     const model = this.model;
+                    const opener = this.opener;
                     app.rpc.post('/manager/self/info', model, function() {
-                        source.managerCaption = model.fullName;
+                        opener.managerCaption = model.fullName;
                         tnx.alert('修改成功', () => {
                             close();
                         });
