@@ -12,7 +12,7 @@
     "@fortawesome/fontawesome-free": "^5.13.1",
     "vue": "^2.6.11",
     "element-ui": "^2.13.2",
-    "@truenewx/tnxweb": "^0.6.0"
+    "@truenewx/tnxweb": "^0.6.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
