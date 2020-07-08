@@ -20,7 +20,9 @@ define([], function() {
                     Object.keys(urlMapping).forEach(function(logoutService) {
                         if (logoutService !== service) {
                             const url = urlMapping[logoutService];
-                            app.rpc.get(url);
+                            app.rpc.post(url, undefined, undefined, {
+                                ignored: 'Redirect-To'
+                            });
                         }
                     });
                 });
