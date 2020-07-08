@@ -11,8 +11,7 @@ public class WebMvcConfig extends CasServerMvcConfigSupport {
     protected void buildSiteMeshFilter(SiteMeshFilterBuilder builder) {
         super.buildSiteMeshFilter(builder);
         builder.addExcludedPath("**/*.json");
-        // 先装饰头部和脚部，再装饰依赖组件和样式。使用JSP页面作为装饰页才能正常post提交表单
-        builder.addDecoratorPaths("/*", "/public/decorator/default.jsp", "/static/index.jsp");
+        builder.addDecoratorPaths("/*", "/static/libs.jsp", "/public/decorator/default.jsp");
     }
 
 }

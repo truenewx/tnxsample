@@ -3,7 +3,7 @@ let $, Vue, tnx, util, app;
 
 const appInitIntervalNo = setInterval(function() {
     if (window.tnx) {
-        clearInterval(appInitIntervalNo)
+        clearInterval(appInitIntervalNo);
         tnx = window.tnx;
         $ = tnx.libs.$;
         Vue = tnx.libs.Vue;
