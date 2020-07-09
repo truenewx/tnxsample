@@ -9,10 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "@fortawesome/fontawesome-free": "^5.13.1",
-    "vue": "^2.6.11",
-    "element-ui": "^2.13.2",
-    "@truenewx/tnxweb": "^0.6.2"
+    "@fortawesome/fontawesome-free": "^5.13.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
@@ -37,7 +34,8 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-unused-vars": "off"
+      "no-unused-vars": "off",
+      "eqeqeq": "warn"
     }
   },
   "browserslist": [
