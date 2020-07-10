@@ -24,6 +24,7 @@
 <script>
     import {app, tnx} from '../app.js';
     import info from '../pages/self/info.vue';
+    import password from '../pages/self/password.vue';
 
     export default {
         data () {
@@ -46,7 +47,7 @@
                 });
             },
             password () {
-
+                tnx.open(password);
             },
             logout () {
                 app.rpc.post('/logout');

@@ -45,9 +45,6 @@
                 });
             });
         },
-        mounted () {
-            console.info('mounted.');
-        },
         methods: {
             dialog () {
                 return {
