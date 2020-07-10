@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import {app, tnx} from '../../app.js';
+    import {app, tnx, util} from '../../app.js';
 
     export default {
         props: ['opener'],
@@ -31,14 +31,22 @@
             };
         },
         created () {
+            tnx.showLoading();
+            const beginTime = new Date().getTime();
             const vm = this;
             app.rpc.get('/manager/self/info', model => {
                 vm.model = model;
                 // 先给模型赋值，再加载元数据，以确保字段校验不提前进行而导致失败
                 app.rpc.getMeta('/manager/self/info', meta => {
                     vm.rules = meta.rules;
+                    util.setMinTimeout(beginTime, function() {
+                        tnx.closeLoading();
+                    }, 500);
                 });
             });
+        },
+        mounted () {
+            console.info('mounted.');
         },
         methods: {
             dialog () {
@@ -53,11 +61,15 @@
                 if (yes) {
                     const model = this.model;
                     const opener = this.opener;
+                    tnx.showLoading();
+                    const beginTime = new Date().getTime();
                     app.rpc.post('/manager/self/info', model, function() {
                         opener.managerCaption = model.fullName;
-                        tnx.alert('修改成功', () => {
-                            close();
-                        });
+                        util.setMinTimeout(beginTime, function() {
+                            tnx.toast('修改成功', () => {
+                                close();
+                            });
+                        }, 500);
                     });
                     return false;
                 }
