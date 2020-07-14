@@ -27,7 +27,7 @@
         <el-form-item label="密码" prop="password">
             <el-input type="password" id="password" v-model="password"
                 init-value="${param.password}"
-                v-on:keyup.enter="submit($event)"></el-input>
+                @keyup.enter.native="submit($event)"></el-input>
             <input type="hidden" name="password" v-model="md5Password">
         </el-form-item>
         <el-form-item>
