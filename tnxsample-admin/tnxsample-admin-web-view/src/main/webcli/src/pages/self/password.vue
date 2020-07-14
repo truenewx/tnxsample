@@ -3,7 +3,8 @@
         status-icon>
         <el-form-item label="原密码" prop="oldPassword">
             <el-col>
-                <el-input type="password" v-model.trim="model.oldPassword"></el-input>
+                <el-input type="password" v-model.trim="model.oldPassword"
+                    @input="oldPasswordInput"></el-input>
             </el-col>
         </el-form-item>
         <el-form-item label="新密码" prop="newPassword">
@@ -68,10 +69,13 @@
                 oldPasswordError: false,
             };
         },
-        watch: {
-            oldPassword: function(value) {
-                this.oldPasswordError = false;
-            }
+        computed: {
+            oldMd5Password: function() {
+                return this.model.oldPassword ? util.md5(this.model.oldPassword) : '';
+            },
+            newMd5Password: function() {
+                return this.model.newPassword ? util.md5(this.model.newPassword) : '';
+            },
         },
         methods: {
             dialog () {
@@ -82,14 +86,15 @@
                     click: this.toSubmit,
                 }
             },
+            oldPasswordInput: function() {
+                this.oldPasswordError = false;
+            },
             toSubmit (yes) {
                 if (yes) {
                     this.oldPasswordError = false;
                     const vm = this;
                     this.$refs.form.validate(function(yes) {
                         if (yes) {
-                            const model = Object.assign({}, vm.model);
-                            delete model.newPassword2;
                             const beginTime = new Date().getTime();
                             tnx.showLoading();
                             app.rpc.post('/manager/self/password', function() {
@@ -99,7 +104,10 @@
                                     });
                                 }, 500);
                             }, {
-                                params: model,
+                                params: {
+                                    oldPassword: vm.oldMd5Password,
+                                    newPassword: vm.newMd5Password,
+                                },
                                 error: function() {
                                     tnx.closeLoading();
                                     vm.oldPasswordError = true;
