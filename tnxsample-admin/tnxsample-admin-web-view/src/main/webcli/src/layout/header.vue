@@ -50,7 +50,11 @@
                 tnx.open(password);
             },
             logout () {
-                app.rpc.post('/logout');
+                if (process.env.NODE_ENV === 'production') {
+                    window.location.href = this.contextPath + "/logout";
+                } else {
+                    app.rpc.post("/logout");
+                }
             }
         }
     }

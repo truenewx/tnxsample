@@ -21,14 +21,17 @@
     </c:if>
 </c:forEach>
         <el-form-item label="用户名" prop="username">
-            <el-input name="username" id="username" v-model="username" init-value="${param.username}"></el-input>
+            <el-input name="username" id="username" v-model="username"
+                init-value="${param.username}"></el-input>
         </el-form-item>
         <el-form-item label="密码" prop="password">
-            <el-input type="password" id="password" v-model="password" init-value="${param.password}"></el-input>
+            <el-input type="password" id="password" v-model="password"
+                init-value="${param.password}"
+                v-on:keyup.enter="submit($event)"></el-input>
             <input type="hidden" name="password" v-model="md5Password">
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="submit">登录</el-button>
+            <el-button type="primary" @click="submit($event)">登录</el-button>
         </el-form-item>
     </el-form>
 </div>

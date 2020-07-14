@@ -13,17 +13,12 @@ define([], function() {
                 }
             },
             created: function() {
-                const service = $('#service').val();
-                app.rpc.get('/serviceLogoutUrls', {
-                    service: service
-                }, function(urlMapping) {
-                    Object.keys(urlMapping).forEach(function(logoutService) {
-                        if (logoutService !== service) {
-                            const url = urlMapping[logoutService];
-                            app.rpc.post(url, undefined, undefined, {
-                                ignored: 'Redirect-To'
-                            });
-                        }
+                app.rpc.get('/serviceLogoutUrls', function(urlMapping) {
+                    Object.keys(urlMapping).forEach(function(service) {
+                        const url = urlMapping[service];
+                        app.rpc.post(url, undefined, undefined, {
+                            ignored: 'Redirect-To'
+                        });
                     });
                 });
             },
