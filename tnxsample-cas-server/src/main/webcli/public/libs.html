@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title><sitemesh:write property='title'></sitemesh:write></title>
+    <sitemesh:write property="head"></sitemesh:write>
 </head>
-<body css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
+<body>
 <sitemesh:write property='body'></sitemesh:write>
 <!-- built files will be auto injected -->
 </body>

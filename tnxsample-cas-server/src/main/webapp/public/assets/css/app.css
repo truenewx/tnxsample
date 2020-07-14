@@ -5,7 +5,7 @@ html, body {
     height: 100%;
 }
 
-#app {
+.app-container {
     height: auto;
     min-height: 100%;
 }

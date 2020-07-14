@@ -3,22 +3,19 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <c:if test="${not empty _csrf}">
     <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}" parameter="${_csrf.parameterName}"/>
 </c:if>
     <meta name="app.context" content="${context}">
     <meta name="app.version" content="${version}">
     <title><sitemesh:write property="title"/> - tnxsample</title>
-    <sitemesh:write property="head"></sitemesh:write>
     <link href="${context}/assets/css/app.css?v=${version}" rel="stylesheet">
+    <sitemesh:write property="head"></sitemesh:write>
 </head>
 
 <body>
-<div id="app" class="d-flex flex-column">
-    <jsp:include page="/header"/>
+<div class="d-flex flex-column app-container">
+    <jsp:include page="../pages/header.jsp"/>
     <div class="flex-grow-1 page-container">
         <div css="<sitemesh:write property='body.css'/>" js="<sitemesh:write property='body.js'/>">
             <sitemesh:write property="body"/>
