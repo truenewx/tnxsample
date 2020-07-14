@@ -100,7 +100,7 @@
                             app.rpc.post('/manager/self/password', function() {
                                 util.setMinTimeout(beginTime, function() {
                                     tnx.alert('登录密码修改成功，请使用新密码重新登录', () => {
-                                        app.rpc.post('/logout');
+                                        vm.opener.logout();
                                     });
                                 }, 500);
                             }, {

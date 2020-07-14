@@ -47,7 +47,9 @@
                 });
             },
             password () {
-                tnx.open(password);
+                tnx.open(password, {
+                    opener: this
+                });
             },
             logout () {
                 if (process.env.NODE_ENV === 'production') {
