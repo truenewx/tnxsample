@@ -1,5 +1,6 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model" :rules="rules">
+    <el-form label-position="right" label-width="auto" ref="form" :model="model" :rules="rules"
+        status-icon>
         <el-form-item label="原密码" prop="oldPassword">
             <el-col>
                 <el-input type="password" v-model.trim="model.oldPassword"></el-input>
@@ -36,6 +37,7 @@
                             if (fieldValue && vm.oldPasswordError) {
                                 return callback(new Error('原密码错误'));
                             }
+                            return callback();
                         }
                     }],
                     newPassword: [{
@@ -46,6 +48,7 @@
                             if (vm.model.newPassword2) {
                                 vm.$refs.form.validateField('newPassword2');
                             }
+                            return callback();
                         }
                     }],
                     newPassword2: [{
@@ -58,11 +61,17 @@
                                 && model.newPassword !== model.newPassword2) {
                                 return callback(new Error('新密码两次输入不一致'));
                             }
+                            return callback();
                         }
                     }]
                 },
                 oldPasswordError: false,
             };
+        },
+        watch: {
+            oldPassword: function(value) {
+                this.oldPasswordError = false;
+            }
         },
         methods: {
             dialog () {
@@ -83,15 +92,16 @@
                             delete model.newPassword2;
                             const beginTime = new Date().getTime();
                             tnx.showLoading();
-                            app.rpc.post('/manager/self/password', model, function() {
+                            app.rpc.post('/manager/self/password', function() {
                                 util.setMinTimeout(beginTime, function() {
-                                    tnx.alert('登录密码成功，请使用新密码重新登录', () => {
+                                    tnx.alert('登录密码修改成功，请使用新密码重新登录', () => {
                                         app.rpc.post('/logout');
                                     });
                                 }, 500);
                             }, {
-                                params: this.model,
+                                params: model,
                                 error: function() {
+                                    tnx.closeLoading();
                                     vm.oldPasswordError = true;
                                     vm.$refs.form.validateField('oldPassword');
                                 }
