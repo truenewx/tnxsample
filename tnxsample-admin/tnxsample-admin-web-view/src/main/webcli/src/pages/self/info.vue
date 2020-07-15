@@ -8,6 +8,7 @@
             </div>
         </el-form-item>
         <el-form-item label="头像">
+
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
             <el-col :span="12">
@@ -28,6 +29,7 @@
                     fullName: null
                 },
                 rules: {},
+                uploadUrl: app.rpc.context.fss + '/upload/ManagerHeadImage',
             };
         },
         created () {
