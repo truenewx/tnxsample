@@ -52,7 +52,7 @@
         created () {
             const vm = this;
             app.rpc.loadConfig(process.env.VUE_APP_RPC_BASE_URL, () => {
-                app.rpc.get('/validate-login', () => {
+                app.rpc.ensureLogined(function() {
                     vm.logined = true;
                 });
             });
