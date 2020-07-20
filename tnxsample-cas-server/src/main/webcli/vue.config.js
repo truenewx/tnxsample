@@ -10,7 +10,8 @@ module.exports = {
         index: {
             entry: 'src/libs.js',
             template: 'public/libs.html',
-            filename: 'libs.jsp'
+            filename: 'libs.jsp',
+            minify: false, // 不压缩html代码
         }
     },
 }
