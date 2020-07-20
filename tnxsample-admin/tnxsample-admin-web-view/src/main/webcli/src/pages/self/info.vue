@@ -34,7 +34,7 @@
             };
         },
         created () {
-            tnx.showLoading();
+            // tnx.showLoading();
             const beginTime = new Date().getTime();
             const vm = this;
             app.rpc.get('/manager/self/info', model => {
