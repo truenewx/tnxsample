@@ -8,7 +8,8 @@
             </div>
         </el-form-item>
         <el-form-item label="头像">
-
+            <tnxel-upload ref="headImageUpload" type="ManagerHeadImage"
+                :files="model.headImageFile" v-if="model.username"/>
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
             <el-col :span="12">
@@ -26,10 +27,10 @@
         data () {
             return {
                 model: {
-                    fullName: null
+                    fullName: null,
+                    headImageFile: null,
                 },
                 rules: {},
-                uploadUrl: app.rpc.context.fss + '/upload/ManagerHeadImage',
             };
         },
         created () {
@@ -61,14 +62,19 @@
                     const model = this.model;
                     const opener = this.opener;
                     tnx.showLoading();
-                    const beginTime = new Date().getTime();
-                    app.rpc.post('/manager/self/info', model, function() {
-                        opener.managerCaption = model.fullName;
-                        util.setMinTimeout(beginTime, function() {
-                            tnx.toast('修改成功', () => {
-                                close();
-                            });
-                        }, 500);
+                    this.$refs.headImageUpload.getStorageUrls().then(function(storageUrls) {
+                        model.headImageUrl = storageUrls[0];
+                        const beginTime = new Date().getTime();
+                        app.rpc.post('/manager/self/info', model, function() {
+                            opener.managerCaption = model.fullName;
+                            util.setMinTimeout(beginTime, function() {
+                                tnx.toast('修改成功', () => {
+                                    close();
+                                });
+                            }, 500);
+                        });
+                    }).catch(function(file) {
+                        tnx.alert('文件"' + file.name + '"还未上传完毕，请稍候');
                     });
                     return false;
                 }
