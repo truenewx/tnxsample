@@ -1,5 +1,5 @@
 <template>
-    <el-form label-position="right" label-width="auto" :model="model" :rules="rules">
+    <el-form label-position="right" label-width="auto" :model="model" :rules="rules" status-icon>
         <el-form-item label="用户名">{{model.username}}</el-form-item>
         <el-form-item label="是否超管">
             <div>
@@ -13,7 +13,7 @@
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
             <el-col :span="12">
-                <el-input v-model="model.fullName"></el-input>
+                <el-input v-model.trim="model.fullName"></el-input>
             </el-col>
         </el-form-item>
     </el-form>
@@ -27,7 +27,7 @@
         data () {
             return {
                 model: {
-                    fullName: null,
+                    fullName: '',
                     headImageFile: null,
                 },
                 rules: {},
