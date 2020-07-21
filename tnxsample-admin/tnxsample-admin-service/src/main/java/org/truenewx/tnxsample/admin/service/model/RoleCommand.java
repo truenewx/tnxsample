@@ -8,7 +8,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
  *
  * @author jianglei
  */
-public class CommandRole implements CommandModel<Role> {
+public class RoleCommand implements CommandModel<Role> {
 
     private String name;
     private String remark;

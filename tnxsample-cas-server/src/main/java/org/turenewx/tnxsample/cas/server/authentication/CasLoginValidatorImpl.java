@@ -5,24 +5,24 @@ import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjeex.cas.server.authentication.CasLoginValidator;
 import org.truenewx.tnxsample.common.CommonConstants;
-import org.turenewx.tnxsample.cas.server.rpc.OpenCustomerClient;
-import org.turenewx.tnxsample.cas.server.rpc.OpenManagerClient;
+import org.turenewx.tnxsample.cas.server.rpc.CustomerLoginClient;
+import org.turenewx.tnxsample.cas.server.rpc.ManagerLoginClient;
 
 @Service
 public class CasLoginValidatorImpl implements CasLoginValidator {
 
     @Autowired
-    private OpenManagerClient openManagerClient;
+    private ManagerLoginClient managerLoginClient;
     @Autowired
-    private OpenCustomerClient customerOpenClient;
+    private CustomerLoginClient customerLoginClient;
 
     @Override
     public UserSpecificDetails<?> validateLogin(String userType, String username, String password) {
         switch (userType) {
             case CommonConstants.USER_TYPE_MANAGER:
-                return this.openManagerClient.validateLogin(username, password);
+                return this.managerLoginClient.validate(username, password);
             case CommonConstants.USER_TYPE_CUSTOMER:
-                return this.customerOpenClient.validateLogin(username, password);
+                return this.customerLoginClient.validate(username, password);
         }
         return null;
     }

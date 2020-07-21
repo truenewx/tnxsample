@@ -1,16 +1,19 @@
 package org.truenewx.tnxsample.admin.web.api.controller;
 
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxjeex.fss.model.FssFileMeta;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
-import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
+import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
 import org.truenewx.tnxsample.admin.web.api.model.BasicManager;
 import org.truenewx.tnxsample.admin.web.api.rpc.FssMetaClient;
 import org.truenewx.tnxsample.admin.web.api.util.ProjectWebUtil;
@@ -23,6 +26,13 @@ public class ManagerSelfController {
     private ManagerService managerService;
     @Autowired
     private FssMetaClient fssMetaClient;
+
+    @Caption("获取个人已获权限集")
+    @GetMapping("/authorities")
+    @ConfigAuthority
+    public Collection<? extends GrantedAuthority> authorities() {
+        return loadManager().getAuthorities();
+    }
 
     @Caption("获取个人显示名称")
     @GetMapping("/caption")
@@ -56,7 +66,7 @@ public class ManagerSelfController {
     @Caption("修改个人信息")
     @ConfigAuthority
     @PostMapping("/info")
-    public void updateInfo(@Valid @RequestBody CommandManagerSelf command) {
+    public void updateInfo(@Valid @RequestBody ManagerSelfCommand command) {
         int managerId = ProjectWebUtil.getManagerId();
         this.managerService.updateSelf(managerId, command);
     }

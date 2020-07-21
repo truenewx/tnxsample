@@ -15,7 +15,7 @@ import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.service.model.CommandManager;
+import org.truenewx.tnxsample.admin.service.model.ManagerCommand;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
 
 /**
@@ -117,7 +117,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
         int roleId1 = getData(Role.class, 1).getId();
         int[] roleIds = { roleId0, roleId1 };
 
-        CommandManager command = new CommandManager();
+        ManagerCommand command = new ManagerCommand();
         command.setUsername("new-manager");
         command.setFullName("New Manger");
         command.setPassword(EncryptUtil.encryptByMd5("123456"));
@@ -138,7 +138,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
     @TestBusinessException(ManagerExceptionCodes.REPEAT_USERNAME)
     public void addTestRepeatUser() {
         String username = getFirstData(Manager.class).getUsername();
-        CommandManager command = new CommandManager();
+        ManagerCommand command = new ManagerCommand();
         command.setUsername(username);
         this.service.add(command);
         Assert.fail();
@@ -152,7 +152,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
         int roleId1 = getData(Role.class, 1).getId();
         int[] roleIds = { roleId0, roleId1 };
 
-        CommandManager command = new CommandManager();
+        ManagerCommand command = new ManagerCommand();
         command.setFullName("zhangsan");
         command.setRoleIds(roleIds);
         this.service.update(managerId, command);

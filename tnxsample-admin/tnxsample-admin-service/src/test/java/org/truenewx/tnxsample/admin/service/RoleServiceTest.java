@@ -1,5 +1,9 @@
 package org.truenewx.tnxsample.admin.service;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Set;
+
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +13,8 @@ import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.service.model.CommandRole;
+import org.truenewx.tnxsample.admin.service.model.RoleCommand;
 import org.truenewx.tnxsample.admin.service.test.ServiceTestSupport;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.Set;
 
 /**
  * RoleServiceTest
@@ -71,7 +71,7 @@ public class RoleServiceTest extends ServiceTestSupport {
         int roleId0 = getFirstData(Role.class).getId();
         String roleName = getData(Role.class, 1).getName();
 
-        CommandRole command = new CommandRole();
+        RoleCommand command = new RoleCommand();
         command.setName(roleName);
         this.service.validateBusiness(roleId0, command);
         Assert.fail();
@@ -80,12 +80,12 @@ public class RoleServiceTest extends ServiceTestSupport {
     @Test
     @Caption("测试：添加角色")
     public void addTest() {
-        int[] managerIds = {getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId()};
+        int[] managerIds = { getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId() };
 
-        CommandRole command = new CommandRole();
+        RoleCommand command = new RoleCommand();
         command.setName("NewRole");
         command.setManagerIds(managerIds);
-        command.setPermissions(new String[]{"a", "b", "c"});
+        command.setPermissions(new String[]{ "a", "b", "c" });
         command.setRemark("role remark1");
         int roleId = this.service.add(command).getId();
 
@@ -100,12 +100,12 @@ public class RoleServiceTest extends ServiceTestSupport {
     @Caption("测试：修改角色")
     public void updateTest() {
         int roleId1 = getData(Role.class, 1).getId();
-        int[] managerIds = {getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId()};
+        int[] managerIds = { getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId() };
 
-        CommandRole command = new CommandRole();
+        RoleCommand command = new RoleCommand();
         command.setName("UpdatedRole");
         command.setManagerIds(managerIds);
-        command.setPermissions(new String[]{"a", "c", "d"});
+        command.setPermissions(new String[]{ "a", "c", "d" });
         command.setRemark("role remark1");
         this.service.update(roleId1, command);
 

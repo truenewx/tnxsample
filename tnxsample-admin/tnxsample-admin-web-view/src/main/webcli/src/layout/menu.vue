@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="items">
         <div class="p-3 text-center border-bottom" style="line-height: 24px;">
             <i :class="collapsed ? 'el-icon-d-arrow-right' : 'el-icon-d-arrow-left'" role="button"
                 @click="toggleCollapsed"></i>
@@ -33,7 +33,7 @@
     export default {
         data () {
             return {
-                items: menu.items,
+                items: null,
                 collapsed: false,
             };
         },
@@ -45,6 +45,12 @@
                 let item = menu.getItem(this.$route.path);
                 return item ? item.path : undefined;
             }
+        },
+        created () {
+            const vm = this;
+            menu.loadGrantedItems(function(grantedItems) {
+                vm.items = grantedItems;
+            });
         },
         methods: {
             toggleCollapsed () {

@@ -19,7 +19,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
-import org.truenewx.tnxsample.admin.service.model.CommandRole;
+import org.truenewx.tnxsample.admin.service.model.RoleCommand;
 
 /**
  * 角色服务
@@ -69,8 +69,8 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
 
     @Override
     public void validateBusiness(Integer id, CommandModel<Role> commandModel) {
-        if (commandModel instanceof CommandRole) {
-            CommandRole command = (CommandRole) commandModel;
+        if (commandModel instanceof RoleCommand) {
+            RoleCommand command = (RoleCommand) commandModel;
             String name = command.getName();
             if (StringUtils.isNotBlank(name)) {
                 if ((id == null && this.repo.countByName(name) > 0)
@@ -83,8 +83,8 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
 
     @Override
     protected Role beforeSave(Integer id, CommandModel<Role> commandModel) {
-        if (commandModel instanceof CommandRole) {
-            CommandRole command = (CommandRole) commandModel;
+        if (commandModel instanceof RoleCommand) {
+            RoleCommand command = (RoleCommand) commandModel;
             validateBusiness(id, command);
 
             Role role;

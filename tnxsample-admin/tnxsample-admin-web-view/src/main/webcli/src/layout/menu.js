@@ -2,7 +2,7 @@
 import Menu from '../../../../../../../../tnxweb/components/tnxcore-menu';
 
 export default new Menu({
-    userType: 'manager',
+    url: '/manager/self/authorities',
     items: [{
         caption: '系统管理',
         icon: 'fa-cogs',

@@ -1,7 +1,6 @@
 package org.truenewx.tnxsample.admin.web.view.rpc;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.truenewx.tnxsample.admin.api.ManagerActionLogApi;
 
 /**
  * 管理员操作日志客户端

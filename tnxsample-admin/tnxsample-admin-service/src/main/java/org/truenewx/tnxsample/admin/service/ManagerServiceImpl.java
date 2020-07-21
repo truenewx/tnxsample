@@ -16,8 +16,8 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
-import org.truenewx.tnxsample.admin.service.model.CommandManager;
-import org.truenewx.tnxsample.admin.service.model.CommandManagerSelf;
+import org.truenewx.tnxsample.admin.service.model.ManagerCommand;
+import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
 
 /**
  * 管理员服务实现
@@ -81,7 +81,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
     }
 
     @Override
-    public Manager updateSelf(int id, CommandManagerSelf command) {
+    public Manager updateSelf(int id, ManagerSelfCommand command) {
         Manager manager = find(id);
         if (manager != null) {
             manager.setHeadImageUrl(command.getHeadImageUrl());
@@ -122,8 +122,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
 
     @Override
     public Manager add(CommandModel<Manager> commandModel) {
-        if (commandModel instanceof CommandManager) {
-            CommandManager command = (CommandManager) commandModel;
+        if (commandModel instanceof ManagerCommand) {
+            ManagerCommand command = (ManagerCommand) commandModel;
             String username = command.getUsername();
             if (this.repo.countByUsername(username) > 0) {
                 throw new BusinessException(ManagerExceptionCodes.REPEAT_USERNAME, username)
@@ -161,8 +161,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
 
     @Override
     public Manager update(Integer id, CommandModel<Manager> commandModel) {
-        if (commandModel instanceof CommandManager) {
-            CommandManager command = (CommandManager) commandModel;
+        if (commandModel instanceof ManagerCommand) {
+            ManagerCommand command = (ManagerCommand) commandModel;
             Manager manager = load(id);
             manager.setFullName(command.getFullName());
             updateRoles(manager, command.getRoleIds());
