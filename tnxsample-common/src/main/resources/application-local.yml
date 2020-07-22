@@ -1,0 +1,25 @@
+# common
+logging:
+  config: classpath:log/logback-local.xml
+server:
+  servlet:
+    jsp:
+      init-parameters:
+        development: true
+tnxjee:
+  profile:
+    formal: false
+  web:
+    api:
+      context:
+        fss: http://localhost:8889
+    cors:
+      allowed-origins:
+        - http://localhost:8080
+        - http://localhost:8087
+        - http://localhost:8885
+        - http://localhost:8887
+        - http://localhost:8889
+tnxjeex:
+  cas:
+    server-url-prefix: http://localhost:8883/cas

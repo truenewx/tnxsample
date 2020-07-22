@@ -10,7 +10,7 @@ import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
  *
  * @author jianglei
  */
-@RequestMapping("/customer/login")
+@RequestMapping("/login/customer")
 public interface CustomerLoginApi {
 
     @GetMapping("/validate")

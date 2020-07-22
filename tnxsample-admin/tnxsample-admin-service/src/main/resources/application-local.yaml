@@ -1,5 +1,4 @@
-logging:
-  config: classpath:log/logback-local.xml
+# admin-service
 spring:
   jpa:
     database: MYSQL
@@ -19,6 +18,4 @@ spring:
       database: tnxsample
       username: data
       password: datapwd
-tnxjee:
-  profile:
-    formal: false
+
