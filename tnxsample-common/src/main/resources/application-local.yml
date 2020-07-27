@@ -10,19 +10,34 @@ tnxjee:
   profile:
     formal: false
   web:
-    api:
-      context:
-        fss: http://localhost:8889
+    common:
+      apps:
+        cas:
+          https: false
+          host: localhost:8883
+        customer-view:
+          user-type: customer
+          https: false
+          host: localhost:8885
+        customer-api:
+          user-type: customer
+          https: false
+          host: localhost:8886
+        admin-view:
+          user-type: manager
+          https: false
+          host: localhost:8887
+        admin-api:
+          user-type: manager
+          https: false
+          host: localhost:8888
+        fss:
+          https: false
+          host: localhost:8889
     cors:
       allowed-origins:
         - http://localhost:8080
         - http://localhost:8087
-        - http://localhost:8883
-        - http://localhost:8885
-        - http://localhost:8886
-        - http://localhost:8887
-        - http://localhost:8888
-        - http://localhost:8889
 tnxjeex:
   cas:
-    server-url-prefix: http://localhost:8883/cas
+    server-url-prefix: http://${tnxjee.micro.service.cas}/cas
