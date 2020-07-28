@@ -6,38 +6,46 @@ server:
     jsp:
       init-parameters:
         development: true
+host:
+  cas: localhost:8883
+  facade-view: localhost:8885
+  facade-api: localhost:8886
+  admin-view: localhost:8887
+  admin-api: localhost:8888
+  fss: localhost:8889
 tnxjee:
   profile:
     formal: false
+  common:
+    apps:
+      cas:
+        https: false
+        host: ${host.cas}
+        context-path: /cas
+      facade-view:
+        user-type: customer
+        https: false
+        host: ${host.facade-view}
+      facade-api:
+        user-type: customer
+        https: false
+        host: ${host.facade-api}
+      admin-view:
+        user-type: manager
+        https: false
+        host: ${host.admin-view}
+      admin-api:
+        user-type: manager
+        https: false
+        host: ${host.admin-api}
+      fss:
+        https: false
+        host: ${host.fss}
   web:
-    common:
-      apps:
-        cas:
-          https: false
-          host: localhost:8883
-        customer-view:
-          user-type: customer
-          https: false
-          host: localhost:8885
-        customer-api:
-          user-type: customer
-          https: false
-          host: localhost:8886
-        admin-view:
-          user-type: manager
-          https: false
-          host: localhost:8887
-        admin-api:
-          user-type: manager
-          https: false
-          host: localhost:8888
-        fss:
-          https: false
-          host: localhost:8889
     cors:
       allowed-origins:
         - http://localhost:8080
         - http://localhost:8087
 tnxjeex:
   cas:
-    server-url-prefix: http://${tnxjee.micro.service.cas}/cas
+    server-app-name: cas
