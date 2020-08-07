@@ -1,6 +1,6 @@
 {
-  "name": "tnxsample-admin-webcli",
-  "version": "2.1.1",
+  "name": "tnxsample-admin-view",
+  "version": "2.2.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -11,7 +11,6 @@
     "@fortawesome/fontawesome-free": "^5.13.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.13.2",
-    "vue": "^2.6.11",
     "vue-router": "^3.3.4"
   },
   "devDependencies": {
