@@ -6,11 +6,13 @@
 </template>
 
 <script>
-    export default {
-        data () {
-            return {
-                version: '2.1.1',
-            };
-        }
+import config from '../../package.json';
+
+export default {
+    data () {
+        return {
+            version: config.version,
+        };
     }
+}
 </script>
