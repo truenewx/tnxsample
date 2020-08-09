@@ -16,46 +16,46 @@
                 <page-index v-else/>
             </el-main>
         </div>
-        <el-footer height="auto" class="border-top py-2">
+        <el-footer height="auto" class="border-top p-3">
             <layout-footer/>
         </el-footer>
     </div>
 </template>
 
 <script>
-    import app from './app.js';
-    import header from './layout/header.vue';
-    import menu from './layout/menu.vue';
-    import breadcrumb from "./layout/breadcrumb";
-    import footer from './layout/footer.vue';
-    import index from './pages/index.vue';
+import app from './app.js';
+import header from './layout/header.vue';
+import menu from './layout/menu.vue';
+import breadcrumb from "./layout/breadcrumb";
+import footer from './layout/footer.vue';
+import index from './pages/index.vue';
 
-    export default {
-        name: 'App',
-        components: {
-            'layout-header': header,
-            'layout-menu': menu,
-            'layout-breadcrumb': breadcrumb,
-            'layout-footer': footer,
-            'page-index': index,
-        },
-        data () {
-            return {
-                logined: false,
-            }
-        },
-        computed: {
-            home () {
-                return this.$route.path === "/";
-            }
-        },
-        created () {
-            const vm = this;
-            app.rpc.loadConfig(process.env.VUE_APP_RPC_BASE_URL, () => {
-                app.rpc.ensureLogined(function() {
-                    vm.logined = true;
-                });
-            });
+export default {
+    name: 'App',
+    components: {
+        'layout-header': header,
+        'layout-menu': menu,
+        'layout-breadcrumb': breadcrumb,
+        'layout-footer': footer,
+        'page-index': index,
+    },
+    data () {
+        return {
+            logined: false,
         }
+    },
+    computed: {
+        home () {
+            return this.$route.path === "/";
+        }
+    },
+    created () {
+        const vm = this;
+        app.rpc.loadConfig(process.env.VUE_APP_RPC_BASE_URL, () => {
+            app.rpc.ensureLogined(function() {
+                vm.logined = true;
+            });
+        });
     }
+}
 </script>
