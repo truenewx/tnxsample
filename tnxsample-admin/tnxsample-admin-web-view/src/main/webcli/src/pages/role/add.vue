@@ -12,23 +12,7 @@
         </el-form-item>
         <el-form-item label="操作权限">
             <el-col :span="18">
-                <el-tree ref="permissions"
-                    :data="nodes"
-                    :show-checkbox="true"
-                    :default-expand-all="true"
-                    :check-strictly="true"
-                    :check-on-click-node="true"
-                    :expand-on-click-node="false"
-                    @check-change="onCheckChange"
-                    node-key="id"
-                    class="border px-1 py-2">
-                    <div class="permission-node" slot-scope="{node,data}">
-                        <span>{{data.label}}</span>
-                        <span class="text-muted" :class="{'d-none': !data.remark}">
-                            ({{data.remark}})
-                        </span>
-                    </div>
-                </el-tree>
+                <tnxel-permission-tree ref="permissionTree" :menu="menu"/>
             </el-col>
         </el-form-item>
         <el-form-item>
@@ -40,34 +24,12 @@
 
 <script>
 import app from '../../app.js';
-import menu from "../../layout/menu";
-
-function addTreeNodesTo(parentId, menuItems, treeNodes) {
-    for (let i = 0; i < menuItems.length; i++) {
-        const item = menuItems[i];
-        let node = {
-            id: (parentId || 'node') + '-' + i,
-            parentId: parentId,
-            label: item.caption,
-            remark: item.desc,
-            permission: item.permission,
-        };
-        if (item.subs && item.subs.length) {
-            node.children = node.children || [];
-            addTreeNodesTo(node.id, item.subs, node.children);
-        }
-        if (item.operations && item.operations.length) {
-            node.children = node.children || [];
-            addTreeNodesTo(node.id, item.operations, node.children);
-        }
-        treeNodes.push(node);
-    }
-}
+import menu from '../../layout/menu';
 
 export default {
-    data() {
+    data () {
         return {
-            nodes: this.getTreeNodes(),
+            menu: menu,
             model: {
                 name: '',
                 remark: '',
@@ -75,41 +37,17 @@ export default {
             rules: {},
         };
     },
-    created() {
+    created () {
         const vm = this;
         app.rpc.getMeta('/role/add', meta => {
             vm.rules = meta.rules;
         });
     },
     methods: {
-        getTreeNodes() {
-            let items = menu.getAssignableItems();
-            const nodes = [];
-            addTreeNodesTo(undefined, items, nodes);
-            return nodes;
+        toSubmit () {
+            const permissions = this.$refs.permissionTree.getPermissions();
         },
-        onCheckChange(node, checked) {
-            if (checked) { // 节点被选中，则上级节点必须选中
-                if (node.parentId) {
-                    const tree = this.$refs.permissions;
-                    tree.setChecked(node.parentId, true);
-                }
-            } else { // 节点未选中，则下级节点必须全部未选中
-                const tree = this.$refs.permissions;
-                if (node.children) {
-                    node.children.forEach(child => {
-                        tree.setChecked(child.id, false);
-                    });
-                }
-            }
-        },
-        toSubmit() {
-            const nodes = this.$refs.permissions.getCheckedNodes();
-            if (nodes && nodes.length) {
-
-            }
-        },
-        cancel() {
+        cancel () {
             this.$router.back();
         }
     }
@@ -119,14 +57,5 @@ export default {
 <style>
 form {
     max-width: 500px;
-}
-
-.permission-node {
-    width: 100%;
-}
-
-.permission-node span:last-child {
-    float: right;
-    margin-right: 6px;
 }
 </style>
