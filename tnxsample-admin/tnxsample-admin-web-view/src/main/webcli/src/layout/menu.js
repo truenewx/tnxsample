@@ -32,15 +32,17 @@ export default new Menu({
         }]
     }, {
         caption: '客户管理',
+        desc: '查询客户清单',
         icon: 'fa-user',
         path: '/customer/list',
         permission: 'CUSTOMER_LIST',
         operations: [{
             caption: '查看客户详情',
-            path: '/customer/detail',
+            path: '/customer/:id/detail',
             permission: 'CUSTOMER_DETAIL'
         }, {
             caption: '禁用/启用客户',
+            path: '/customer/:id/disable',
             permission: 'CUSTOMER_DISABLE'
         }]
     }]

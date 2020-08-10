@@ -12,8 +12,8 @@
             </el-table-column>
             <el-table-column label="管理员" class-name="tnxel-table_tags">
                 <template slot-scope="scope">
-                    <el-tag type="info" v-for="managers in scope.row.managers" :key="managers">
-                        {{managers}}
+                    <el-tag type="info" v-for="manager in scope.row.managers" :key="manager">
+                        {{manager}}
                     </el-tag>
                     <span v-if="scope.row.managerNum > scope.row.managers.length">等</span>
                     <span>共{{scope.row.managerNum}}人</span>
@@ -35,7 +35,7 @@
 import menu from '../../layout/menu.js';
 
 export default {
-    data () {
+    data() {
         return {
             addable: false,
             updatable: false,
@@ -49,7 +49,7 @@ export default {
             }],
         };
     },
-    created () {
+    created() {
         const vm = this;
         menu.loadGrantedItems(() => {
             vm.addable = menu.isGranted('/role/add');
@@ -58,13 +58,13 @@ export default {
         });
     },
     methods: {
-        toAdd () {
+        toAdd() {
             this.$router.push('/role/add');
         },
-        toUpdate (roleId) {
+        toUpdate(roleId) {
 
         },
-        toDelete (roleId) {
+        toDelete(roleId) {
 
         }
     }

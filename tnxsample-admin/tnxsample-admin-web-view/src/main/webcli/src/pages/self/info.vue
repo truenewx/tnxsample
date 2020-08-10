@@ -13,7 +13,7 @@
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
             <el-col :span="12">
-                <el-input v-model.trim="model.fullName"></el-input>
+                <el-input v-model.trim="model.fullName"/>
             </el-col>
         </el-form-item>
     </el-form>
@@ -34,7 +34,7 @@
             };
         },
         created () {
-            // tnx.showLoading();
+            tnx.showLoading();
             const beginTime = new Date().getTime();
             const vm = this;
             app.rpc.get('/manager/self/info', model => {
