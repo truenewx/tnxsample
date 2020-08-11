@@ -1,6 +1,6 @@
 <template>
     <el-form label-position="right" label-width="auto" :model="model" :rules="rules" status-icon>
-        <el-form-item label="角色名称" prop="name">
+        <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>
             </el-col>
@@ -27,7 +27,7 @@ import app from '../../app.js';
 import menu from '../../layout/menu';
 
 export default {
-    data() {
+    data () {
         return {
             menu: menu,
             model: {
@@ -37,23 +37,23 @@ export default {
             rules: {},
         };
     },
-    created() {
+    created () {
         const vm = this;
         app.rpc.getMeta('/role/add', meta => {
             vm.rules = meta.rules;
         });
     },
     methods: {
-        toSubmit() {
+        toSubmit () {
             const model = Object.assign({}, this.model, {
                 permissions: this.$refs.permissionTree.getPermissions()
             });
             const vm = this;
-            app.rpc.post('/role/add', model, function () {
+            app.rpc.post('/role/add', model, function() {
                 vm.cancel();
             });
         },
-        cancel() {
+        cancel () {
             this.$router.back();
         }
     }

@@ -2,7 +2,7 @@
     <div>
         <el-button type="primary" class="mb-3" @click="toAdd" v-if="addable">添加角色</el-button>
         <el-table :data="records" current-row-key="role" border stripe>
-            <el-table-column prop="name" label="角色名称"></el-table-column>
+            <el-table-column prop="name" label="名称"></el-table-column>
             <el-table-column label="权限" class-name="tnxel-table_tags">
                 <template slot-scope="scope">
                     <el-tag v-for="permission in scope.row.permissions" :key="permission">
@@ -35,7 +35,7 @@
 import menu from '../../layout/menu.js';
 
 export default {
-    data() {
+    data () {
         return {
             addable: false,
             updatable: false,
@@ -49,7 +49,7 @@ export default {
             }],
         };
     },
-    created() {
+    created () {
         const vm = this;
         menu.loadGrantedItems(() => {
             vm.addable = menu.isGranted('/role/add');
@@ -58,13 +58,13 @@ export default {
         });
     },
     methods: {
-        toAdd() {
+        toAdd () {
             this.$router.push('/role/add');
         },
-        toUpdate(roleId) {
+        toUpdate (roleId) {
 
         },
-        toDelete(roleId) {
+        toDelete (roleId) {
 
         }
     }
