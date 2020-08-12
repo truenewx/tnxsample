@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import menu from '../../layout/menu.js';
+import menu from '@/layout/menu.js';
 
 export default {
     data () {

@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import {app, tnx, util} from '../../app.js';
+import {app, tnx, util} from '@/app';
 
 export default {
     props: ['opener'],
-    data() {
+    data () {
         return {
             model: {
                 fullName: '',
@@ -34,7 +34,7 @@ export default {
             rules: {},
         };
     },
-    created() {
+    created () {
         tnx.showLoading();
         const beginTime = new Date().getTime();
         const vm = this;
@@ -50,7 +50,7 @@ export default {
         });
     },
     methods: {
-        dialog() {
+        dialog () {
             return {
                 title: '修改个人信息',
                 width: '25%',
@@ -58,7 +58,7 @@ export default {
                 click: this.toSubmit,
             }
         },
-        toSubmit(yes, close) {
+        toSubmit (yes, close) {
             if (yes) {
                 const form = this.$refs.form;
                 const vm = this;
