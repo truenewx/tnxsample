@@ -1,16 +1,16 @@
 <template>
     <div>
         <el-button type="primary" class="mb-3" @click="toAdd" v-if="addable">添加角色</el-button>
-        <el-table :data="records" current-row-key="role" border stripe>
-            <el-table-column prop="name" label="名称"></el-table-column>
-            <el-table-column label="权限" class-name="tnxel-table_tags">
+        <el-table :data="records" :empty-text="emptyRecordText" border stripe>
+            <el-table-column :resizable="false" prop="name" label="名称"/>
+            <el-table-column :resizable="false" label="权限" class-name="tnxel-table_tags">
                 <template slot-scope="scope">
                     <el-tag v-for="permission in scope.row.permissions" :key="permission">
                         {{permission}}
                     </el-tag>
                 </template>
             </el-table-column>
-            <el-table-column label="管理员" class-name="tnxel-table_tags">
+            <el-table-column :resizable="false" label="管理员" class-name="tnxel-table_tags">
                 <template slot-scope="scope">
                     <el-tag type="info" v-for="manager in scope.row.managers" :key="manager">
                         {{manager}}
@@ -19,7 +19,8 @@
                     <span>共{{scope.row.managerNum}}人</span>
                 </template>
             </el-table-column>
-            <el-table-column fixed="right" label="操作" class-name="tnxel-table_tags">
+            <el-table-column :resizable="false" fixed="right" label="操作"
+                class-name="tnxel-table_tags">
                 <template slot-scope="scope">
                     <router-link :to="'/role/'+scope.row.id+'/update'" class="tnxel-table_tag"
                         v-if="updatable">修改</router-link>
@@ -32,11 +33,11 @@
 </template>
 
 <script>
-import app from "@/app";
-import menu from '@/layout/menu.js';
+import app from "../../app";
+import menu from '../../layout/menu.js';
 
 export default {
-    data () {
+    data() {
         return {
             addable: false,
             updatable: false,
@@ -44,7 +45,12 @@ export default {
             records: null,
         };
     },
-    created () {
+    computed: {
+        emptyRecordText() {
+            return this.records === null ? '加载中...' : '暂无数据';
+        }
+    },
+    created() {
         const vm = this;
         menu.loadGrantedItems(() => {
             vm.addable = menu.isGranted('/role/add');
@@ -56,15 +62,22 @@ export default {
         });
     },
     methods: {
-        toAdd () {
+        toAdd() {
             this.$router.push('/role/add');
         },
-        toUpdate (roleId) {
+        toUpdate(roleId) {
 
         },
-        toDelete (roleId) {
+        toDelete(roleId) {
 
         }
     }
 }
 </script>
+
+<style>
+.tnxel-table_tags .cell {
+    display: flex;
+    flex-wrap: nowrap;
+}
+</style>

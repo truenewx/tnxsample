@@ -1,5 +1,5 @@
 <template>
-    <div v-if="items">
+    <div>
         <div class="p-3 text-center border-bottom" style="line-height: 24px;">
             <i :class="collapsed ? 'el-icon-d-arrow-right' : 'el-icon-d-arrow-left'" role="button"
                 @click="toggleCollapsed"></i>
@@ -28,57 +28,57 @@
 </template>
 
 <script>
-    import menu from './menu.js';
+import menu from './menu.js';
 
-    export default {
-        data () {
-            return {
-                items: null,
-                collapsed: false,
-            };
-        },
-        computed: {
-            activePath () {
-                if (this.$route.path === "/") {
-                    return undefined;
-                }
-                let item = menu.getItem(this.$route.path);
-                return item ? item.path : undefined;
+export default {
+    data() {
+        return {
+            items: null,
+            collapsed: false,
+        };
+    },
+    computed: {
+        activePath() {
+            if (this.$route.path === "/") {
+                return undefined;
             }
-        },
-        created () {
-            const vm = this;
-            menu.loadGrantedItems(function(grantedItems) {
-                vm.items = grantedItems;
-            });
-        },
-        methods: {
-            toggleCollapsed () {
-                this.collapsed = !this.collapsed;
-            }
+            let item = menu.getItem(this.$route.path);
+            return item ? item.path : undefined;
+        }
+    },
+    created() {
+        const vm = this;
+        menu.loadGrantedItems(function(grantedItems) {
+            vm.items = grantedItems;
+        });
+    },
+    methods: {
+        toggleCollapsed() {
+            this.collapsed = !this.collapsed;
         }
     }
+}
 </script>
 
 <style>
-    .el-menu:not(.el-menu--collapse) {
-        width: 200px;
-    }
+.el-menu:not(.el-menu--collapse) {
+    width: 200px;
+}
 
-    .el-menu--collapse .el-submenu.is-active {
-        background-color: #ecf5ff;
-    }
+.el-menu--collapse .el-submenu.is-active {
+    background-color: #ecf5ff;
+}
 
-    .el-menu .fa, .el-menu .fas {
-        margin-right: 5px;
-        width: 20px;
-        text-align: center;
-        vertical-align: middle;
-        color: inherit;
-    }
+.el-menu .fa, .el-menu .fas {
+    margin-right: 5px;
+    width: 20px;
+    text-align: center;
+    vertical-align: middle;
+    color: inherit;
+}
 
-    .el-menu-item.is-active {
-        border-right: 0.3rem solid #409EFF;
-        background-color: #ecf5ff;
-    }
+.el-menu-item.is-active {
+    border-right: 0.3rem solid #409EFF;
+    background-color: #ecf5ff;
+}
 </style>
