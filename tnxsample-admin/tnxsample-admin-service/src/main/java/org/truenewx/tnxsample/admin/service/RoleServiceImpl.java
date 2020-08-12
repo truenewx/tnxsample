@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,6 @@ import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
 import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
-import org.truenewx.tnxjee.service.transaction.annotation.ReadTransactional;
 import org.truenewx.tnxjee.service.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
@@ -39,13 +39,11 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     private ManagerRoleRelationRepo managerRoleRelationRepo;
 
     @Override
-    @ReadTransactional
     public Iterable<Role> findAll() {
         return this.repo.findAll();
     }
 
     @Override
-    @ReadTransactional
     public List<Role> findByName(String name) {
         return this.repo.findByNameOrderByOrdinal(name);
     }
@@ -148,9 +146,9 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     }
 
     @Override
-    @ReadTransactional
     public QueryResult<Manager> queryManagers(int id, int pageSize, int pageNo) {
-        return this.managerRoleRelationRepo.queryManagersByRoleId(id, pageSize, pageNo);
+        return this.managerRoleRelationRepo
+                .queryManagersByRoleIdOrderByFullName(id, pageSize, pageNo);
     }
 
 }

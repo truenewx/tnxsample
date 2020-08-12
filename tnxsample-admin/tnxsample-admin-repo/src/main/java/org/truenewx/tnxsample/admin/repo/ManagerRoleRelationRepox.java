@@ -1,6 +1,7 @@
 package org.truenewx.tnxsample.admin.repo;
 
 import java.util.List;
+
 import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
@@ -12,6 +13,6 @@ public interface ManagerRoleRelationRepox {
 
     List<Role> getRolesByManagerId(int managerId);
 
-    QueryResult<Manager> queryManagersByRoleId(int roleId, int pageSize, int pageNo);
+    QueryResult<Manager> queryManagersByRoleIdOrderByFullName(int roleId, int pageSize, int pageNo);
 
 }

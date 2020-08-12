@@ -2,10 +2,12 @@ package org.truenewx.tnxsample.admin.repo;
 
 import java.util.List;
 import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.util.tuple.Binary;
 import org.truenewx.tnxjee.core.util.tuple.Binate;
 import org.truenewx.tnxjee.model.query.QueryResult;
+import org.truenewx.tnxjee.model.query.QuerySort;
 import org.truenewx.tnxjee.repo.jpa.support.JpaRelationRepoSupport;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.ManagerRoleRelation;
@@ -31,13 +33,13 @@ public class ManagerRoleRelationRepoImpl
     }
 
     @Override
-    public QueryResult<Manager> queryManagersByRoleId(int roleId, int pageSize, int pageNo) {
+    public QueryResult<Manager> queryManagersByRoleIdOrderByFullName(int roleId, int pageSize,
+            int pageNo) {
         String oql = "from ManagerRoleRelation r where r.id.roleId=:roleId";
         Map<String, Object> params = Map.of("roleId", roleId);
-        QueryResult<ManagerRoleRelation> qr = query(oql, params, pageSize, pageNo, null);
-        return qr.map(relation -> {
-            return relation.getManager();
-        });
+        QuerySort sort = QuerySort.of("r.manager.fullName", false);
+        QueryResult<ManagerRoleRelation> qr = query(oql, params, pageSize, pageNo, sort);
+        return qr.map(ManagerRoleRelation::getManager);
     }
 
 }
