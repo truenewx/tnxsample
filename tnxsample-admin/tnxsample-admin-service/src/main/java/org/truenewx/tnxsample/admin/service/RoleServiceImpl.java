@@ -12,12 +12,14 @@ import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.util.CollectionUtil;
 import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxjee.model.entity.unity.UnityUtil;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.exception.BusinessException;
 import org.truenewx.tnxjee.service.impl.unity.AbstractUnityService;
 import org.truenewx.tnxjee.service.transaction.annotation.WriteTransactional;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.repo.ManagerRepo;
+import org.truenewx.tnxsample.admin.repo.ManagerRoleRelationRepo;
 import org.truenewx.tnxsample.admin.repo.RoleRepo;
 import org.truenewx.tnxsample.admin.service.model.RoleCommand;
 
@@ -33,6 +35,8 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     private RoleRepo repo;
     @Autowired
     private ManagerRepo managerRepo;
+    @Autowired
+    private ManagerRoleRelationRepo managerRoleRelationRepo;
 
     @Override
     public Iterable<Role> findAll() {
@@ -139,6 +143,11 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
             return true;
         }
         return false;
+    }
+
+    @Override
+    public QueryResult<Manager> queryManagers(int id, int pageSize, int pageNo) {
+        return this.managerRoleRelationRepo.queryManagersByRoleId(id, pageSize, pageNo);
     }
 
 }

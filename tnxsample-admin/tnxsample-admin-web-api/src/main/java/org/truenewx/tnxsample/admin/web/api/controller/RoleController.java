@@ -1,13 +1,17 @@
 package org.truenewx.tnxsample.admin.web.api.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.service.RoleService;
 import org.truenewx.tnxsample.admin.service.model.RoleCommand;
+import org.truenewx.tnxsample.admin.web.api.model.ListRole;
 import org.truenewx.tnxsample.common.CommonConstants;
 
 /**
@@ -21,8 +25,17 @@ public class RoleController {
 
     @GetMapping("/list")
     @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER, rank = CommonConstants.MANAGER_RANK_TOP)
-    public List<Role> list(@RequestParam(name = "name", required = false) String name) {
-        return this.roleService.findByName(name);
+    public List<ListRole> list(@RequestParam(name = "name", required = false) String name) {
+        List<Role> roles = this.roleService.findByName(name);
+        return roles.stream().map(role -> {
+            ListRole lr = new ListRole(role);
+            QueryResult<Manager> qr = this.roleService.queryManagers(role.getId(), 10, 1);
+            lr.setManagerNum(qr.getPaged().getTotal());
+            lr.setManagers(qr.getRecords().stream().map(manager -> {
+                return manager.getFullName();
+            }).collect(Collectors.toList()));
+            return lr;
+        }).collect(Collectors.toList());
     }
 
     @PostMapping("/add")

@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import app from "@/app";
 import menu from '@/layout/menu.js';
 
 export default {
@@ -40,13 +41,7 @@ export default {
             addable: false,
             updatable: false,
             deletable: false,
-            records: [{
-                id: 1,
-                name: '王小虎',
-                permissions: ['CUSTOMER_LIST', 'CUSTOMER_DETAIL', 'CUSTOMER_DISABLE'],
-                managers: ['张三', '李四', '王五'],
-                managerNum: 6,
-            }],
+            records: null,
         };
     },
     created () {
@@ -55,6 +50,9 @@ export default {
             vm.addable = menu.isGranted('/role/add');
             vm.updatable = menu.isGranted('/role/*/update');
             vm.deletable = menu.isGranted('/role/*/delete');
+        });
+        app.rpc.get('/role/list', {}, function(records) {
+            vm.records = records;
         });
     },
     methods: {
