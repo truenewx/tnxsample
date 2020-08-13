@@ -31,29 +31,29 @@
 import menu from './menu.js';
 
 export default {
-    data() {
+    data () {
         return {
             items: null,
             collapsed: false,
         };
     },
     computed: {
-        activePath() {
+        activePath () {
             if (this.$route.path === "/") {
                 return undefined;
             }
-            let item = menu.getItem(this.$route.path);
+            let item = menu.getItemByPath(this.$route.path);
             return item ? item.path : undefined;
         }
     },
-    created() {
+    created () {
         const vm = this;
         menu.loadGrantedItems(function(grantedItems) {
             vm.items = grantedItems;
         });
     },
     methods: {
-        toggleCollapsed() {
+        toggleCollapsed () {
             this.collapsed = !this.collapsed;
         }
     }
