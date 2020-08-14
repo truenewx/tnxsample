@@ -13,7 +13,7 @@
         </el-form-item>
         <el-form-item label="操作权限">
             <el-col :span="18">
-                <tnxel-permission-tree ref="permissionTree" :menu="menu" class="border"/>
+                <tnxel-permission-tree class="border" ref="permissionTree" :menu="menu"/>
             </el-col>
         </el-form-item>
         <el-form-item>
@@ -24,11 +24,11 @@
 </template>
 
 <script>
-import {app, tnx} from '@/app';
-import menu from '@/layout/menu';
+import {app, tnx} from '../../app';
+import menu from '../../layout/menu';
 
 export default {
-    data () {
+    data() {
         return {
             menu: menu,
             model: {
@@ -38,14 +38,14 @@ export default {
             rules: {},
         };
     },
-    created () {
+    created() {
         const vm = this;
         app.rpc.getMeta('/role/add', meta => {
             vm.rules = meta.rules;
         });
     },
     methods: {
-        toSubmit () {
+        toSubmit() {
             const vm = this;
             this.$refs.form.validate(success => {
                 if (success) {
@@ -60,7 +60,7 @@ export default {
                 }
             });
         },
-        cancel () {
+        cancel() {
             this.$router.back();
         }
     }
