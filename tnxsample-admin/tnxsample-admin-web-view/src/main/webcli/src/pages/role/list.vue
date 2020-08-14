@@ -1,6 +1,9 @@
 <template>
     <div>
-        <el-button type="primary" class="mb-3" @click="toAdd" v-if="addable">添加角色</el-button>
+        <div class="d-flex justify-content-between mb-3">
+            <el-button type="primary" @click="toAdd" v-if="addable">添加角色</el-button>
+            <el-alert type="info" class="m-0" title="角色用于向管理员授予操作权限" :closable="false" show-icon/>
+        </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>
             <el-table-column prop="name" label="名称" min-width="160px" width="160px"/>
             <el-table-column label="操作权限" class-name="tnxel-table_tags nowrap" min-width="40%">
