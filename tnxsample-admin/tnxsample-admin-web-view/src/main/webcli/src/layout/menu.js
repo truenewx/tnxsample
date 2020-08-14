@@ -29,6 +29,48 @@ export default new Menu({
             icon: 'fa-users-cog',
             path: '/manager/list',
             rank: 'top',
+            operations: [{
+                caption: '添加管理员',
+                path: '/manager/add',
+                rank: 'top',
+            }, {
+                caption: '修改管理员',
+                path: '/manager/:id/update',
+                rank: 'top',
+            }, {
+                caption: '禁用/启用管理员',
+                path: '/manager/:id/disable',
+                rank: 'top',
+            }],
+        }, {
+            caption: '组织架构',
+            path: '/dept/list',
+            rank: 'top',
+            operations: [{
+                caption: '添加部门',
+                path: '/dept/add',
+                rank: 'top',
+            }, {
+                caption: '修改部门',
+                path: '/dept/:id/update',
+                rank: 'top',
+            }, {
+                caption: '删除部门',
+                path: '/dept/:id/delete',
+                rank: 'top',
+            }, {
+                caption: '添加岗位',
+                path: '/job-position/add',
+                rank: 'top',
+            }, {
+                caption: '修改岗位',
+                path: '/job-position/:id/update',
+                rank: 'top',
+            }, {
+                caption: '删除岗位',
+                path: '/job-position/:id/delete',
+                rank: 'top',
+            }],
         }]
     }, {
         caption: '客户管理',

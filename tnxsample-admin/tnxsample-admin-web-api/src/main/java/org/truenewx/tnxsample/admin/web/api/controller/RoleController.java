@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.admin.web.api.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.model.query.QueryResult;
@@ -20,11 +19,13 @@ import org.truenewx.tnxsample.common.CommonConstants;
 @RestController
 @RequestMapping("/role")
 public class RoleController {
+
     @Autowired
     private RoleService roleService;
 
     @GetMapping("/list")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER, rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
     public List<ListRole> list(@RequestParam(name = "name", required = false) String name) {
         List<Role> roles = this.roleService.findByName(name);
         return roles.stream().map(role -> {
@@ -39,9 +40,31 @@ public class RoleController {
     }
 
     @PostMapping("/add")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER, rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
     public void add(@RequestBody RoleCommand command) {
         this.roleService.add(command);
+    }
+
+    @GetMapping("/{id}")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public Role detail(@PathVariable("id") int id) {
+        return this.roleService.load(id);
+    }
+
+    @PostMapping("/{id}/update")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public void update(@PathVariable("id") int id, @RequestBody RoleCommand command) {
+        this.roleService.update(id, command);
+    }
+
+    @PostMapping("/{id}/delete")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public void delete(@PathVariable("id") int id) {
+        this.roleService.delete(id);
     }
 
 }
