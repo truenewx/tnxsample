@@ -25,25 +25,8 @@ export default new Menu({
                 rank: 'top',
             }],
         }, {
-            caption: '管理员管理',
-            icon: 'fa-users-cog',
-            path: '/manager/list',
-            rank: 'top',
-            operations: [{
-                caption: '添加管理员',
-                path: '/manager/add',
-                rank: 'top',
-            }, {
-                caption: '修改管理员',
-                path: '/manager/:id/update',
-                rank: 'top',
-            }, {
-                caption: '禁用/启用管理员',
-                path: '/manager/:id/disable',
-                rank: 'top',
-            }],
-        }, {
             caption: '组织架构',
+            icon: 'fa-sitemap',
             path: '/dept/list',
             rank: 'top',
             operations: [{
@@ -69,6 +52,24 @@ export default new Menu({
             }, {
                 caption: '删除岗位',
                 path: '/job-position/:id/delete',
+                rank: 'top',
+            }],
+        }, {
+            caption: '管理员管理',
+            icon: 'fa-users-cog',
+            path: '/manager/list',
+            rank: 'top',
+            operations: [{
+                caption: '添加管理员',
+                path: '/manager/add',
+                rank: 'top',
+            }, {
+                caption: '修改管理员',
+                path: '/manager/:id/update',
+                rank: 'top',
+            }, {
+                caption: '禁用/启用管理员',
+                path: '/manager/:id/disable',
                 rank: 'top',
             }],
         }]
