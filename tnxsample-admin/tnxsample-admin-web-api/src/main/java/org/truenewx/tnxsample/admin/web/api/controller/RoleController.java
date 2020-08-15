@@ -2,6 +2,7 @@ package org.truenewx.tnxsample.admin.web.api.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.model.query.QueryResult;
@@ -32,9 +33,8 @@ public class RoleController {
             ListRole lr = new ListRole(role);
             QueryResult<Manager> qr = this.roleService.queryManagers(role.getId(), 10, 1);
             lr.setManagerNum(qr.getPaged().getTotal());
-            lr.setManagers(qr.getRecords().stream().map(manager -> {
-                return manager.getFullName();
-            }).collect(Collectors.toList()));
+            lr.setManagers(qr.getRecords().stream().map(Manager::getFullName)
+                    .collect(Collectors.toList()));
             return lr;
         }).collect(Collectors.toList());
     }
