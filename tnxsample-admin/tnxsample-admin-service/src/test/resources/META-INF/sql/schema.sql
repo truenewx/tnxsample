@@ -2,6 +2,7 @@ CREATE TABLE t_manager (
  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
  username VARCHAR(20) NOT NULL,
  password CHAR(64),
+ job_no VARCHAR(32),
  head_image_url VARCHAR(80),
  full_name VARCHAR(20) NOT NULL,
  top BIT(1) DEFAULT 0 NOT NULL,
