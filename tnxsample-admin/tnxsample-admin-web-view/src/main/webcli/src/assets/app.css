@@ -39,16 +39,6 @@ html, body {
     background-color: #fff !important;
 }
 
-a, .link {
-    color: #007bff;
-    text-decoration: none;
-}
-
-a:hover, .link:hover {
-    color: #0056b3;
-    cursor: pointer;
-}
-
 header[theme='primary'] {
     background-color: #409EFF;
     color: #ffffff;
