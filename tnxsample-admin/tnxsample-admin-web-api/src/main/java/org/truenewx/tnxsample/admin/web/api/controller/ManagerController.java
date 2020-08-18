@@ -1,14 +1,12 @@
 package org.truenewx.tnxsample.admin.web.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
+import org.truenewx.tnxsample.admin.service.model.ManagerCommand;
 import org.truenewx.tnxsample.common.CommonConstants;
 
 /**
@@ -27,6 +25,35 @@ public class ManagerController {
             @RequestParam(name = "pageSize", defaultValue = "20") int pageSize,
             @RequestParam(name = "pageNo", defaultValue = "1") int pageNo) {
         return this.managerService.queryGeneral(keyword, pageSize, pageNo);
+    }
+
+    @PostMapping("/add")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public void add(@RequestBody ManagerCommand command) {
+        this.managerService.add(command);
+    }
+
+    @GetMapping("/{id}")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public Manager detail(@PathVariable("id") int id) {
+        return this.managerService.load(id);
+    }
+
+    @PostMapping("/{id}/update")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public void update(@PathVariable("id") int id, @RequestBody ManagerCommand command) {
+        this.managerService.update(id, command);
+    }
+
+    @PostMapping("/{id}/update-disabled")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public void updateDisabled(@PathVariable("id") int id,
+            @RequestParam("disabled") boolean disabled) {
+        this.managerService.updateDisabled(id, disabled);
     }
 
 }

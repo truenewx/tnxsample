@@ -95,7 +95,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
         Manager manager = find(id);
         if (manager != null) {
             if (!isValidPassword(manager, oldPassword)) { // 原密码错误
-                throw new BusinessException(ManagerExceptionCodes.OLD_PASSWORD_ERROR).bind("oldPassword");
+                throw new BusinessException(ManagerExceptionCodes.OLD_PASSWORD_ERROR)
+                        .bind("oldPassword");
             }
             String password;
             if (newPassword.length() < 32) { // 长度小于32位的密码为原文
@@ -130,6 +131,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
                         .bind("username");
             }
             Manager manager = new Manager();
+            manager.setJobNo(command.getJobNo());
             manager.setUsername(username);
             manager.setPassword(Strings.ASTERISK); // 密码暂时置为星号
             manager.setFullName(command.getFullName());
@@ -174,10 +176,10 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
 
     @Override
     @WriteTransactional
-    public Manager reverseDisabled(int id, boolean disabled) {
+    public Manager updateDisabled(int id, boolean disabled) {
         Manager manager = find(id);
         if (manager != null && !manager.isTop()) { // 顶级管理员不能修改禁用项
-            manager.setDisabled(!disabled);
+            manager.setDisabled(disabled);
             this.repo.save(manager);
         }
         return manager;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-mappings version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
 
     <persistence-unit-metadata>
         <persistence-unit-defaults>
@@ -16,14 +16,14 @@
                 <column name="id"/>
                 <generated-value strategy="IDENTITY"/>
             </id>
+            <basic name="jobNo">
+                <column name="job_no" length="32" nullable="true"/>
+            </basic>
             <basic name="username">
                 <column name="username" length="20" nullable="false" unique="true"/>
             </basic>
             <basic name="password">
-                <column name="password" length="64" nullable="true" column-definition="char"/>
-            </basic>
-            <basic name="jobNo">
-                <column name="job_no" length="32" nullable="true"/>
+                <column name="password" length="64" nullable="false" column-definition="char"/>
             </basic>
             <basic name="headImageUrl">
                 <column name="head_image_url" length="80" nullable="true"/>
@@ -41,7 +41,7 @@
                 <column name="create_time" nullable="false"/>
             </basic>
             <many-to-many name="roles"
-                          target-entity="org.truenewx.tnxsample.admin.model.entity.Role">
+                    target-entity="org.truenewx.tnxsample.admin.model.entity.Role">
                 <join-table name="t_manager_r_role">
                     <join-column name="manager_id"/>
                     <inverse-join-column name="role_id"/>

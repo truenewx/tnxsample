@@ -1,6 +1,6 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model" :rules="rules"
-        status-icon>
+    <el-form label-position="right" label-width="auto" ref="form" :model="model"
+        :rules="rules" :validate-on-rule-change="false" status-icon>
         <el-form-item label="原密码" prop="oldPassword">
             <el-col>
                 <el-input type="password" v-model.trim="model.oldPassword"
@@ -25,7 +25,7 @@ import {app, tnx, util} from '@/app';
 
 export default {
     props: ['opener'],
-    data () {
+    data() {
         const vm = this;
         return {
             model: {},
@@ -78,7 +78,7 @@ export default {
         },
     },
     methods: {
-        dialog () {
+        dialog() {
             return {
                 title: '修改密码',
                 width: '20%',
@@ -89,7 +89,7 @@ export default {
         oldPasswordInput: function() {
             this.oldPasswordError = false;
         },
-        toSubmit (yes) {
+        toSubmit(yes) {
             if (yes) {
                 this.oldPasswordError = false;
                 const vm = this;

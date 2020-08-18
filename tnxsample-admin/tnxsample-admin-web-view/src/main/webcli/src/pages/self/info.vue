@@ -1,6 +1,6 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model" :rules="rules"
-        status-icon>
+    <el-form label-position="right" label-width="auto" ref="form" :model="model"
+        :rules="rules" :validate-on-rule-change="false" status-icon>
         <el-form-item label="用户名">{{model.username}}</el-form-item>
         <el-form-item label="是否超管">
             <div>
@@ -25,7 +25,7 @@ import {app, tnx, util} from '@/app';
 
 export default {
     props: ['opener'],
-    data () {
+    data() {
         return {
             model: {
                 fullName: '',
@@ -34,7 +34,7 @@ export default {
             rules: {},
         };
     },
-    created () {
+    created() {
         tnx.showLoading();
         const beginTime = new Date().getTime();
         const vm = this;
@@ -50,7 +50,7 @@ export default {
         });
     },
     methods: {
-        dialog () {
+        dialog() {
             return {
                 title: '修改个人信息',
                 width: '25%',
@@ -58,7 +58,7 @@ export default {
                 click: this.toSubmit,
             }
         },
-        toSubmit (yes, close) {
+        toSubmit(yes, close) {
             if (yes) {
                 const form = this.$refs.form;
                 const vm = this;

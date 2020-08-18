@@ -15,6 +15,7 @@ import lombok.Setter;
 @Setter
 public class ManagerCommand implements CommandModel<Manager> {
 
+    private String jobNo;
     private String username;
     private String password;
     private String fullName;

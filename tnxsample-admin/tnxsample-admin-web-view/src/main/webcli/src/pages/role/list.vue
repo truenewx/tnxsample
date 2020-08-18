@@ -29,8 +29,8 @@
                 <template slot-scope="scope">
                     <router-link :to="'/role/' + scope.row.id + '/update'"
                         class="tnxel-table_tag" v-if="updatable">修改</router-link>
-                    <a href="javascript:void(0)" class="tnxel-table_tag" @click="toDelete($event)"
-                        v-if="deletable" :data-index="scope.$index">删除</a>
+                    <a href="javascript:void(0)" class="tnxel-table_tag"
+                        @click="toDelete(scope.$index)" v-if="deletable">删除</a>
                 </template>
             </el-table-column>
         </el-table>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import {$, app, tnx} from "../../app";
+import {app, tnx} from "../../app";
 import menu from '../../layout/menu.js';
 
 export default {
@@ -80,8 +80,7 @@ export default {
         toAdd() {
             this.$router.push('/role/add');
         },
-        toDelete(event) {
-            const index = parseInt($(event.target).attr('data-index'));
+        toDelete(index) {
             const roles = this.records;
             const role = roles[index];
             let message = '确定要删除吗？';

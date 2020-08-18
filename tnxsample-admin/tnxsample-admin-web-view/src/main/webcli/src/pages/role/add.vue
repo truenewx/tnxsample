@@ -1,6 +1,6 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model" :rules="rules"
-        status-icon>
+    <el-form label-position="right" label-width="auto" ref="form" :model="model"
+        :rules="rules" :validate-on-rule-change="false" status-icon>
         <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>
@@ -49,7 +49,7 @@ export default {
             const vm = this;
             this.$refs.form.validate(success => {
                 if (success) {
-                    const model = Object.assign({}, this.model, {
+                    const model = Object.assign({}, vm.model, {
                         permissions: this.$refs.permissionTree.getPermissions()
                     });
                     app.rpc.post('/role/add', model, function() {

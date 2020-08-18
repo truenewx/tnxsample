@@ -74,7 +74,8 @@ public class ManagerServiceTest extends ServiceTestSupport {
         List<Manager> records = qr.getRecords();
         Assert.assertEquals(3, records.size());
         records.forEach(manager -> {
-            Assert.assertTrue(manager.getFullName().contains(keyword) || manager.getFullName().contains(keyword));
+            Assert.assertTrue(manager.getFullName().contains(keyword) || manager.getFullName()
+                    .contains(keyword));
         });
     }
 
@@ -171,7 +172,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
         Manager manager1 = getData(Manager.class, 1);
         boolean disabled1 = manager1.isDisabled();
 
-        this.service.reverseDisabled(manager1.getId(), disabled1);
+        this.service.updateDisabled(manager1.getId(), disabled1);
         Manager manager = this.service.find(manager1.getId());
         Assert.assertEquals(!disabled1, manager.isDisabled());
     }
@@ -181,7 +182,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
     public void reverseDisabledTopTest() {
         Manager manager0 = getData(Manager.class, 0);
 
-        this.service.reverseDisabled(manager0.getId(), manager0.isDisabled());
+        this.service.updateDisabled(manager0.getId(), manager0.isDisabled());
         Manager manager = this.service.find(manager0.getId());
         Assert.assertEquals(manager0.isDisabled(), manager.isDisabled());
     }

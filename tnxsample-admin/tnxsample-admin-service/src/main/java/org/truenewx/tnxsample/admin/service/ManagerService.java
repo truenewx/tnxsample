@@ -26,7 +26,7 @@ public interface ManagerService extends ModelUnityService<Manager, Integer> {
 
     Manager resetPassword(int id, String newMd5Password);
 
-    Manager reverseDisabled(int id, boolean disabled);
+    Manager updateDisabled(int id, boolean disabled);
 
     long countOfRole(int roleId);
 

@@ -5,10 +5,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+
 import javax.validation.constraints.NotBlank;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Getter;
-import lombok.Setter;
+import javax.validation.constraints.NotEmpty;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
@@ -19,6 +19,11 @@ import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.common.CommonConstants;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * 管理员
@@ -33,16 +38,17 @@ public class Manager
 
     private Integer id;
 
+    @Caption("工号")
+    private String jobNo;
+
     @Caption("用户名")
     @NotBlank
     @NotContainsSpecialChars
     private String username;
 
-    @Caption("密码")
+    @Caption("登录密码")
+    @NotEmpty
     private String password;
-    
-    @Caption("工号")
-    private String jobNo;
 
     @Caption("头像")
     private String headImageUrl;
