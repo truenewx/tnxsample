@@ -29,6 +29,9 @@ import {app, tnx} from '../../app';
 import menu from '../../layout/menu';
 
 export default {
+    components: {
+        'tnxel-permission-tree': tnx.components.PermissionTree,
+    },
     data() {
         return {
             menu: menu,

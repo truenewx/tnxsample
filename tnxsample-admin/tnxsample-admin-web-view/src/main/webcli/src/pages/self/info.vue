@@ -25,6 +25,9 @@ import {app, tnx, util} from '@/app';
 
 export default {
     props: ['opener'],
+    components: {
+        'tnxel-upload': tnx.components.Upload,
+    },
     data() {
         return {
             model: {
