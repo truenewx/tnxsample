@@ -78,11 +78,16 @@ export default {
             const vm = this;
             this.$refs.form.validate(success => {
                 if (success) {
-                    const model = Object.assign({}, vm.model, {});
-                    app.rpc.post('/manager/add', model, function() {
-                        tnx.toast('添加成功', function() {
-                            vm.cancel();
-                        });
+                    tnx.confirm('管理员账号添加后无法删除，只能禁用，请谨慎操作。确定要添加吗？', yes => {
+                        if (yes) {
+                            const model = Object.assign({}, vm.model, {});
+                            app.rpc.post('/manager/add', model, function() {
+                                vm.$refs.form.disabled = true;
+                                tnx.toast('添加成功', function() {
+                                    vm.cancel();
+                                });
+                            });
+                        }
                     });
                 }
             });
@@ -93,9 +98,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-form {
-    max-width: 500px;
-}
-</style>

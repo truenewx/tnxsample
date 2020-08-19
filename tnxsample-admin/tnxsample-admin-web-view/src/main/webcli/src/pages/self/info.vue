@@ -73,6 +73,7 @@ export default {
                             app.rpc.post('/manager/self/info', model, function() {
                                 opener.managerCaption = model.fullName;
                                 util.setMinTimeout(beginTime, function() {
+                                    vm.$refs.form.disabled = true;
                                     tnx.toast('修改成功', () => {
                                         close();
                                     });

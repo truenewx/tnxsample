@@ -53,6 +53,7 @@ export default {
                         permissions: this.$refs.permissionTree.getPermissions()
                     });
                     app.rpc.post('/role/add', model, function() {
+                        vm.$refs.form.disabled = true;
                         tnx.toast('添加成功', function() {
                             vm.cancel();
                         });
@@ -66,9 +67,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-form {
-    max-width: 500px;
-}
-</style>

@@ -71,3 +71,7 @@ header[theme='primary'] .el-avatar i {
     left: unset;
     padding-top: 0;
 }
+
+form {
+    max-width: 600px;
+}
