@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {app, tnx} from '../../app';
+import {app, tnx, util} from '../../app';
 
 export default {
     components: {
@@ -42,6 +42,11 @@ export default {
             model: {},
             rules: {},
         };
+    },
+    computed: {
+        md5Password: function() {
+            return this.model.password ? util.md5(this.model.password) : '';
+        },
     },
     methods: {
         onRulesLoaded(rules) {
@@ -75,7 +80,9 @@ export default {
             const vm = this;
             tnx.confirm('管理员账号添加后无法删除，只能禁用，请谨慎操作。确定要添加吗？', yes => {
                 if (yes) {
-                    const model = Object.assign({}, vm.model, {});
+                    const model = Object.assign({}, vm.model, {
+                        password: vm.md5Password
+                    });
                     app.rpc.post(vm.url, model, function() {
                         vm.$refs.form.disable();
                         tnx.toast('添加成功', function() {

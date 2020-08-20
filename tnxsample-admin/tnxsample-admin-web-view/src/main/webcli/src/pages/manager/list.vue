@@ -34,7 +34,7 @@
                 <template slot-scope="scope">
                     <router-link :to="'/manager/' + scope.row.id + '/update'"
                         class="tnxel-table_tag" v-if="updatable"><span>修改</span></router-link>
-                    <a href="javascript:void(0)" @click="toResetPassword">重置密码</a>
+                    <a href="javascript:void(0)" @click="toResetPassword(scope.$index)">重置密码</a>
                 </template>
             </el-table-column>
         </el-table>
@@ -43,7 +43,8 @@
 
 <script>
 import menu from "../../layout/menu";
-import {app} from "../../app";
+import {app, tnx} from "../../app";
+import password from "./password";
 
 export default {
     data() {
@@ -86,7 +87,10 @@ export default {
                 }
             });
         },
-        toResetPassword() {
+        toResetPassword(index) {
+            tnx.open(password, {
+                id: this.records[index].id
+            });
         }
     }
 }

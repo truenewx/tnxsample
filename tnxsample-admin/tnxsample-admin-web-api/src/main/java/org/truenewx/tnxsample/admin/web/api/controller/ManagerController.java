@@ -56,4 +56,12 @@ public class ManagerController {
         this.managerService.updateDisabled(id, disabled);
     }
 
+    @PostMapping("/{id}/reset-password")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    public void resetPassword(@PathVariable("id") int id,
+            @RequestParam("password") String password) {
+        this.managerService.resetPassword(id, password);
+    }
+
 }

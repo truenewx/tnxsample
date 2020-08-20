@@ -93,7 +93,7 @@ export default {
         },
         toSubmit(yes) {
             if (yes) {
-                this.oldPasswordError = false;
+                this.oldPasswordInput();
                 const vm = this;
                 this.$refs.form.toSubmit(function() {
                     const beginTime = new Date().getTime();
