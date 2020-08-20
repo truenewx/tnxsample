@@ -1,6 +1,5 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model"
-        :rules="rules" :validate-on-rule-change="false" status-icon>
+    <tnxel-form ref="form" :model="model" rule="/role/*/update" :submit="submit">
         <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>
@@ -17,11 +16,7 @@
                     :permissions="model.permissions"/>
             </el-col>
         </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="toSubmit">确定</el-button>
-            <el-button @click="cancel">取消</el-button>
-        </el-form-item>
-    </el-form>
+    </tnxel-form>
 </template>
 
 <script>
@@ -30,6 +25,7 @@ import menu from '../../layout/menu';
 
 export default {
     components: {
+        'tnxel-form': tnx.components.Form,
         'tnxel-permission-tree': tnx.components.PermissionTree,
     },
     data() {
@@ -39,7 +35,6 @@ export default {
                 name: '',
                 remark: '',
             },
-            rules: {},
         };
     },
     created() {
@@ -47,31 +42,21 @@ export default {
         const vm = this;
         app.rpc.get('/role/' + roleId, model => {
             vm.model = model;
-            app.rpc.getMeta('/role/*/update', meta => {
-                vm.rules = meta.rules;
-            });
         });
     },
     methods: {
-        toSubmit() {
-            const vm = this;
-            this.$refs.form.validate(success => {
-                if (success) {
-                    const roleId = vm.$route.params.id;
-                    const model = Object.assign({}, vm.model, {
-                        permissions: this.$refs.permissionTree.getPermissions()
-                    });
-                    app.rpc.post('/role/' + roleId + '/update', model, function() {
-                        vm.$refs.form.disabled = true;
-                        tnx.toast('修改成功', function() {
-                            vm.cancel();
-                        });
-                    });
-                }
+        submit() {
+            const roleId = this.$route.params.id;
+            const model = Object.assign({}, this.model, {
+                permissions: this.$refs.permissionTree.getPermissions()
             });
-        },
-        cancel() {
-            this.$router.back();
+            const vm = this;
+            app.rpc.post('/role/' + roleId + '/update', model, function() {
+                vm.$refs.form.disabled = true;
+                tnx.toast('修改成功', function() {
+                    vm.$router.back();
+                });
+            });
         }
     }
 }

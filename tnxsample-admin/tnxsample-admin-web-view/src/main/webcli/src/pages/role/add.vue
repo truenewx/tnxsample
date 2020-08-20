@@ -37,12 +37,6 @@ export default {
             },
         };
     },
-    created() {
-        const vm = this;
-        app.rpc.getMeta('/role/add', meta => {
-            vm.rules = meta.rules;
-        });
-    },
     methods: {
         submit() {
             const vm = this;
@@ -50,7 +44,7 @@ export default {
                 permissions: this.$refs.permissionTree.getPermissions()
             });
             app.rpc.post(vm.url, model, function() {
-                vm.$refs.form.disabled = true;
+                vm.$refs.form.disable();
                 tnx.toast('添加成功', function() {
                     vm.$router.back();
                 });

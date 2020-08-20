@@ -2,7 +2,6 @@ package org.truenewx.tnxsample.admin.service;
 
 import java.time.Instant;
 import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
@@ -67,11 +66,10 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
 
     private boolean isValidPassword(Manager manager, String password) {
         if (password.length() < 32) { // 长度小于32位的密码为原文
-            return this.encryptor.validate(manager.getPassword(), password,
-                    manager.getId());
+            return this.encryptor.validate(manager.getPassword(), password, manager.getId());
         } else { // 否则视为MD5密文
-            return this.encryptor.validateByMd5Source(manager.getPassword(), password,
-                    manager.getId());
+            return this.encryptor
+                    .validateByMd5Source(manager.getPassword(), password, manager.getId());
         }
     }
 
@@ -139,8 +137,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
             // 有了id之后再用id做密钥进行密码加密
-            String encryptedPassword = this.encryptor.encryptByMd5Source(command.getPassword(),
-                    manager.getId());
+            String encryptedPassword =
+                    this.encryptor.encryptByMd5Source(command.getPassword(), manager.getId());
             manager.setPassword(encryptedPassword);
             this.repo.save(manager);
             return manager;
@@ -166,6 +164,8 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
         if (commandModel instanceof ManagerCommand) {
             ManagerCommand command = (ManagerCommand) commandModel;
             Manager manager = load(id);
+            manager.setJobNo(command.getJobNo());
+            manager.setUsername(command.getUsername());
             manager.setFullName(command.getFullName());
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
@@ -195,4 +195,5 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
             int pageNo) {
         return this.repo.queryByRoleIdNotAndTop(exceptedRoleId, false, pageSize, pageNo);
     }
+
 }
