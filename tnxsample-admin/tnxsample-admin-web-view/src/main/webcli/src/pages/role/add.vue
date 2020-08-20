@@ -1,6 +1,5 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model"
-        :rules="rules" :validate-on-rule-change="false" status-icon>
+    <tnxel-form ref="form" :model="model" :rule="url" :submit="submit">
         <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>
@@ -16,11 +15,7 @@
                 <tnxel-permission-tree class="border" ref="permissionTree" :menu="menu"/>
             </el-col>
         </el-form-item>
-        <el-form-item>
-            <el-button type="primary" @click="toSubmit">确定</el-button>
-            <el-button @click="cancel">取消</el-button>
-        </el-form-item>
-    </el-form>
+    </tnxel-form>
 </template>
 
 <script>
@@ -29,16 +24,17 @@ import menu from '../../layout/menu';
 
 export default {
     components: {
+        'tnxel-form': tnx.components.Form,
         'tnxel-permission-tree': tnx.components.PermissionTree,
     },
     data() {
         return {
+            url: '/role/add',
             menu: menu,
             model: {
                 name: '',
                 remark: '',
             },
-            rules: {},
         };
     },
     created() {
@@ -48,24 +44,17 @@ export default {
         });
     },
     methods: {
-        toSubmit() {
+        submit() {
             const vm = this;
-            this.$refs.form.validate(success => {
-                if (success) {
-                    const model = Object.assign({}, vm.model, {
-                        permissions: this.$refs.permissionTree.getPermissions()
-                    });
-                    app.rpc.post('/role/add', model, function() {
-                        vm.$refs.form.disabled = true;
-                        tnx.toast('添加成功', function() {
-                            vm.cancel();
-                        });
-                    });
-                }
+            const model = Object.assign({}, vm.model, {
+                permissions: this.$refs.permissionTree.getPermissions()
             });
-        },
-        cancel() {
-            this.$router.back();
+            app.rpc.post(vm.url, model, function() {
+                vm.$refs.form.disabled = true;
+                tnx.toast('添加成功', function() {
+                    vm.$router.back();
+                });
+            });
         }
     }
 }
