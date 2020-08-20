@@ -1,6 +1,5 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model"
-        :rules="rules" :validate-on-rule-change="false" status-icon>
+    <tnxel-form ref="form" :model="model" :rule="url">
         <el-form-item label="用户名">{{model.username}}</el-form-item>
         <el-form-item label="是否超管">
             <div>
@@ -17,39 +16,36 @@
                 <el-input v-model.trim="model.fullName"/>
             </el-col>
         </el-form-item>
-    </el-form>
+    </tnxel-form>
 </template>
 
 <script>
-import {app, tnx, util} from '@/app';
+import {app, tnx, util} from '../../app';
 
 export default {
-    props: ['opener'],
     components: {
+        'tnxel-form': tnx.components.Form,
         'tnxel-upload': tnx.components.Upload,
     },
+    props: ['opener'],
     data() {
         return {
+            url: '/manager/self/info',
             model: {
                 fullName: '',
                 headImageFile: null,
             },
-            rules: {},
         };
     },
     created() {
         tnx.showLoading();
         const beginTime = new Date().getTime();
         const vm = this;
-        app.rpc.get('/manager/self/info', model => {
+        app.rpc.get(this.url, model => {
             vm.model = model;
-            // 先给模型赋值，再加载元数据，以确保字段校验不提前进行而导致失败
-            app.rpc.getMeta('/manager/self/info', meta => {
-                vm.rules = meta.rules;
-                util.setMinTimeout(beginTime, function() {
-                    tnx.closeLoading();
-                }, 500);
-            });
+            util.setMinTimeout(beginTime, function() {
+                tnx.closeLoading();
+            }, 500);
         });
     },
     methods: {
@@ -63,29 +59,26 @@ export default {
         },
         toSubmit(yes, close) {
             if (yes) {
-                const form = this.$refs.form;
                 const vm = this;
-                form.validate(function(success) {
-                    if (success) {
-                        const model = vm.model;
-                        const opener = vm.opener;
-                        tnx.showLoading();
-                        vm.$refs.headImageUpload.getStorageUrls().then(function(storageUrls) {
-                            model.headImageUrl = storageUrls[0];
-                            const beginTime = new Date().getTime();
-                            app.rpc.post('/manager/self/info', model, function() {
-                                opener.managerCaption = model.fullName;
-                                util.setMinTimeout(beginTime, function() {
-                                    vm.$refs.form.disabled = true;
-                                    tnx.toast('修改成功', () => {
-                                        close();
-                                    });
-                                }, 500);
-                            });
-                        }).catch(function(file) {
-                            tnx.alert('文件"' + file.name + '"还未上传完毕，请稍候');
+                this.$refs.form.toSubmit(function() {
+                    const model = vm.model;
+                    const opener = vm.opener;
+                    tnx.showLoading();
+                    vm.$refs.headImageUpload.getStorageUrls().then(function(storageUrls) {
+                        model.headImageUrl = storageUrls[0];
+                        const beginTime = new Date().getTime();
+                        app.rpc.post(vm.url, model, function() {
+                            opener.managerCaption = model.fullName;
+                            util.setMinTimeout(beginTime, function() {
+                                vm.$refs.form.disable();
+                                tnx.toast('修改成功', () => {
+                                    close();
+                                });
+                            }, 500);
                         });
-                    }
+                    }).catch(function(file) {
+                        tnx.alert('文件"' + file.name + '"还未上传完毕，请稍候');
+                    });
                 });
                 return false; // 不立即关闭对话框
             }

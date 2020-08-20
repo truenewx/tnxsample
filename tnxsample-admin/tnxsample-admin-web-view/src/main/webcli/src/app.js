@@ -5,6 +5,7 @@ import tnxel from '../../../../../../../tnxweb/components/vue/element/tnxel.js';
 export const tnx = Object.assign({}, tnxjq, tnxel, {
     libs: Object.assign({}, tnxjq.libs, tnxel.libs)
 });
+window.tnx = tnx; // tnx已被修改，需重新赋值给window
 export const $ = tnx.libs.$;
 export const Vue = tnx.libs.Vue;
 export const util = tnx.util;

@@ -1,6 +1,5 @@
 <template>
-    <el-form label-position="right" label-width="auto" ref="form" :model="model"
-        :rules="rules" :validate-on-rule-change="false" status-icon>
+    <tnxel-form ref="form" :model="model" :rule="rules">
         <el-form-item label="原密码" prop="oldPassword">
             <el-col>
                 <el-input type="password" v-model.trim="model.oldPassword"
@@ -17,13 +16,16 @@
                 <el-input type="password" v-model.trim="model.newPassword2"></el-input>
             </el-col>
         </el-form-item>
-    </el-form>
+    </tnxel-form>
 </template>
 
 <script>
-import {app, tnx, util} from '@/app';
+import {app, tnx, util} from '../../app';
 
 export default {
+    components: {
+        'tnxel-form': tnx.components.Form,
+    },
     props: ['opener'],
     data() {
         const vm = this;
@@ -93,28 +95,26 @@ export default {
             if (yes) {
                 this.oldPasswordError = false;
                 const vm = this;
-                this.$refs.form.validate(function(yes) {
-                    if (yes) {
-                        const beginTime = new Date().getTime();
-                        tnx.showLoading();
-                        app.rpc.post('/manager/self/password', function() {
-                            util.setMinTimeout(beginTime, function() {
-                                tnx.alert('登录密码修改成功，请使用新密码重新登录', () => {
-                                    vm.opener.logout();
-                                });
-                            }, 500);
-                        }, {
-                            params: {
-                                oldPassword: vm.oldMd5Password,
-                                newPassword: vm.newMd5Password,
-                            },
-                            error: function() {
-                                tnx.closeLoading();
-                                vm.oldPasswordError = true;
-                                vm.$refs.form.validateField('oldPassword');
-                            }
-                        });
-                    }
+                this.$refs.form.toSubmit(function() {
+                    const beginTime = new Date().getTime();
+                    tnx.showLoading();
+                    app.rpc.post('/manager/self/password', function() {
+                        util.setMinTimeout(beginTime, function() {
+                            tnx.alert('登录密码修改成功，请使用新密码重新登录', () => {
+                                vm.opener.logout();
+                            });
+                        }, 500);
+                    }, {
+                        params: {
+                            oldPassword: vm.oldMd5Password,
+                            newPassword: vm.newMd5Password,
+                        },
+                        error: function() {
+                            tnx.closeLoading();
+                            vm.oldPasswordError = true;
+                            vm.$refs.form.validateField('oldPassword');
+                        }
+                    });
                 });
                 return false;
             }
