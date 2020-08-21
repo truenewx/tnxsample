@@ -26,6 +26,11 @@
                 <el-input type="password" v-model.trim="model.password2"></el-input>
             </el-col>
         </el-form-item>
+        <el-form-item label="所属角色" prop="roleIds">
+            <el-col :span="12">
+                <tnxel-tag-select ref="role" :items="roles"/>
+            </el-col>
+        </el-form-item>
     </tnxel-form>
 </template>
 
@@ -35,18 +40,30 @@ import {app, tnx, util} from '../../app';
 export default {
     components: {
         'tnxel-form': tnx.components.Form,
+        'tnxel-tag-select': tnx.components.TagSelect,
     },
     data() {
         return {
             url: '/manager/add',
             model: {},
-            rules: {},
+            roles: [],
         };
     },
     computed: {
         md5Password: function() {
             return this.model.password ? util.md5(this.model.password) : '';
         },
+    },
+    created() {
+        const vm = this;
+        app.rpc.get('/role/list', {}, roles => {
+            roles.forEach(role => {
+                vm.roles.push({
+                    key: role.id,
+                    text: role.name,
+                });
+            });
+        });
     },
     methods: {
         onRulesLoaded(rules) {
