@@ -2,6 +2,12 @@
     <div>
         <div class="d-flex justify-content-between mb-3">
             <el-button type="primary" @click="toAdd" v-if="addable">添加角色</el-button>
+            <el-col :span="6">
+                <el-input placeholder="输入名称关键字" prefix-icon="el-icon-search"
+                    v-model="params.name" clearable @clear="query">
+                    <el-button slot="append" @click="query">查询</el-button>
+                </el-input>
+            </el-col>
             <el-alert type="info" class="m-0" title="角色用于向管理员授予操作权限" :closable="false" show-icon/>
         </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>
@@ -47,6 +53,7 @@ export default {
             addable: false,
             updatable: false,
             deletable: false,
+            params: {},
             records: null,
         };
     },
@@ -62,19 +69,7 @@ export default {
             vm.updatable = menu.isGranted('/role/*/update');
             vm.deletable = menu.isGranted('/role/*/delete');
         });
-        app.rpc.get('/role/list', {}, function(records) {
-            for (let record of records) {
-                if (record.permissions) {
-                    for (let i = 0; i < record.permissions.length; i++) {
-                        const item = menu.getItemByPermission(record.permissions[i]);
-                        if (item) {
-                            record.permissions[i] = item.caption;
-                        }
-                    }
-                }
-            }
-            vm.records = records;
-        });
+        this.query();
     },
     methods: {
         toAdd() {
@@ -93,6 +88,22 @@ export default {
                         roles.splice(index, 1);
                     });
                 }
+            });
+        },
+        query() {
+            const vm = this;
+            app.rpc.get('/role/list', this.params, function(records) {
+                for (let record of records) {
+                    if (record.permissions) {
+                        for (let i = 0; i < record.permissions.length; i++) {
+                            const item = menu.getItemByPermission(record.permissions[i]);
+                            if (item) {
+                                record.permissions[i] = item.caption;
+                            }
+                        }
+                    }
+                }
+                vm.records = records;
             });
         }
     }

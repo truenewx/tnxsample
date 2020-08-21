@@ -15,14 +15,16 @@ import org.truenewx.tnxsample.common.CommonConstants;
 @RestController
 @RequestMapping("/manager")
 public class ManagerController {
+
     @Autowired
     private ManagerService managerService;
 
     @GetMapping("/list")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER, rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
     public QueryResult<Manager> list(
             @RequestParam(name = "keyword", required = false) String keyword,
-            @RequestParam(name = "pageSize", defaultValue = "20") int pageSize,
+            @RequestParam(name = "pageSize", defaultValue = "10") int pageSize,
             @RequestParam(name = "pageNo", defaultValue = "1") int pageNo) {
         return this.managerService.queryGeneral(keyword, pageSize, pageNo);
     }

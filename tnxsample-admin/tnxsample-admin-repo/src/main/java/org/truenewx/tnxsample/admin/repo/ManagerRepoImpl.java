@@ -1,5 +1,8 @@
 package org.truenewx.tnxsample.admin.repo;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
@@ -7,10 +10,6 @@ import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.model.query.QuerySort;
 import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoSupport;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 管理员Repo实现
@@ -38,7 +37,8 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
         StringBuffer ql = new StringBuffer("from Manager where 1=1");
         Map<String, Object> params = new HashMap<>();
         if (StringUtils.isNotBlank(keyword)) {
-            ql.append(" and (username like :keyword or fullName like :keyword)");
+            ql.append(
+                    " and (jobNo like :keyword or username like :keyword or fullName like :keyword)");
             params.put("keyword", Strings.PERCENT + keyword + Strings.PERCENT);
         }
         if (top != null) {

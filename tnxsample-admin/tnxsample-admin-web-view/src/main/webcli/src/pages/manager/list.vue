@@ -2,6 +2,13 @@
     <div>
         <div class="d-flex justify-content-between mb-3">
             <el-button type="primary" @click="toAdd" v-if="addable">添加管理员</el-button>
+            <el-col :span="8">
+                <el-input placeholder="输入工号/姓名/用户名的关键字" prefix-icon="el-icon-search"
+                    v-model="params.keyword" clearable @clear="query">
+                    <el-button slot="append" @click="query">查询</el-button>
+                </el-input>
+            </el-col>
+            <el-alert type="info" class="m-0" title="管理员是用于管理系统的账号" :closable="false" show-icon/>
         </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>
             <el-table-column prop="jobNo" label="工号" min-width="120px"/>
@@ -38,6 +45,9 @@
                 </template>
             </el-table-column>
         </el-table>
+        <el-pagination layout="total, prev, pager, next" background @current-change="query"
+            :total="paged.total" :page-size="paged.pageSize" :current-page="paged.pageNo">
+        </el-pagination>
     </div>
 </template>
 
@@ -51,8 +61,9 @@ export default {
         return {
             addable: false,
             updatable: false,
+            params: {},
             records: null,
-            paging: null,
+            paged: {},
         };
     },
     computed: {
@@ -67,10 +78,7 @@ export default {
             vm.updatable = menu.isGranted('/manager/*/update');
             vm.deletable = menu.isGranted('/manager/*/delete');
         });
-        app.rpc.get('/manager/list', {}, function(result) {
-            vm.records = result.records;
-            vm.paging = result.paging;
-        });
+        this.query();
     },
     methods: {
         toAdd() {
@@ -90,6 +98,18 @@ export default {
         toResetPassword(index) {
             tnx.open(password, {
                 id: this.records[index].id
+            });
+        },
+        query(pageNo) {
+            if (typeof pageNo === 'number') {
+                this.params.pageNo = pageNo;
+            } else {
+                delete this.params.pageNo;
+            }
+            const vm = this;
+            app.rpc.get('/manager/list', this.params, function(result) {
+                vm.records = result.records;
+                vm.paged = result.paged;
             });
         }
     }
