@@ -17,7 +17,7 @@
             <el-table-column label="所属角色" class-name="tnxel-table_tags nowrap" min-width="240px">
                 <template slot-scope="scope">
                     <template v-if="scope.row.roles.length > 0">
-                        <el-tag type="info" v-for="role in scope.row.roles" :key="role.id">
+                        <el-tag v-for="role in scope.row.roles" :key="role.id">
                             {{role.name}}
                         </el-tag>
                     </template>

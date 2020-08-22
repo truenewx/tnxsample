@@ -28,7 +28,7 @@
         </el-form-item>
         <el-form-item label="所属角色" prop="roleIds">
             <el-col :span="12">
-                <tnxel-tag-select ref="role" :items="roles"/>
+                <tnxel-tag-select ref="role" :items="roles" key-name="id" text-name="name"/>
             </el-col>
         </el-form-item>
     </tnxel-form>
@@ -56,13 +56,8 @@ export default {
     },
     created() {
         const vm = this;
-        app.rpc.get('/role/list', {}, roles => {
-            roles.forEach(role => {
-                vm.roles.push({
-                    key: role.id,
-                    text: role.name,
-                });
-            });
+        app.rpc.get('/role/list', roles => {
+            vm.roles = roles;
         });
     },
     methods: {
@@ -98,7 +93,8 @@ export default {
             tnx.confirm('管理员账号添加后无法删除，只能禁用，请谨慎操作。确定要添加吗？', yes => {
                 if (yes) {
                     const model = Object.assign({}, vm.model, {
-                        password: vm.md5Password
+                        password: vm.md5Password,
+                        roleIds: vm.$refs.role.getSelectedKeys(),
                     });
                     app.rpc.post(vm.url, model, function() {
                         vm.$refs.form.disable();

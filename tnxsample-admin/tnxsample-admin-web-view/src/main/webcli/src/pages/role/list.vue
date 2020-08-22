@@ -14,7 +14,8 @@
             <el-table-column prop="name" label="名称" min-width="160px" width="160px"/>
             <el-table-column label="操作权限" class-name="tnxel-table_tags nowrap" min-width="40%">
                 <template slot-scope="scope">
-                    <el-tag v-for="permission in scope.row.permissions" :key="permission">
+                    <el-tag effect="plain" v-for="permission in scope.row.permissions"
+                        :key="permission">
                         {{permission}}
                     </el-tag>
                 </template>
@@ -23,7 +24,7 @@
                 <template slot-scope="scope">
                     <template v-if="scope.row.managerNum > 0">
                         <span class="mr-2">共{{scope.row.managerNum}}人</span>
-                        <el-tag type="info" v-for="manager in scope.row.managers" :key="manager">
+                        <el-tag v-for="manager in scope.row.managers" :key="manager">
                             {{manager}}
                         </el-tag>
                     </template>
