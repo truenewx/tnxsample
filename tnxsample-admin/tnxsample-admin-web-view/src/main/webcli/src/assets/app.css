@@ -60,18 +60,6 @@ header[theme='primary'] .el-avatar i {
     color: #C0C4CC;
 }
 
-.el-form-item__content {
-    display: flex;
-    align-items: center;
-}
-
-.el-form-item__content .el-form-item__error {
-    position: unset;
-    top: unset;
-    left: unset;
-    padding-top: 0;
-}
-
 form {
     max-width: 600px;
 }
