@@ -17,7 +17,7 @@
             <el-table-column label="所属角色" class-name="tnxel-table_tags nowrap" min-width="240px">
                 <template slot-scope="scope">
                     <template v-if="scope.row.roles.length > 0">
-                        <el-tag v-for="role in scope.row.roles" :key="role.id">
+                        <el-tag type="warning" v-for="role in scope.row.roles" :key="role.id">
                             {{role.name}}
                         </el-tag>
                     </template>
@@ -40,8 +40,11 @@
                 header-align="center" align="center">
                 <template slot-scope="scope">
                     <router-link :to="'/manager/' + scope.row.id + '/update'"
-                        class="tnxel-table_tag" v-if="updatable"><span>修改</span></router-link>
-                    <a href="javascript:void(0)" @click="toResetPassword(scope.$index)">重置密码</a>
+                        class="tnxel-table_tag" v-if="updatable">
+                        <span>修改</span>
+                    </router-link>
+                    <a class="tnxel-table_tag" href="javascript:void(0)"
+                        @click="toResetPassword(scope.$index)">重置密码</a>
                 </template>
             </el-table-column>
         </el-table>

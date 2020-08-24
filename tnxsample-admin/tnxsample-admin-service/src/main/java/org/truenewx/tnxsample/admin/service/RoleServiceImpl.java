@@ -39,7 +39,7 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     private ManagerRoleRelationRepo managerRoleRelationRepo;
 
     @Override
-    public Iterable<Role> findAll() {
+    public List<Role> findAll() {
         return this.repo.findAll();
     }
 

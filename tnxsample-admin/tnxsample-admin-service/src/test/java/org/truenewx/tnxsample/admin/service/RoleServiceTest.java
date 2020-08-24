@@ -30,7 +30,7 @@ public class RoleServiceTest extends ServiceTestSupport {
     public void findAllTest() {
         List<Role> roles = getDataList(Role.class);
 
-        List<Role> list = CollectionUtil.toList(this.service.findAll());
+        List<Role> list = this.service.findAll();
         Assert.assertEquals(roles.size(), list.size());
         list.forEach(role -> {
             Assert.assertTrue(roles.contains(role));

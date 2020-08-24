@@ -28,7 +28,8 @@
         </el-form-item>
         <el-form-item label="所属角色" prop="roleIds">
             <el-col :span="12">
-                <tnxel-tag-select ref="role" :items="roles" key-name="id" text-name="name"/>
+                <tnxel-tag-select ref="role" :items="roles" key-name="id" text-name="name"
+                    type="warning"/>
             </el-col>
         </el-form-item>
     </tnxel-form>
@@ -46,7 +47,7 @@ export default {
         return {
             url: '/manager/add',
             model: {},
-            roles: [],
+            roles: null,
         };
     },
     computed: {

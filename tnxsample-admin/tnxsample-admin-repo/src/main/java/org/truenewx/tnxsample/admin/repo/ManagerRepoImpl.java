@@ -3,6 +3,7 @@ package org.truenewx.tnxsample.admin.repo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
@@ -45,7 +46,7 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
             ql.append(" and top=:top");
             params.put("top", top);
         }
-        QuerySort sort = QuerySort.of("username", Boolean.FALSE);
+        QuerySort sort = QuerySort.of("jobNo", Boolean.FALSE);
         return query(ql, params, pageSize, pageNo, sort);
     }
 

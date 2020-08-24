@@ -8,7 +8,9 @@ import org.truenewx.tnxjee.web.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.service.ManagerService;
+import org.truenewx.tnxsample.admin.service.RoleService;
 import org.truenewx.tnxsample.admin.service.model.ManagerCommand;
+import org.truenewx.tnxsample.admin.web.api.model.ToUpdateManager;
 import org.truenewx.tnxsample.common.CommonConstants;
 
 /**
@@ -20,6 +22,8 @@ public class ManagerController {
 
     @Autowired
     private ManagerService managerService;
+    @Autowired
+    private RoleService roleService;
 
     @GetMapping("/list")
     @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
@@ -42,8 +46,20 @@ public class ManagerController {
     @GetMapping("/{id}")
     @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
             rank = CommonConstants.MANAGER_RANK_TOP)
+    @ResultFilter(type = Role.class, included = { "id", "name" })
     public Manager detail(@PathVariable("id") int id) {
         return this.managerService.load(id);
+    }
+
+    @GetMapping("/{id}/update")
+    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
+            rank = CommonConstants.MANAGER_RANK_TOP)
+    @ResultFilter(type = Role.class, included = { "id", "name" })
+    public ToUpdateManager toUpdate(@PathVariable("id") int id) {
+        Manager manager = this.managerService.load(id);
+        ToUpdateManager tum = new ToUpdateManager(manager);
+        tum.setSelectableRoles(this.roleService.findAll());
+        return tum;
     }
 
     @PostMapping("/{id}/update")

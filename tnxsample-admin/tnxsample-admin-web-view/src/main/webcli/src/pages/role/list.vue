@@ -14,8 +14,8 @@
             <el-table-column prop="name" label="名称" min-width="160px" width="160px"/>
             <el-table-column label="操作权限" class-name="tnxel-table_tags nowrap" min-width="40%">
                 <template slot-scope="scope">
-                    <el-tag effect="plain" v-for="permission in scope.row.permissions"
-                        :key="permission">
+                    <el-tag type="success" effect="plain"
+                        v-for="permission in scope.row.permissions" :key="permission">
                         {{permission}}
                     </el-tag>
                 </template>

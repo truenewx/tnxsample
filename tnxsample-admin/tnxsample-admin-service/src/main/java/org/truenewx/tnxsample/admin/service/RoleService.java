@@ -16,7 +16,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
 public interface RoleService
         extends ModelUnityService<Role, Integer>, ModelUnityBusinessValidator<Role, Integer> {
 
-    Iterable<Role> findAll();
+    List<Role> findAll();
 
     List<Role> findByName(String name);
 
