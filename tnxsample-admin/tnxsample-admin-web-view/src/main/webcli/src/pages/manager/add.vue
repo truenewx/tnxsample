@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rule="url" :on-rules-loaded="onRulesLoaded"
+    <tnxel-form ref="form" :model="model" :rules="url" :on-rules-loaded="onRulesLoaded"
         :submit="submit">
         <el-form-item label="工号" prop="jobNo">
             <el-col :span="12">
@@ -28,7 +28,7 @@
         </el-form-item>
         <el-form-item label="所属角色" prop="roleIds">
             <el-col :span="12">
-                <tnxel-tag-select ref="role" :items="roles" key-name="id" text-name="name"
+                <tnxel-tag-select ref="role" items="/role/list" key-name="id" text-name="name"
                     type="warning"/>
             </el-col>
         </el-form-item>
@@ -47,19 +47,12 @@ export default {
         return {
             url: '/manager/add',
             model: {},
-            roles: null,
         };
     },
     computed: {
         md5Password: function() {
             return this.model.password ? util.md5(this.model.password) : '';
         },
-    },
-    created() {
-        const vm = this;
-        app.rpc.get('/role/list', roles => {
-            vm.roles = roles;
-        });
     },
     methods: {
         onRulesLoaded(rules) {

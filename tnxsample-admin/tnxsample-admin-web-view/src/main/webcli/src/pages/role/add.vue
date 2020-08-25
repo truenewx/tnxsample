@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rule="url" :submit="submit">
+    <tnxel-form ref="form" :model="model" :rules="url" :submit="submit">
         <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>
@@ -15,6 +15,11 @@
                 <tnxel-permission-tree class="border" ref="permissionTree" :menu="menu"/>
             </el-col>
         </el-form-item>
+        <el-form-item label="包含管理员" prop="managerIds">
+            <el-col :span="12">
+                <tnxel-tag-select ref="role" :items="managers" key-name="id" text-name="fullName"/>
+            </el-col>
+        </el-form-item>
     </tnxel-form>
 </template>
 
@@ -26,6 +31,7 @@ export default {
     components: {
         'tnxel-form': tnx.components.Form,
         'tnxel-permission-tree': tnx.components.PermissionTree,
+        'tnxel-tag-select': tnx.components.TagSelect,
     },
     data() {
         return {
@@ -35,6 +41,7 @@ export default {
                 name: '',
                 remark: '',
             },
+            managers: null,
         };
     },
     methods: {

@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rule="url">
+    <tnxel-form ref="form" :model="model" :rules="url">
         <el-form-item label="用户名">{{model.username}}</el-form-item>
         <el-form-item label="是否超管">
             <div>

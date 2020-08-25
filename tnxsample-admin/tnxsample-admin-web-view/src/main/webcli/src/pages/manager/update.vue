@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" rule="/manager/*/update" :on-rules-loaded="onRulesLoaded"
+    <tnxel-form ref="form" :model="model" rules="/manager/*/update" :on-rules-loaded="onRulesLoaded"
         :submit="submit">
         <el-form-item label="工号" prop="jobNo">
             <el-col :span="12">
@@ -18,7 +18,7 @@
         </el-form-item>
         <el-form-item label="所属角色" prop="roleIds">
             <el-col :span="12">
-                <tnxel-tag-select ref="role" :items="roles" key-name="id" text-name="name"
+                <tnxel-tag-select ref="role" items="/role/list" key-name="id" text-name="name"
                     type="warning"/>
             </el-col>
         </el-form-item>
@@ -36,15 +36,12 @@ export default {
     data() {
         return {
             model: {},
-            roles: null,
         };
     },
     created() {
         const managerId = this.$route.params.id;
         const vm = this;
-        app.rpc.get('/manager/' + managerId + '/update', model => {
-            vm.roles = model.selectableRoles;
-            delete model.selectableRoles;
+        app.rpc.get('/manager/' + managerId, model => {
             vm.model = model;
         });
     },

@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" rule="/role/*/update" :submit="submit">
+    <tnxel-form ref="form" :model="model" rules="/role/*/update" :submit="submit">
         <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>

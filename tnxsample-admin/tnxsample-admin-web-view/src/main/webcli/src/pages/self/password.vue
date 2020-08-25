@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rule="rules">
+    <tnxel-form ref="form" :model="model" :rules="rules">
         <el-form-item label="原密码" prop="oldPassword">
             <el-col>
                 <el-input type="password" v-model.trim="model.oldPassword"
