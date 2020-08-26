@@ -154,6 +154,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
                 this.roleRepo.findById(roleId).ifPresent(role -> {
                     roles.add(role);
                     role.getManagers().add(manager);
+                    this.roleRepo.save(role);
                 });
             }
         }

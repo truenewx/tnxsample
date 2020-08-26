@@ -49,8 +49,7 @@
             </el-table-column>
         </el-table>
         <el-pagination layout="total, prev, pager, next" background @current-change="query"
-            :total="paged.total" :page-size="paged.pageSize" :current-page="paged.pageNo">
-        </el-pagination>
+            :total="paged.total" :page-size="paged.pageSize" :current-page="paged.pageNo"/>
     </div>
 </template>
 

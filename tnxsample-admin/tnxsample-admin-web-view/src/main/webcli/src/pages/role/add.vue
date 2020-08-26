@@ -16,8 +16,8 @@
             </el-col>
         </el-form-item>
         <el-form-item label="包含管理员" prop="managerIds">
-            <el-col :span="12">
-                <tnxel-tag-select ref="role" :items="managers" key-name="id" text-name="fullName"/>
+            <el-col :span="18">
+                <tnxel-tag-select ref="role" items="/manager/list" :to-tag="toManagerTag"/>
             </el-col>
         </el-form-item>
     </tnxel-form>
@@ -41,10 +41,20 @@ export default {
                 name: '',
                 remark: '',
             },
-            managers: null,
         };
     },
     methods: {
+        toManagerTag(manager) {
+            let text = manager.fullName + ' (' + manager.username;
+            if (manager.jobNo) {
+                text += '#' + manager.jobNo;
+            }
+            text += ')';
+            return {
+                key: manager.id,
+                text: text,
+            }
+        },
         submit() {
             const vm = this;
             const model = Object.assign({}, vm.model, {

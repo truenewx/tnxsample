@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,6 +109,7 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
                 boolean removing = !ArrayUtils.contains(newManagerIds, manager.getId());
                 if (removing) {
                     manager.getRoles().remove(role);
+                    this.managerRepo.save(manager);
                 }
                 return removing;
             });
@@ -120,6 +120,7 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
                         this.managerRepo.findById(managerId).ifPresent(manager -> {
                             managers.add(manager);
                             manager.getRoles().add(role);
+                            this.managerRepo.save(manager);
                         });
                     }
                 }

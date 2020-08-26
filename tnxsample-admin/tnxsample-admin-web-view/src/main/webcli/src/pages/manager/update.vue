@@ -19,7 +19,7 @@
         <el-form-item label="所属角色" prop="roleIds">
             <el-col :span="12">
                 <tnxel-tag-select ref="role" items="/role/list" key-name="id" text-name="name"
-                    type="warning"/>
+                    type="warning" :keys="roleIds"/>
             </el-col>
         </el-form-item>
     </tnxel-form>
@@ -38,6 +38,18 @@ export default {
             model: {},
         };
     },
+    computed: {
+        roleIds() {
+            if (this.model.roles) {
+                const roleIds = [];
+                this.model.roles.forEach(role => {
+                    roleIds.push(role.id);
+                });
+                return roleIds;
+            }
+            return undefined;
+        }
+    },
     created() {
         const managerId = this.$route.params.id;
         const vm = this;
@@ -53,6 +65,7 @@ export default {
             const vm = this;
             const managerId = vm.$route.params.id;
             const model = Object.assign({}, vm.model, {
+                roles: undefined,
                 roleIds: vm.$refs.role.getSelectedKeys(),
             });
             app.rpc.post('/manager/' + managerId + '/update', model, function() {
