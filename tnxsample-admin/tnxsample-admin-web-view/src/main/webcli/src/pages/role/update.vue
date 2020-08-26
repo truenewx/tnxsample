@@ -16,6 +16,12 @@
                     :permissions="model.permissions"/>
             </el-col>
         </el-form-item>
+        <el-form-item label="包含管理员" prop="managerIds">
+            <el-col :span="18">
+                <tnxel-tag-select ref="manager" items="/manager/list" :to-tag="toManagerTag"
+                    :keys="managerIds"/>
+            </el-col>
+        </el-form-item>
     </tnxel-form>
 </template>
 
@@ -37,6 +43,18 @@ export default {
             },
         };
     },
+    computed: {
+        managerIds() {
+            if (this.model.managers) {
+                const managerIds = [];
+                this.model.managers.forEach(manager => {
+                    managerIds.push(manager.id);
+                });
+                return managerIds;
+            }
+            return undefined;
+        }
+    },
     created() {
         const roleId = this.$route.params.id;
         const vm = this;
@@ -45,10 +63,22 @@ export default {
         });
     },
     methods: {
+        toManagerTag(manager) {
+            let text = manager.fullName + ' (' + manager.username;
+            if (manager.jobNo) {
+                text += '#' + manager.jobNo;
+            }
+            text += ')';
+            return {
+                key: manager.id,
+                text: text,
+            }
+        },
         submit() {
             const roleId = this.$route.params.id;
             const model = Object.assign({}, this.model, {
-                permissions: this.$refs.permissionTree.getPermissions()
+                permissions: this.$refs.permissionTree.getPermissions(),
+                managerIds: this.$refs.manager.getSelectedKeys(),
             });
             const vm = this;
             app.rpc.post('/role/' + roleId + '/update', model, function() {

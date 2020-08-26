@@ -17,7 +17,7 @@
         </el-form-item>
         <el-form-item label="包含管理员" prop="managerIds">
             <el-col :span="18">
-                <tnxel-tag-select ref="role" items="/manager/list" :to-tag="toManagerTag"/>
+                <tnxel-tag-select ref="manager" items="/manager/list" :to-tag="toManagerTag"/>
             </el-col>
         </el-form-item>
     </tnxel-form>
@@ -58,7 +58,8 @@ export default {
         submit() {
             const vm = this;
             const model = Object.assign({}, vm.model, {
-                permissions: this.$refs.permissionTree.getPermissions()
+                permissions: this.$refs.permissionTree.getPermissions(),
+                managerIds: this.$refs.manager.getSelectedKeys(),
             });
             app.rpc.post(vm.url, model, function() {
                 vm.$refs.form.disable();

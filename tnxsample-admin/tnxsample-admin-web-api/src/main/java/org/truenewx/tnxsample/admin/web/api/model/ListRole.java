@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.validation.constraints.NotBlank;
 
+import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 
 /**
@@ -13,7 +14,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
 public class ListRole {
 
     private Role unity;
-    private List<String> managers;
+    private List<Manager> managers;
     private long managerNum;
 
     public ListRole(Role unity) {
@@ -41,11 +42,11 @@ public class ListRole {
         return this.unity.getPermissions();
     }
 
-    public List<String> getManagers() {
+    public List<Manager> getManagers() {
         return this.managers;
     }
 
-    public void setManagers(List<String> managers) {
+    public void setManagers(List<Manager> managers) {
         this.managers = managers;
     }
 

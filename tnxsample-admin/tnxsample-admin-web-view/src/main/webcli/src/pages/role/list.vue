@@ -3,7 +3,7 @@
         <div class="d-flex justify-content-between mb-3">
             <el-button type="primary" @click="toAdd" v-if="addable">添加角色</el-button>
             <el-col :span="6">
-                <el-input placeholder="输入名称关键字" prefix-icon="el-icon-search"
+                <el-input placeholder="输入名称的关键字" prefix-icon="el-icon-search"
                     v-model="params.name" clearable @clear="query">
                     <el-button slot="append" @click="query">查询</el-button>
                 </el-input>
@@ -14,18 +14,20 @@
             <el-table-column prop="name" label="名称" min-width="160px" width="160px"/>
             <el-table-column label="操作权限" class-name="tnxel-table_tags nowrap" min-width="40%">
                 <template slot-scope="scope">
-                    <el-tag type="success" effect="plain"
-                        v-for="permission in scope.row.permissions" :key="permission">
+                    <el-tag type="success" v-for="permission in scope.row.permissions"
+                        :key="permission">
                         {{permission}}
                     </el-tag>
+                    <span class="text-muted"
+                        v-if="scope.row.permissions.length === 0">&lt;无&gt;</span>
                 </template>
             </el-table-column>
             <el-table-column label="管理员" class-name="tnxel-table_tags nowrap" min-width="40%">
                 <template slot-scope="scope">
                     <template v-if="scope.row.managerNum > 0">
                         <span class="mr-2">共{{scope.row.managerNum}}人</span>
-                        <el-tag v-for="manager in scope.row.managers" :key="manager">
-                            {{manager}}
+                        <el-tag v-for="manager in scope.row.managers" :key="manager.id">
+                            {{manager.fullName}}
                         </el-tag>
                     </template>
                     <span class="text-muted" v-else>&lt;无&gt;</span>
