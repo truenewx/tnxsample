@@ -22,42 +22,42 @@
 </template>
 
 <script>
-    import {app, tnx} from '../app.js';
-    import info from '../pages/self/info.vue';
-    import password from '../pages/self/password.vue';
+import {app, tnx} from '../app.js';
+import info from '../pages/self/info.vue';
+import password from '../pages/self/password.vue';
 
-    export default {
-        data () {
-            return {
-                title: process.env.VUE_APP_TITLE,
-                contextPath: process.env.BASE_URL,
-                managerCaption: null,
-            };
-        },
-        created () {
-            const vm = this;
-            app.rpc.get('/manager/self/caption', caption => {
-                vm.managerCaption = caption;
+export default {
+    data() {
+        return {
+            title: process.env.VUE_APP_TITLE,
+            contextPath: process.env.BASE_URL,
+            managerCaption: null,
+        };
+    },
+    created() {
+        const vm = this;
+        app.rpc.get('/manager/self/caption', caption => {
+            vm.managerCaption = caption;
+        });
+    },
+    methods: {
+        info() {
+            tnx.open(info, {
+                opener: this
             });
         },
-        methods: {
-            info () {
-                tnx.open(info, {
-                    opener: this
-                });
-            },
-            password () {
-                tnx.open(password, {
-                    opener: this
-                });
-            },
-            logout () {
-                if (process.env.NODE_ENV === 'production') {
-                    window.location.href = this.contextPath + "/logout";
-                } else {
-                    app.rpc.post("/logout");
-                }
+        password() {
+            tnx.open(password, {
+                opener: this
+            });
+        },
+        logout() {
+            if (process.env.NODE_ENV === 'production') {
+                window.location.href = this.contextPath + "/logout";
+            } else {
+                app.rpc.post("/logout");
             }
         }
     }
+}
 </script>
