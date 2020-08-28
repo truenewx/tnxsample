@@ -2,10 +2,12 @@ package org.truenewx.tnxsample.admin.service;
 
 import java.time.Instant;
 import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.core.crypto.Md5xEncryptor;
+import org.truenewx.tnxjee.core.util.StringUtil;
 import org.truenewx.tnxjee.model.CommandModel;
 import org.truenewx.tnxjee.model.query.QueryResult;
 import org.truenewx.tnxjee.service.exception.BusinessException;
@@ -133,6 +135,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
             manager.setUsername(username);
             manager.setPassword(Strings.ASTERISK); // 密码暂时置为星号
             manager.setFullName(command.getFullName());
+            manager.setIndexName(StringUtil.toPinyin(command.getFullName()));
             manager.setCreateTime(Instant.now());
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
@@ -168,6 +171,7 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
             manager.setJobNo(command.getJobNo());
             manager.setUsername(command.getUsername());
             manager.setFullName(command.getFullName());
+            manager.setIndexName(StringUtil.toPinyin(command.getFullName()));
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
             return manager;

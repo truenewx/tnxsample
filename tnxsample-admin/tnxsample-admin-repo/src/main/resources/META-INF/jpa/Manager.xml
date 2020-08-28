@@ -31,6 +31,9 @@
             <basic name="fullName">
                 <column name="full_name" length="20" nullable="false"/>
             </basic>
+            <basic name="indexName">
+                <column name="index_name" length="50" nullable="true"/>
+            </basic>
             <basic name="top">
                 <column name="top"/>
             </basic>

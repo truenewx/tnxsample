@@ -38,8 +38,8 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
         StringBuffer ql = new StringBuffer("from Manager where 1=1");
         Map<String, Object> params = new HashMap<>();
         if (StringUtils.isNotBlank(keyword)) {
-            ql.append(
-                    " and (jobNo like :keyword or username like :keyword or fullName like :keyword)");
+            ql.append(" and (jobNo like :keyword or username like :keyword")
+                    .append(" or fullName like :keyword or indexName like :keyword)");
             params.put("keyword", Strings.PERCENT + keyword + Strings.PERCENT);
         }
         if (top != null) {

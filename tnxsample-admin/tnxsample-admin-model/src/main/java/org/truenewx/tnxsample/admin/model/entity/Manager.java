@@ -58,6 +58,9 @@ public class Manager
     @NotContainsSpecialChars
     private String fullName;
 
+    @Caption("索引名")
+    private String indexName;
+
     @Caption("是否顶级管理员")
     private boolean top;
 
