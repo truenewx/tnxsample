@@ -1,10 +1,9 @@
 package org.truenewx.tnxsample.admin.service;
 
 import java.util.List;
-
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjee.service.unity.ModelUnityBusinessValidator;
-import org.truenewx.tnxjee.service.unity.ModelUnityService;
+import org.truenewx.tnxjee.service.unity.CommandUnityBusinessValidator;
+import org.truenewx.tnxjee.service.unity.CommandUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 
@@ -14,7 +13,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
  * @author jianglei
  */
 public interface RoleService
-        extends ModelUnityService<Role, Integer>, ModelUnityBusinessValidator<Role, Integer> {
+        extends CommandUnityService<Role, Integer>, CommandUnityBusinessValidator<Role, Integer> {
 
     List<Role> findAll();
 
@@ -23,4 +22,5 @@ public interface RoleService
     Role move(int id, boolean down);
 
     QueryResult<Manager> queryManagers(int id, int pageSize, int pageNo);
+
 }
