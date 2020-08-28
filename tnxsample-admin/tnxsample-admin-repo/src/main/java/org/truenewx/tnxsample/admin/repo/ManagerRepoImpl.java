@@ -3,7 +3,6 @@ package org.truenewx.tnxsample.admin.repo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
@@ -63,6 +62,30 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
         }
         QuerySort sort = QuerySort.of("m.username", Boolean.FALSE);
         return query(ql, params, pageSize, pageNo, sort);
+    }
+
+    @Override
+    public long countByJobNoAndIdNot(String jobNo, Integer idNot) {
+        String ql = "select count(*) from Manager where jobNo=:jobNo";
+        Map<String, Object> params = new HashMap<>();
+        params.put("jobNo", jobNo);
+        if (idNot != null) {
+            ql += " and id<>:idNot";
+            params.put("idNot", idNot);
+        }
+        return getAccessTemplate().count(ql, params);
+    }
+
+    @Override
+    public long countByUsernameAndIdNot(String username, Integer idNot) {
+        String ql = "select count(*) from Manager where username=:username";
+        Map<String, Object> params = new HashMap<>();
+        params.put("username", username);
+        if (idNot != null) {
+            ql += " and id<>:idNot";
+            params.put("idNot", idNot);
+        }
+        return getAccessTemplate().count(ql, params);
     }
 
 }

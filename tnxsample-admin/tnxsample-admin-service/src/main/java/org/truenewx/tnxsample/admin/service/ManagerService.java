@@ -1,6 +1,7 @@
 package org.truenewx.tnxsample.admin.service;
 
 import org.truenewx.tnxjee.model.query.QueryResult;
+import org.truenewx.tnxjee.service.unity.ModelUnityBusinessValidator;
 import org.truenewx.tnxjee.service.unity.ModelUnityService;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
@@ -10,7 +11,8 @@ import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
  *
  * @author jianglei
  */
-public interface ManagerService extends ModelUnityService<Manager, Integer> {
+public interface ManagerService
+        extends ModelUnityService<Manager, Integer>, ModelUnityBusinessValidator<Manager, Integer> {
 
     Manager findWithRoles(Integer id);
 

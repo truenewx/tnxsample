@@ -13,7 +13,8 @@ public class ManagerExceptionCodes {
     /**
      * 用户名或密码错误
      */
-    public static final String USERNAME_OR_PASSWORD_ERROR = "error.manager.username_or_password_error";
+    public static final String USERNAME_OR_PASSWORD_ERROR =
+            "error.manager.username_or_password_error";
     /**
      * 原密码错误
      */
@@ -23,6 +24,11 @@ public class ManagerExceptionCodes {
      * 管理员被禁用
      */
     public static final String DISABLED_MANAGER = "error.manager.disabled_manager";
+
+    /**
+     * 工号重复
+     */
+    public static final String REPEAT_JOB_NO = "error.manager.repeat_job_no";
 
     /**
      * 用户名重复

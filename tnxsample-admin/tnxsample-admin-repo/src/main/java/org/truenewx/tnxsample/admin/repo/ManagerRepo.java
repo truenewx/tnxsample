@@ -12,6 +12,4 @@ public interface ManagerRepo extends JpaUnityRepository<Manager, Integer>, Manag
 
     Manager findFirstByUsername(String username);
 
-    long countByUsername(String username);
-
 }

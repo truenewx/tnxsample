@@ -2,7 +2,7 @@ package org.truenewx.tnxsample.admin.service;
 
 import java.time.Instant;
 import java.util.Collection;
-
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
@@ -122,20 +122,33 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
     }
 
     @Override
-    public Manager add(CommandModel<Manager> commandModel) {
+    public void validateBusiness(Integer id, CommandModel<Manager> commandModel) {
         if (commandModel instanceof ManagerCommand) {
             ManagerCommand command = (ManagerCommand) commandModel;
+            String jobNo = command.getJobNo();
+            if (this.repo.countByJobNoAndIdNot(jobNo, id) > 0) {
+                throw new BusinessException(ManagerExceptionCodes.REPEAT_JOB_NO, jobNo)
+                        .bind("jobNo");
+            }
             String username = command.getUsername();
-            if (this.repo.countByUsername(username) > 0) {
+            if (this.repo.countByUsernameAndIdNot(username, id) > 0) {
                 throw new BusinessException(ManagerExceptionCodes.REPEAT_USERNAME, username)
                         .bind("username");
             }
+        }
+    }
+
+    @Override
+    public Manager add(CommandModel<Manager> commandModel) {
+        validateBusiness(null, commandModel);
+        if (commandModel instanceof ManagerCommand) {
+            ManagerCommand command = (ManagerCommand) commandModel;
             Manager manager = new Manager();
             manager.setJobNo(command.getJobNo());
-            manager.setUsername(username);
+            manager.setUsername(command.getUsername());
             manager.setPassword(Strings.ASTERISK); // 密码暂时置为星号
             manager.setFullName(command.getFullName());
-            manager.setIndexName(StringUtil.toPinyin(command.getFullName()));
+            manager.setIndexName(getIndexName(command.getFullName()));
             manager.setCreateTime(Instant.now());
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
@@ -147,6 +160,15 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
             return manager;
         }
         return null;
+    }
+
+    private String getIndexName(String fullName) {
+        if (StringUtils.isBlank(fullName)) {
+            return fullName;
+        }
+        String indexName = StringUtil.toPinyin(fullName);
+        indexName += Strings.COMMA + StringUtil.toPinyinAbbr(fullName);
+        return indexName;
     }
 
     private void updateRoles(Manager manager, int[] roleIds) {
@@ -165,13 +187,14 @@ public class ManagerServiceImpl extends AbstractUnityService<Manager, Integer>
 
     @Override
     public Manager update(Integer id, CommandModel<Manager> commandModel) {
+        validateBusiness(id, commandModel);
         if (commandModel instanceof ManagerCommand) {
             ManagerCommand command = (ManagerCommand) commandModel;
             Manager manager = load(id);
             manager.setJobNo(command.getJobNo());
             manager.setUsername(command.getUsername());
             manager.setFullName(command.getFullName());
-            manager.setIndexName(StringUtil.toPinyin(command.getFullName()));
+            manager.setIndexName(getIndexName(command.getFullName()));
             updateRoles(manager, command.getRoleIds());
             this.repo.save(manager);
             return manager;
