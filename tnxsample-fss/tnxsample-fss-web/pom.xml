@@ -19,14 +19,6 @@
             <artifactId>tnxsample-fss-service</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxsample.admin</groupId>
-            <artifactId>tnxsample-admin-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-api</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
