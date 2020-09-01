@@ -1,33 +1,34 @@
-CREATE TABLE t_manager (
- id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- job_no VARCHAR(32),
- username VARCHAR(20) NOT NULL,
- password CHAR(64),
- head_image_url VARCHAR(80),
- full_name VARCHAR(20) NOT NULL,
- top BIT(1) DEFAULT 0 NOT NULL,
- disabled BIT(1) DEFAULT 0 NOT NULL,
- create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
- 
- UNIQUE KEY unique_manager_username (username)
+create table t_manager (
+    id int not null primary key auto_increment,
+    job_no varchar(32),
+    username varchar(20) not null,
+    password char(64),
+    head_image_url varchar(80),
+    full_name varchar(20) not null,
+    index_name varchar(50),
+    top bit(1) default 0 not null,
+    disabled bit(1) default 0 not null,
+    create_time timestamp not null default current_timestamp,
+
+    unique key unique_manager_username (username)
 );
 
 
-CREATE TABLE t_role (
- id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
- role_name VARCHAR(20) NOT NULL,
- remark VARCHAR(200),
- ordinal BIGINT NOT NULL,
- permission_string VARCHAR(4000)
+create table t_role (
+    id int not null primary key auto_increment,
+    role_name varchar(20) not null,
+    remark varchar(200),
+    ordinal bigint not null,
+    permission_string varchar(4000)
 );
 
 
-CREATE TABLE t_manager_r_role (
- manager_id INT NOT NULL,
- role_id INT NOT NULL,
+create table t_manager_r_role (
+    manager_id int not null,
+    role_id int not null,
 
- PRIMARY KEY (manager_id,role_id),
+    primary key (manager_id, role_id),
 
- FOREIGN KEY (manager_id) REFERENCES t_manager (id),
- FOREIGN KEY (role_id) REFERENCES t_role (id)
+    foreign key (manager_id) references t_manager (id),
+    foreign key (role_id) references t_role (id)
 );
