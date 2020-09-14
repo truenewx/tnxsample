@@ -12,7 +12,7 @@ public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
     private CasClientProperties casClientProperties;
 
     @Override
-    protected String getLoginFormUrl() {
+    public String getLoginFormUrl() {
         return this.casClientProperties.getLoginFormUrl();
     }
 
