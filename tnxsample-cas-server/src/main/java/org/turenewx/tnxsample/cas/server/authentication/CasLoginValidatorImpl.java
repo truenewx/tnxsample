@@ -17,7 +17,8 @@ public class CasLoginValidatorImpl implements CasLoginValidator {
     private CustomerLoginClient customerLoginClient;
 
     @Override
-    public UserSpecificDetails<?> validateLogin(String userType, String username, String password) {
+    public UserSpecificDetails<?> validateLogin(String userType, String scope, String username,
+            String password) {
         switch (userType) {
             case CommonConstants.USER_TYPE_MANAGER:
                 return this.managerLoginClient.validate(username, password);

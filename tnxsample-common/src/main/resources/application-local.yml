@@ -19,6 +19,7 @@ tnxjee:
   common:
     apps:
       cas:
+        user-type: '*'
         https: false
         host: ${host.cas}
         context-path: /cas
@@ -39,6 +40,7 @@ tnxjee:
         https: false
         host: ${host.admin-api}
       fss:
+        user-type: '*'
         https: false
         host: ${host.fss}
   web:
