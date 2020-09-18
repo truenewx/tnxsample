@@ -1,7 +1,7 @@
 <template>
     <el-row class="container-fluid" type="flex" align="middle" justify="space-between">
         <h3>
-            <el-link :href="contextPath" :underline="false">{{title}}</el-link>
+            <el-link :href="contextPath + '/'" :underline="false">{{title}}</el-link>
         </h3>
         <el-row type="flex" align="middle" v-if="managerCaption">
             <el-avatar class="mr-2" :size="32">
@@ -30,7 +30,7 @@ export default {
     data() {
         return {
             title: process.env.VUE_APP_TITLE,
-            contextPath: process.env.BASE_URL,
+            contextPath: process.env.VUE_APP_VIEW_BASE_URL,
             managerCaption: null,
         };
     },

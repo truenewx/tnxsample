@@ -39,19 +39,19 @@ export default {
         'layout-footer': footer,
         'page-index': index,
     },
-    data () {
+    data() {
         return {
             logined: false,
         }
     },
     computed: {
-        home () {
+        home() {
             return this.$route.path === "/";
         }
     },
-    created () {
+    created() {
         const vm = this;
-        app.rpc.loadConfig(process.env.VUE_APP_RPC_BASE_URL, () => {
+        app.rpc.loadConfig(process.env.VUE_APP_API_BASE_URL, () => {
             app.rpc.ensureLogined(function() {
                 vm.logined = true;
             });
