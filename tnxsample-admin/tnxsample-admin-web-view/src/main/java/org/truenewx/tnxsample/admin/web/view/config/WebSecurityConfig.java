@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebViewSecurityConfigurerSupport {
 
     @Override
     protected String getLogoutSuccessUrl() {
-        return this.casClientProperties.getLogoutUrl();
+        return this.casClientProperties.getLogoutProcessUrl(); // 本地登出后跳转到CAS服务端执行登出
     }
 
 }
