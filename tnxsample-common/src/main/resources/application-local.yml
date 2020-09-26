@@ -8,10 +8,8 @@ server:
         development: true
 host:
   cas: localhost:8883
-  facade-view: localhost:8885
-  facade-api: localhost:8886
-  admin-view: localhost:8887
-  admin-api: localhost:8888
+  facade: localhost:8885
+  admin: localhost:8887
   fss: localhost:8889
 tnxjee:
   profile:
@@ -23,22 +21,14 @@ tnxjee:
         https: false
         host: ${host.cas}
         context-path: /cas
-      facade-view:
+      facade:
         user-type: customer
         https: false
-        host: ${host.facade-view}
-      facade-api:
-        user-type: customer
-        https: false
-        host: ${host.facade-api}
-      admin-view:
+        host: ${host.facade}
+      admin:
         user-type: manager
         https: false
-        host: ${host.admin-view}
-      admin-api:
-        user-type: manager
-        https: false
-        host: ${host.admin-api}
+        host: ${host.admin}
       fss:
         user-type: '*'
         https: false

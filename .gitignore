@@ -26,4 +26,5 @@ hs_err_pid*
 **/.idea
 **/.settings
 *.lock
+**/*.iml
 **/webapp/static

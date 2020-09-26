@@ -23,7 +23,8 @@
         <module>tnxsample-cas-server</module>
         <module>tnxsample-common</module>
         <module>tnxsample-facade</module>
-        <module>tnxsample-fss</module>
+        <module>tnxsample-fss-web</module>
+        
     </modules>
     <dependencyManagement><!-- 所有微服务都可以引用的工程依赖在此管理 -->
         <dependencies>

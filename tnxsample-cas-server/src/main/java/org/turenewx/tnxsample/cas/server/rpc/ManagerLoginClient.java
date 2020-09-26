@@ -8,6 +8,6 @@ import org.truenewx.tnxsample.admin.api.ManagerLoginApi;
  *
  * @author jianglei
  */
-@FeignClient(name = "manager-login", url = "${host.admin-api}")
+@FeignClient(name = "manager-login", url = "${host.admin}")
 public interface ManagerLoginClient extends ManagerLoginApi {
 }

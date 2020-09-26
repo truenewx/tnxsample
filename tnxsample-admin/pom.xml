@@ -16,8 +16,7 @@
         <module>tnxsample-admin-model</module>
         <module>tnxsample-admin-repo</module>
         <module>tnxsample-admin-service</module>
-        <module>tnxsample-admin-web-api</module>
-        <module>tnxsample-admin-web-view</module>
+        <module>tnxsample-admin-web</module>
     </modules>
     <dependencyManagement><!-- 其它微服务不能引用，仅本微服务内部引用的工程依赖在此管理 -->
         <dependencies>

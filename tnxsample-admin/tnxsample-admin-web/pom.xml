@@ -4,13 +4,13 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>tnxsample</artifactId>
-        <groupId>org.truenewx</groupId>
+        <artifactId>tnxsample-admin</artifactId>
+        <groupId>org.truenewx.tnxsample</groupId>
         <version>2.2.1</version>
     </parent>
 
-    <groupId>org.truenewx.tnxsample</groupId>
-    <artifactId>tnxsample-cas-server</artifactId>
+    <groupId>org.truenewx.tnxsample.admin</groupId>
+    <artifactId>tnxsample-admin-web</artifactId>
     <packaging>war</packaging>
     <dependencies>
         <dependency>
@@ -19,15 +19,19 @@
         </dependency>
         <dependency>
             <groupId>org.truenewx.tnxjeex.cas</groupId>
-            <artifactId>tnxjeex-cas-server</artifactId>
+            <artifactId>tnxjeex-cas-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.truenewx.tnxjeex.fss</groupId>
+            <artifactId>tnxjeex-fss-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.truenewx.tnxsample.admin</groupId>
+            <artifactId>tnxsample-admin-service</artifactId>
         </dependency>
         <dependency>
             <groupId>org.truenewx.tnxsample.admin</groupId>
             <artifactId>tnxsample-admin-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -40,6 +44,7 @@
         <dependency><!-- 没有这个，getSession()会无限递归 -->
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -50,6 +55,22 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
         </dependency>
     </dependencies>
 </project>
