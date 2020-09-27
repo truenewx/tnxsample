@@ -168,11 +168,11 @@ public class ManagerServiceTest extends ServiceTestSupport {
 
     @Test
     @Caption("测试：禁用/启用管理员")
-    public void reverseDisabledTest() {
+    public void updateDisabledTest() {
         Manager manager1 = getData(Manager.class, 1);
         boolean disabled1 = manager1.isDisabled();
 
-        this.service.updateDisabled(manager1.getId(), disabled1);
+        this.service.updateDisabled(manager1.getId(), !disabled1);
         Manager manager = this.service.find(manager1.getId());
         Assert.assertEquals(!disabled1, manager.isDisabled());
     }
