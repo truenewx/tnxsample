@@ -6,37 +6,39 @@ server:
     jsp:
       init-parameters:
         development: true
-host:
-  cas: localhost:8883
-  facade: localhost:8885
-  admin: localhost:8887
-  fss: localhost:8889
 tnxjee:
   profile:
     formal: false
   common:
     apps:
+      gateway:
+        https: false
+        host: localhost:8880
+        context-path: ''
       cas:
         user-type: '*'
         https: false
-        host: ${host.cas}
+        host: localhost:8883
         context-path: /cas
       facade:
         user-type: customer
         https: false
-        host: ${host.facade}
+        host: localhost:8885
+        context-path: ''
       admin:
         user-type: manager
         https: false
-        host: ${host.admin}
+        host: localhost:8887
+        context-path: /admin
       fss:
         user-type: '*'
         https: false
-        host: ${host.fss}
+        host: localhost:8889
+        context-path: /fss
   web:
     cors:
       allowed-origins:
-        - http://localhost:8080
+        - http://localhost:8085
         - http://localhost:8087
 tnxjeex:
   cas:

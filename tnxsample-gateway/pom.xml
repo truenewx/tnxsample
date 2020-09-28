@@ -13,16 +13,16 @@
     <packaging>war</packaging>
     <dependencies>
         <dependency>
-            <groupId>org.truenewx.tnxjeex</groupId>
-            <artifactId>tnxjeex-gateway</artifactId>
+            <groupId>org.truenewx.tnxjee</groupId>
+            <artifactId>tnxjee-webflux</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxsample.admin</groupId>
-            <artifactId>tnxsample-admin-api</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxsample.facade</groupId>
-            <artifactId>tnxsample-facade-api</artifactId>
+            <groupId>org.truenewx.tnxsample</groupId>
+            <artifactId>tnxsample-common</artifactId>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>

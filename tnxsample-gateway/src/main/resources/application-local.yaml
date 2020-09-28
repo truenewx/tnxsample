@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: cas
+          uri: http://localhost:8883
+          predicates:
+            - Path=/cas/**
+        - id: admin
+          uri: http://localhost:8887
+          predicates:
+            - Path=/admin/**
