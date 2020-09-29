@@ -9,31 +9,24 @@ server:
 tnxjee:
   profile:
     formal: false
+  gatway-uri: http://localhost:8880
   common:
     apps:
-      gateway:
-        https: false
-        host: localhost:8880
-        context-path: ''
       cas:
         user-type: '*'
-        https: false
-        host: localhost:8883
+        uri: http://localhost:8883
         context-path: /cas
       facade:
         user-type: customer
-        https: false
-        host: localhost:8885
+        uri: http://localhost:8885
         context-path: ''
       admin:
         user-type: manager
-        https: false
-        host: localhost:8887
+        uri: http://localhost:8887
         context-path: /admin
       fss:
         user-type: '*'
-        https: false
-        host: localhost:8889
+        uri: http://localhost:8889
         context-path: /fss
   web:
     cors:

@@ -8,6 +8,6 @@ import org.truenewx.tnxsample.facade.api.CustomerLoginApi;
  *
  * @author jianglei
  */
-@FeignClient(name = "customer-login", url = "${tnxjee.common.apps.facade.host}${tnxjee.common.apps.facade.context-path}")
+@FeignClient(name = "customer-login", url = "${tnxjee.common.apps.facade.uri}${tnxjee.common.apps.facade.context-path}")
 public interface CustomerLoginClient extends CustomerLoginApi {
 }

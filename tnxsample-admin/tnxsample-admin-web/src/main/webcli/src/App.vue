@@ -54,6 +54,13 @@ export default {
         app.rpc.loadConfig(process.env.VUE_APP_API_BASE_URL, () => {
             app.rpc.ensureLogined(function() {
                 vm.logined = true;
+                app.rpc.ensureLogined(function() {
+                }, {
+                    base: 'fss',
+                    toLogin: function(loginFormUrl, originalUrl, originalMethod) {
+                        return true;
+                    }
+                });
             });
         });
     }
