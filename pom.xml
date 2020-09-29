@@ -24,7 +24,6 @@
         <module>tnxsample-common</module>
         <module>tnxsample-facade</module>
         <module>tnxsample-fss-web</module>
-        <module>tnxsample-gateway</module>
     </modules>
 
     <dependencyManagement><!-- 所有微服务都可以引用的工程依赖在此管理 -->
