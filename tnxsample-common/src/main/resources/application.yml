@@ -15,7 +15,7 @@ spring:
 tnxjee:
   web:
     cors:
+      path-pattern: /**
       allow-credentials: true
       allowed-headers: '*'
       allowed-methods: '*'
-      path-pattern: /**
