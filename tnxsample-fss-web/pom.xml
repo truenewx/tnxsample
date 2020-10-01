@@ -15,6 +15,10 @@
             <artifactId>tnxjeex-fss-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.truenewx.tnxjeex.cas</groupId>
+            <artifactId>tnxjeex-cas-client</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.truenewx.tnxsample</groupId>
             <artifactId>tnxsample-common</artifactId>
         </dependency>
