@@ -5,17 +5,7 @@ spring:
       force: true
   profiles:
     active: local
-  mvc:
-    static-path-pattern: /robots.txt,/assets/**,/vendor/**,/pages/**/*.css,/pages/**/*.js,**/*.html
-    view:
-      prefix: /public/pages/
-      suffix: .jsp
-  resources:
-    static-locations: /static/,/public/
 tnxjee:
   web:
     cors:
-      path-pattern: /**
       allow-credentials: true
-      allowed-headers: '*'
-      allowed-methods: '*'
