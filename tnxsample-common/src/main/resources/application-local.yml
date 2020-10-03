@@ -34,6 +34,3 @@ tnxjee:
       allowed-origins:
         - http://localhost:8085
         - http://localhost:8087
-tnxjeex:
-  cas:
-    server-app-name: cas
