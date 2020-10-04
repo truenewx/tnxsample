@@ -3,12 +3,10 @@
         <h3>
             <el-link :href="contextPath + '/'" :underline="false">{{title}}</el-link>
         </h3>
-        <el-row type="flex" align="middle" v-if="managerCaption">
-            <el-avatar class="mr-2" :size="32">
-                <i class="el-icon-user-solid"></i>
-            </el-avatar>
+        <el-row type="flex" align="middle" v-if="manager.caption">
+            <el-avatar class="mr-2" icon="el-icon-user-solid" :src="manager.headImageUrl" :size="32"/>
             <el-dropdown trigger="click">
-                <span class="el-dropdown-link">{{managerCaption}}
+                <span class="el-dropdown-link">{{manager.caption}}
                     <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
@@ -31,13 +29,24 @@ export default {
         return {
             title: process.env.VUE_APP_TITLE,
             contextPath: process.env.VUE_APP_VIEW_BASE_URL,
-            managerCaption: null,
+            manager: {
+                caption: null,
+                headImageUrl: null,
+            },
         };
     },
     created() {
         const vm = this;
-        app.rpc.get('/manager/self/caption', caption => {
-            vm.managerCaption = caption;
+        app.rpc.get('/manager/self/least', manager => {
+            vm.manager.caption = manager.caption;
+            app.rpc.ensureLogined(function() {
+                vm.manager.headImageUrl = manager.headImageUrl;
+            }, {
+                base: 'fss',
+                toLogin: function(loginFormUrl, originalUrl, originalMethod) {
+                    return true;
+                }
+            });
         });
     },
     methods: {

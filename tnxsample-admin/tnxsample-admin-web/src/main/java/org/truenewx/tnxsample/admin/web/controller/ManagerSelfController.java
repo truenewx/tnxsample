@@ -7,12 +7,7 @@ import javax.validation.Valid;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxjeex.fss.model.FssFileMeta;
@@ -20,6 +15,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
 import org.truenewx.tnxsample.admin.web.model.BasicManager;
+import org.truenewx.tnxsample.admin.web.model.LeastManager;
 import org.truenewx.tnxsample.admin.web.rpc.FssMetaClient;
 import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
 
@@ -39,11 +35,14 @@ public class ManagerSelfController {
         return loadManager().getAuthorities();
     }
 
-    @Caption("获取个人显示名称")
-    @GetMapping("/caption")
+    @Caption("获取基本信息最少量")
+    @GetMapping("/least")
     @ConfigAuthority
-    public String caption() {
-        return loadManager().getCaption();
+    public LeastManager least() {
+        Manager manager = loadManager();
+        LeastManager lm = new LeastManager(manager);
+        lm.setHeadImageUrl(this.fssMetaClient.resolveReadUrl(manager.getHeadImageUrl(), true));
+        return lm;
     }
 
     private Manager loadManager() {

@@ -103,7 +103,6 @@ public class Manager
     }
 
     @Override
-    @JsonIgnore
     public String getCaption() {
         return getFullName();
     }
