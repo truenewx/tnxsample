@@ -4,27 +4,19 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.truenewx.tnxsample</groupId>
-        <artifactId>tnxsample-admin</artifactId>
+        <artifactId>tnxsample-root</artifactId>
         <version>2.2.1</version>
     </parent>
-    <groupId>org.truenewx.tnxsample.admin</groupId>
-    <artifactId>tnxsample-admin-service</artifactId>
+    <groupId>org.truenewx.tnxsample.root</groupId>
+    <artifactId>tnxsample-root-service</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxjee</groupId>
             <artifactId>tnxjee-service-impl</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.truenewx.tnxsample.admin</groupId>
-            <artifactId>tnxsample-admin-repo</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.truenewx.tnxsample.root</groupId>
-            <artifactId>tnxsample-root-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>tnxsample-root-repo</artifactId>
         </dependency>
         <dependency>
             <groupId>org.truenewx.tnxjee</groupId>

@@ -95,8 +95,8 @@
     <orderEntry type="library" scope="RUNTIME" name="Maven: io.netty:netty-handler:4.1.52.Final" level="project" />
     <orderEntry type="library" name="Maven: de.bwaldvogel:mongo-java-server-memory-backend:1.33.0" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.21" level="project" />
-    <orderEntry type="module" module-name="tnxsample-facade-api" />
-    <orderEntry type="module" module-name="tnxsample-facade-model" />
+    <orderEntry type="module" module-name="tnxsample-root-api" />
+    <orderEntry type="module" module-name="tnxsample-root-model" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.2.9.RELEASE" level="project" />

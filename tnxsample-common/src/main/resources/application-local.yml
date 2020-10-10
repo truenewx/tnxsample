@@ -17,7 +17,7 @@ tnxjee:
         user-type: '*'
         direct-uri: http://localhost:8883
         context-path: /cas
-      facade:
+      root:
         user-type: customer
         direct-uri: http://localhost:8885
         context-path: ''

@@ -22,7 +22,7 @@
         <module>tnxsample-admin</module>
         <module>tnxsample-cas-server</module>
         <module>tnxsample-common</module>
-        <module>tnxsample-facade</module>
+        <module>tnxsample-root</module>
         <module>tnxsample-fss-web</module>
     </modules>
 
@@ -34,8 +34,8 @@
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.truenewx.tnxsample.facade</groupId>
-                <artifactId>tnxsample-facade-api</artifactId>
+                <groupId>org.truenewx.tnxsample.root</groupId>
+                <artifactId>tnxsample-root-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
