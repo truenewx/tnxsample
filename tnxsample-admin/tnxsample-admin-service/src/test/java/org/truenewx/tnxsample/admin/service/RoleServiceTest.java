@@ -78,7 +78,7 @@ public class RoleServiceTest extends ServiceTestSupport {
     }
 
     @Test
-    @Caption("测试：添加角色")
+    @Caption("测试：新增角色")
     public void addTest() {
         int[] managerIds = { getData(Manager.class, 1).getId(), getData(Manager.class, 2).getId() };
 

@@ -63,7 +63,7 @@ export default {
             });
             app.rpc.post(vm.url, model, function() {
                 vm.$refs.form.disable();
-                tnx.toast('添加成功', function() {
+                tnx.toast('新增成功', function() {
                     vm.$router.back();
                 });
             });

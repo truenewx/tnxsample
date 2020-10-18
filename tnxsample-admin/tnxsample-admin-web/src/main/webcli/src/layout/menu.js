@@ -12,7 +12,7 @@ export default new Menu({
             path: '/manager/list',
             rank: 'top',
             operations: [{
-                caption: '添加管理员',
+                caption: '新增管理员',
                 path: '/manager/add',
                 rank: 'top',
             }, {
@@ -30,7 +30,7 @@ export default new Menu({
             path: '/role/list',
             rank: 'top',
             operations: [{
-                caption: '添加角色',
+                caption: '新增角色',
                 path: '/role/add',
                 rank: 'top',
             }, {
@@ -48,7 +48,7 @@ export default new Menu({
             path: '/dept/list',
             rank: 'top',
             operations: [{
-                caption: '添加部门',
+                caption: '新增部门',
                 path: '/dept/add',
                 rank: 'top',
             }, {
@@ -60,7 +60,7 @@ export default new Menu({
                 path: '/dept/:id/delete',
                 rank: 'top',
             }, {
-                caption: '添加岗位',
+                caption: '新增岗位',
                 path: '/job-position/add',
                 rank: 'top',
             }, {

@@ -112,7 +112,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
     }
 
     @Test
-    @Caption("测试：添加管理员")
+    @Caption("测试：新增管理员")
     public void addTest() {
         int roleId0 = getData(Role.class, 0).getId();
         int roleId1 = getData(Role.class, 1).getId();
@@ -135,7 +135,7 @@ public class ManagerServiceTest extends ServiceTestSupport {
     }
 
     @Test
-    @Caption("测试：添加管理员-重复的用户名")
+    @Caption("测试：新增管理员-重复的用户名")
     @TestBusinessException(ManagerExceptionCodes.REPEAT_USERNAME)
     public void addTestRepeatUser() {
         String username = getFirstData(Manager.class).getUsername();

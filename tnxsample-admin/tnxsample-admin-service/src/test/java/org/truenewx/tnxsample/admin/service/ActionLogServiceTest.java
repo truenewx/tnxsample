@@ -22,7 +22,7 @@ public class ActionLogServiceTest extends ServiceTestSupport {
     private ActionLogService service;
 
     @Test
-    @Caption("测试：添加和分页查询操作日志")
+    @Caption("测试：新增和分页查询操作日志")
     public void addAndQueryTest() {
         Manager manager = getFirstData(Manager.class);
         int managerId = manager.getId();

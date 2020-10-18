@@ -84,7 +84,7 @@ export default {
         },
         submit() {
             const vm = this;
-            tnx.confirm('管理员账号添加后无法删除，只能禁用，请谨慎操作。确定要添加吗？', yes => {
+            tnx.confirm('管理员账号创建后无法删除，只能禁用，请谨慎操作。确定要提交吗？', yes => {
                 if (yes) {
                     const model = Object.assign({}, vm.model, {
                         password: vm.md5Password,
@@ -92,7 +92,7 @@ export default {
                     });
                     app.rpc.post(vm.url, model, function() {
                         vm.$refs.form.disable();
-                        tnx.toast('添加成功', function() {
+                        tnx.toast('新增成功', function() {
                             vm.$router.back();
                         });
                     });

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="d-flex justify-content-between mb-3">
-            <el-button type="primary" @click="toAdd" v-if="addable">添加管理员</el-button>
+            <el-button type="primary" @click="toAdd" v-if="addable">新增管理员</el-button>
             <el-col :span="8">
                 <el-input placeholder="输入工号/姓名/用户名的关键字" prefix-icon="el-icon-search"
                     v-model="params.keyword" clearable @clear="query">
@@ -18,7 +18,7 @@
                 <template slot-scope="scope">
                     <template v-if="scope.row.roles.length > 0">
                         <el-tag type="warning" v-for="role in scope.row.roles" :key="role.id">
-                            {{role.name}}
+                            {{ role.name }}
                         </el-tag>
                     </template>
                     <span class="text-muted" v-else>&lt;无&gt;</span>
