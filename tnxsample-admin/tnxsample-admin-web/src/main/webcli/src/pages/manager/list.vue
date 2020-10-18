@@ -1,13 +1,15 @@
 <template>
     <div>
-        <div class="d-flex justify-content-between mb-3">
-            <el-button type="primary" @click="toAdd" v-if="addable">新增管理员</el-button>
-            <el-col :span="8">
+        <el-row class="mb-3">
+            <el-col :span="6">
                 <el-input placeholder="输入工号/姓名/用户名的关键字" prefix-icon="el-icon-search"
                     v-model="params.keyword" clearable @clear="query">
                     <el-button slot="append" @click="query">查询</el-button>
                 </el-input>
             </el-col>
+        </el-row>
+        <div class="d-flex justify-content-between mb-3">
+            <el-button type="primary" @click="toAdd" v-if="addable">新增管理员</el-button>
             <el-alert type="info" class="m-0" title="管理员是用于管理系统的账号" :closable="false" show-icon/>
         </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>

@@ -1,13 +1,15 @@
 <template>
     <div>
-        <div class="d-flex justify-content-between mb-3">
-            <el-button type="primary" @click="toAdd" v-if="addable">新增角色</el-button>
-            <el-col :span="6">
+        <el-row class="mb-3">
+            <el-col :span="4">
                 <el-input placeholder="输入名称的关键字" prefix-icon="el-icon-search"
                     v-model="params.name" clearable @clear="query">
                     <el-button slot="append" @click="query">查询</el-button>
                 </el-input>
             </el-col>
+        </el-row>
+        <div class="d-flex justify-content-between mb-3">
+            <el-button type="primary" @click="toAdd" v-if="addable">新增角色</el-button>
             <el-alert type="info" class="m-0" title="角色用于向管理员授予操作权限" :closable="false" show-icon/>
         </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>
