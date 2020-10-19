@@ -1,6 +1,6 @@
 # common
 logging:
-  config: classpath:log/logback-local.xml
+  config: classpath:META-INF/log/logback-local.xml
 server:
   servlet:
     jsp:
