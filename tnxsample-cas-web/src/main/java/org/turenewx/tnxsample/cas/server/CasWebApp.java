@@ -9,11 +9,11 @@ import org.truenewx.tnxjeex.cas.server.CasServerModule;
 
 @EnableCaching
 @EnableFeignClients
-@SpringBootApplication(scanBasePackageClasses = { Framework.class, CasServerModule.class, CasServerApp.class })
-public class CasServerApp {
+@SpringBootApplication(scanBasePackageClasses = { Framework.class, CasServerModule.class, CasWebApp.class })
+public class CasWebApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(CasServerApp.class, args);
+        SpringApplication.run(CasWebApp.class, args);
     }
 
 }
