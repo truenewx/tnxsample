@@ -1,5 +1,5 @@
 {
-  "name": "txnsample-cas-server",
+  "name": "tnxsample-cas-webcli",
   "version": "2.2.1",
   "private": true,
   "scripts": {

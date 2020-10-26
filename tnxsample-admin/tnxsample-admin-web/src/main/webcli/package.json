@@ -1,5 +1,5 @@
 {
-  "name": "tnxsample-admin-view",
+  "name": "tnxsample-admin-webcli",
   "version": "2.2.1",
   "private": true,
   "scripts": {
