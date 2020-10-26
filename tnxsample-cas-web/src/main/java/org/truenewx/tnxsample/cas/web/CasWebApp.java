@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas.web;
+package org.truenewx.tnxsample.cas.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

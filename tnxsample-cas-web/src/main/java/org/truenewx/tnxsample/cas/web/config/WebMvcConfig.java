@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas.web.config;
+package org.truenewx.tnxsample.cas.web.config;
 
 import org.sitemesh.builder.SiteMeshFilterBuilder;
 import org.springframework.context.annotation.Configuration;
