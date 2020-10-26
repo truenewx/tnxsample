@@ -20,7 +20,7 @@
 
     <modules>
         <module>tnxsample-admin</module>
-        <module>tnxsample-cas-server</module>
+        <module>tnxsample-cas-web</module>
         <module>tnxsample-common</module>
         <module>tnxsample-root</module>
         <module>tnxsample-fss-web</module>
