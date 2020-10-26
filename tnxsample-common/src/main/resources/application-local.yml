@@ -11,26 +11,26 @@ tnxjee:
     formal: false
   common:
     gateway-enabled: false
-    gateway-uri: http://localhost:8880
+    gateway-uri: http://localhost
     apps:
       cas:
         user-type: '*'
-        direct-uri: http://localhost:8883
+        direct-uri: http://localhost:8881
         context-path: /cas
+      fss:
+        user-type: '*'
+        direct-uri: http://localhost:8882
+        context-path: /fss
       root:
         user-type: customer
-        direct-uri: http://localhost:8885
+        direct-uri: http://localhost:8883
         context-path: ''
       admin:
         user-type: manager
-        direct-uri: http://localhost:8887
+        direct-uri: http://localhost:8885
         context-path: /admin
-      fss:
-        user-type: '*'
-        direct-uri: http://localhost:8889
-        context-path: /fss
   web:
     cors:
       allowed-origins:
+        - http://localhost:8083
         - http://localhost:8085
-        - http://localhost:8087
