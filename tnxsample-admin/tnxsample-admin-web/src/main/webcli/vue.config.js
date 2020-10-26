@@ -5,7 +5,7 @@ module.exports = {
     assetsDir: 'assets',
     indexPath: 'main.html',
     devServer: {
-        port: 8087
+        port: 8085
     },
     pages: {
         index: {

@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas.server;
+package org.turenewx.tnxsample.cas.web;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

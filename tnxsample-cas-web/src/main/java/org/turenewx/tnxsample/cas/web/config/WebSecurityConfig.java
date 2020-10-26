@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas.server.config;
+package org.turenewx.tnxsample.cas.web.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.truenewx.tnxjeex.cas.server.config.CasServerSecurityConfigurerSupport;

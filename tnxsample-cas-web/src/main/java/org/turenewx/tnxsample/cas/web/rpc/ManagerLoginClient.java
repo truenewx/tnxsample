@@ -1,4 +1,4 @@
-package org.turenewx.tnxsample.cas.server.rpc;
+package org.turenewx.tnxsample.cas.web.rpc;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.truenewx.tnxsample.admin.api.ManagerLoginApi;
