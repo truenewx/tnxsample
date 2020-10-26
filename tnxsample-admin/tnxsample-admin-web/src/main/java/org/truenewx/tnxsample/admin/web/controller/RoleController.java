@@ -10,10 +10,11 @@ import org.truenewx.tnxjee.webmvc.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.Role;
-import org.truenewx.tnxsample.admin.service.RoleService;
-import org.truenewx.tnxsample.admin.service.model.RoleCommand;
 import org.truenewx.tnxsample.admin.web.model.ListRole;
 import org.truenewx.tnxsample.common.CommonConstants;
+
+import com.hrzh.admin.service.RoleService;
+import com.hrzh.admin.service.model.RoleCommand;
 
 /**
  * 角色管理

@@ -12,12 +12,13 @@ import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxjeex.fss.model.FssFileMeta;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
-import org.truenewx.tnxsample.admin.service.ManagerService;
-import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
 import org.truenewx.tnxsample.admin.web.model.BasicManager;
 import org.truenewx.tnxsample.admin.web.model.LeastManager;
 import org.truenewx.tnxsample.admin.web.rpc.FssMetaClient;
 import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
+
+import com.hrzh.admin.service.ManagerService;
+import com.hrzh.admin.service.model.ManagerSelfCommand;
 
 @Caption("当前个人管理")
 @RestController
@@ -41,7 +42,10 @@ public class ManagerSelfController {
     public LeastManager least() {
         Manager manager = loadManager();
         LeastManager lm = new LeastManager(manager);
-        lm.setHeadImageUrl(this.fssMetaClient.resolveReadUrl(manager.getHeadImageUrl(), true));
+        String headImageUrl = manager.getHeadImageUrl();
+        if (StringUtils.isNotBlank(headImageUrl)) {
+            lm.setHeadImageUrl(this.fssMetaClient.resolveReadUrl(headImageUrl, true));
+        }
         return lm;
     }
 

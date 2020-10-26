@@ -6,7 +6,8 @@ import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAnonymous;
 import org.truenewx.tnxsample.admin.api.ManagerLoginApi;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
-import org.truenewx.tnxsample.admin.service.ManagerService;
+
+import com.hrzh.admin.service.ManagerService;
 
 /**
  * 管理员登录控制器
