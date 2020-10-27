@@ -17,6 +17,7 @@ import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
 import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
+import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.common.CommonConstants;
 
@@ -126,7 +127,7 @@ public class Manager
     }
 
     @JsonIgnore
-    public DefaultUserSpecificDetails getSpecificDetails() {
+    public UserSpecificDetails<? extends IntegerUserIdentity> getSpecificDetails() {
         DefaultUserSpecificDetails details = new DefaultUserSpecificDetails();
         details.setIdentity(getIdentity());
         details.setUsername(getUsername());
