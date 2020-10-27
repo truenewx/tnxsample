@@ -1,37 +1,15 @@
 package org.truenewx.tnxsample.admin.web.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.truenewx.tnxjee.core.version.VersionReader;
+import org.truenewx.tnxjee.webmvc.api.swagger.SwaggerConfigSupport;
 import org.truenewx.tnxsample.admin.web.controller.MainController;
 
-import springfox.documentation.builders.ApiInfoBuilder;
-import springfox.documentation.builders.PathSelectors;
-import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.spi.DocumentationType;
-import springfox.documentation.spring.web.plugins.Docket;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-@EnableSwagger2
 @Configuration
-public class SwaggerConfig {
+public class SwaggerConfig extends SwaggerConfigSupport {
 
-    @Autowired
-    private VersionReader versionReader;
-
-    @Bean
-    public Docket docket() {
-        return new Docket(DocumentationType.SWAGGER_2).groupName("admin").apiInfo(apiInfo())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage(MainController.class.getPackageName()))
-                .paths(PathSelectors.any()).build();
-    }
-
-    private ApiInfo apiInfo() {
-        String version = this.versionReader.getVersion();
-        return new ApiInfoBuilder().version(version).build();
+    @Override
+    protected String getBasePackage() {
+        return MainController.class.getPackageName();
     }
 
 }
