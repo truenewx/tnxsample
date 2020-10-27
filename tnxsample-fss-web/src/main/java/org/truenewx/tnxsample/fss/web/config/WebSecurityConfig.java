@@ -2,7 +2,7 @@ package org.truenewx.tnxsample.fss.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.truenewx.tnxjee.webmvc.security.config.WebMvcSecurityConfigurerSupport;
+import org.truenewx.tnxjee.webmvc.security.config.annotation.web.configuration.WebMvcSecurityConfigurerSupport;
 import org.truenewx.tnxjeex.cas.client.config.CasClientProperties;
 
 @Configuration
