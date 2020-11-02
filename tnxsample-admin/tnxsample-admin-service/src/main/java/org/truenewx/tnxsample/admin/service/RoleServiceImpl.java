@@ -131,7 +131,7 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
     }
 
     @Override
-    public boolean delete(Integer id) {
+    public Role delete(Integer id) {
         Role role = find(id);
         if (role != null) {
             // 移除包含的管理员关系
@@ -140,9 +140,8 @@ public class RoleServiceImpl extends AbstractUnityService<Role, Integer> impleme
                 manager.getRoles().remove(role);
             });
             this.repo.delete(role);
-            return true;
         }
-        return false;
+        return role;
     }
 
     @Override
