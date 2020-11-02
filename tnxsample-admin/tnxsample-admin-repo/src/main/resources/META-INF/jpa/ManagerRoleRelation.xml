@@ -10,7 +10,7 @@
     </persistence-unit-metadata>
 
     <entity class="org.truenewx.tnxsample.admin.model.entity.ManagerRoleRelation">
-        <table name="t_manager_r_role"/>
+        <table name="t_manager_role_relation"/>
         <attributes>
             <embedded-id name="id">
                 <attribute-override name="managerId">

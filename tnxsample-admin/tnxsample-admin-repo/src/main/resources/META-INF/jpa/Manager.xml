@@ -45,7 +45,7 @@
             </basic>
             <many-to-many name="roles"
                     target-entity="org.truenewx.tnxsample.admin.model.entity.Role">
-                <join-table name="t_manager_r_role">
+                <join-table name="t_manager_role_relation">
                     <join-column name="manager_id"/>
                     <inverse-join-column name="role_id"/>
                 </join-table>

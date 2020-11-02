@@ -8,6 +8,6 @@ insert into t_role (id, role_name, ordinal, permission_string)
 values (1, '用户管理者', 1, '["USER_LIST","USER_DISABLE","USER_DETAIL"]'),
        (2, '客服', 2, '');
 
-insert into t_manager_r_role (manager_id, role_id)
+insert into t_manager_role_relation (manager_id, role_id)
 values (2, 1),
        (4, 2);
