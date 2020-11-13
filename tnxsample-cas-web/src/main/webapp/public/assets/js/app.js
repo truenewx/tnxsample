@@ -9,7 +9,7 @@ const appInitIntervalNo = setInterval(function() {
         Vue = tnx.libs.Vue_UMD;
         util = tnx.util;
         app = tnx.app;
-        app.init(() => {
+        app.init(function() {
             app.rpc.setBaseUrl(app.context);
         });
     }
