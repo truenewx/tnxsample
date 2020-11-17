@@ -13,7 +13,8 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
 import org.truenewx.tnxsample.admin.service.RoleService;
 import org.truenewx.tnxsample.admin.service.model.RoleCommand;
 import org.truenewx.tnxsample.admin.web.model.ListRole;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.ManagerRanks;
+import org.truenewx.tnxsample.common.constant.UserTypes;
 
 /**
  * 角色管理
@@ -26,8 +27,8 @@ public class RoleController {
     private RoleService roleService;
 
     @GetMapping("/list")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
-            rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = UserTypes.MANAGER,
+            rank = ManagerRanks.TOP)
     @ResultFilter(type = Manager.class, included = { "id", "jobNo", "username", "fullName" })
     public List<ListRole> list(@RequestParam(name = "name", required = false) String name) {
         List<Role> roles = this.roleService.findByName(name);
@@ -41,30 +42,30 @@ public class RoleController {
     }
 
     @PostMapping("/add")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
-            rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = UserTypes.MANAGER,
+            rank = ManagerRanks.TOP)
     public void add(@RequestBody RoleCommand command) {
         this.roleService.add(command);
     }
 
     @GetMapping("/{id}")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
-            rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = UserTypes.MANAGER,
+            rank = ManagerRanks.TOP)
     @ResultFilter(type = Manager.class, included = { "id", "jobNo", "username", "fullName" })
     public Role detail(@PathVariable("id") int id) {
         return this.roleService.load(id);
     }
 
     @PostMapping("/{id}/update")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
-            rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = UserTypes.MANAGER,
+            rank = ManagerRanks.TOP)
     public void update(@PathVariable("id") int id, @RequestBody RoleCommand command) {
         this.roleService.update(id, command);
     }
 
     @PostMapping("/{id}/delete")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER,
-            rank = CommonConstants.MANAGER_RANK_TOP)
+    @ConfigAuthority(type = UserTypes.MANAGER,
+            rank = ManagerRanks.TOP)
     public void delete(@PathVariable("id") int id) {
         this.roleService.delete(id);
     }

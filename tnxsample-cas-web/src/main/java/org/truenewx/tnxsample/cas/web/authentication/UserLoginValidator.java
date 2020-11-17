@@ -6,7 +6,7 @@ import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.service.spec.user.UserPasswordLoginValidator;
 import org.truenewx.tnxsample.cas.web.rpc.CustomerLoginClient;
 import org.truenewx.tnxsample.cas.web.rpc.ManagerLoginClient;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.UserTypes;
 
 @Service
 public class UserLoginValidator implements UserPasswordLoginValidator {
@@ -20,9 +20,9 @@ public class UserLoginValidator implements UserPasswordLoginValidator {
     public UserSpecificDetails<?> validatePasswordLogin(String userType, String scope, String username,
             String password) {
         switch (userType) {
-            case CommonConstants.USER_TYPE_MANAGER:
+            case UserTypes.MANAGER:
                 return this.managerLoginClient.validate(username, password);
-            case CommonConstants.USER_TYPE_CUSTOMER:
+            case UserTypes.CUSTOMER:
                 return this.customerLoginClient.validate(username, password);
         }
         return null;

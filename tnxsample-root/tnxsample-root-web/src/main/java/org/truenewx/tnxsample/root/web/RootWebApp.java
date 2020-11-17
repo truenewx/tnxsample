@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxjeex.cas.client.CasClientModule;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.CommonConstants;
 import org.truenewx.tnxsample.root.AppRoot;
 
 @EnableCaching

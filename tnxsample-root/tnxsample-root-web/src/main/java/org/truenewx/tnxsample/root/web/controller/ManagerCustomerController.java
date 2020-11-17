@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.webmvc.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAuthority;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.UserTypes;
 import org.truenewx.tnxsample.root.api.ManagerCustomerApi;
 import org.truenewx.tnxsample.root.model.entity.Customer;
 import org.truenewx.tnxsample.root.service.CustomerService;
@@ -19,7 +19,7 @@ public class ManagerCustomerController implements ManagerCustomerApi {
 
     @Override
     @Caption("根据手机号码加载客户")
-    @ConfigAuthority(type = CommonConstants.USER_TYPE_MANAGER)
+    @ConfigAuthority(type = UserTypes.MANAGER)
     @ResultFilter(type = Customer.class, excluded = { "accountNonExpired", "accountNonLocked",
             "credentialsNonExpired", "enabled", "password" }, pureEnum = "type")
     public Customer loadByMobilePhone(String mobilePhone) {

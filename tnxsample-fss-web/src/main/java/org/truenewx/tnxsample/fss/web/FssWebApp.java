@@ -7,7 +7,7 @@ import org.springframework.session.data.mongo.config.annotation.web.http.EnableM
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxjeex.cas.client.CasClientModule;
 import org.truenewx.tnxjeex.fss.FssModule;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.CommonConstants;
 import org.truenewx.tnxsample.fss.AppRoot;
 
 /**

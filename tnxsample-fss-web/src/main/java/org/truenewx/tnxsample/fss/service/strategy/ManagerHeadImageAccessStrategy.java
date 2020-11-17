@@ -5,7 +5,7 @@ import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.model.spec.FlatSize;
 import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjeex.fss.service.model.FssUploadLimit;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.UserTypes;
 
 /**
  * 管理员头像的访问策略
@@ -47,7 +47,7 @@ public class ManagerHeadImageAccessStrategy extends AbstractFssAccessStrategy {
     }
 
     private boolean isValidUserIdentity(IntegerUserIdentity userIdentity) {
-        return userIdentity != null && CommonConstants.USER_TYPE_MANAGER.equals(userIdentity.getType());
+        return userIdentity != null && UserTypes.MANAGER.equals(userIdentity.getType());
     }
 
     @Override
@@ -58,7 +58,8 @@ public class ManagerHeadImageAccessStrategy extends AbstractFssAccessStrategy {
     @Override
     public boolean isWritable(IntegerUserIdentity userIdentity, String relativePath) {
         // 管理员只可以写自己的头像
-        return isReadable(userIdentity, relativePath) && relativePath.startsWith(Strings.SLASH + userIdentity.getId() + Strings.SLASH);
+        return isReadable(userIdentity, relativePath) && relativePath
+                .startsWith(Strings.SLASH + userIdentity.getId() + Strings.SLASH);
     }
 
 }

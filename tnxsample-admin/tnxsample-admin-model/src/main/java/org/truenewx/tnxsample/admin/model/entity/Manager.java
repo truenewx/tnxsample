@@ -19,7 +19,8 @@ import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
-import org.truenewx.tnxsample.common.CommonConstants;
+import org.truenewx.tnxsample.common.constant.ManagerRanks;
+import org.truenewx.tnxsample.common.constant.UserTypes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -85,11 +86,11 @@ public class Manager
     }
 
     public String getType() {
-        return CommonConstants.USER_TYPE_MANAGER;
+        return UserTypes.MANAGER;
     }
 
     public String getRank() {
-        return isTop() ? CommonConstants.MANAGER_RANK_TOP : CommonConstants.MANAGER_RANK_NORMAL;
+        return isTop() ? ManagerRanks.TOP : ManagerRanks.NORMAL;
     }
 
     @Override
