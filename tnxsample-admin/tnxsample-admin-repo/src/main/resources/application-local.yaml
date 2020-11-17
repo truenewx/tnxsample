@@ -1,4 +1,4 @@
-# admin-service
+#admin-repo
 spring:
   jpa:
     database: MYSQL

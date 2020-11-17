@@ -1,4 +1,4 @@
-# root-service
+#root-repo
 spring:
   jpa:
     database: MYSQL
