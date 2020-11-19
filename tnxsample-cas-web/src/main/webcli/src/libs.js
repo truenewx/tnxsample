@@ -1,3 +1,4 @@
+import '../../../../../../tnxweb/components/tnxcore.css';
 import '../../../../../../tnxweb/components/jquery/bootstrap/base-4.5.3.css';
 import '../../../../../../tnxweb/components/jquery/bootstrap/tnxbs.css';
 import 'element-ui/lib/theme-chalk/index.css';
