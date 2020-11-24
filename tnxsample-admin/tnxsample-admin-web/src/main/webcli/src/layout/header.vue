@@ -1,12 +1,12 @@
 <template>
     <el-row class="container-fluid" type="flex" align="middle" justify="space-between">
         <h3>
-            <el-link :href="contextPath + '/'" :underline="false">{{title}}</el-link>
+            <el-link :href="contextPath + '/'" :underline="false">{{ title }}</el-link>
         </h3>
         <el-row type="flex" align="middle" v-if="manager.caption">
             <el-avatar class="mr-2" icon="el-icon-user-solid" :src="manager.headImageUrl" :size="32"/>
             <el-dropdown trigger="click">
-                <span class="el-dropdown-link">{{manager.caption}}
+                <span class="el-dropdown-link">{{ manager.caption }}
                     <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
@@ -42,7 +42,7 @@ export default {
             app.rpc.ensureLogined(function() {
                 vm.manager.headImageUrl = manager.headImageUrl;
             }, {
-                base: 'fss',
+                app: 'fss',
                 toLogin: function(loginFormUrl, originalUrl, originalMethod) {
                     return true;
                 }
