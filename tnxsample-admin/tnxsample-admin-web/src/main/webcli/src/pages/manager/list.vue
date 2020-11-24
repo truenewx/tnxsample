@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import menu from "../../layout/menu";
+import menu from "../../menu";
 import {app, tnx} from "../../app";
 import password from "./password";
 

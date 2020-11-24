@@ -10,17 +10,17 @@
                 <el-submenu v-if="item.subs" :key="itemIndex" :index="'' + itemIndex">
                     <template slot="title">
                         <i class="fas" :class="item.icon"></i>
-                        <span>{{item.caption}}</span>
+                        <span>{{ item.caption }}</span>
                     </template>
                     <el-menu-item v-for="(sub, subIndex) in item.subs"
                         :key="itemIndex + '-' + subIndex" :index="sub.path">
                         <i class="fas" :class="sub.icon"></i>
-                        <span>{{sub.caption}}</span>
+                        <span>{{ sub.caption }}</span>
                     </el-menu-item>
                 </el-submenu>
                 <el-menu-item v-else :key="itemIndex" :index="item.path">
                     <i class="fas" :class="item.icon"></i>
-                    <span slot="title">{{item.caption}}</span>
+                    <span slot="title">{{ item.caption }}</span>
                 </el-menu-item>
             </template>
         </el-menu>
@@ -28,17 +28,17 @@
 </template>
 
 <script>
-import menu from './menu.js';
+import menu from '../menu.js';
 
 export default {
-    data () {
+    data() {
         return {
             items: null,
             collapsed: false,
         };
     },
     computed: {
-        activePath () {
+        activePath() {
             if (this.$route.path === "/") {
                 return undefined;
             }
@@ -46,14 +46,14 @@ export default {
             return item ? item.path : undefined;
         }
     },
-    created () {
+    created() {
         const vm = this;
         menu.loadGrantedItems(function(grantedItems) {
             vm.items = grantedItems;
         });
     },
     methods: {
-        toggleCollapsed () {
+        toggleCollapsed() {
             this.collapsed = !this.collapsed;
         }
     }

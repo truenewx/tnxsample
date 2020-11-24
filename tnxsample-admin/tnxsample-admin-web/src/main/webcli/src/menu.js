@@ -1,5 +1,5 @@
 // menu.js
-import Menu from '../../../../../../../../tnxweb/components/tnxcore-menu';
+import Menu from '../../../../../../../tnxweb/components/tnxcore-menu';
 
 export default new Menu({
     url: '/manager/self/authorities',

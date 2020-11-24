@@ -50,7 +50,7 @@
 
 <script>
 import {app, tnx} from "../../app";
-import menu from '../../layout/menu.js';
+import menu from '../../menu.js';
 
 export default {
     data() {

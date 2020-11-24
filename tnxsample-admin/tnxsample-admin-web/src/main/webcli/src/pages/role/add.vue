@@ -25,7 +25,7 @@
 
 <script>
 import {app, tnx} from '../../app';
-import menu from '../../layout/menu';
+import menu from '../../menu';
 
 export default {
     components: {
