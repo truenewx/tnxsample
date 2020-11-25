@@ -2,7 +2,7 @@
 module.exports = {
     publicPath: process.env.VUE_APP_VIEW_BASE_URL,
     outputDir: '../webapp/static',
-    assetsDir: 'assets',
+    assetsDir: 'libs',
     indexPath: 'index.html',
     devServer: {
         port: 8085

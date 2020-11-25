@@ -2,7 +2,7 @@
 module.exports = {
     publicPath: '/cas',
     outputDir: '../webapp/static',
-    assetsDir: 'assets',
+    assetsDir: 'libs',
     devServer: {
         port: 8083
     },
