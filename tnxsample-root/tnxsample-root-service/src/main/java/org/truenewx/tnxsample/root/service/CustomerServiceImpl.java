@@ -20,10 +20,10 @@ public class CustomerServiceImpl extends AbstractUnityService<Customer, Integer>
     private CustomerRepo customerRepo;
 
     @Override
-    public Customer loadByMobilePhone(String mobilePhone) {
-        Customer customer = this.customerRepo.findByMobilePhone(mobilePhone);
+    public Customer loadByCellphone(String cellphone) {
+        Customer customer = this.customerRepo.findByCellphone(cellphone);
         if (customer == null) {
-            throw new BusinessException(CustomerExceptionCodes.NO_MOBILE_PHONE, mobilePhone);
+            throw new BusinessException(CustomerExceptionCodes.NO_CELLPHONE, cellphone);
         }
         return customer;
     }

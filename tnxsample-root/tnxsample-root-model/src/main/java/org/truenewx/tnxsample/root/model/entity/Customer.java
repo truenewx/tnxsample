@@ -14,6 +14,7 @@ import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
 import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
 import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
+import org.truenewx.tnxjee.model.validation.constraint.Cellphone;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
 import org.truenewx.tnxsample.common.constant.UserTypes;
 
@@ -35,7 +36,8 @@ public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentit
     private Integer id;
     @NotBlank
     @Caption("手机号码")
-    private String mobilePhone;
+    @Cellphone
+    private String cellphone;
     @Caption("密码")
     private String password;
     @NotContainsSpecialChars
@@ -65,7 +67,7 @@ public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentit
     @Override
     @JsonIgnore
     public String getUsername() {
-        return getMobilePhone();
+        return getCellphone();
     }
 
     @Override

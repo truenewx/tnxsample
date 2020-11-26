@@ -10,7 +10,7 @@ import org.truenewx.tnxsample.root.model.entity.Customer;
  */
 public interface CustomerService extends UnityService<Customer, Integer> {
 
-    Customer loadByMobilePhone(String mobilePhone);
+    Customer loadByCellphone(String cellphone);
 
     Customer updateDisabled(int userId, boolean disabled);
 

@@ -1,14 +1,14 @@
 package org.truenewx.tnxsample.root.service;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.test.service.annotation.TestBusinessException;
 import org.truenewx.tnxsample.root.model.entity.Customer;
 import org.truenewx.tnxsample.root.service.test.ServiceTestSupport;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * CustomerServiceTest
@@ -21,19 +21,19 @@ public class CustomerServiceTest extends ServiceTestSupport {
 
     @Test
     @Caption("测试：根据手机号码加载客户")
-    public void loadByMobilePhoneTest() {
+    public void loadByCellphoneTest() {
         Customer customer0 = getData(Customer.class, 0);
-        String mobilePhone = customer0.getMobilePhone();
-        Customer customer = this.service.loadByMobilePhone(mobilePhone);
-        assertEquals(mobilePhone, customer.getMobilePhone());
+        String cellphone = customer0.getCellphone();
+        Customer customer = this.service.loadByCellphone(cellphone);
+        assertEquals(cellphone, customer.getCellphone());
         assertEquals(customer0.getId(), customer.getId());
     }
 
     @Test
     @Caption("测试：根据不存在的手机号码加载客户")
-    @TestBusinessException(CustomerExceptionCodes.NO_MOBILE_PHONE)
-    public void loadByNoMobilePhoneTest() {
-        this.service.loadByMobilePhone("12312345678");
+    @TestBusinessException(CustomerExceptionCodes.NO_CELLPHONE)
+    public void loadByNoCellphoneTest() {
+        this.service.loadByCellphone("12312345678");
         fail();
     }
 

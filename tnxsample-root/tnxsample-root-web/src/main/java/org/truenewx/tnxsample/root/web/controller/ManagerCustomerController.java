@@ -22,8 +22,8 @@ public class ManagerCustomerController implements ManagerCustomerApi {
     @ConfigAuthority(type = UserTypes.MANAGER)
     @ResultFilter(type = Customer.class, excluded = { "accountNonExpired", "accountNonLocked",
             "credentialsNonExpired", "enabled", "password" }, pureEnum = "type")
-    public Customer loadByMobilePhone(String mobilePhone) {
-        return this.customerService.loadByMobilePhone(mobilePhone);
+    public Customer loadByCellphone(String cellphone) {
+        return this.customerService.loadByCellphone(cellphone);
     }
 
 }

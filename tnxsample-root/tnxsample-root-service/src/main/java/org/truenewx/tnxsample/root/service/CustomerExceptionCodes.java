@@ -13,6 +13,6 @@ public class CustomerExceptionCodes {
     /**
      * 手机号码不存在
      */
-    public static final String NO_MOBILE_PHONE = "error.root.customer.no_mobile_phone";
+    public static final String NO_CELLPHONE = "error.root.customer.no_cellphone";
 
 }

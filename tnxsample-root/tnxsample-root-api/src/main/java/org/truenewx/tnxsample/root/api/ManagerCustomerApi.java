@@ -15,7 +15,7 @@ import org.truenewx.tnxsample.root.model.entity.Customer;
 @RequestMapping("/manager/customer")
 public interface ManagerCustomerApi {
 
-    @GetMapping("/payload/mobile-phone/{mobilePhone}")
-    Customer loadByMobilePhone(@PathVariable String mobilePhone);
+    @GetMapping("/payload/cellphone/{cellphone}")
+    Customer loadByCellphone(@PathVariable String cellphone);
 
 }

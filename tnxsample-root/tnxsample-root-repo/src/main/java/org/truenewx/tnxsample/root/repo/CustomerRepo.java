@@ -10,6 +10,6 @@ import org.truenewx.tnxsample.root.model.entity.Customer;
  */
 public interface CustomerRepo extends JpaRepository<Customer, Integer> {
 
-    Customer findByMobilePhone(String mobilePhone);
+    Customer findByCellphone(String cellphone);
 
 }
