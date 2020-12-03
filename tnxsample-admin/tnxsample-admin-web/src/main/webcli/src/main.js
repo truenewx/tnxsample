@@ -6,11 +6,11 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '../../../../../../../tnxweb/components/vue/tnxvue.css';
 import '../../../../../../../tnxweb/components/vue/element/tnxel.css';
 import './assets/app.css';
-import {Vue} from './app';
+import {app, Vue} from './app';
 import router from './router.js';
 import App from './App.vue';
 
-Vue.config.productionTip = process.env.NODE_ENV === 'production';
+Vue.config.productionTip = app.isProduction();
 
 new Vue({
     router: router,
