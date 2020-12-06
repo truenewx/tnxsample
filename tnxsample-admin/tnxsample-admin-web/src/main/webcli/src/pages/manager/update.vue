@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" rules="/manager/*/update" :on-rules-loaded="onRulesLoaded"
+    <tnxel-form ref="form" :model="model" rules="/manager/*/update" @rules-loaded="onRulesLoaded"
         :submit="submit">
         <el-form-item label="工号" prop="jobNo">
             <el-col :span="12">
