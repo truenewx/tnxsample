@@ -11,6 +11,8 @@ export const Vue = tnx.libs.Vue;
 export const util = tnx.util;
 export const app = tnx.app;
 
+app.context = process.env.VUE_APP_VIEW_BASE_URL;
+
 app.rpc.toLogin = function(loginFormUrl, originalUrl) {
     if (loginFormUrl) {
         let alertable = originalUrl !== undefined;
