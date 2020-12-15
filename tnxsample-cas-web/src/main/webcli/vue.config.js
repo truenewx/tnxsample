@@ -14,4 +14,9 @@ module.exports = {
             minify: false, // 不压缩html代码
         }
     },
+    configureWebpack: {
+        externals: {
+            vue: 'Vue',
+        }
+    }
 }

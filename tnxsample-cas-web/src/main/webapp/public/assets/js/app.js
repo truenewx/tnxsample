@@ -6,7 +6,7 @@ const appInitIntervalNo = setInterval(function() {
         clearInterval(appInitIntervalNo);
         tnx = window.tnx;
         $ = tnx.libs.$;
-        Vue = tnx.libs.Vue_UMD;
+        Vue = tnx.libs.Vue;
         util = tnx.util;
         app = tnx.app;
         app.init(function() {

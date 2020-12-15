@@ -23,6 +23,7 @@
     </div>
     <jsp:include page="../pages/footer.jsp"/>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 <script src="${context}/vendor/require-2.3.6/require.min.js"
     data-main="${context}/assets/js/app.js?v=${version}" type="text/javascript"></script>
 </body>
