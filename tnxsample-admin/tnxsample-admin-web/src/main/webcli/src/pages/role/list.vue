@@ -10,7 +10,7 @@
         </el-row>
         <div class="d-flex justify-content-between mb-3">
             <el-button type="primary" @click="toAdd" v-if="addable">新增角色</el-button>
-            <el-alert type="info" class="m-0" title="角色用于向管理员授予操作权限" :closable="false" show-icon/>
+            <el-alert type="info" class="m-0" title="角色用于向管理员授予操作权限" :closable="false" show-icon></el-alert>
         </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>
             <el-table-column prop="name" label="名称" min-width="160px" width="160px"/>

@@ -10,7 +10,7 @@
         </el-row>
         <div class="d-flex justify-content-between mb-3">
             <el-button type="primary" @click="toAdd" v-if="addable">新增管理员</el-button>
-            <el-alert type="info" class="m-0" title="管理员是用于管理系统的账号" :closable="false" show-icon/>
+            <el-alert type="info" class="m-0" title="管理员是用于管理系统的账号" :closable="false" show-icon></el-alert>
         </div>
         <el-table :data="records" :empty-text="emptyRecordText" border stripe>
             <el-table-column prop="jobNo" label="工号" min-width="120px"/>
