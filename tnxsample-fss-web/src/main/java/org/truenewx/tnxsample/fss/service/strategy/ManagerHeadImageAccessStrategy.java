@@ -55,11 +55,4 @@ public class ManagerHeadImageAccessStrategy extends AbstractFssAccessStrategy {
         return isValidUserIdentity(userIdentity); // 管理员可以读其他管理员的头像
     }
 
-    @Override
-    public boolean isWritable(IntegerUserIdentity userIdentity, String relativePath) {
-        // 管理员只可以写自己的头像
-        return isReadable(userIdentity, relativePath) && relativePath
-                .startsWith(Strings.SLASH + userIdentity.getId() + Strings.SLASH);
-    }
-
 }

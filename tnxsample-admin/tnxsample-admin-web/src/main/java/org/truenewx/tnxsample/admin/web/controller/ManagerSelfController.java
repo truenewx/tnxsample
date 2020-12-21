@@ -10,7 +10,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAuthority;
-import org.truenewx.tnxjeex.fss.model.FssFileMeta;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
@@ -61,11 +60,7 @@ public class ManagerSelfController {
         BasicManager bm = new BasicManager(manager);
         String headImageUrl = bm.getHeadImageUrl();
         if (StringUtils.isNotBlank(headImageUrl)) {
-            String[] storageUrls = { headImageUrl };
-            FssFileMeta[] metas = this.fssMetaClient.resolveMetas(storageUrls);
-            if (metas.length > 0) {
-                bm.setHeadImageFile(metas[0]);
-            }
+            bm.setHeadImageFile(this.fssMetaClient.resolveMeta(headImageUrl));
         }
         return bm;
     }
