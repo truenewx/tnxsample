@@ -33,15 +33,9 @@ public class ManagerHeadImageAccessStrategy extends AbstractFssAccessStrategy {
     }
 
     @Override
-    public boolean isMd5AsFilename() {
-        return true;
-    }
-
-    @Override
-    public String getRelativePath(String modelIdentity, IntegerUserIdentity userIdentity,
-            String filename) {
+    public String getRelativeDir(String scope, IntegerUserIdentity userIdentity) {
         if (isValidUserIdentity(userIdentity)) {
-            return Strings.SLASH + userIdentity.getId() + Strings.SLASH + filename;
+            return Strings.SLASH + userIdentity.getId();
         }
         return null;
     }
@@ -51,7 +45,7 @@ public class ManagerHeadImageAccessStrategy extends AbstractFssAccessStrategy {
     }
 
     @Override
-    public boolean isReadable(IntegerUserIdentity userIdentity, String relativePath) {
+    public boolean isReadable(IntegerUserIdentity userIdentity, String relativeDir) {
         return isValidUserIdentity(userIdentity); // 管理员可以读其他管理员的头像
     }
 
