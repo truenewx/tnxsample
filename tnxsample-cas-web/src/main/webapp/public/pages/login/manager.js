@@ -12,16 +12,6 @@ define([], function() {
                     return this.password ? util.md5(this.password) : '';
                 }
             },
-            created: function() {
-                app.rpc.get('/serviceLogoutUrls', function(urlMapping) {
-                    Object.keys(urlMapping).forEach(function(service) {
-                        const url = urlMapping[service];
-                        app.rpc.post(url, undefined, undefined, {
-                            ignored: 'Redirect-To'
-                        });
-                    });
-                });
-            },
             mounted: function() {
                 const $username = $('#username');
                 this.username = $username.attr('init-value');
