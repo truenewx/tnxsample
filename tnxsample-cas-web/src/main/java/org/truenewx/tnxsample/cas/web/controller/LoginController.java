@@ -7,7 +7,7 @@ import org.truenewx.tnxjeex.cas.server.controller.CasServerLoginControllerSuppor
 public class LoginController extends CasServerLoginControllerSupport {
 
     @Override
-    protected String getDefaultService() {
+    protected String getDefaultAppName() {
         return "admin";
     }
 
