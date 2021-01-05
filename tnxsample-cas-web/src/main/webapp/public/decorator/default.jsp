@@ -3,14 +3,13 @@
 <!DOCTYPE html>
 <html lang="zh-cmn-Hans">
 <head>
-<c:if test="${not empty _csrf}">
-    <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}" parameter="${_csrf.parameterName}"/>
-</c:if>
+    <c:if test="${not empty _csrf}">
+        <meta name="csrf" content="${_csrf.token}" header="${_csrf.headerName}" parameter="${_csrf.parameterName}"/>
+    </c:if>
     <meta name="app.context" content="${context}">
     <meta name="app.version" content="${version}">
     <title><sitemesh:write property="title"/> - tnxsample</title>
     <link href="${context}/assets/css/app.css?v=${version}" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
     <sitemesh:write property="head"></sitemesh:write>
 </head>
 

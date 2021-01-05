@@ -21,4 +21,12 @@ module.exports = {
             minify: false, // 不压缩html代码
         }
     },
+    configureWebpack: {
+        externals: {
+            'jquery': 'jQuery',
+            'vue': 'Vue',
+            'vue-router': 'VueRouter',
+            'element-ui': 'ELEMENT',
+        }
+    }
 }
