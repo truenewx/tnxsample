@@ -3,11 +3,12 @@ package org.truenewx.tnxsample.admin.repo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
+import org.truenewx.tnxjee.model.query.FieldOrder;
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjee.model.query.QuerySort;
 import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoSupport;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
@@ -45,8 +46,8 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
             ql.append(" and top=:top");
             params.put("top", top);
         }
-        QuerySort sort = QuerySort.of("jobNo", Boolean.FALSE);
-        return query(ql, params, pageSize, pageNo, sort);
+        FieldOrder order = new FieldOrder("jobNo", false);
+        return query(ql, params, pageSize, pageNo, order);
     }
 
     @Override
@@ -60,8 +61,8 @@ public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> imple
             ql.append(" and top=:top");
             params.put("top", top);
         }
-        QuerySort sort = QuerySort.of("m.username", Boolean.FALSE);
-        return query(ql, params, pageSize, pageNo, sort);
+        FieldOrder order = new FieldOrder("m.username", false);
+        return query(ql, params, pageSize, pageNo, order);
     }
 
     @Override
