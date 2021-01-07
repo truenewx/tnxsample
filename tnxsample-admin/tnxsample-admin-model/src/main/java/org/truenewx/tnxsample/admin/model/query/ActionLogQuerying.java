@@ -16,7 +16,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ActionLogQuerying extends Querying {
+
+    private static final long serialVersionUID = -1417419280956901061L;
+
     private List<Integer> managerIds;
     private Instant beginTime;
     private Instant endTime;
+
 }
