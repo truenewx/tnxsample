@@ -35,8 +35,14 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-unused-vars": "warn",
-      "eqeqeq": "warn"
+      "eqeqeq": "warn",
+      "no-unused-vars": [
+        "error",
+        {
+          "vars": "local",
+          "args": "none"
+        }
+      ]
     }
   },
   "browserslist": [
