@@ -14,19 +14,15 @@ tnxjee:
     gateway-uri: http://localhost
     apps:
       root:
-        user-type: customer
         direct-uri: http://localhost:8880
         context-path: ''
       cas:
-        user-type: '*'
         direct-uri: http://localhost:8881
         context-path: /cas
       fss:
-        user-type: '*'
         direct-uri: http://localhost:8882
         context-path: /fss
       admin:
-        user-type: manager
         direct-uri: http://localhost:8885
         context-path: /admin
   web:
