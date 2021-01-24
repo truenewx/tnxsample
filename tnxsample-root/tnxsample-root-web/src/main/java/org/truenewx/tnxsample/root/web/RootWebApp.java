@@ -7,12 +7,12 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
 import org.truenewx.tnxjee.Framework;
 import org.truenewx.tnxjeex.cas.client.CasClientModule;
-import org.truenewx.tnxsample.common.constant.CommonConstants;
+import org.truenewx.tnxsample.common.constant.SessionConstants;
 import org.truenewx.tnxsample.root.AppRoot;
 
 @EnableCaching
 @EnableFeignClients
-@EnableMongoHttpSession(maxInactiveIntervalInSeconds = CommonConstants.SESSION_TIMEOUT, collectionName = CommonConstants.SESSION_COLLECTION_NAME)
+@EnableMongoHttpSession(maxInactiveIntervalInSeconds = SessionConstants.SESSION_TIMEOUT, collectionName = SessionConstants.SESSION_COLLECTION_NAME)
 @SpringBootApplication(scanBasePackageClasses = { Framework.class, CasClientModule.class, AppRoot.class })
 public class RootWebApp {
 

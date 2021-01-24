@@ -1,13 +1,13 @@
 package org.truenewx.tnxsample.common.constant;
 
 /**
- * 通用常量类
+ * 会话常量类
  *
  * @author jianglei
  */
-public class CommonConstants {
+public class SessionConstants {
 
-    private CommonConstants() {
+    private SessionConstants() {
     }
 
     /**
