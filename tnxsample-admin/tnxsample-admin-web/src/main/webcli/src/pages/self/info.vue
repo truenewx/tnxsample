@@ -1,6 +1,6 @@
 <template>
     <tnxel-form ref="form" :model="model" :rules="url">
-        <el-form-item label="用户名">{{model.username}}</el-form-item>
+        <el-form-item label="用户名">{{ model.username }}</el-form-item>
         <el-form-item label="是否超管">
             <div>
                 <i class="fa"
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {app, tnx, util} from '../../app';
+import {app, FunctionUtil, tnx} from '../../app';
 
 export default {
     components: {
@@ -43,7 +43,7 @@ export default {
         const vm = this;
         app.rpc.get(this.url, model => {
             vm.model = model;
-            util.setMinTimeout(beginTime, function() {
+            FunctionUtil.setMinTimeout(beginTime, function() {
                 tnx.closeLoading();
             }, 500);
         });
@@ -69,7 +69,7 @@ export default {
                         const beginTime = new Date().getTime();
                         app.rpc.post(vm.url, model, function() {
                             opener.managerCaption = model.fullName;
-                            util.setMinTimeout(beginTime, function() {
+                            FunctionUtil.setMinTimeout(beginTime, function() {
                                 vm.$refs.form.disable();
                                 tnx.toast('修改成功', () => {
                                     close();
