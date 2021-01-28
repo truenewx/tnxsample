@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {app, FunctionUtil, tnx, util} from '../../app';
+import {app, tnx, util} from '../../app';
 
 export default {
     components: {
@@ -99,7 +99,7 @@ export default {
                     const beginTime = new Date().getTime();
                     tnx.showLoading();
                     app.rpc.post('/manager/self/password', function() {
-                        FunctionUtil.setMinTimeout(beginTime, function() {
+                        util.function.setMinTimeout(beginTime, function() {
                             tnx.alert('登录密码修改成功，请使用新密码重新登录', () => {
                                 vm.opener.logout();
                             });

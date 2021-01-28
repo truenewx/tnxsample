@@ -9,11 +9,6 @@ window.tnx = tnx; // tnx已被修改，需重新赋值给window
 export const $ = tnx.libs.$;
 export const Vue = tnx.libs.Vue;
 export const util = tnx.util;
-export const FunctionUtil = util.FunctionUtil;
-export const MathUtil = util.MathUtil;
-export const StringUtil = util.StringUtil;
-export const NetUtil = util.NetUtil;
-export const DomUtil = util.DomUtil;
 export const app = tnx.app;
 
 app.context = process.env.VUE_APP_VIEW_BASE_URL;

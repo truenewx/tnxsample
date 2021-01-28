@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {app, FunctionUtil, tnx} from '../../app';
+import {app, tnx, util} from '../../app';
 
 export default {
     components: {
@@ -43,7 +43,7 @@ export default {
         const vm = this;
         app.rpc.get(this.url, model => {
             vm.model = model;
-            FunctionUtil.setMinTimeout(beginTime, function() {
+            util.function.setMinTimeout(beginTime, function() {
                 tnx.closeLoading();
             }, 500);
         });
@@ -69,7 +69,7 @@ export default {
                         const beginTime = new Date().getTime();
                         app.rpc.post(vm.url, model, function() {
                             opener.managerCaption = model.fullName;
-                            FunctionUtil.setMinTimeout(beginTime, function() {
+                            util.function.setMinTimeout(beginTime, function() {
                                 vm.$refs.form.disable();
                                 tnx.toast('修改成功', () => {
                                     close();
