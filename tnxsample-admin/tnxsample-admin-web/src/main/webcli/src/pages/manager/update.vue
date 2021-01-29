@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" rules="/manager/*/update" @rules-loaded="onRulesLoaded"
+    <tnxel-submit-form ref="form" :model="model" rules="/manager/*/update" @rules-loaded="onRulesLoaded"
         :submit="submit">
         <el-form-item label="工号" prop="jobNo">
             <el-col :span="12">
@@ -22,7 +22,7 @@
                     type="warning" :keys="roleIds"/>
             </el-col>
         </el-form-item>
-    </tnxel-form>
+    </tnxel-submit-form>
 </template>
 
 <script>
@@ -30,7 +30,7 @@ import {app, tnx} from '../../app';
 
 export default {
     components: {
-        'tnxel-form': tnx.components.Form,
+        'tnxel-submit-form': tnx.components.SubmitForm,
         'tnxel-tag-select': tnx.components.TagSelect,
     },
     data() {

@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rules="url" :submit="submit">
+    <tnxel-submit-form ref="form" :model="model" :rules="url" :submit="submit">
         <el-form-item label="名称" prop="name">
             <el-col :span="9">
                 <el-input v-model.trim="model.name"/>
@@ -20,7 +20,7 @@
                 <tnxel-tag-select ref="manager" items="/manager/list" :to-tag="toManagerTag"/>
             </el-col>
         </el-form-item>
-    </tnxel-form>
+    </tnxel-submit-form>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ import menu from '../../menu';
 
 export default {
     components: {
-        'tnxel-form': tnx.components.Form,
+        'tnxel-submit-form': tnx.components.SubmitForm,
         'tnxel-permission-tree': tnx.components.PermissionTree,
         'tnxel-tag-select': tnx.components.TagSelect,
     },

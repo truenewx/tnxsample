@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rules="url">
+    <tnxel-submit-form ref="form" :model="model" :rules="url">
         <el-form-item label="用户名">{{ model.username }}</el-form-item>
         <el-form-item label="是否超管">
             <div>
@@ -16,7 +16,7 @@
                 <el-input v-model.trim="model.fullName"/>
             </el-col>
         </el-form-item>
-    </tnxel-form>
+    </tnxel-submit-form>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ import {app, tnx, util} from '../../app';
 
 export default {
     components: {
-        'tnxel-form': tnx.components.Form,
+        'tnxel-submit-form': tnx.components.SubmitForm,
         'tnxel-upload': tnx.components.Upload,
     },
     props: ['opener'],

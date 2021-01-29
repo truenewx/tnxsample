@@ -1,5 +1,5 @@
 <template>
-    <tnxel-form ref="form" :model="model" :rules="rules">
+    <tnxel-submit-form ref="form" :model="model" :rules="rules">
         <el-form-item label="登录密码" prop="password">
             <el-col>
                 <el-input type="password" v-model.trim="model.password"></el-input>
@@ -10,7 +10,7 @@
                 <el-input type="password" v-model.trim="model.password2"></el-input>
             </el-col>
         </el-form-item>
-    </tnxel-form>
+    </tnxel-submit-form>
 </template>
 
 <script>
@@ -18,7 +18,7 @@ import {app, tnx, util} from '../../app';
 
 export default {
     components: {
-        'tnxel-form': tnx.components.Form,
+        'tnxel-submit-form': tnx.components.SubmitForm,
     },
     props: {
         id: {
