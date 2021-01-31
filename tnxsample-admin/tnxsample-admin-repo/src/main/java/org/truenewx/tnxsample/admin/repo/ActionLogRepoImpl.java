@@ -3,7 +3,7 @@ package org.truenewx.tnxsample.admin.repo;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.model.query.QueryResult;
