@@ -33,7 +33,7 @@ public class MainController {
     }
 
     @GetMapping("/swagger")
-    @ConfigAuthority
+    @ConfigAnonymous(intranet = true)
     public String swagger() {
         return "redirect:/swagger-ui.html";
     }
