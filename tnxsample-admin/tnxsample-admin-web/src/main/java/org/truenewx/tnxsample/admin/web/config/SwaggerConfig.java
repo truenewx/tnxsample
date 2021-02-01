@@ -1,11 +1,11 @@
 package org.truenewx.tnxsample.admin.web.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.truenewx.tnxjee.webmvc.api.swagger.SwaggerConfigSupport;
+import org.truenewx.tnxjee.webmvc.api.swagger.SwaggerConfigurerSupport;
 import org.truenewx.tnxsample.admin.web.controller.MainController;
 
 @Configuration
-public class SwaggerConfig extends SwaggerConfigSupport {
+public class SwaggerConfig extends SwaggerConfigurerSupport {
 
     @Override
     protected String getBasePackage() {
