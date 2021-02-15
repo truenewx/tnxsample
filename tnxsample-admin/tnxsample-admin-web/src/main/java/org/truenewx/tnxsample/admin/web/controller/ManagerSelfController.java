@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.web.bind.annotation.*;
 import org.truenewx.tnxjee.core.caption.Caption;
+import org.truenewx.tnxjee.webmvc.http.annotation.ResultFilter;
 import org.truenewx.tnxjee.webmvc.security.config.annotation.ConfigAuthority;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.service.ManagerService;
 import org.truenewx.tnxsample.admin.service.model.ManagerSelfCommand;
-import org.truenewx.tnxsample.admin.web.model.BasicManager;
 import org.truenewx.tnxsample.admin.web.model.LeastManager;
 import org.truenewx.tnxsample.admin.web.rpc.FssMetaClient;
 import org.truenewx.tnxsample.admin.web.util.ProjectWebUtil;
@@ -55,14 +55,9 @@ public class ManagerSelfController {
     @Caption("获取个人信息")
     @GetMapping("/info")
     @ConfigAuthority
-    public BasicManager info() {
-        Manager manager = loadManager();
-        BasicManager bm = new BasicManager(manager);
-        String headImageUrl = bm.getHeadImageUrl();
-        if (StringUtils.isNotBlank(headImageUrl)) {
-            bm.setHeadImageFile(this.fssMetaClient.resolveMeta(headImageUrl));
-        }
-        return bm;
+    @ResultFilter(included = { "id", "username", "top", "fullName", "headImageUrl" })
+    public Manager info() {
+        return loadManager();
     }
 
     @Caption("修改个人信息")
