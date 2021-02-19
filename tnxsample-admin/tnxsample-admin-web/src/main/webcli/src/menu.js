@@ -11,7 +11,7 @@ export default new Menu({
             icon: 'fa-users-cog',
             path: '/manager/list',
             rank: 'top',
-            operations: [{
+            subs: [{
                 caption: '新增管理员',
                 path: '/manager/add',
                 rank: 'top',
@@ -29,7 +29,7 @@ export default new Menu({
             icon: 'fa-id-badge',
             path: '/role/list',
             rank: 'top',
-            operations: [{
+            subs: [{
                 caption: '新增角色',
                 path: '/role/add',
                 rank: 'top',
@@ -47,7 +47,7 @@ export default new Menu({
             icon: 'fa-sitemap',
             path: '/dept/list',
             rank: 'top',
-            operations: [{
+            subs: [{
                 caption: '新增部门',
                 path: '/dept/add',
                 rank: 'top',
@@ -79,7 +79,7 @@ export default new Menu({
         icon: 'fa-user',
         path: '/customer/list',
         permission: 'CUSTOMER_LIST',
-        operations: [{
+        subs: [{
             caption: '查看客户详情',
             path: '/customer/:id/detail',
             permission: 'CUSTOMER_DETAIL'
