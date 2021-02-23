@@ -42,7 +42,7 @@ export default {
             if (this.$route.path === "/") {
                 return undefined;
             }
-            let item = menu.getItemByPath(this.$route.path);
+            let item = menu.findBelongingItem(this.$route.path);
             return item ? item.path : undefined;
         }
     },
