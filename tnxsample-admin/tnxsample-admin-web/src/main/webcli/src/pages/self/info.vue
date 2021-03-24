@@ -7,7 +7,7 @@
             </div>
         </el-form-item>
         <el-form-item label="头像">
-            <tnxel-upload ref="headImageUpload" type="ManagerHeadImage" v-model="model.headImageUrl"
+            <tnxel-fss-upload ref="headImageUpload" type="ManagerHeadImage" v-model="model.headImageUrl"
                 v-if="model.username"/>
         </el-form-item>
         <el-form-item label="姓名" prop="fullName">
@@ -24,7 +24,7 @@ import {app, tnx, util} from '../../app';
 export default {
     components: {
         'tnxel-submit-form': tnx.components.SubmitForm,
-        'tnxel-upload': tnx.components.Upload,
+        'tnxel-fss-upload': tnx.components.FssUpload,
     },
     props: ['opener'],
     data() {
