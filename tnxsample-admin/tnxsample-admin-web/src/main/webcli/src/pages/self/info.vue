@@ -60,7 +60,7 @@ export default {
             if (yes) {
                 const vm = this;
                 this.$refs.form.toSubmit(function(form) {
-                    if (vm.$refs.headImageUpload.validateUploaded(form)) {
+                    if (tnx.validateUploaded(vm)) {
                         const model = vm.model;
                         const opener = vm.opener;
                         tnx.showLoading();
