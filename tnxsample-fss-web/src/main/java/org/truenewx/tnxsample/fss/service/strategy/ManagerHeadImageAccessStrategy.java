@@ -2,9 +2,9 @@ package org.truenewx.tnxsample.fss.service.strategy;
 
 import org.springframework.stereotype.Service;
 import org.truenewx.tnxjee.core.Strings;
-import org.truenewx.tnxjee.model.spec.FileUploadLimit;
 import org.truenewx.tnxjee.model.spec.FlatSize;
 import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
+import org.truenewx.tnxjee.service.spec.upload.FileUploadLimit;
 import org.truenewx.tnxsample.common.constant.UserTypes;
 
 /**
