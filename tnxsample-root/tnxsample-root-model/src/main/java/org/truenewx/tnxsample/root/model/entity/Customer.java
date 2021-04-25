@@ -20,16 +20,11 @@ import org.truenewx.tnxsample.common.constant.UserTypes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * 客户
  *
  * @author jianglei
  */
-@Getter
-@Setter
 @Caption("客户")
 public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentity> {
 
@@ -50,8 +45,61 @@ public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentit
     @Caption("注册时间")
     private Instant createTime;
 
+    @Override
+    public Integer getId() {
+        return this.id;
+    }
+
     protected void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCellphone() {
+        return this.cellphone;
+    }
+
+    public void setCellphone(String cellphone) {
+        this.cellphone = cellphone;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getNickname() {
+        return this.nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public Gender getGender() {
+        return this.gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
+    public boolean isDisabled() {
+        return this.disabled;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    public Instant getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Instant createTime) {
+        this.createTime = createTime;
     }
 
     public String getType() {

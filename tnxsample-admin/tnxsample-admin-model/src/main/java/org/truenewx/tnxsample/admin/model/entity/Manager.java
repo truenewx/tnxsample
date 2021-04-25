@@ -24,19 +24,13 @@ import org.truenewx.tnxsample.common.constant.UserTypes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * 管理员
  *
  * @author jianglei
  */
-@Getter
-@Setter
 @Caption("管理员")
-public class Manager
-        implements Unity<Integer>, Comparable<Manager>, UserSpecific<IntegerUserIdentity> {
+public class Manager implements Unity<Integer>, Comparable<Manager>, UserSpecific<IntegerUserIdentity> {
 
     private Integer id;
 
@@ -77,13 +71,97 @@ public class Manager
      */
     private Collection<Role> roles = new TreeSet<>();
 
+    @Override
+    public Integer getId() {
+        return this.id;
+    }
+
     protected void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getJobNo() {
+        return this.jobNo;
+    }
+
+    public void setJobNo(String jobNo) {
+        this.jobNo = jobNo;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getHeadImageUrl() {
+        return this.headImageUrl;
+    }
+
+    public void setHeadImageUrl(String headImageUrl) {
+        this.headImageUrl = headImageUrl;
+    }
+
+    public String getFullName() {
+        return this.fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getIndexName() {
+        return this.indexName;
+    }
+
+    public void setIndexName(String indexName) {
+        this.indexName = indexName;
+    }
+
+    public boolean isTop() {
+        return this.top;
+    }
+
+    public void setTop(boolean top) {
+        this.top = top;
+    }
+
+    public boolean isDisabled() {
+        return this.disabled;
+    }
+
+    public void setDisabled(boolean disabled) {
+        this.disabled = disabled;
+    }
+
+    public Instant getCreateTime() {
+        return this.createTime;
+    }
+
+    public void setCreateTime(Instant createTime) {
+        this.createTime = createTime;
+    }
+
+    public Collection<Role> getRoles() {
+        return this.roles;
     }
 
     protected void setRoles(Collection<Role> roles) {
         this.roles = roles;
     }
+
+    //////
 
     public String getType() {
         return UserTypes.MANAGER;
