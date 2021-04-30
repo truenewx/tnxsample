@@ -1,6 +1,6 @@
 package org.truenewx.tnxsample.admin.repo;
 
-import org.truenewx.tnxjee.repo.jpa.repository.JpaUnityRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**
@@ -8,7 +8,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
  *
  * @author jianglei
  */
-public interface ManagerRepo extends JpaUnityRepository<Manager, Integer>, ManagerRepox {
+public interface ManagerRepo extends JpaRepository<Manager, Integer>, ManagerRepox {
 
     Manager findFirstByUsername(String username);
 

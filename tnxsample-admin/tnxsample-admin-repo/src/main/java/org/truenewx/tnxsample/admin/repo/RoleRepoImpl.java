@@ -3,14 +3,15 @@ package org.truenewx.tnxsample.admin.repo;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
-import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoSupport;
+import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoxSupport;
 import org.truenewx.tnxsample.admin.model.entity.Role;
 
 @Repository
-public class RoleRepoImpl extends JpaUnityRepoSupport<Role, Integer> implements RoleRepox {
+public class RoleRepoImpl extends JpaUnityRepoxSupport<Role, Integer> implements RoleRepox {
 
     @Override
     public List<Role> findByNameOrderByOrdinal(String name) {

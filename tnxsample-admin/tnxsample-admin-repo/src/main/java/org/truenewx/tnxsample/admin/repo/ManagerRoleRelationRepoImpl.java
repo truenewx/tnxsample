@@ -8,7 +8,7 @@ import org.truenewx.tnxjee.core.util.tuple.Binary;
 import org.truenewx.tnxjee.core.util.tuple.Binate;
 import org.truenewx.tnxjee.model.query.FieldOrder;
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjee.repo.jpa.support.JpaRelationRepoSupport;
+import org.truenewx.tnxjee.repo.jpa.support.JpaRelationRepoxSupport;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 import org.truenewx.tnxsample.admin.model.entity.ManagerRoleRelation;
 import org.truenewx.tnxsample.admin.model.entity.Role;
@@ -17,7 +17,7 @@ import org.truenewx.tnxsample.admin.model.entity.Role;
  * 管理员-角色关系Repo扩展实现
  */
 @Repository
-public class ManagerRoleRelationRepoImpl extends JpaRelationRepoSupport<ManagerRoleRelation, Integer, Integer>
+public class ManagerRoleRelationRepoImpl extends JpaRelationRepoxSupport<ManagerRoleRelation, Integer, Integer>
         implements ManagerRoleRelationRepox {
 
     @Override

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.model.query.FieldOrder;
 import org.truenewx.tnxjee.model.query.QueryResult;
-import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoSupport;
+import org.truenewx.tnxjee.repo.jpa.support.JpaUnityRepoxSupport;
 import org.truenewx.tnxsample.admin.model.entity.Manager;
 
 /**
@@ -18,7 +18,7 @@ import org.truenewx.tnxsample.admin.model.entity.Manager;
  * @author jianglei
  */
 @Repository
-public class ManagerRepoImpl extends JpaUnityRepoSupport<Manager, Integer> implements ManagerRepox {
+public class ManagerRepoImpl extends JpaUnityRepoxSupport<Manager, Integer> implements ManagerRepox {
 
     @Override
     public long countByRoleId(int roleId) {
