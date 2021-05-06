@@ -1,6 +1,5 @@
 import '../../../../../../../tnxweb/components/tnxcore.css';
 import '../../../../../../../tnxweb/components/bootstrap/base-4.5.3.css';
-import '../../../../../../../tnxweb/components/bootstrap/tnxbs.css';
 import 'element-ui/lib/theme-chalk/index.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../../../../../../../tnxweb/components/vue/tnxvue.css';
