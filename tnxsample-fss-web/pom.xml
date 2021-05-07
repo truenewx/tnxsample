@@ -9,6 +9,19 @@
     </parent>
     <groupId>org.truenewx.tnxsample</groupId>
     <artifactId>tnxsample-fss-web</artifactId>
+    <packaging>war</packaging>
+    <build>
+        <finalName>fss</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>target</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxjeex.fss</groupId>

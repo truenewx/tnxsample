@@ -8,10 +8,21 @@
         <artifactId>tnxsample-root</artifactId>
         <version>2.2.1</version>
     </parent>
-
     <groupId>org.truenewx.tnxsample.root</groupId>
     <artifactId>tnxsample-root-web</artifactId>
     <packaging>war</packaging>
+    <build>
+        <finalName>ROOT</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>target</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <dependency>
             <groupId>org.truenewx.tnxjee</groupId>
