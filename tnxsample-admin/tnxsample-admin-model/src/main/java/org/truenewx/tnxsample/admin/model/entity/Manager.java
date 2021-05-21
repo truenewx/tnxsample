@@ -2,23 +2,24 @@ package org.truenewx.tnxsample.admin.model.entity;
 
 import java.time.Instant;
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collections;
 import java.util.TreeSet;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.truenewx.tnxjee.core.Strings;
 import org.truenewx.tnxjee.core.caption.Caption;
 import org.truenewx.tnxjee.model.entity.unity.Unity;
 import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
 import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
-import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
+import org.truenewx.tnxjee.model.spec.user.security.UserGrantedAuthority;
 import org.truenewx.tnxjee.model.spec.user.security.UserSpecificDetails;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
+import org.truenewx.tnxsample.common.constant.AppNames;
 import org.truenewx.tnxsample.common.constant.ManagerRanks;
 import org.truenewx.tnxsample.common.constant.UserTypes;
 
@@ -189,20 +190,23 @@ public class Manager implements Unity<Integer>, Comparable<Manager>, UserSpecifi
 
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        Set<GrantedAuthority> authorities = new HashSet<>();
-        authorities.add(KindGrantedAuthorityImpl.ofType(getType()));
-        if (isTop()) {
-            authorities.add(KindGrantedAuthorityImpl.ofRank(getRank()));
-        }
-        getRoles().forEach(role -> {
-            Set<String> permissions = role.getPermissions();
-            if (permissions != null) {
-                permissions.forEach(permission -> {
-                    authorities.add(KindGrantedAuthorityImpl.ofPermission(permission));
+        String app = AppNames.ADMIN;
+        UserGrantedAuthority authority = new UserGrantedAuthority(getType(), getRank(), app);
+        if (isTop()) { // 顶级管理员具有所有应用的所有权限
+            authority.setApp(Strings.ASTERISK);
+            authority.addPermission(Strings.ASTERISK);
+        } else {
+            String permissionPrefix = app + Strings.DOT;
+            getRoles().forEach(role -> {
+                role.getPermissions().forEach(permission -> {
+                    if (permission.startsWith(permissionPrefix)) {
+                        permission = permission.substring(permissionPrefix.length());
+                    }
+                    authority.addPermission(permission);
                 });
-            }
-        });
-        return authorities;
+            });
+        }
+        return Collections.singletonList(authority);
     }
 
     @JsonIgnore

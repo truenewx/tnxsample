@@ -13,9 +13,10 @@ import org.truenewx.tnxjee.model.spec.user.DefaultUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.IntegerUserIdentity;
 import org.truenewx.tnxjee.model.spec.user.UserSpecific;
 import org.truenewx.tnxjee.model.spec.user.security.DefaultUserSpecificDetails;
-import org.truenewx.tnxjee.model.spec.user.security.KindGrantedAuthorityImpl;
+import org.truenewx.tnxjee.model.spec.user.security.UserGrantedAuthority;
 import org.truenewx.tnxjee.model.validation.constraint.Cellphone;
 import org.truenewx.tnxjee.model.validation.constraint.NotContainsSpecialChars;
+import org.truenewx.tnxsample.common.constant.AppNames;
 import org.truenewx.tnxsample.common.constant.UserTypes;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -126,7 +127,7 @@ public class Customer implements Unity<Integer>, UserSpecific<IntegerUserIdentit
 
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(KindGrantedAuthorityImpl.ofType(getType()));
+        return Collections.singletonList(new UserGrantedAuthority(getType(), null, AppNames.ROOT));
     }
 
     @JsonIgnore
